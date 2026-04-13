@@ -10,7 +10,7 @@ export async function GET() {
 
   const films = await prisma.film.findMany({
     include: { slate: true },
-    orderBy: { created_at: 'desc' },
+    orderBy: { createdAt: 'desc' },
   })
 
   const stats = {
@@ -22,7 +22,7 @@ export async function GET() {
   }
 
   const totalBudget = films.reduce((sum, f) => sum + (f.budget || 0), 0)
-  const totalRevenue = films.reduce((sum, f) => sum + (f.revenue || 0), 0)
+  const totalRevenue = films.reduce((sum, f) => sum + (f.total_revenue || 0), 0)
 
   return NextResponse.json({
     data: films,

@@ -11,8 +11,7 @@ interface FilmItem {
   genre: string | null
   status: string
   budget: number
-  revenue: number
-  poster_url: string | null
+  total_revenue: number
   release_date: string | null
   slate: { id: string; name: string } | null
 }
@@ -166,7 +165,7 @@ export default function FilmsPage() {
                               Budget: <span className="text-[#ededed]">{formatCurrency(film.budget)}</span>
                             </span>
                             <span className="text-[#888]">
-                              Revenue: <span className="text-[#22c55e]">{formatCurrency(film.revenue)}</span>
+                              Revenue: <span className="text-[#22c55e]">{formatCurrency(film.total_revenue)}</span>
                             </span>
                           </div>
                           {film.slate && (

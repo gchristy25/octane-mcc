@@ -39,11 +39,6 @@ export type Film = $Result.DefaultSelection<Prisma.$FilmPayload>
  */
 export type Investment = $Result.DefaultSelection<Prisma.$InvestmentPayload>
 /**
- * Model Payment
- * 
- */
-export type Payment = $Result.DefaultSelection<Prisma.$PaymentPayload>
-/**
  * Model RevenueEntry
  * 
  */
@@ -54,15 +49,25 @@ export type RevenueEntry = $Result.DefaultSelection<Prisma.$RevenueEntryPayload>
  */
 export type Expense = $Result.DefaultSelection<Prisma.$ExpensePayload>
 /**
- * Model Document
+ * Model Payment
  * 
  */
-export type Document = $Result.DefaultSelection<Prisma.$DocumentPayload>
+export type Payment = $Result.DefaultSelection<Prisma.$PaymentPayload>
 /**
  * Model Notification
  * 
  */
 export type Notification = $Result.DefaultSelection<Prisma.$NotificationPayload>
+/**
+ * Model Document
+ * 
+ */
+export type Document = $Result.DefaultSelection<Prisma.$DocumentPayload>
+/**
+ * Model Reinvestment
+ * 
+ */
+export type Reinvestment = $Result.DefaultSelection<Prisma.$ReinvestmentPayload>
 /**
  * Model MccSession
  * 
@@ -266,16 +271,6 @@ export class PrismaClient<
   get investment(): Prisma.InvestmentDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.payment`: Exposes CRUD operations for the **Payment** model.
-    * Example usage:
-    * ```ts
-    * // Fetch zero or more Payments
-    * const payments = await prisma.payment.findMany()
-    * ```
-    */
-  get payment(): Prisma.PaymentDelegate<ExtArgs, ClientOptions>;
-
-  /**
    * `prisma.revenueEntry`: Exposes CRUD operations for the **RevenueEntry** model.
     * Example usage:
     * ```ts
@@ -296,14 +291,14 @@ export class PrismaClient<
   get expense(): Prisma.ExpenseDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.document`: Exposes CRUD operations for the **Document** model.
+   * `prisma.payment`: Exposes CRUD operations for the **Payment** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Documents
-    * const documents = await prisma.document.findMany()
+    * // Fetch zero or more Payments
+    * const payments = await prisma.payment.findMany()
     * ```
     */
-  get document(): Prisma.DocumentDelegate<ExtArgs, ClientOptions>;
+  get payment(): Prisma.PaymentDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.notification`: Exposes CRUD operations for the **Notification** model.
@@ -314,6 +309,26 @@ export class PrismaClient<
     * ```
     */
   get notification(): Prisma.NotificationDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.document`: Exposes CRUD operations for the **Document** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Documents
+    * const documents = await prisma.document.findMany()
+    * ```
+    */
+  get document(): Prisma.DocumentDelegate<ExtArgs, ClientOptions>;
+
+  /**
+   * `prisma.reinvestment`: Exposes CRUD operations for the **Reinvestment** model.
+    * Example usage:
+    * ```ts
+    * // Fetch zero or more Reinvestments
+    * const reinvestments = await prisma.reinvestment.findMany()
+    * ```
+    */
+  get reinvestment(): Prisma.ReinvestmentDelegate<ExtArgs, ClientOptions>;
 
   /**
    * `prisma.mccSession`: Exposes CRUD operations for the **MccSession** model.
@@ -813,11 +828,12 @@ export namespace Prisma {
     Slate: 'Slate',
     Film: 'Film',
     Investment: 'Investment',
-    Payment: 'Payment',
     RevenueEntry: 'RevenueEntry',
     Expense: 'Expense',
-    Document: 'Document',
+    Payment: 'Payment',
     Notification: 'Notification',
+    Document: 'Document',
+    Reinvestment: 'Reinvestment',
     MccSession: 'MccSession',
     EmailDigest: 'EmailDigest',
     CalendarEvent: 'CalendarEvent',
@@ -839,7 +855,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "investor" | "slate" | "film" | "investment" | "payment" | "revenueEntry" | "expense" | "document" | "notification" | "mccSession" | "emailDigest" | "calendarEvent" | "mccAlert" | "mccTask" | "pollLog"
+      modelProps: "user" | "investor" | "slate" | "film" | "investment" | "revenueEntry" | "expense" | "payment" | "notification" | "document" | "reinvestment" | "mccSession" | "emailDigest" | "calendarEvent" | "mccAlert" | "mccTask" | "pollLog"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1213,80 +1229,6 @@ export namespace Prisma {
           }
         }
       }
-      Payment: {
-        payload: Prisma.$PaymentPayload<ExtArgs>
-        fields: Prisma.PaymentFieldRefs
-        operations: {
-          findUnique: {
-            args: Prisma.PaymentFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PaymentPayload> | null
-          }
-          findUniqueOrThrow: {
-            args: Prisma.PaymentFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
-          }
-          findFirst: {
-            args: Prisma.PaymentFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PaymentPayload> | null
-          }
-          findFirstOrThrow: {
-            args: Prisma.PaymentFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
-          }
-          findMany: {
-            args: Prisma.PaymentFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>[]
-          }
-          create: {
-            args: Prisma.PaymentCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
-          }
-          createMany: {
-            args: Prisma.PaymentCreateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          createManyAndReturn: {
-            args: Prisma.PaymentCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>[]
-          }
-          delete: {
-            args: Prisma.PaymentDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
-          }
-          update: {
-            args: Prisma.PaymentUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
-          }
-          deleteMany: {
-            args: Prisma.PaymentDeleteManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateMany: {
-            args: Prisma.PaymentUpdateManyArgs<ExtArgs>
-            result: BatchPayload
-          }
-          updateManyAndReturn: {
-            args: Prisma.PaymentUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>[]
-          }
-          upsert: {
-            args: Prisma.PaymentUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
-          }
-          aggregate: {
-            args: Prisma.PaymentAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePayment>
-          }
-          groupBy: {
-            args: Prisma.PaymentGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PaymentGroupByOutputType>[]
-          }
-          count: {
-            args: Prisma.PaymentCountArgs<ExtArgs>
-            result: $Utils.Optional<PaymentCountAggregateOutputType> | number
-          }
-        }
-      }
       RevenueEntry: {
         payload: Prisma.$RevenueEntryPayload<ExtArgs>
         fields: Prisma.RevenueEntryFieldRefs
@@ -1435,77 +1377,77 @@ export namespace Prisma {
           }
         }
       }
-      Document: {
-        payload: Prisma.$DocumentPayload<ExtArgs>
-        fields: Prisma.DocumentFieldRefs
+      Payment: {
+        payload: Prisma.$PaymentPayload<ExtArgs>
+        fields: Prisma.PaymentFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.DocumentFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload> | null
+            args: Prisma.PaymentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.DocumentFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+            args: Prisma.PaymentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
           }
           findFirst: {
-            args: Prisma.DocumentFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload> | null
+            args: Prisma.PaymentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.DocumentFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+            args: Prisma.PaymentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
           }
           findMany: {
-            args: Prisma.DocumentFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>[]
+            args: Prisma.PaymentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>[]
           }
           create: {
-            args: Prisma.DocumentCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+            args: Prisma.PaymentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
           }
           createMany: {
-            args: Prisma.DocumentCreateManyArgs<ExtArgs>
+            args: Prisma.PaymentCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.DocumentCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>[]
+            args: Prisma.PaymentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>[]
           }
           delete: {
-            args: Prisma.DocumentDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+            args: Prisma.PaymentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
           }
           update: {
-            args: Prisma.DocumentUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+            args: Prisma.PaymentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
           }
           deleteMany: {
-            args: Prisma.DocumentDeleteManyArgs<ExtArgs>
+            args: Prisma.PaymentDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.DocumentUpdateManyArgs<ExtArgs>
+            args: Prisma.PaymentUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.DocumentUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>[]
+            args: Prisma.PaymentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>[]
           }
           upsert: {
-            args: Prisma.DocumentUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+            args: Prisma.PaymentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$PaymentPayload>
           }
           aggregate: {
-            args: Prisma.DocumentAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateDocument>
+            args: Prisma.PaymentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregatePayment>
           }
           groupBy: {
-            args: Prisma.DocumentGroupByArgs<ExtArgs>
-            result: $Utils.Optional<DocumentGroupByOutputType>[]
+            args: Prisma.PaymentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<PaymentGroupByOutputType>[]
           }
           count: {
-            args: Prisma.DocumentCountArgs<ExtArgs>
-            result: $Utils.Optional<DocumentCountAggregateOutputType> | number
+            args: Prisma.PaymentCountArgs<ExtArgs>
+            result: $Utils.Optional<PaymentCountAggregateOutputType> | number
           }
         }
       }
@@ -1580,6 +1522,154 @@ export namespace Prisma {
           count: {
             args: Prisma.NotificationCountArgs<ExtArgs>
             result: $Utils.Optional<NotificationCountAggregateOutputType> | number
+          }
+        }
+      }
+      Document: {
+        payload: Prisma.$DocumentPayload<ExtArgs>
+        fields: Prisma.DocumentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.DocumentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.DocumentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          findFirst: {
+            args: Prisma.DocumentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.DocumentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          findMany: {
+            args: Prisma.DocumentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>[]
+          }
+          create: {
+            args: Prisma.DocumentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          createMany: {
+            args: Prisma.DocumentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.DocumentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>[]
+          }
+          delete: {
+            args: Prisma.DocumentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          update: {
+            args: Prisma.DocumentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          deleteMany: {
+            args: Prisma.DocumentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.DocumentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.DocumentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>[]
+          }
+          upsert: {
+            args: Prisma.DocumentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DocumentPayload>
+          }
+          aggregate: {
+            args: Prisma.DocumentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDocument>
+          }
+          groupBy: {
+            args: Prisma.DocumentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DocumentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.DocumentCountArgs<ExtArgs>
+            result: $Utils.Optional<DocumentCountAggregateOutputType> | number
+          }
+        }
+      }
+      Reinvestment: {
+        payload: Prisma.$ReinvestmentPayload<ExtArgs>
+        fields: Prisma.ReinvestmentFieldRefs
+        operations: {
+          findUnique: {
+            args: Prisma.ReinvestmentFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReinvestmentPayload> | null
+          }
+          findUniqueOrThrow: {
+            args: Prisma.ReinvestmentFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReinvestmentPayload>
+          }
+          findFirst: {
+            args: Prisma.ReinvestmentFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReinvestmentPayload> | null
+          }
+          findFirstOrThrow: {
+            args: Prisma.ReinvestmentFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReinvestmentPayload>
+          }
+          findMany: {
+            args: Prisma.ReinvestmentFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReinvestmentPayload>[]
+          }
+          create: {
+            args: Prisma.ReinvestmentCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReinvestmentPayload>
+          }
+          createMany: {
+            args: Prisma.ReinvestmentCreateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          createManyAndReturn: {
+            args: Prisma.ReinvestmentCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReinvestmentPayload>[]
+          }
+          delete: {
+            args: Prisma.ReinvestmentDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReinvestmentPayload>
+          }
+          update: {
+            args: Prisma.ReinvestmentUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReinvestmentPayload>
+          }
+          deleteMany: {
+            args: Prisma.ReinvestmentDeleteManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateMany: {
+            args: Prisma.ReinvestmentUpdateManyArgs<ExtArgs>
+            result: BatchPayload
+          }
+          updateManyAndReturn: {
+            args: Prisma.ReinvestmentUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReinvestmentPayload>[]
+          }
+          upsert: {
+            args: Prisma.ReinvestmentUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReinvestmentPayload>
+          }
+          aggregate: {
+            args: Prisma.ReinvestmentAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateReinvestment>
+          }
+          groupBy: {
+            args: Prisma.ReinvestmentGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ReinvestmentGroupByOutputType>[]
+          }
+          count: {
+            args: Prisma.ReinvestmentCountArgs<ExtArgs>
+            result: $Utils.Optional<ReinvestmentCountAggregateOutputType> | number
           }
         }
       }
@@ -2140,11 +2230,12 @@ export namespace Prisma {
     slate?: SlateOmit
     film?: FilmOmit
     investment?: InvestmentOmit
-    payment?: PaymentOmit
     revenueEntry?: RevenueEntryOmit
     expense?: ExpenseOmit
-    document?: DocumentOmit
+    payment?: PaymentOmit
     notification?: NotificationOmit
+    document?: DocumentOmit
+    reinvestment?: ReinvestmentOmit
     mccSession?: MccSessionOmit
     emailDigest?: EmailDigestOmit
     calendarEvent?: CalendarEventOmit
@@ -2233,13 +2324,17 @@ export namespace Prisma {
   export type InvestorCountOutputType = {
     investments: number
     payments: number
+    notifications: number
     documents: number
+    reinvestments: number
   }
 
   export type InvestorCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     investments?: boolean | InvestorCountOutputTypeCountInvestmentsArgs
     payments?: boolean | InvestorCountOutputTypeCountPaymentsArgs
+    notifications?: boolean | InvestorCountOutputTypeCountNotificationsArgs
     documents?: boolean | InvestorCountOutputTypeCountDocumentsArgs
+    reinvestments?: boolean | InvestorCountOutputTypeCountReinvestmentsArgs
   }
 
   // Custom InputTypes
@@ -2270,8 +2365,22 @@ export namespace Prisma {
   /**
    * InvestorCountOutputType without action
    */
+  export type InvestorCountOutputTypeCountNotificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NotificationWhereInput
+  }
+
+  /**
+   * InvestorCountOutputType without action
+   */
   export type InvestorCountOutputTypeCountDocumentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: DocumentWhereInput
+  }
+
+  /**
+   * InvestorCountOutputType without action
+   */
+  export type InvestorCountOutputTypeCountReinvestmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReinvestmentWhereInput
   }
 
 
@@ -2282,13 +2391,11 @@ export namespace Prisma {
   export type SlateCountOutputType = {
     films: number
     investments: number
-    expenses: number
   }
 
   export type SlateCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     films?: boolean | SlateCountOutputTypeCountFilmsArgs
     investments?: boolean | SlateCountOutputTypeCountInvestmentsArgs
-    expenses?: boolean | SlateCountOutputTypeCountExpensesArgs
   }
 
   // Custom InputTypes
@@ -2314,13 +2421,6 @@ export namespace Prisma {
    */
   export type SlateCountOutputTypeCountInvestmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     where?: InvestmentWhereInput
-  }
-
-  /**
-   * SlateCountOutputType without action
-   */
-  export type SlateCountOutputTypeCountExpensesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: ExpenseWhereInput
   }
 
 
@@ -2384,8 +2484,8 @@ export namespace Prisma {
     password_hash: string | null
     full_name: string | null
     role: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type UserMaxAggregateOutputType = {
@@ -2394,8 +2494,8 @@ export namespace Prisma {
     password_hash: string | null
     full_name: string | null
     role: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type UserCountAggregateOutputType = {
@@ -2404,8 +2504,8 @@ export namespace Prisma {
     password_hash: number
     full_name: number
     role: number
-    created_at: number
-    updated_at: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -2416,8 +2516,8 @@ export namespace Prisma {
     password_hash?: true
     full_name?: true
     role?: true
-    created_at?: true
-    updated_at?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type UserMaxAggregateInputType = {
@@ -2426,8 +2526,8 @@ export namespace Prisma {
     password_hash?: true
     full_name?: true
     role?: true
-    created_at?: true
-    updated_at?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type UserCountAggregateInputType = {
@@ -2436,8 +2536,8 @@ export namespace Prisma {
     password_hash?: true
     full_name?: true
     role?: true
-    created_at?: true
-    updated_at?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -2517,10 +2617,10 @@ export namespace Prisma {
     id: string
     email: string
     password_hash: string
-    full_name: string
+    full_name: string | null
     role: string
-    created_at: Date
-    updated_at: Date
+    createdAt: Date
+    updatedAt: Date
     _count: UserCountAggregateOutputType | null
     _min: UserMinAggregateOutputType | null
     _max: UserMaxAggregateOutputType | null
@@ -2546,8 +2646,8 @@ export namespace Prisma {
     password_hash?: boolean
     full_name?: boolean
     role?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     investor?: boolean | User$investorArgs<ExtArgs>
     mcc_session?: boolean | User$mcc_sessionArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
@@ -2558,8 +2658,8 @@ export namespace Prisma {
     password_hash?: boolean
     full_name?: boolean
     role?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2568,8 +2668,8 @@ export namespace Prisma {
     password_hash?: boolean
     full_name?: boolean
     role?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectScalar = {
@@ -2578,11 +2678,11 @@ export namespace Prisma {
     password_hash?: boolean
     full_name?: boolean
     role?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password_hash" | "full_name" | "role" | "created_at" | "updated_at", ExtArgs["result"]["user"]>
+  export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password_hash" | "full_name" | "role" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     investor?: boolean | User$investorArgs<ExtArgs>
     mcc_session?: boolean | User$mcc_sessionArgs<ExtArgs>
@@ -2600,10 +2700,10 @@ export namespace Prisma {
       id: string
       email: string
       password_hash: string
-      full_name: string
+      full_name: string | null
       role: string
-      created_at: Date
-      updated_at: Date
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["user"]>
     composites: {}
   }
@@ -3034,8 +3134,8 @@ export namespace Prisma {
     readonly password_hash: FieldRef<"User", 'String'>
     readonly full_name: FieldRef<"User", 'String'>
     readonly role: FieldRef<"User", 'String'>
-    readonly created_at: FieldRef<"User", 'DateTime'>
-    readonly updated_at: FieldRef<"User", 'DateTime'>
+    readonly createdAt: FieldRef<"User", 'DateTime'>
+    readonly updatedAt: FieldRef<"User", 'DateTime'>
   }
     
 
@@ -3497,76 +3597,112 @@ export namespace Prisma {
 
   export type InvestorMinAggregateOutputType = {
     id: string | null
+    first_name: string | null
+    last_name: string | null
     name: string | null
     email: string | null
     phone: string | null
     company: string | null
+    notes: string | null
     user_id: string | null
+    has_login: boolean | null
+    invite_token: string | null
     invite_sent_at: Date | null
-    created_at: Date | null
-    updated_at: Date | null
+    invite_accepted_at: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type InvestorMaxAggregateOutputType = {
     id: string | null
+    first_name: string | null
+    last_name: string | null
     name: string | null
     email: string | null
     phone: string | null
     company: string | null
+    notes: string | null
     user_id: string | null
+    has_login: boolean | null
+    invite_token: string | null
     invite_sent_at: Date | null
-    created_at: Date | null
-    updated_at: Date | null
+    invite_accepted_at: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type InvestorCountAggregateOutputType = {
     id: number
+    first_name: number
+    last_name: number
     name: number
     email: number
     phone: number
     company: number
+    notes: number
     user_id: number
+    has_login: number
+    invite_token: number
     invite_sent_at: number
-    created_at: number
-    updated_at: number
+    invite_accepted_at: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
   export type InvestorMinAggregateInputType = {
     id?: true
+    first_name?: true
+    last_name?: true
     name?: true
     email?: true
     phone?: true
     company?: true
+    notes?: true
     user_id?: true
+    has_login?: true
+    invite_token?: true
     invite_sent_at?: true
-    created_at?: true
-    updated_at?: true
+    invite_accepted_at?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type InvestorMaxAggregateInputType = {
     id?: true
+    first_name?: true
+    last_name?: true
     name?: true
     email?: true
     phone?: true
     company?: true
+    notes?: true
     user_id?: true
+    has_login?: true
+    invite_token?: true
     invite_sent_at?: true
-    created_at?: true
-    updated_at?: true
+    invite_accepted_at?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type InvestorCountAggregateInputType = {
     id?: true
+    first_name?: true
+    last_name?: true
     name?: true
     email?: true
     phone?: true
     company?: true
+    notes?: true
     user_id?: true
+    has_login?: true
+    invite_token?: true
     invite_sent_at?: true
-    created_at?: true
-    updated_at?: true
+    invite_accepted_at?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -3644,14 +3780,20 @@ export namespace Prisma {
 
   export type InvestorGroupByOutputType = {
     id: string
+    first_name: string
+    last_name: string
     name: string
     email: string
     phone: string | null
     company: string | null
+    notes: string | null
     user_id: string | null
+    has_login: boolean
+    invite_token: string | null
     invite_sent_at: Date | null
-    created_at: Date
-    updated_at: Date
+    invite_accepted_at: Date | null
+    createdAt: Date
+    updatedAt: Date
     _count: InvestorCountAggregateOutputType | null
     _min: InvestorMinAggregateOutputType | null
     _max: InvestorMaxAggregateOutputType | null
@@ -3673,65 +3815,93 @@ export namespace Prisma {
 
   export type InvestorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    first_name?: boolean
+    last_name?: boolean
     name?: boolean
     email?: boolean
     phone?: boolean
     company?: boolean
+    notes?: boolean
     user_id?: boolean
+    has_login?: boolean
+    invite_token?: boolean
     invite_sent_at?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    invite_accepted_at?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     user?: boolean | Investor$userArgs<ExtArgs>
     investments?: boolean | Investor$investmentsArgs<ExtArgs>
     payments?: boolean | Investor$paymentsArgs<ExtArgs>
+    notifications?: boolean | Investor$notificationsArgs<ExtArgs>
     documents?: boolean | Investor$documentsArgs<ExtArgs>
+    reinvestments?: boolean | Investor$reinvestmentsArgs<ExtArgs>
     _count?: boolean | InvestorCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["investor"]>
 
   export type InvestorSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    first_name?: boolean
+    last_name?: boolean
     name?: boolean
     email?: boolean
     phone?: boolean
     company?: boolean
+    notes?: boolean
     user_id?: boolean
+    has_login?: boolean
+    invite_token?: boolean
     invite_sent_at?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    invite_accepted_at?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     user?: boolean | Investor$userArgs<ExtArgs>
   }, ExtArgs["result"]["investor"]>
 
   export type InvestorSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
+    first_name?: boolean
+    last_name?: boolean
     name?: boolean
     email?: boolean
     phone?: boolean
     company?: boolean
+    notes?: boolean
     user_id?: boolean
+    has_login?: boolean
+    invite_token?: boolean
     invite_sent_at?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    invite_accepted_at?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     user?: boolean | Investor$userArgs<ExtArgs>
   }, ExtArgs["result"]["investor"]>
 
   export type InvestorSelectScalar = {
     id?: boolean
+    first_name?: boolean
+    last_name?: boolean
     name?: boolean
     email?: boolean
     phone?: boolean
     company?: boolean
+    notes?: boolean
     user_id?: boolean
+    has_login?: boolean
+    invite_token?: boolean
     invite_sent_at?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    invite_accepted_at?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type InvestorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "phone" | "company" | "user_id" | "invite_sent_at" | "created_at" | "updated_at", ExtArgs["result"]["investor"]>
+  export type InvestorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "first_name" | "last_name" | "name" | "email" | "phone" | "company" | "notes" | "user_id" | "has_login" | "invite_token" | "invite_sent_at" | "invite_accepted_at" | "createdAt" | "updatedAt", ExtArgs["result"]["investor"]>
   export type InvestorInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     user?: boolean | Investor$userArgs<ExtArgs>
     investments?: boolean | Investor$investmentsArgs<ExtArgs>
     payments?: boolean | Investor$paymentsArgs<ExtArgs>
+    notifications?: boolean | Investor$notificationsArgs<ExtArgs>
     documents?: boolean | Investor$documentsArgs<ExtArgs>
+    reinvestments?: boolean | Investor$reinvestmentsArgs<ExtArgs>
     _count?: boolean | InvestorCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type InvestorIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -3747,18 +3917,26 @@ export namespace Prisma {
       user: Prisma.$UserPayload<ExtArgs> | null
       investments: Prisma.$InvestmentPayload<ExtArgs>[]
       payments: Prisma.$PaymentPayload<ExtArgs>[]
+      notifications: Prisma.$NotificationPayload<ExtArgs>[]
       documents: Prisma.$DocumentPayload<ExtArgs>[]
+      reinvestments: Prisma.$ReinvestmentPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
+      first_name: string
+      last_name: string
       name: string
       email: string
       phone: string | null
       company: string | null
+      notes: string | null
       user_id: string | null
+      has_login: boolean
+      invite_token: string | null
       invite_sent_at: Date | null
-      created_at: Date
-      updated_at: Date
+      invite_accepted_at: Date | null
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["investor"]>
     composites: {}
   }
@@ -4156,7 +4334,9 @@ export namespace Prisma {
     user<T extends Investor$userArgs<ExtArgs> = {}>(args?: Subset<T, Investor$userArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     investments<T extends Investor$investmentsArgs<ExtArgs> = {}>(args?: Subset<T, Investor$investmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvestmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     payments<T extends Investor$paymentsArgs<ExtArgs> = {}>(args?: Subset<T, Investor$paymentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    notifications<T extends Investor$notificationsArgs<ExtArgs> = {}>(args?: Subset<T, Investor$notificationsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     documents<T extends Investor$documentsArgs<ExtArgs> = {}>(args?: Subset<T, Investor$documentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DocumentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    reinvestments<T extends Investor$reinvestmentsArgs<ExtArgs> = {}>(args?: Subset<T, Investor$reinvestmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -4187,14 +4367,20 @@ export namespace Prisma {
    */
   interface InvestorFieldRefs {
     readonly id: FieldRef<"Investor", 'String'>
+    readonly first_name: FieldRef<"Investor", 'String'>
+    readonly last_name: FieldRef<"Investor", 'String'>
     readonly name: FieldRef<"Investor", 'String'>
     readonly email: FieldRef<"Investor", 'String'>
     readonly phone: FieldRef<"Investor", 'String'>
     readonly company: FieldRef<"Investor", 'String'>
+    readonly notes: FieldRef<"Investor", 'String'>
     readonly user_id: FieldRef<"Investor", 'String'>
+    readonly has_login: FieldRef<"Investor", 'Boolean'>
+    readonly invite_token: FieldRef<"Investor", 'String'>
     readonly invite_sent_at: FieldRef<"Investor", 'DateTime'>
-    readonly created_at: FieldRef<"Investor", 'DateTime'>
-    readonly updated_at: FieldRef<"Investor", 'DateTime'>
+    readonly invite_accepted_at: FieldRef<"Investor", 'DateTime'>
+    readonly createdAt: FieldRef<"Investor", 'DateTime'>
+    readonly updatedAt: FieldRef<"Investor", 'DateTime'>
   }
     
 
@@ -4663,6 +4849,30 @@ export namespace Prisma {
   }
 
   /**
+   * Investor.notifications
+   */
+  export type Investor$notificationsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    where?: NotificationWhereInput
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    cursor?: NotificationWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
    * Investor.documents
    */
   export type Investor$documentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -4684,6 +4894,30 @@ export namespace Prisma {
     take?: number
     skip?: number
     distinct?: DocumentScalarFieldEnum | DocumentScalarFieldEnum[]
+  }
+
+  /**
+   * Investor.reinvestments
+   */
+  export type Investor$reinvestmentsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reinvestment
+     */
+    select?: ReinvestmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reinvestment
+     */
+    omit?: ReinvestmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReinvestmentInclude<ExtArgs> | null
+    where?: ReinvestmentWhereInput
+    orderBy?: ReinvestmentOrderByWithRelationInput | ReinvestmentOrderByWithRelationInput[]
+    cursor?: ReinvestmentWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: ReinvestmentScalarFieldEnum | ReinvestmentScalarFieldEnum[]
   }
 
   /**
@@ -4719,92 +4953,102 @@ export namespace Prisma {
 
   export type SlateAvgAggregateOutputType = {
     budget: number | null
+    target_return: number | null
   }
 
   export type SlateSumAggregateOutputType = {
     budget: number | null
+    target_return: number | null
   }
 
   export type SlateMinAggregateOutputType = {
     id: string | null
     name: string | null
     description: string | null
+    status: string | null
     budget: number | null
     start_date: Date | null
     end_date: Date | null
-    status: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    target_return: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type SlateMaxAggregateOutputType = {
     id: string | null
     name: string | null
     description: string | null
+    status: string | null
     budget: number | null
     start_date: Date | null
     end_date: Date | null
-    status: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    target_return: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type SlateCountAggregateOutputType = {
     id: number
     name: number
     description: number
+    status: number
     budget: number
     start_date: number
     end_date: number
-    status: number
-    created_at: number
-    updated_at: number
+    target_return: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
   export type SlateAvgAggregateInputType = {
     budget?: true
+    target_return?: true
   }
 
   export type SlateSumAggregateInputType = {
     budget?: true
+    target_return?: true
   }
 
   export type SlateMinAggregateInputType = {
     id?: true
     name?: true
     description?: true
+    status?: true
     budget?: true
     start_date?: true
     end_date?: true
-    status?: true
-    created_at?: true
-    updated_at?: true
+    target_return?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type SlateMaxAggregateInputType = {
     id?: true
     name?: true
     description?: true
+    status?: true
     budget?: true
     start_date?: true
     end_date?: true
-    status?: true
-    created_at?: true
-    updated_at?: true
+    target_return?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type SlateCountAggregateInputType = {
     id?: true
     name?: true
     description?: true
+    status?: true
     budget?: true
     start_date?: true
     end_date?: true
-    status?: true
-    created_at?: true
-    updated_at?: true
+    target_return?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -4898,12 +5142,13 @@ export namespace Prisma {
     id: string
     name: string
     description: string | null
+    status: string
     budget: number
     start_date: Date | null
     end_date: Date | null
-    status: string
-    created_at: Date
-    updated_at: Date
+    target_return: number | null
+    createdAt: Date
+    updatedAt: Date
     _count: SlateCountAggregateOutputType | null
     _avg: SlateAvgAggregateOutputType | null
     _sum: SlateSumAggregateOutputType | null
@@ -4929,15 +5174,15 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    status?: boolean
     budget?: boolean
     start_date?: boolean
     end_date?: boolean
-    status?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    target_return?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     films?: boolean | Slate$filmsArgs<ExtArgs>
     investments?: boolean | Slate$investmentsArgs<ExtArgs>
-    expenses?: boolean | Slate$expensesArgs<ExtArgs>
     _count?: boolean | SlateCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["slate"]>
 
@@ -4945,43 +5190,45 @@ export namespace Prisma {
     id?: boolean
     name?: boolean
     description?: boolean
+    status?: boolean
     budget?: boolean
     start_date?: boolean
     end_date?: boolean
-    status?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    target_return?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["slate"]>
 
   export type SlateSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     name?: boolean
     description?: boolean
+    status?: boolean
     budget?: boolean
     start_date?: boolean
     end_date?: boolean
-    status?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    target_return?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }, ExtArgs["result"]["slate"]>
 
   export type SlateSelectScalar = {
     id?: boolean
     name?: boolean
     description?: boolean
+    status?: boolean
     budget?: boolean
     start_date?: boolean
     end_date?: boolean
-    status?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    target_return?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type SlateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "budget" | "start_date" | "end_date" | "status" | "created_at" | "updated_at", ExtArgs["result"]["slate"]>
+  export type SlateOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "description" | "status" | "budget" | "start_date" | "end_date" | "target_return" | "createdAt" | "updatedAt", ExtArgs["result"]["slate"]>
   export type SlateInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     films?: boolean | Slate$filmsArgs<ExtArgs>
     investments?: boolean | Slate$investmentsArgs<ExtArgs>
-    expenses?: boolean | Slate$expensesArgs<ExtArgs>
     _count?: boolean | SlateCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type SlateIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -4992,18 +5239,18 @@ export namespace Prisma {
     objects: {
       films: Prisma.$FilmPayload<ExtArgs>[]
       investments: Prisma.$InvestmentPayload<ExtArgs>[]
-      expenses: Prisma.$ExpensePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       name: string
       description: string | null
+      status: string
       budget: number
       start_date: Date | null
       end_date: Date | null
-      status: string
-      created_at: Date
-      updated_at: Date
+      target_return: number | null
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["slate"]>
     composites: {}
   }
@@ -5400,7 +5647,6 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     films<T extends Slate$filmsArgs<ExtArgs> = {}>(args?: Subset<T, Slate$filmsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$FilmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     investments<T extends Slate$investmentsArgs<ExtArgs> = {}>(args?: Subset<T, Slate$investmentsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$InvestmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
-    expenses<T extends Slate$expensesArgs<ExtArgs> = {}>(args?: Subset<T, Slate$expensesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5433,12 +5679,13 @@ export namespace Prisma {
     readonly id: FieldRef<"Slate", 'String'>
     readonly name: FieldRef<"Slate", 'String'>
     readonly description: FieldRef<"Slate", 'String'>
+    readonly status: FieldRef<"Slate", 'String'>
     readonly budget: FieldRef<"Slate", 'Float'>
     readonly start_date: FieldRef<"Slate", 'DateTime'>
     readonly end_date: FieldRef<"Slate", 'DateTime'>
-    readonly status: FieldRef<"Slate", 'String'>
-    readonly created_at: FieldRef<"Slate", 'DateTime'>
-    readonly updated_at: FieldRef<"Slate", 'DateTime'>
+    readonly target_return: FieldRef<"Slate", 'Float'>
+    readonly createdAt: FieldRef<"Slate", 'DateTime'>
+    readonly updatedAt: FieldRef<"Slate", 'DateTime'>
   }
     
 
@@ -5880,30 +6127,6 @@ export namespace Prisma {
   }
 
   /**
-   * Slate.expenses
-   */
-  export type Slate$expensesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Expense
-     */
-    select?: ExpenseSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Expense
-     */
-    omit?: ExpenseOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: ExpenseInclude<ExtArgs> | null
-    where?: ExpenseWhereInput
-    orderBy?: ExpenseOrderByWithRelationInput | ExpenseOrderByWithRelationInput[]
-    cursor?: ExpenseWhereUniqueInput
-    take?: number
-    skip?: number
-    distinct?: ExpenseScalarFieldEnum | ExpenseScalarFieldEnum[]
-  }
-
-  /**
    * Slate without action
    */
   export type SlateDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5936,120 +6159,108 @@ export namespace Prisma {
 
   export type FilmAvgAggregateOutputType = {
     budget: number | null
-    revenue: number | null
+    total_revenue: number | null
   }
 
   export type FilmSumAggregateOutputType = {
     budget: number | null
-    revenue: number | null
+    total_revenue: number | null
   }
 
   export type FilmMinAggregateOutputType = {
     id: string | null
     title: string | null
-    description: string | null
-    genre: string | null
-    status: string | null
-    budget: number | null
-    revenue: number | null
-    poster_url: string | null
-    trailer_url: string | null
-    release_date: Date | null
     slate_id: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    budget: number | null
+    status: string | null
+    genre: string | null
+    description: string | null
+    release_date: Date | null
+    total_revenue: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type FilmMaxAggregateOutputType = {
     id: string | null
     title: string | null
-    description: string | null
-    genre: string | null
-    status: string | null
-    budget: number | null
-    revenue: number | null
-    poster_url: string | null
-    trailer_url: string | null
-    release_date: Date | null
     slate_id: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    budget: number | null
+    status: string | null
+    genre: string | null
+    description: string | null
+    release_date: Date | null
+    total_revenue: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type FilmCountAggregateOutputType = {
     id: number
     title: number
-    description: number
-    genre: number
-    status: number
-    budget: number
-    revenue: number
-    poster_url: number
-    trailer_url: number
-    release_date: number
     slate_id: number
-    created_at: number
-    updated_at: number
+    budget: number
+    status: number
+    genre: number
+    description: number
+    release_date: number
+    total_revenue: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
   export type FilmAvgAggregateInputType = {
     budget?: true
-    revenue?: true
+    total_revenue?: true
   }
 
   export type FilmSumAggregateInputType = {
     budget?: true
-    revenue?: true
+    total_revenue?: true
   }
 
   export type FilmMinAggregateInputType = {
     id?: true
     title?: true
-    description?: true
-    genre?: true
-    status?: true
-    budget?: true
-    revenue?: true
-    poster_url?: true
-    trailer_url?: true
-    release_date?: true
     slate_id?: true
-    created_at?: true
-    updated_at?: true
+    budget?: true
+    status?: true
+    genre?: true
+    description?: true
+    release_date?: true
+    total_revenue?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type FilmMaxAggregateInputType = {
     id?: true
     title?: true
-    description?: true
-    genre?: true
-    status?: true
-    budget?: true
-    revenue?: true
-    poster_url?: true
-    trailer_url?: true
-    release_date?: true
     slate_id?: true
-    created_at?: true
-    updated_at?: true
+    budget?: true
+    status?: true
+    genre?: true
+    description?: true
+    release_date?: true
+    total_revenue?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type FilmCountAggregateInputType = {
     id?: true
     title?: true
-    description?: true
-    genre?: true
-    status?: true
-    budget?: true
-    revenue?: true
-    poster_url?: true
-    trailer_url?: true
-    release_date?: true
     slate_id?: true
-    created_at?: true
-    updated_at?: true
+    budget?: true
+    status?: true
+    genre?: true
+    description?: true
+    release_date?: true
+    total_revenue?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -6142,17 +6353,15 @@ export namespace Prisma {
   export type FilmGroupByOutputType = {
     id: string
     title: string
-    description: string | null
-    genre: string | null
-    status: string
+    slate_id: string
     budget: number
-    revenue: number
-    poster_url: string | null
-    trailer_url: string | null
+    status: string
+    genre: string | null
+    description: string | null
     release_date: Date | null
-    slate_id: string | null
-    created_at: Date
-    updated_at: Date
+    total_revenue: number
+    createdAt: Date
+    updatedAt: Date
     _count: FilmCountAggregateOutputType | null
     _avg: FilmAvgAggregateOutputType | null
     _sum: FilmSumAggregateOutputType | null
@@ -6177,18 +6386,16 @@ export namespace Prisma {
   export type FilmSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    description?: boolean
-    genre?: boolean
-    status?: boolean
-    budget?: boolean
-    revenue?: boolean
-    poster_url?: boolean
-    trailer_url?: boolean
-    release_date?: boolean
     slate_id?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    slate?: boolean | Film$slateArgs<ExtArgs>
+    budget?: boolean
+    status?: boolean
+    genre?: boolean
+    description?: boolean
+    release_date?: boolean
+    total_revenue?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    slate?: boolean | SlateDefaultArgs<ExtArgs>
     revenue_entries?: boolean | Film$revenue_entriesArgs<ExtArgs>
     expenses?: boolean | Film$expensesArgs<ExtArgs>
     _count?: boolean | FilmCountOutputTypeDefaultArgs<ExtArgs>
@@ -6197,88 +6404,80 @@ export namespace Prisma {
   export type FilmSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    description?: boolean
-    genre?: boolean
-    status?: boolean
-    budget?: boolean
-    revenue?: boolean
-    poster_url?: boolean
-    trailer_url?: boolean
-    release_date?: boolean
     slate_id?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    slate?: boolean | Film$slateArgs<ExtArgs>
+    budget?: boolean
+    status?: boolean
+    genre?: boolean
+    description?: boolean
+    release_date?: boolean
+    total_revenue?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    slate?: boolean | SlateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["film"]>
 
   export type FilmSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
-    description?: boolean
-    genre?: boolean
-    status?: boolean
-    budget?: boolean
-    revenue?: boolean
-    poster_url?: boolean
-    trailer_url?: boolean
-    release_date?: boolean
     slate_id?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    slate?: boolean | Film$slateArgs<ExtArgs>
+    budget?: boolean
+    status?: boolean
+    genre?: boolean
+    description?: boolean
+    release_date?: boolean
+    total_revenue?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    slate?: boolean | SlateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["film"]>
 
   export type FilmSelectScalar = {
     id?: boolean
     title?: boolean
-    description?: boolean
-    genre?: boolean
-    status?: boolean
-    budget?: boolean
-    revenue?: boolean
-    poster_url?: boolean
-    trailer_url?: boolean
-    release_date?: boolean
     slate_id?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    budget?: boolean
+    status?: boolean
+    genre?: boolean
+    description?: boolean
+    release_date?: boolean
+    total_revenue?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type FilmOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "genre" | "status" | "budget" | "revenue" | "poster_url" | "trailer_url" | "release_date" | "slate_id" | "created_at" | "updated_at", ExtArgs["result"]["film"]>
+  export type FilmOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "slate_id" | "budget" | "status" | "genre" | "description" | "release_date" | "total_revenue" | "createdAt" | "updatedAt", ExtArgs["result"]["film"]>
   export type FilmInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    slate?: boolean | Film$slateArgs<ExtArgs>
+    slate?: boolean | SlateDefaultArgs<ExtArgs>
     revenue_entries?: boolean | Film$revenue_entriesArgs<ExtArgs>
     expenses?: boolean | Film$expensesArgs<ExtArgs>
     _count?: boolean | FilmCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type FilmIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    slate?: boolean | Film$slateArgs<ExtArgs>
+    slate?: boolean | SlateDefaultArgs<ExtArgs>
   }
   export type FilmIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    slate?: boolean | Film$slateArgs<ExtArgs>
+    slate?: boolean | SlateDefaultArgs<ExtArgs>
   }
 
   export type $FilmPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Film"
     objects: {
-      slate: Prisma.$SlatePayload<ExtArgs> | null
+      slate: Prisma.$SlatePayload<ExtArgs>
       revenue_entries: Prisma.$RevenueEntryPayload<ExtArgs>[]
       expenses: Prisma.$ExpensePayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
       title: string
-      description: string | null
-      genre: string | null
-      status: string
+      slate_id: string
       budget: number
-      revenue: number
-      poster_url: string | null
-      trailer_url: string | null
+      status: string
+      genre: string | null
+      description: string | null
       release_date: Date | null
-      slate_id: string | null
-      created_at: Date
-      updated_at: Date
+      total_revenue: number
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["film"]>
     composites: {}
   }
@@ -6673,7 +6872,7 @@ export namespace Prisma {
    */
   export interface Prisma__FilmClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    slate<T extends Film$slateArgs<ExtArgs> = {}>(args?: Subset<T, Film$slateArgs<ExtArgs>>): Prisma__SlateClient<$Result.GetResult<Prisma.$SlatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    slate<T extends SlateDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SlateDefaultArgs<ExtArgs>>): Prisma__SlateClient<$Result.GetResult<Prisma.$SlatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     revenue_entries<T extends Film$revenue_entriesArgs<ExtArgs> = {}>(args?: Subset<T, Film$revenue_entriesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$RevenueEntryPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     expenses<T extends Film$expensesArgs<ExtArgs> = {}>(args?: Subset<T, Film$expensesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ExpensePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
@@ -6707,17 +6906,15 @@ export namespace Prisma {
   interface FilmFieldRefs {
     readonly id: FieldRef<"Film", 'String'>
     readonly title: FieldRef<"Film", 'String'>
-    readonly description: FieldRef<"Film", 'String'>
-    readonly genre: FieldRef<"Film", 'String'>
-    readonly status: FieldRef<"Film", 'String'>
-    readonly budget: FieldRef<"Film", 'Float'>
-    readonly revenue: FieldRef<"Film", 'Float'>
-    readonly poster_url: FieldRef<"Film", 'String'>
-    readonly trailer_url: FieldRef<"Film", 'String'>
-    readonly release_date: FieldRef<"Film", 'DateTime'>
     readonly slate_id: FieldRef<"Film", 'String'>
-    readonly created_at: FieldRef<"Film", 'DateTime'>
-    readonly updated_at: FieldRef<"Film", 'DateTime'>
+    readonly budget: FieldRef<"Film", 'Float'>
+    readonly status: FieldRef<"Film", 'String'>
+    readonly genre: FieldRef<"Film", 'String'>
+    readonly description: FieldRef<"Film", 'String'>
+    readonly release_date: FieldRef<"Film", 'DateTime'>
+    readonly total_revenue: FieldRef<"Film", 'Float'>
+    readonly createdAt: FieldRef<"Film", 'DateTime'>
+    readonly updatedAt: FieldRef<"Film", 'DateTime'>
   }
     
 
@@ -7119,25 +7316,6 @@ export namespace Prisma {
   }
 
   /**
-   * Film.slate
-   */
-  export type Film$slateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Slate
-     */
-    select?: SlateSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Slate
-     */
-    omit?: SlateOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SlateInclude<ExtArgs> | null
-    where?: SlateWhereInput
-  }
-
-  /**
    * Film.revenue_entries
    */
   export type Film$revenue_entriesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -7218,10 +7396,34 @@ export namespace Prisma {
 
   export type InvestmentAvgAggregateOutputType = {
     amount: number | null
+    ownership_percentage: number | null
+    rollover_amount: number | null
+    new_cash_amount: number | null
+    total_investment: number | null
+    reinvested_amount: number | null
+    recouped_amount: number | null
+    total_returned: number | null
+    recoupment_percentage: number | null
+    premium_target: number | null
+    premium_paid: number | null
+    backend_percentage: number | null
+    backend_paid: number | null
   }
 
   export type InvestmentSumAggregateOutputType = {
     amount: number | null
+    ownership_percentage: number | null
+    rollover_amount: number | null
+    new_cash_amount: number | null
+    total_investment: number | null
+    reinvested_amount: number | null
+    recouped_amount: number | null
+    total_returned: number | null
+    recoupment_percentage: number | null
+    premium_target: number | null
+    premium_paid: number | null
+    backend_percentage: number | null
+    backend_paid: number | null
   }
 
   export type InvestmentMinAggregateOutputType = {
@@ -7229,11 +7431,23 @@ export namespace Prisma {
     investor_id: string | null
     slate_id: string | null
     amount: number | null
-    date: Date | null
-    status: string | null
-    notes: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    ownership_percentage: number | null
+    rollover_amount: number | null
+    new_cash_amount: number | null
+    total_investment: number | null
+    source_investment_id: string | null
+    is_reinvestment: boolean | null
+    reinvested_amount: number | null
+    recouped_amount: number | null
+    total_returned: number | null
+    current_stage: string | null
+    recoupment_percentage: number | null
+    premium_target: number | null
+    premium_paid: number | null
+    backend_percentage: number | null
+    backend_paid: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type InvestmentMaxAggregateOutputType = {
@@ -7241,11 +7455,23 @@ export namespace Prisma {
     investor_id: string | null
     slate_id: string | null
     amount: number | null
-    date: Date | null
-    status: string | null
-    notes: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    ownership_percentage: number | null
+    rollover_amount: number | null
+    new_cash_amount: number | null
+    total_investment: number | null
+    source_investment_id: string | null
+    is_reinvestment: boolean | null
+    reinvested_amount: number | null
+    recouped_amount: number | null
+    total_returned: number | null
+    current_stage: string | null
+    recoupment_percentage: number | null
+    premium_target: number | null
+    premium_paid: number | null
+    backend_percentage: number | null
+    backend_paid: number | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type InvestmentCountAggregateOutputType = {
@@ -7253,21 +7479,57 @@ export namespace Prisma {
     investor_id: number
     slate_id: number
     amount: number
-    date: number
-    status: number
-    notes: number
-    created_at: number
-    updated_at: number
+    ownership_percentage: number
+    rollover_amount: number
+    new_cash_amount: number
+    total_investment: number
+    source_investment_id: number
+    is_reinvestment: number
+    reinvested_amount: number
+    recouped_amount: number
+    total_returned: number
+    current_stage: number
+    recoupment_percentage: number
+    premium_target: number
+    premium_paid: number
+    backend_percentage: number
+    backend_paid: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
   export type InvestmentAvgAggregateInputType = {
     amount?: true
+    ownership_percentage?: true
+    rollover_amount?: true
+    new_cash_amount?: true
+    total_investment?: true
+    reinvested_amount?: true
+    recouped_amount?: true
+    total_returned?: true
+    recoupment_percentage?: true
+    premium_target?: true
+    premium_paid?: true
+    backend_percentage?: true
+    backend_paid?: true
   }
 
   export type InvestmentSumAggregateInputType = {
     amount?: true
+    ownership_percentage?: true
+    rollover_amount?: true
+    new_cash_amount?: true
+    total_investment?: true
+    reinvested_amount?: true
+    recouped_amount?: true
+    total_returned?: true
+    recoupment_percentage?: true
+    premium_target?: true
+    premium_paid?: true
+    backend_percentage?: true
+    backend_paid?: true
   }
 
   export type InvestmentMinAggregateInputType = {
@@ -7275,11 +7537,23 @@ export namespace Prisma {
     investor_id?: true
     slate_id?: true
     amount?: true
-    date?: true
-    status?: true
-    notes?: true
-    created_at?: true
-    updated_at?: true
+    ownership_percentage?: true
+    rollover_amount?: true
+    new_cash_amount?: true
+    total_investment?: true
+    source_investment_id?: true
+    is_reinvestment?: true
+    reinvested_amount?: true
+    recouped_amount?: true
+    total_returned?: true
+    current_stage?: true
+    recoupment_percentage?: true
+    premium_target?: true
+    premium_paid?: true
+    backend_percentage?: true
+    backend_paid?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type InvestmentMaxAggregateInputType = {
@@ -7287,11 +7561,23 @@ export namespace Prisma {
     investor_id?: true
     slate_id?: true
     amount?: true
-    date?: true
-    status?: true
-    notes?: true
-    created_at?: true
-    updated_at?: true
+    ownership_percentage?: true
+    rollover_amount?: true
+    new_cash_amount?: true
+    total_investment?: true
+    source_investment_id?: true
+    is_reinvestment?: true
+    reinvested_amount?: true
+    recouped_amount?: true
+    total_returned?: true
+    current_stage?: true
+    recoupment_percentage?: true
+    premium_target?: true
+    premium_paid?: true
+    backend_percentage?: true
+    backend_paid?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type InvestmentCountAggregateInputType = {
@@ -7299,11 +7585,23 @@ export namespace Prisma {
     investor_id?: true
     slate_id?: true
     amount?: true
-    date?: true
-    status?: true
-    notes?: true
-    created_at?: true
-    updated_at?: true
+    ownership_percentage?: true
+    rollover_amount?: true
+    new_cash_amount?: true
+    total_investment?: true
+    source_investment_id?: true
+    is_reinvestment?: true
+    reinvested_amount?: true
+    recouped_amount?: true
+    total_returned?: true
+    current_stage?: true
+    recoupment_percentage?: true
+    premium_target?: true
+    premium_paid?: true
+    backend_percentage?: true
+    backend_paid?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -7398,11 +7696,23 @@ export namespace Prisma {
     investor_id: string
     slate_id: string
     amount: number
-    date: Date
-    status: string
-    notes: string | null
-    created_at: Date
-    updated_at: Date
+    ownership_percentage: number
+    rollover_amount: number
+    new_cash_amount: number
+    total_investment: number
+    source_investment_id: string | null
+    is_reinvestment: boolean
+    reinvested_amount: number
+    recouped_amount: number
+    total_returned: number
+    current_stage: string
+    recoupment_percentage: number
+    premium_target: number
+    premium_paid: number
+    backend_percentage: number
+    backend_paid: number
+    createdAt: Date
+    updatedAt: Date
     _count: InvestmentCountAggregateOutputType | null
     _avg: InvestmentAvgAggregateOutputType | null
     _sum: InvestmentSumAggregateOutputType | null
@@ -7429,11 +7739,23 @@ export namespace Prisma {
     investor_id?: boolean
     slate_id?: boolean
     amount?: boolean
-    date?: boolean
-    status?: boolean
-    notes?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    ownership_percentage?: boolean
+    rollover_amount?: boolean
+    new_cash_amount?: boolean
+    total_investment?: boolean
+    source_investment_id?: boolean
+    is_reinvestment?: boolean
+    reinvested_amount?: boolean
+    recouped_amount?: boolean
+    total_returned?: boolean
+    current_stage?: boolean
+    recoupment_percentage?: boolean
+    premium_target?: boolean
+    premium_paid?: boolean
+    backend_percentage?: boolean
+    backend_paid?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     investor?: boolean | InvestorDefaultArgs<ExtArgs>
     slate?: boolean | SlateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["investment"]>
@@ -7443,11 +7765,23 @@ export namespace Prisma {
     investor_id?: boolean
     slate_id?: boolean
     amount?: boolean
-    date?: boolean
-    status?: boolean
-    notes?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    ownership_percentage?: boolean
+    rollover_amount?: boolean
+    new_cash_amount?: boolean
+    total_investment?: boolean
+    source_investment_id?: boolean
+    is_reinvestment?: boolean
+    reinvested_amount?: boolean
+    recouped_amount?: boolean
+    total_returned?: boolean
+    current_stage?: boolean
+    recoupment_percentage?: boolean
+    premium_target?: boolean
+    premium_paid?: boolean
+    backend_percentage?: boolean
+    backend_paid?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     investor?: boolean | InvestorDefaultArgs<ExtArgs>
     slate?: boolean | SlateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["investment"]>
@@ -7457,11 +7791,23 @@ export namespace Prisma {
     investor_id?: boolean
     slate_id?: boolean
     amount?: boolean
-    date?: boolean
-    status?: boolean
-    notes?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    ownership_percentage?: boolean
+    rollover_amount?: boolean
+    new_cash_amount?: boolean
+    total_investment?: boolean
+    source_investment_id?: boolean
+    is_reinvestment?: boolean
+    reinvested_amount?: boolean
+    recouped_amount?: boolean
+    total_returned?: boolean
+    current_stage?: boolean
+    recoupment_percentage?: boolean
+    premium_target?: boolean
+    premium_paid?: boolean
+    backend_percentage?: boolean
+    backend_paid?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     investor?: boolean | InvestorDefaultArgs<ExtArgs>
     slate?: boolean | SlateDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["investment"]>
@@ -7471,14 +7817,26 @@ export namespace Prisma {
     investor_id?: boolean
     slate_id?: boolean
     amount?: boolean
-    date?: boolean
-    status?: boolean
-    notes?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    ownership_percentage?: boolean
+    rollover_amount?: boolean
+    new_cash_amount?: boolean
+    total_investment?: boolean
+    source_investment_id?: boolean
+    is_reinvestment?: boolean
+    reinvested_amount?: boolean
+    recouped_amount?: boolean
+    total_returned?: boolean
+    current_stage?: boolean
+    recoupment_percentage?: boolean
+    premium_target?: boolean
+    premium_paid?: boolean
+    backend_percentage?: boolean
+    backend_paid?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type InvestmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "investor_id" | "slate_id" | "amount" | "date" | "status" | "notes" | "created_at" | "updated_at", ExtArgs["result"]["investment"]>
+  export type InvestmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "investor_id" | "slate_id" | "amount" | "ownership_percentage" | "rollover_amount" | "new_cash_amount" | "total_investment" | "source_investment_id" | "is_reinvestment" | "reinvested_amount" | "recouped_amount" | "total_returned" | "current_stage" | "recoupment_percentage" | "premium_target" | "premium_paid" | "backend_percentage" | "backend_paid" | "createdAt" | "updatedAt", ExtArgs["result"]["investment"]>
   export type InvestmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     investor?: boolean | InvestorDefaultArgs<ExtArgs>
     slate?: boolean | SlateDefaultArgs<ExtArgs>
@@ -7503,11 +7861,23 @@ export namespace Prisma {
       investor_id: string
       slate_id: string
       amount: number
-      date: Date
-      status: string
-      notes: string | null
-      created_at: Date
-      updated_at: Date
+      ownership_percentage: number
+      rollover_amount: number
+      new_cash_amount: number
+      total_investment: number
+      source_investment_id: string | null
+      is_reinvestment: boolean
+      reinvested_amount: number
+      recouped_amount: number
+      total_returned: number
+      current_stage: string
+      recoupment_percentage: number
+      premium_target: number
+      premium_paid: number
+      backend_percentage: number
+      backend_paid: number
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["investment"]>
     composites: {}
   }
@@ -7937,11 +8307,23 @@ export namespace Prisma {
     readonly investor_id: FieldRef<"Investment", 'String'>
     readonly slate_id: FieldRef<"Investment", 'String'>
     readonly amount: FieldRef<"Investment", 'Float'>
-    readonly date: FieldRef<"Investment", 'DateTime'>
-    readonly status: FieldRef<"Investment", 'String'>
-    readonly notes: FieldRef<"Investment", 'String'>
-    readonly created_at: FieldRef<"Investment", 'DateTime'>
-    readonly updated_at: FieldRef<"Investment", 'DateTime'>
+    readonly ownership_percentage: FieldRef<"Investment", 'Float'>
+    readonly rollover_amount: FieldRef<"Investment", 'Float'>
+    readonly new_cash_amount: FieldRef<"Investment", 'Float'>
+    readonly total_investment: FieldRef<"Investment", 'Float'>
+    readonly source_investment_id: FieldRef<"Investment", 'String'>
+    readonly is_reinvestment: FieldRef<"Investment", 'Boolean'>
+    readonly reinvested_amount: FieldRef<"Investment", 'Float'>
+    readonly recouped_amount: FieldRef<"Investment", 'Float'>
+    readonly total_returned: FieldRef<"Investment", 'Float'>
+    readonly current_stage: FieldRef<"Investment", 'String'>
+    readonly recoupment_percentage: FieldRef<"Investment", 'Float'>
+    readonly premium_target: FieldRef<"Investment", 'Float'>
+    readonly premium_paid: FieldRef<"Investment", 'Float'>
+    readonly backend_percentage: FieldRef<"Investment", 'Float'>
+    readonly backend_paid: FieldRef<"Investment", 'Float'>
+    readonly createdAt: FieldRef<"Investment", 'DateTime'>
+    readonly updatedAt: FieldRef<"Investment", 'DateTime'>
   }
     
 
@@ -8362,1187 +8744,6 @@ export namespace Prisma {
 
 
   /**
-   * Model Payment
-   */
-
-  export type AggregatePayment = {
-    _count: PaymentCountAggregateOutputType | null
-    _avg: PaymentAvgAggregateOutputType | null
-    _sum: PaymentSumAggregateOutputType | null
-    _min: PaymentMinAggregateOutputType | null
-    _max: PaymentMaxAggregateOutputType | null
-  }
-
-  export type PaymentAvgAggregateOutputType = {
-    amount: number | null
-  }
-
-  export type PaymentSumAggregateOutputType = {
-    amount: number | null
-  }
-
-  export type PaymentMinAggregateOutputType = {
-    id: string | null
-    investor_id: string | null
-    amount: number | null
-    date: Date | null
-    type: string | null
-    status: string | null
-    description: string | null
-    reference: string | null
-    created_at: Date | null
-    updated_at: Date | null
-  }
-
-  export type PaymentMaxAggregateOutputType = {
-    id: string | null
-    investor_id: string | null
-    amount: number | null
-    date: Date | null
-    type: string | null
-    status: string | null
-    description: string | null
-    reference: string | null
-    created_at: Date | null
-    updated_at: Date | null
-  }
-
-  export type PaymentCountAggregateOutputType = {
-    id: number
-    investor_id: number
-    amount: number
-    date: number
-    type: number
-    status: number
-    description: number
-    reference: number
-    created_at: number
-    updated_at: number
-    _all: number
-  }
-
-
-  export type PaymentAvgAggregateInputType = {
-    amount?: true
-  }
-
-  export type PaymentSumAggregateInputType = {
-    amount?: true
-  }
-
-  export type PaymentMinAggregateInputType = {
-    id?: true
-    investor_id?: true
-    amount?: true
-    date?: true
-    type?: true
-    status?: true
-    description?: true
-    reference?: true
-    created_at?: true
-    updated_at?: true
-  }
-
-  export type PaymentMaxAggregateInputType = {
-    id?: true
-    investor_id?: true
-    amount?: true
-    date?: true
-    type?: true
-    status?: true
-    description?: true
-    reference?: true
-    created_at?: true
-    updated_at?: true
-  }
-
-  export type PaymentCountAggregateInputType = {
-    id?: true
-    investor_id?: true
-    amount?: true
-    date?: true
-    type?: true
-    status?: true
-    description?: true
-    reference?: true
-    created_at?: true
-    updated_at?: true
-    _all?: true
-  }
-
-  export type PaymentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Payment to aggregate.
-     */
-    where?: PaymentWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Payments to fetch.
-     */
-    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: PaymentWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Payments from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Payments.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned Payments
-    **/
-    _count?: true | PaymentCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: PaymentAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: PaymentSumAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: PaymentMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: PaymentMaxAggregateInputType
-  }
-
-  export type GetPaymentAggregateType<T extends PaymentAggregateArgs> = {
-        [P in keyof T & keyof AggregatePayment]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregatePayment[P]>
-      : GetScalarType<T[P], AggregatePayment[P]>
-  }
-
-
-
-
-  export type PaymentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PaymentWhereInput
-    orderBy?: PaymentOrderByWithAggregationInput | PaymentOrderByWithAggregationInput[]
-    by: PaymentScalarFieldEnum[] | PaymentScalarFieldEnum
-    having?: PaymentScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: PaymentCountAggregateInputType | true
-    _avg?: PaymentAvgAggregateInputType
-    _sum?: PaymentSumAggregateInputType
-    _min?: PaymentMinAggregateInputType
-    _max?: PaymentMaxAggregateInputType
-  }
-
-  export type PaymentGroupByOutputType = {
-    id: string
-    investor_id: string | null
-    amount: number
-    date: Date
-    type: string
-    status: string
-    description: string | null
-    reference: string | null
-    created_at: Date
-    updated_at: Date
-    _count: PaymentCountAggregateOutputType | null
-    _avg: PaymentAvgAggregateOutputType | null
-    _sum: PaymentSumAggregateOutputType | null
-    _min: PaymentMinAggregateOutputType | null
-    _max: PaymentMaxAggregateOutputType | null
-  }
-
-  type GetPaymentGroupByPayload<T extends PaymentGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<PaymentGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof PaymentGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], PaymentGroupByOutputType[P]>
-            : GetScalarType<T[P], PaymentGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type PaymentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    investor_id?: boolean
-    amount?: boolean
-    date?: boolean
-    type?: boolean
-    status?: boolean
-    description?: boolean
-    reference?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    investor?: boolean | Payment$investorArgs<ExtArgs>
-  }, ExtArgs["result"]["payment"]>
-
-  export type PaymentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    investor_id?: boolean
-    amount?: boolean
-    date?: boolean
-    type?: boolean
-    status?: boolean
-    description?: boolean
-    reference?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    investor?: boolean | Payment$investorArgs<ExtArgs>
-  }, ExtArgs["result"]["payment"]>
-
-  export type PaymentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    investor_id?: boolean
-    amount?: boolean
-    date?: boolean
-    type?: boolean
-    status?: boolean
-    description?: boolean
-    reference?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    investor?: boolean | Payment$investorArgs<ExtArgs>
-  }, ExtArgs["result"]["payment"]>
-
-  export type PaymentSelectScalar = {
-    id?: boolean
-    investor_id?: boolean
-    amount?: boolean
-    date?: boolean
-    type?: boolean
-    status?: boolean
-    description?: boolean
-    reference?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-  }
-
-  export type PaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "investor_id" | "amount" | "date" | "type" | "status" | "description" | "reference" | "created_at" | "updated_at", ExtArgs["result"]["payment"]>
-  export type PaymentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    investor?: boolean | Payment$investorArgs<ExtArgs>
-  }
-  export type PaymentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    investor?: boolean | Payment$investorArgs<ExtArgs>
-  }
-  export type PaymentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    investor?: boolean | Payment$investorArgs<ExtArgs>
-  }
-
-  export type $PaymentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Payment"
-    objects: {
-      investor: Prisma.$InvestorPayload<ExtArgs> | null
-    }
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      investor_id: string | null
-      amount: number
-      date: Date
-      type: string
-      status: string
-      description: string | null
-      reference: string | null
-      created_at: Date
-      updated_at: Date
-    }, ExtArgs["result"]["payment"]>
-    composites: {}
-  }
-
-  type PaymentGetPayload<S extends boolean | null | undefined | PaymentDefaultArgs> = $Result.GetResult<Prisma.$PaymentPayload, S>
-
-  type PaymentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PaymentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PaymentCountAggregateInputType | true
-    }
-
-  export interface PaymentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Payment'], meta: { name: 'Payment' } }
-    /**
-     * Find zero or one Payment that matches the filter.
-     * @param {PaymentFindUniqueArgs} args - Arguments to find a Payment
-     * @example
-     * // Get one Payment
-     * const payment = await prisma.payment.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends PaymentFindUniqueArgs>(args: SelectSubset<T, PaymentFindUniqueArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one Payment that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {PaymentFindUniqueOrThrowArgs} args - Arguments to find a Payment
-     * @example
-     * // Get one Payment
-     * const payment = await prisma.payment.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends PaymentFindUniqueOrThrowArgs>(args: SelectSubset<T, PaymentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Payment that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PaymentFindFirstArgs} args - Arguments to find a Payment
-     * @example
-     * // Get one Payment
-     * const payment = await prisma.payment.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends PaymentFindFirstArgs>(args?: SelectSubset<T, PaymentFindFirstArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first Payment that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PaymentFindFirstOrThrowArgs} args - Arguments to find a Payment
-     * @example
-     * // Get one Payment
-     * const payment = await prisma.payment.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends PaymentFindFirstOrThrowArgs>(args?: SelectSubset<T, PaymentFindFirstOrThrowArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more Payments that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PaymentFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all Payments
-     * const payments = await prisma.payment.findMany()
-     * 
-     * // Get first 10 Payments
-     * const payments = await prisma.payment.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const paymentWithIdOnly = await prisma.payment.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends PaymentFindManyArgs>(args?: SelectSubset<T, PaymentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a Payment.
-     * @param {PaymentCreateArgs} args - Arguments to create a Payment.
-     * @example
-     * // Create one Payment
-     * const Payment = await prisma.payment.create({
-     *   data: {
-     *     // ... data to create a Payment
-     *   }
-     * })
-     * 
-     */
-    create<T extends PaymentCreateArgs>(args: SelectSubset<T, PaymentCreateArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many Payments.
-     * @param {PaymentCreateManyArgs} args - Arguments to create many Payments.
-     * @example
-     * // Create many Payments
-     * const payment = await prisma.payment.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends PaymentCreateManyArgs>(args?: SelectSubset<T, PaymentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many Payments and returns the data saved in the database.
-     * @param {PaymentCreateManyAndReturnArgs} args - Arguments to create many Payments.
-     * @example
-     * // Create many Payments
-     * const payment = await prisma.payment.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many Payments and only return the `id`
-     * const paymentWithIdOnly = await prisma.payment.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends PaymentCreateManyAndReturnArgs>(args?: SelectSubset<T, PaymentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a Payment.
-     * @param {PaymentDeleteArgs} args - Arguments to delete one Payment.
-     * @example
-     * // Delete one Payment
-     * const Payment = await prisma.payment.delete({
-     *   where: {
-     *     // ... filter to delete one Payment
-     *   }
-     * })
-     * 
-     */
-    delete<T extends PaymentDeleteArgs>(args: SelectSubset<T, PaymentDeleteArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one Payment.
-     * @param {PaymentUpdateArgs} args - Arguments to update one Payment.
-     * @example
-     * // Update one Payment
-     * const payment = await prisma.payment.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends PaymentUpdateArgs>(args: SelectSubset<T, PaymentUpdateArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more Payments.
-     * @param {PaymentDeleteManyArgs} args - Arguments to filter Payments to delete.
-     * @example
-     * // Delete a few Payments
-     * const { count } = await prisma.payment.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends PaymentDeleteManyArgs>(args?: SelectSubset<T, PaymentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Payments.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PaymentUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many Payments
-     * const payment = await prisma.payment.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends PaymentUpdateManyArgs>(args: SelectSubset<T, PaymentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more Payments and returns the data updated in the database.
-     * @param {PaymentUpdateManyAndReturnArgs} args - Arguments to update many Payments.
-     * @example
-     * // Update many Payments
-     * const payment = await prisma.payment.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more Payments and only return the `id`
-     * const paymentWithIdOnly = await prisma.payment.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends PaymentUpdateManyAndReturnArgs>(args: SelectSubset<T, PaymentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one Payment.
-     * @param {PaymentUpsertArgs} args - Arguments to update or create a Payment.
-     * @example
-     * // Update or create a Payment
-     * const payment = await prisma.payment.upsert({
-     *   create: {
-     *     // ... data to create a Payment
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the Payment we want to update
-     *   }
-     * })
-     */
-    upsert<T extends PaymentUpsertArgs>(args: SelectSubset<T, PaymentUpsertArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of Payments.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PaymentCountArgs} args - Arguments to filter Payments to count.
-     * @example
-     * // Count the number of Payments
-     * const count = await prisma.payment.count({
-     *   where: {
-     *     // ... the filter for the Payments we want to count
-     *   }
-     * })
-    **/
-    count<T extends PaymentCountArgs>(
-      args?: Subset<T, PaymentCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], PaymentCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a Payment.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PaymentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends PaymentAggregateArgs>(args: Subset<T, PaymentAggregateArgs>): Prisma.PrismaPromise<GetPaymentAggregateType<T>>
-
-    /**
-     * Group by Payment.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {PaymentGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends PaymentGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PaymentGroupByArgs['orderBy'] }
-        : { orderBy?: PaymentGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, PaymentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPaymentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the Payment model
-   */
-  readonly fields: PaymentFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for Payment.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__PaymentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    investor<T extends Payment$investorArgs<ExtArgs> = {}>(args?: Subset<T, Payment$investorArgs<ExtArgs>>): Prisma__InvestorClient<$Result.GetResult<Prisma.$InvestorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the Payment model
-   */
-  interface PaymentFieldRefs {
-    readonly id: FieldRef<"Payment", 'String'>
-    readonly investor_id: FieldRef<"Payment", 'String'>
-    readonly amount: FieldRef<"Payment", 'Float'>
-    readonly date: FieldRef<"Payment", 'DateTime'>
-    readonly type: FieldRef<"Payment", 'String'>
-    readonly status: FieldRef<"Payment", 'String'>
-    readonly description: FieldRef<"Payment", 'String'>
-    readonly reference: FieldRef<"Payment", 'String'>
-    readonly created_at: FieldRef<"Payment", 'DateTime'>
-    readonly updated_at: FieldRef<"Payment", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * Payment findUnique
-   */
-  export type PaymentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-    /**
-     * Filter, which Payment to fetch.
-     */
-    where: PaymentWhereUniqueInput
-  }
-
-  /**
-   * Payment findUniqueOrThrow
-   */
-  export type PaymentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-    /**
-     * Filter, which Payment to fetch.
-     */
-    where: PaymentWhereUniqueInput
-  }
-
-  /**
-   * Payment findFirst
-   */
-  export type PaymentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-    /**
-     * Filter, which Payment to fetch.
-     */
-    where?: PaymentWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Payments to fetch.
-     */
-    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Payments.
-     */
-    cursor?: PaymentWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Payments from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Payments.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Payments.
-     */
-    distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
-  }
-
-  /**
-   * Payment findFirstOrThrow
-   */
-  export type PaymentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-    /**
-     * Filter, which Payment to fetch.
-     */
-    where?: PaymentWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Payments to fetch.
-     */
-    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for Payments.
-     */
-    cursor?: PaymentWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Payments from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Payments.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Payments.
-     */
-    distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
-  }
-
-  /**
-   * Payment findMany
-   */
-  export type PaymentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-    /**
-     * Filter, which Payments to fetch.
-     */
-    where?: PaymentWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of Payments to fetch.
-     */
-    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing Payments.
-     */
-    cursor?: PaymentWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` Payments from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` Payments.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of Payments.
-     */
-    distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
-  }
-
-  /**
-   * Payment create
-   */
-  export type PaymentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-    /**
-     * The data needed to create a Payment.
-     */
-    data: XOR<PaymentCreateInput, PaymentUncheckedCreateInput>
-  }
-
-  /**
-   * Payment createMany
-   */
-  export type PaymentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many Payments.
-     */
-    data: PaymentCreateManyInput | PaymentCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * Payment createManyAndReturn
-   */
-  export type PaymentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * The data used to create many Payments.
-     */
-    data: PaymentCreateManyInput | PaymentCreateManyInput[]
-    skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentIncludeCreateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Payment update
-   */
-  export type PaymentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-    /**
-     * The data needed to update a Payment.
-     */
-    data: XOR<PaymentUpdateInput, PaymentUncheckedUpdateInput>
-    /**
-     * Choose, which Payment to update.
-     */
-    where: PaymentWhereUniqueInput
-  }
-
-  /**
-   * Payment updateMany
-   */
-  export type PaymentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update Payments.
-     */
-    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyInput>
-    /**
-     * Filter which Payments to update
-     */
-    where?: PaymentWhereInput
-    /**
-     * Limit how many Payments to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * Payment updateManyAndReturn
-   */
-  export type PaymentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * The data used to update Payments.
-     */
-    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyInput>
-    /**
-     * Filter which Payments to update
-     */
-    where?: PaymentWhereInput
-    /**
-     * Limit how many Payments to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * Payment upsert
-   */
-  export type PaymentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-    /**
-     * The filter to search for the Payment to update in case it exists.
-     */
-    where: PaymentWhereUniqueInput
-    /**
-     * In case the Payment found by the `where` argument doesn't exist, create a new Payment with this data.
-     */
-    create: XOR<PaymentCreateInput, PaymentUncheckedCreateInput>
-    /**
-     * In case the Payment was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<PaymentUpdateInput, PaymentUncheckedUpdateInput>
-  }
-
-  /**
-   * Payment delete
-   */
-  export type PaymentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-    /**
-     * Filter which Payment to delete.
-     */
-    where: PaymentWhereUniqueInput
-  }
-
-  /**
-   * Payment deleteMany
-   */
-  export type PaymentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Payments to delete
-     */
-    where?: PaymentWhereInput
-    /**
-     * Limit how many Payments to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Payment.investor
-   */
-  export type Payment$investorArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Investor
-     */
-    select?: InvestorSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Investor
-     */
-    omit?: InvestorOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: InvestorInclude<ExtArgs> | null
-    where?: InvestorWhereInput
-  }
-
-  /**
-   * Payment without action
-   */
-  export type PaymentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Payment
-     */
-    select?: PaymentSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Payment
-     */
-    omit?: PaymentOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: PaymentInclude<ExtArgs> | null
-  }
-
-
-  /**
    * Model RevenueEntry
    */
 
@@ -9569,8 +8770,8 @@ export namespace Prisma {
     source: string | null
     date: Date | null
     description: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type RevenueEntryMaxAggregateOutputType = {
@@ -9580,8 +8781,8 @@ export namespace Prisma {
     source: string | null
     date: Date | null
     description: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type RevenueEntryCountAggregateOutputType = {
@@ -9591,8 +8792,8 @@ export namespace Prisma {
     source: number
     date: number
     description: number
-    created_at: number
-    updated_at: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -9612,8 +8813,8 @@ export namespace Prisma {
     source?: true
     date?: true
     description?: true
-    created_at?: true
-    updated_at?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type RevenueEntryMaxAggregateInputType = {
@@ -9623,8 +8824,8 @@ export namespace Prisma {
     source?: true
     date?: true
     description?: true
-    created_at?: true
-    updated_at?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type RevenueEntryCountAggregateInputType = {
@@ -9634,8 +8835,8 @@ export namespace Prisma {
     source?: true
     date?: true
     description?: true
-    created_at?: true
-    updated_at?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -9727,13 +8928,13 @@ export namespace Prisma {
 
   export type RevenueEntryGroupByOutputType = {
     id: string
-    film_id: string | null
+    film_id: string
     amount: number
-    source: string
+    source: string | null
     date: Date
     description: string | null
-    created_at: Date
-    updated_at: Date
+    createdAt: Date
+    updatedAt: Date
     _count: RevenueEntryCountAggregateOutputType | null
     _avg: RevenueEntryAvgAggregateOutputType | null
     _sum: RevenueEntrySumAggregateOutputType | null
@@ -9762,9 +8963,9 @@ export namespace Prisma {
     source?: boolean
     date?: boolean
     description?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    film?: boolean | RevenueEntry$filmArgs<ExtArgs>
+    createdAt?: boolean
+    updatedAt?: boolean
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["revenueEntry"]>
 
   export type RevenueEntrySelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -9774,9 +8975,9 @@ export namespace Prisma {
     source?: boolean
     date?: boolean
     description?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    film?: boolean | RevenueEntry$filmArgs<ExtArgs>
+    createdAt?: boolean
+    updatedAt?: boolean
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["revenueEntry"]>
 
   export type RevenueEntrySelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -9786,9 +8987,9 @@ export namespace Prisma {
     source?: boolean
     date?: boolean
     description?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    film?: boolean | RevenueEntry$filmArgs<ExtArgs>
+    createdAt?: boolean
+    updatedAt?: boolean
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["revenueEntry"]>
 
   export type RevenueEntrySelectScalar = {
@@ -9798,35 +8999,35 @@ export namespace Prisma {
     source?: boolean
     date?: boolean
     description?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type RevenueEntryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "film_id" | "amount" | "source" | "date" | "description" | "created_at" | "updated_at", ExtArgs["result"]["revenueEntry"]>
+  export type RevenueEntryOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "film_id" | "amount" | "source" | "date" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["revenueEntry"]>
   export type RevenueEntryInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    film?: boolean | RevenueEntry$filmArgs<ExtArgs>
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }
   export type RevenueEntryIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    film?: boolean | RevenueEntry$filmArgs<ExtArgs>
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }
   export type RevenueEntryIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    film?: boolean | RevenueEntry$filmArgs<ExtArgs>
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }
 
   export type $RevenueEntryPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "RevenueEntry"
     objects: {
-      film: Prisma.$FilmPayload<ExtArgs> | null
+      film: Prisma.$FilmPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      film_id: string | null
+      film_id: string
       amount: number
-      source: string
+      source: string | null
       date: Date
       description: string | null
-      created_at: Date
-      updated_at: Date
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["revenueEntry"]>
     composites: {}
   }
@@ -10221,7 +9422,7 @@ export namespace Prisma {
    */
   export interface Prisma__RevenueEntryClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    film<T extends RevenueEntry$filmArgs<ExtArgs> = {}>(args?: Subset<T, RevenueEntry$filmArgs<ExtArgs>>): Prisma__FilmClient<$Result.GetResult<Prisma.$FilmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    film<T extends FilmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FilmDefaultArgs<ExtArgs>>): Prisma__FilmClient<$Result.GetResult<Prisma.$FilmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -10257,8 +9458,8 @@ export namespace Prisma {
     readonly source: FieldRef<"RevenueEntry", 'String'>
     readonly date: FieldRef<"RevenueEntry", 'DateTime'>
     readonly description: FieldRef<"RevenueEntry", 'String'>
-    readonly created_at: FieldRef<"RevenueEntry", 'DateTime'>
-    readonly updated_at: FieldRef<"RevenueEntry", 'DateTime'>
+    readonly createdAt: FieldRef<"RevenueEntry", 'DateTime'>
+    readonly updatedAt: FieldRef<"RevenueEntry", 'DateTime'>
   }
     
 
@@ -10660,25 +9861,6 @@ export namespace Prisma {
   }
 
   /**
-   * RevenueEntry.film
-   */
-  export type RevenueEntry$filmArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Film
-     */
-    select?: FilmSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Film
-     */
-    omit?: FilmOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FilmInclude<ExtArgs> | null
-    where?: FilmWhereInput
-  }
-
-  /**
    * RevenueEntry without action
    */
   export type RevenueEntryDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -10720,40 +9902,34 @@ export namespace Prisma {
   export type ExpenseMinAggregateOutputType = {
     id: string | null
     film_id: string | null
-    slate_id: string | null
     amount: number | null
     category: string | null
-    date: Date | null
     description: string | null
-    vendor: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    date: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type ExpenseMaxAggregateOutputType = {
     id: string | null
     film_id: string | null
-    slate_id: string | null
     amount: number | null
     category: string | null
-    date: Date | null
     description: string | null
-    vendor: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    date: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type ExpenseCountAggregateOutputType = {
     id: number
     film_id: number
-    slate_id: number
     amount: number
     category: number
-    date: number
     description: number
-    vendor: number
-    created_at: number
-    updated_at: number
+    date: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -10769,40 +9945,34 @@ export namespace Prisma {
   export type ExpenseMinAggregateInputType = {
     id?: true
     film_id?: true
-    slate_id?: true
     amount?: true
     category?: true
-    date?: true
     description?: true
-    vendor?: true
-    created_at?: true
-    updated_at?: true
+    date?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type ExpenseMaxAggregateInputType = {
     id?: true
     film_id?: true
-    slate_id?: true
     amount?: true
     category?: true
-    date?: true
     description?: true
-    vendor?: true
-    created_at?: true
-    updated_at?: true
+    date?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type ExpenseCountAggregateInputType = {
     id?: true
     film_id?: true
-    slate_id?: true
     amount?: true
     category?: true
-    date?: true
     description?: true
-    vendor?: true
-    created_at?: true
-    updated_at?: true
+    date?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -10894,15 +10064,13 @@ export namespace Prisma {
 
   export type ExpenseGroupByOutputType = {
     id: string
-    film_id: string | null
-    slate_id: string | null
+    film_id: string
     amount: number
-    category: string
-    date: Date
+    category: string | null
     description: string | null
-    vendor: string | null
-    created_at: Date
-    updated_at: Date
+    date: Date
+    createdAt: Date
+    updatedAt: Date
     _count: ExpenseCountAggregateOutputType | null
     _avg: ExpenseAvgAggregateOutputType | null
     _sum: ExpenseSumAggregateOutputType | null
@@ -10927,92 +10095,75 @@ export namespace Prisma {
   export type ExpenseSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     film_id?: boolean
-    slate_id?: boolean
     amount?: boolean
     category?: boolean
-    date?: boolean
     description?: boolean
-    vendor?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    film?: boolean | Expense$filmArgs<ExtArgs>
-    slate?: boolean | Expense$slateArgs<ExtArgs>
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["expense"]>
 
   export type ExpenseSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     film_id?: boolean
-    slate_id?: boolean
     amount?: boolean
     category?: boolean
-    date?: boolean
     description?: boolean
-    vendor?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    film?: boolean | Expense$filmArgs<ExtArgs>
-    slate?: boolean | Expense$slateArgs<ExtArgs>
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["expense"]>
 
   export type ExpenseSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     film_id?: boolean
-    slate_id?: boolean
     amount?: boolean
     category?: boolean
-    date?: boolean
     description?: boolean
-    vendor?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-    film?: boolean | Expense$filmArgs<ExtArgs>
-    slate?: boolean | Expense$slateArgs<ExtArgs>
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["expense"]>
 
   export type ExpenseSelectScalar = {
     id?: boolean
     film_id?: boolean
-    slate_id?: boolean
     amount?: boolean
     category?: boolean
-    date?: boolean
     description?: boolean
-    vendor?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type ExpenseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "film_id" | "slate_id" | "amount" | "category" | "date" | "description" | "vendor" | "created_at" | "updated_at", ExtArgs["result"]["expense"]>
+  export type ExpenseOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "film_id" | "amount" | "category" | "description" | "date" | "createdAt" | "updatedAt", ExtArgs["result"]["expense"]>
   export type ExpenseInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    film?: boolean | Expense$filmArgs<ExtArgs>
-    slate?: boolean | Expense$slateArgs<ExtArgs>
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }
   export type ExpenseIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    film?: boolean | Expense$filmArgs<ExtArgs>
-    slate?: boolean | Expense$slateArgs<ExtArgs>
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }
   export type ExpenseIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    film?: boolean | Expense$filmArgs<ExtArgs>
-    slate?: boolean | Expense$slateArgs<ExtArgs>
+    film?: boolean | FilmDefaultArgs<ExtArgs>
   }
 
   export type $ExpensePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     name: "Expense"
     objects: {
-      film: Prisma.$FilmPayload<ExtArgs> | null
-      slate: Prisma.$SlatePayload<ExtArgs> | null
+      film: Prisma.$FilmPayload<ExtArgs>
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      film_id: string | null
-      slate_id: string | null
+      film_id: string
       amount: number
-      category: string
-      date: Date
+      category: string | null
       description: string | null
-      vendor: string | null
-      created_at: Date
-      updated_at: Date
+      date: Date
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["expense"]>
     composites: {}
   }
@@ -11407,8 +10558,7 @@ export namespace Prisma {
    */
   export interface Prisma__ExpenseClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    film<T extends Expense$filmArgs<ExtArgs> = {}>(args?: Subset<T, Expense$filmArgs<ExtArgs>>): Prisma__FilmClient<$Result.GetResult<Prisma.$FilmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    slate<T extends Expense$slateArgs<ExtArgs> = {}>(args?: Subset<T, Expense$slateArgs<ExtArgs>>): Prisma__SlateClient<$Result.GetResult<Prisma.$SlatePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    film<T extends FilmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, FilmDefaultArgs<ExtArgs>>): Prisma__FilmClient<$Result.GetResult<Prisma.$FilmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -11440,14 +10590,12 @@ export namespace Prisma {
   interface ExpenseFieldRefs {
     readonly id: FieldRef<"Expense", 'String'>
     readonly film_id: FieldRef<"Expense", 'String'>
-    readonly slate_id: FieldRef<"Expense", 'String'>
     readonly amount: FieldRef<"Expense", 'Float'>
     readonly category: FieldRef<"Expense", 'String'>
-    readonly date: FieldRef<"Expense", 'DateTime'>
     readonly description: FieldRef<"Expense", 'String'>
-    readonly vendor: FieldRef<"Expense", 'String'>
-    readonly created_at: FieldRef<"Expense", 'DateTime'>
-    readonly updated_at: FieldRef<"Expense", 'DateTime'>
+    readonly date: FieldRef<"Expense", 'DateTime'>
+    readonly createdAt: FieldRef<"Expense", 'DateTime'>
+    readonly updatedAt: FieldRef<"Expense", 'DateTime'>
   }
     
 
@@ -11849,44 +10997,6 @@ export namespace Prisma {
   }
 
   /**
-   * Expense.film
-   */
-  export type Expense$filmArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Film
-     */
-    select?: FilmSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Film
-     */
-    omit?: FilmOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: FilmInclude<ExtArgs> | null
-    where?: FilmWhereInput
-  }
-
-  /**
-   * Expense.slate
-   */
-  export type Expense$slateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Slate
-     */
-    select?: SlateSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Slate
-     */
-    omit?: SlateOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: SlateInclude<ExtArgs> | null
-    where?: SlateWhereInput
-  }
-
-  /**
    * Expense without action
    */
   export type ExpenseDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -11906,6 +11016,2257 @@ export namespace Prisma {
 
 
   /**
+   * Model Payment
+   */
+
+  export type AggregatePayment = {
+    _count: PaymentCountAggregateOutputType | null
+    _avg: PaymentAvgAggregateOutputType | null
+    _sum: PaymentSumAggregateOutputType | null
+    _min: PaymentMinAggregateOutputType | null
+    _max: PaymentMaxAggregateOutputType | null
+  }
+
+  export type PaymentAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type PaymentSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type PaymentMinAggregateOutputType = {
+    id: string | null
+    investor_id: string | null
+    amount: number | null
+    type: string | null
+    status: string | null
+    date: Date | null
+    description: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PaymentMaxAggregateOutputType = {
+    id: string | null
+    investor_id: string | null
+    amount: number | null
+    type: string | null
+    status: string | null
+    date: Date | null
+    description: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type PaymentCountAggregateOutputType = {
+    id: number
+    investor_id: number
+    amount: number
+    type: number
+    status: number
+    date: number
+    description: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type PaymentAvgAggregateInputType = {
+    amount?: true
+  }
+
+  export type PaymentSumAggregateInputType = {
+    amount?: true
+  }
+
+  export type PaymentMinAggregateInputType = {
+    id?: true
+    investor_id?: true
+    amount?: true
+    type?: true
+    status?: true
+    date?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PaymentMaxAggregateInputType = {
+    id?: true
+    investor_id?: true
+    amount?: true
+    type?: true
+    status?: true
+    date?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type PaymentCountAggregateInputType = {
+    id?: true
+    investor_id?: true
+    amount?: true
+    type?: true
+    status?: true
+    date?: true
+    description?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type PaymentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Payment to aggregate.
+     */
+    where?: PaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Payments to fetch.
+     */
+    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: PaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Payments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Payments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Payments
+    **/
+    _count?: true | PaymentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: PaymentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: PaymentSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: PaymentMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: PaymentMaxAggregateInputType
+  }
+
+  export type GetPaymentAggregateType<T extends PaymentAggregateArgs> = {
+        [P in keyof T & keyof AggregatePayment]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregatePayment[P]>
+      : GetScalarType<T[P], AggregatePayment[P]>
+  }
+
+
+
+
+  export type PaymentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: PaymentWhereInput
+    orderBy?: PaymentOrderByWithAggregationInput | PaymentOrderByWithAggregationInput[]
+    by: PaymentScalarFieldEnum[] | PaymentScalarFieldEnum
+    having?: PaymentScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: PaymentCountAggregateInputType | true
+    _avg?: PaymentAvgAggregateInputType
+    _sum?: PaymentSumAggregateInputType
+    _min?: PaymentMinAggregateInputType
+    _max?: PaymentMaxAggregateInputType
+  }
+
+  export type PaymentGroupByOutputType = {
+    id: string
+    investor_id: string
+    amount: number
+    type: string | null
+    status: string
+    date: Date
+    description: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: PaymentCountAggregateOutputType | null
+    _avg: PaymentAvgAggregateOutputType | null
+    _sum: PaymentSumAggregateOutputType | null
+    _min: PaymentMinAggregateOutputType | null
+    _max: PaymentMaxAggregateOutputType | null
+  }
+
+  type GetPaymentGroupByPayload<T extends PaymentGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<PaymentGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof PaymentGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], PaymentGroupByOutputType[P]>
+            : GetScalarType<T[P], PaymentGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type PaymentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    investor_id?: boolean
+    amount?: boolean
+    type?: boolean
+    status?: boolean
+    date?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["payment"]>
+
+  export type PaymentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    investor_id?: boolean
+    amount?: boolean
+    type?: boolean
+    status?: boolean
+    date?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["payment"]>
+
+  export type PaymentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    investor_id?: boolean
+    amount?: boolean
+    type?: boolean
+    status?: boolean
+    date?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["payment"]>
+
+  export type PaymentSelectScalar = {
+    id?: boolean
+    investor_id?: boolean
+    amount?: boolean
+    type?: boolean
+    status?: boolean
+    date?: boolean
+    description?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type PaymentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "investor_id" | "amount" | "type" | "status" | "date" | "description" | "createdAt" | "updatedAt", ExtArgs["result"]["payment"]>
+  export type PaymentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }
+  export type PaymentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }
+  export type PaymentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }
+
+  export type $PaymentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Payment"
+    objects: {
+      investor: Prisma.$InvestorPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      investor_id: string
+      amount: number
+      type: string | null
+      status: string
+      date: Date
+      description: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["payment"]>
+    composites: {}
+  }
+
+  type PaymentGetPayload<S extends boolean | null | undefined | PaymentDefaultArgs> = $Result.GetResult<Prisma.$PaymentPayload, S>
+
+  type PaymentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<PaymentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: PaymentCountAggregateInputType | true
+    }
+
+  export interface PaymentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Payment'], meta: { name: 'Payment' } }
+    /**
+     * Find zero or one Payment that matches the filter.
+     * @param {PaymentFindUniqueArgs} args - Arguments to find a Payment
+     * @example
+     * // Get one Payment
+     * const payment = await prisma.payment.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends PaymentFindUniqueArgs>(args: SelectSubset<T, PaymentFindUniqueArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Payment that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {PaymentFindUniqueOrThrowArgs} args - Arguments to find a Payment
+     * @example
+     * // Get one Payment
+     * const payment = await prisma.payment.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends PaymentFindUniqueOrThrowArgs>(args: SelectSubset<T, PaymentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Payment that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentFindFirstArgs} args - Arguments to find a Payment
+     * @example
+     * // Get one Payment
+     * const payment = await prisma.payment.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends PaymentFindFirstArgs>(args?: SelectSubset<T, PaymentFindFirstArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Payment that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentFindFirstOrThrowArgs} args - Arguments to find a Payment
+     * @example
+     * // Get one Payment
+     * const payment = await prisma.payment.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends PaymentFindFirstOrThrowArgs>(args?: SelectSubset<T, PaymentFindFirstOrThrowArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Payments that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Payments
+     * const payments = await prisma.payment.findMany()
+     * 
+     * // Get first 10 Payments
+     * const payments = await prisma.payment.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const paymentWithIdOnly = await prisma.payment.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends PaymentFindManyArgs>(args?: SelectSubset<T, PaymentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Payment.
+     * @param {PaymentCreateArgs} args - Arguments to create a Payment.
+     * @example
+     * // Create one Payment
+     * const Payment = await prisma.payment.create({
+     *   data: {
+     *     // ... data to create a Payment
+     *   }
+     * })
+     * 
+     */
+    create<T extends PaymentCreateArgs>(args: SelectSubset<T, PaymentCreateArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Payments.
+     * @param {PaymentCreateManyArgs} args - Arguments to create many Payments.
+     * @example
+     * // Create many Payments
+     * const payment = await prisma.payment.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends PaymentCreateManyArgs>(args?: SelectSubset<T, PaymentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Payments and returns the data saved in the database.
+     * @param {PaymentCreateManyAndReturnArgs} args - Arguments to create many Payments.
+     * @example
+     * // Create many Payments
+     * const payment = await prisma.payment.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Payments and only return the `id`
+     * const paymentWithIdOnly = await prisma.payment.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends PaymentCreateManyAndReturnArgs>(args?: SelectSubset<T, PaymentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Payment.
+     * @param {PaymentDeleteArgs} args - Arguments to delete one Payment.
+     * @example
+     * // Delete one Payment
+     * const Payment = await prisma.payment.delete({
+     *   where: {
+     *     // ... filter to delete one Payment
+     *   }
+     * })
+     * 
+     */
+    delete<T extends PaymentDeleteArgs>(args: SelectSubset<T, PaymentDeleteArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Payment.
+     * @param {PaymentUpdateArgs} args - Arguments to update one Payment.
+     * @example
+     * // Update one Payment
+     * const payment = await prisma.payment.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends PaymentUpdateArgs>(args: SelectSubset<T, PaymentUpdateArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Payments.
+     * @param {PaymentDeleteManyArgs} args - Arguments to filter Payments to delete.
+     * @example
+     * // Delete a few Payments
+     * const { count } = await prisma.payment.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends PaymentDeleteManyArgs>(args?: SelectSubset<T, PaymentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Payments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Payments
+     * const payment = await prisma.payment.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends PaymentUpdateManyArgs>(args: SelectSubset<T, PaymentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Payments and returns the data updated in the database.
+     * @param {PaymentUpdateManyAndReturnArgs} args - Arguments to update many Payments.
+     * @example
+     * // Update many Payments
+     * const payment = await prisma.payment.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Payments and only return the `id`
+     * const paymentWithIdOnly = await prisma.payment.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends PaymentUpdateManyAndReturnArgs>(args: SelectSubset<T, PaymentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Payment.
+     * @param {PaymentUpsertArgs} args - Arguments to update or create a Payment.
+     * @example
+     * // Update or create a Payment
+     * const payment = await prisma.payment.upsert({
+     *   create: {
+     *     // ... data to create a Payment
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Payment we want to update
+     *   }
+     * })
+     */
+    upsert<T extends PaymentUpsertArgs>(args: SelectSubset<T, PaymentUpsertArgs<ExtArgs>>): Prisma__PaymentClient<$Result.GetResult<Prisma.$PaymentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Payments.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentCountArgs} args - Arguments to filter Payments to count.
+     * @example
+     * // Count the number of Payments
+     * const count = await prisma.payment.count({
+     *   where: {
+     *     // ... the filter for the Payments we want to count
+     *   }
+     * })
+    **/
+    count<T extends PaymentCountArgs>(
+      args?: Subset<T, PaymentCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], PaymentCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Payment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends PaymentAggregateArgs>(args: Subset<T, PaymentAggregateArgs>): Prisma.PrismaPromise<GetPaymentAggregateType<T>>
+
+    /**
+     * Group by Payment.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {PaymentGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends PaymentGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: PaymentGroupByArgs['orderBy'] }
+        : { orderBy?: PaymentGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, PaymentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPaymentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Payment model
+   */
+  readonly fields: PaymentFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Payment.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__PaymentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    investor<T extends InvestorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, InvestorDefaultArgs<ExtArgs>>): Prisma__InvestorClient<$Result.GetResult<Prisma.$InvestorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Payment model
+   */
+  interface PaymentFieldRefs {
+    readonly id: FieldRef<"Payment", 'String'>
+    readonly investor_id: FieldRef<"Payment", 'String'>
+    readonly amount: FieldRef<"Payment", 'Float'>
+    readonly type: FieldRef<"Payment", 'String'>
+    readonly status: FieldRef<"Payment", 'String'>
+    readonly date: FieldRef<"Payment", 'DateTime'>
+    readonly description: FieldRef<"Payment", 'String'>
+    readonly createdAt: FieldRef<"Payment", 'DateTime'>
+    readonly updatedAt: FieldRef<"Payment", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Payment findUnique
+   */
+  export type PaymentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which Payment to fetch.
+     */
+    where: PaymentWhereUniqueInput
+  }
+
+  /**
+   * Payment findUniqueOrThrow
+   */
+  export type PaymentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which Payment to fetch.
+     */
+    where: PaymentWhereUniqueInput
+  }
+
+  /**
+   * Payment findFirst
+   */
+  export type PaymentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which Payment to fetch.
+     */
+    where?: PaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Payments to fetch.
+     */
+    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Payments.
+     */
+    cursor?: PaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Payments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Payments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Payments.
+     */
+    distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
+  }
+
+  /**
+   * Payment findFirstOrThrow
+   */
+  export type PaymentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which Payment to fetch.
+     */
+    where?: PaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Payments to fetch.
+     */
+    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Payments.
+     */
+    cursor?: PaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Payments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Payments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Payments.
+     */
+    distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
+  }
+
+  /**
+   * Payment findMany
+   */
+  export type PaymentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    /**
+     * Filter, which Payments to fetch.
+     */
+    where?: PaymentWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Payments to fetch.
+     */
+    orderBy?: PaymentOrderByWithRelationInput | PaymentOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Payments.
+     */
+    cursor?: PaymentWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Payments from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Payments.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Payments.
+     */
+    distinct?: PaymentScalarFieldEnum | PaymentScalarFieldEnum[]
+  }
+
+  /**
+   * Payment create
+   */
+  export type PaymentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Payment.
+     */
+    data: XOR<PaymentCreateInput, PaymentUncheckedCreateInput>
+  }
+
+  /**
+   * Payment createMany
+   */
+  export type PaymentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Payments.
+     */
+    data: PaymentCreateManyInput | PaymentCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Payment createManyAndReturn
+   */
+  export type PaymentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * The data used to create many Payments.
+     */
+    data: PaymentCreateManyInput | PaymentCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Payment update
+   */
+  export type PaymentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Payment.
+     */
+    data: XOR<PaymentUpdateInput, PaymentUncheckedUpdateInput>
+    /**
+     * Choose, which Payment to update.
+     */
+    where: PaymentWhereUniqueInput
+  }
+
+  /**
+   * Payment updateMany
+   */
+  export type PaymentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Payments.
+     */
+    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyInput>
+    /**
+     * Filter which Payments to update
+     */
+    where?: PaymentWhereInput
+    /**
+     * Limit how many Payments to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Payment updateManyAndReturn
+   */
+  export type PaymentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * The data used to update Payments.
+     */
+    data: XOR<PaymentUpdateManyMutationInput, PaymentUncheckedUpdateManyInput>
+    /**
+     * Filter which Payments to update
+     */
+    where?: PaymentWhereInput
+    /**
+     * Limit how many Payments to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Payment upsert
+   */
+  export type PaymentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Payment to update in case it exists.
+     */
+    where: PaymentWhereUniqueInput
+    /**
+     * In case the Payment found by the `where` argument doesn't exist, create a new Payment with this data.
+     */
+    create: XOR<PaymentCreateInput, PaymentUncheckedCreateInput>
+    /**
+     * In case the Payment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<PaymentUpdateInput, PaymentUncheckedUpdateInput>
+  }
+
+  /**
+   * Payment delete
+   */
+  export type PaymentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+    /**
+     * Filter which Payment to delete.
+     */
+    where: PaymentWhereUniqueInput
+  }
+
+  /**
+   * Payment deleteMany
+   */
+  export type PaymentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Payments to delete
+     */
+    where?: PaymentWhereInput
+    /**
+     * Limit how many Payments to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Payment without action
+   */
+  export type PaymentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Payment
+     */
+    select?: PaymentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Payment
+     */
+    omit?: PaymentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: PaymentInclude<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Notification
+   */
+
+  export type AggregateNotification = {
+    _count: NotificationCountAggregateOutputType | null
+    _min: NotificationMinAggregateOutputType | null
+    _max: NotificationMaxAggregateOutputType | null
+  }
+
+  export type NotificationMinAggregateOutputType = {
+    id: string | null
+    investor_id: string | null
+    title: string | null
+    message: string | null
+    read: boolean | null
+    type: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NotificationMaxAggregateOutputType = {
+    id: string | null
+    investor_id: string | null
+    title: string | null
+    message: string | null
+    read: boolean | null
+    type: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type NotificationCountAggregateOutputType = {
+    id: number
+    investor_id: number
+    title: number
+    message: number
+    read: number
+    type: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type NotificationMinAggregateInputType = {
+    id?: true
+    investor_id?: true
+    title?: true
+    message?: true
+    read?: true
+    type?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NotificationMaxAggregateInputType = {
+    id?: true
+    investor_id?: true
+    title?: true
+    message?: true
+    read?: true
+    type?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type NotificationCountAggregateInputType = {
+    id?: true
+    investor_id?: true
+    title?: true
+    message?: true
+    read?: true
+    type?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type NotificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Notification to aggregate.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Notifications
+    **/
+    _count?: true | NotificationCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: NotificationMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: NotificationMaxAggregateInputType
+  }
+
+  export type GetNotificationAggregateType<T extends NotificationAggregateArgs> = {
+        [P in keyof T & keyof AggregateNotification]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateNotification[P]>
+      : GetScalarType<T[P], AggregateNotification[P]>
+  }
+
+
+
+
+  export type NotificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: NotificationWhereInput
+    orderBy?: NotificationOrderByWithAggregationInput | NotificationOrderByWithAggregationInput[]
+    by: NotificationScalarFieldEnum[] | NotificationScalarFieldEnum
+    having?: NotificationScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: NotificationCountAggregateInputType | true
+    _min?: NotificationMinAggregateInputType
+    _max?: NotificationMaxAggregateInputType
+  }
+
+  export type NotificationGroupByOutputType = {
+    id: string
+    investor_id: string
+    title: string
+    message: string
+    read: boolean
+    type: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: NotificationCountAggregateOutputType | null
+    _min: NotificationMinAggregateOutputType | null
+    _max: NotificationMaxAggregateOutputType | null
+  }
+
+  type GetNotificationGroupByPayload<T extends NotificationGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<NotificationGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof NotificationGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], NotificationGroupByOutputType[P]>
+            : GetScalarType<T[P], NotificationGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type NotificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    investor_id?: boolean
+    title?: boolean
+    message?: boolean
+    read?: boolean
+    type?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    investor_id?: boolean
+    title?: boolean
+    message?: boolean
+    read?: boolean
+    type?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    investor_id?: boolean
+    title?: boolean
+    message?: boolean
+    read?: boolean
+    type?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["notification"]>
+
+  export type NotificationSelectScalar = {
+    id?: boolean
+    investor_id?: boolean
+    title?: boolean
+    message?: boolean
+    read?: boolean
+    type?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type NotificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "investor_id" | "title" | "message" | "read" | "type" | "createdAt" | "updatedAt", ExtArgs["result"]["notification"]>
+  export type NotificationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }
+  export type NotificationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }
+  export type NotificationIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }
+
+  export type $NotificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Notification"
+    objects: {
+      investor: Prisma.$InvestorPayload<ExtArgs>
+    }
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      investor_id: string
+      title: string
+      message: string
+      read: boolean
+      type: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["notification"]>
+    composites: {}
+  }
+
+  type NotificationGetPayload<S extends boolean | null | undefined | NotificationDefaultArgs> = $Result.GetResult<Prisma.$NotificationPayload, S>
+
+  type NotificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<NotificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: NotificationCountAggregateInputType | true
+    }
+
+  export interface NotificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Notification'], meta: { name: 'Notification' } }
+    /**
+     * Find zero or one Notification that matches the filter.
+     * @param {NotificationFindUniqueArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends NotificationFindUniqueArgs>(args: SelectSubset<T, NotificationFindUniqueArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Notification that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {NotificationFindUniqueOrThrowArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends NotificationFindUniqueOrThrowArgs>(args: SelectSubset<T, NotificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Notification that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindFirstArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends NotificationFindFirstArgs>(args?: SelectSubset<T, NotificationFindFirstArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Notification that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindFirstOrThrowArgs} args - Arguments to find a Notification
+     * @example
+     * // Get one Notification
+     * const notification = await prisma.notification.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends NotificationFindFirstOrThrowArgs>(args?: SelectSubset<T, NotificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Notifications that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Notifications
+     * const notifications = await prisma.notification.findMany()
+     * 
+     * // Get first 10 Notifications
+     * const notifications = await prisma.notification.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const notificationWithIdOnly = await prisma.notification.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends NotificationFindManyArgs>(args?: SelectSubset<T, NotificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Notification.
+     * @param {NotificationCreateArgs} args - Arguments to create a Notification.
+     * @example
+     * // Create one Notification
+     * const Notification = await prisma.notification.create({
+     *   data: {
+     *     // ... data to create a Notification
+     *   }
+     * })
+     * 
+     */
+    create<T extends NotificationCreateArgs>(args: SelectSubset<T, NotificationCreateArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Notifications.
+     * @param {NotificationCreateManyArgs} args - Arguments to create many Notifications.
+     * @example
+     * // Create many Notifications
+     * const notification = await prisma.notification.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends NotificationCreateManyArgs>(args?: SelectSubset<T, NotificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Notifications and returns the data saved in the database.
+     * @param {NotificationCreateManyAndReturnArgs} args - Arguments to create many Notifications.
+     * @example
+     * // Create many Notifications
+     * const notification = await prisma.notification.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Notifications and only return the `id`
+     * const notificationWithIdOnly = await prisma.notification.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends NotificationCreateManyAndReturnArgs>(args?: SelectSubset<T, NotificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Notification.
+     * @param {NotificationDeleteArgs} args - Arguments to delete one Notification.
+     * @example
+     * // Delete one Notification
+     * const Notification = await prisma.notification.delete({
+     *   where: {
+     *     // ... filter to delete one Notification
+     *   }
+     * })
+     * 
+     */
+    delete<T extends NotificationDeleteArgs>(args: SelectSubset<T, NotificationDeleteArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Notification.
+     * @param {NotificationUpdateArgs} args - Arguments to update one Notification.
+     * @example
+     * // Update one Notification
+     * const notification = await prisma.notification.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends NotificationUpdateArgs>(args: SelectSubset<T, NotificationUpdateArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Notifications.
+     * @param {NotificationDeleteManyArgs} args - Arguments to filter Notifications to delete.
+     * @example
+     * // Delete a few Notifications
+     * const { count } = await prisma.notification.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends NotificationDeleteManyArgs>(args?: SelectSubset<T, NotificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Notifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Notifications
+     * const notification = await prisma.notification.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends NotificationUpdateManyArgs>(args: SelectSubset<T, NotificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Notifications and returns the data updated in the database.
+     * @param {NotificationUpdateManyAndReturnArgs} args - Arguments to update many Notifications.
+     * @example
+     * // Update many Notifications
+     * const notification = await prisma.notification.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Notifications and only return the `id`
+     * const notificationWithIdOnly = await prisma.notification.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends NotificationUpdateManyAndReturnArgs>(args: SelectSubset<T, NotificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Notification.
+     * @param {NotificationUpsertArgs} args - Arguments to update or create a Notification.
+     * @example
+     * // Update or create a Notification
+     * const notification = await prisma.notification.upsert({
+     *   create: {
+     *     // ... data to create a Notification
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Notification we want to update
+     *   }
+     * })
+     */
+    upsert<T extends NotificationUpsertArgs>(args: SelectSubset<T, NotificationUpsertArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Notifications.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationCountArgs} args - Arguments to filter Notifications to count.
+     * @example
+     * // Count the number of Notifications
+     * const count = await prisma.notification.count({
+     *   where: {
+     *     // ... the filter for the Notifications we want to count
+     *   }
+     * })
+    **/
+    count<T extends NotificationCountArgs>(
+      args?: Subset<T, NotificationCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], NotificationCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Notification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends NotificationAggregateArgs>(args: Subset<T, NotificationAggregateArgs>): Prisma.PrismaPromise<GetNotificationAggregateType<T>>
+
+    /**
+     * Group by Notification.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {NotificationGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends NotificationGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: NotificationGroupByArgs['orderBy'] }
+        : { orderBy?: NotificationGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, NotificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNotificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Notification model
+   */
+  readonly fields: NotificationFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Notification.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__NotificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    investor<T extends InvestorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, InvestorDefaultArgs<ExtArgs>>): Prisma__InvestorClient<$Result.GetResult<Prisma.$InvestorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Notification model
+   */
+  interface NotificationFieldRefs {
+    readonly id: FieldRef<"Notification", 'String'>
+    readonly investor_id: FieldRef<"Notification", 'String'>
+    readonly title: FieldRef<"Notification", 'String'>
+    readonly message: FieldRef<"Notification", 'String'>
+    readonly read: FieldRef<"Notification", 'Boolean'>
+    readonly type: FieldRef<"Notification", 'String'>
+    readonly createdAt: FieldRef<"Notification", 'DateTime'>
+    readonly updatedAt: FieldRef<"Notification", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Notification findUnique
+   */
+  export type NotificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification findUniqueOrThrow
+   */
+  export type NotificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification findFirst
+   */
+  export type NotificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notifications.
+     */
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification findFirstOrThrow
+   */
+  export type NotificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notification to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notifications.
+     */
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification findMany
+   */
+  export type NotificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter, which Notifications to fetch.
+     */
+    where?: NotificationWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Notifications to fetch.
+     */
+    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Notifications.
+     */
+    cursor?: NotificationWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Notifications from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Notifications.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Notifications.
+     */
+    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+  }
+
+  /**
+   * Notification create
+   */
+  export type NotificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Notification.
+     */
+    data: XOR<NotificationCreateInput, NotificationUncheckedCreateInput>
+  }
+
+  /**
+   * Notification createMany
+   */
+  export type NotificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Notifications.
+     */
+    data: NotificationCreateManyInput | NotificationCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Notification createManyAndReturn
+   */
+  export type NotificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * The data used to create many Notifications.
+     */
+    data: NotificationCreateManyInput | NotificationCreateManyInput[]
+    skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationIncludeCreateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Notification update
+   */
+  export type NotificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The data needed to update a Notification.
+     */
+    data: XOR<NotificationUpdateInput, NotificationUncheckedUpdateInput>
+    /**
+     * Choose, which Notification to update.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification updateMany
+   */
+  export type NotificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Notifications.
+     */
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyInput>
+    /**
+     * Filter which Notifications to update
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Notification updateManyAndReturn
+   */
+  export type NotificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * The data used to update Notifications.
+     */
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyInput>
+    /**
+     * Filter which Notifications to update
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Notification upsert
+   */
+  export type NotificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Notification to update in case it exists.
+     */
+    where: NotificationWhereUniqueInput
+    /**
+     * In case the Notification found by the `where` argument doesn't exist, create a new Notification with this data.
+     */
+    create: XOR<NotificationCreateInput, NotificationUncheckedCreateInput>
+    /**
+     * In case the Notification was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<NotificationUpdateInput, NotificationUncheckedUpdateInput>
+  }
+
+  /**
+   * Notification delete
+   */
+  export type NotificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+    /**
+     * Filter which Notification to delete.
+     */
+    where: NotificationWhereUniqueInput
+  }
+
+  /**
+   * Notification deleteMany
+   */
+  export type NotificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Notifications to delete
+     */
+    where?: NotificationWhereInput
+    /**
+     * Limit how many Notifications to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Notification without action
+   */
+  export type NotificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Notification
+     */
+    select?: NotificationSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Notification
+     */
+    omit?: NotificationOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: NotificationInclude<ExtArgs> | null
+  }
+
+
+  /**
    * Model Document
    */
 
@@ -11918,34 +13279,37 @@ export namespace Prisma {
   export type DocumentMinAggregateOutputType = {
     id: string | null
     investor_id: string | null
-    name: string | null
+    title: string | null
     file_url: string | null
-    doc_type: string | null
+    file_type: string | null
     description: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    is_global: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type DocumentMaxAggregateOutputType = {
     id: string | null
     investor_id: string | null
-    name: string | null
+    title: string | null
     file_url: string | null
-    doc_type: string | null
+    file_type: string | null
     description: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    is_global: boolean | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
   export type DocumentCountAggregateOutputType = {
     id: number
     investor_id: number
-    name: number
+    title: number
     file_url: number
-    doc_type: number
+    file_type: number
     description: number
-    created_at: number
-    updated_at: number
+    is_global: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
@@ -11953,34 +13317,37 @@ export namespace Prisma {
   export type DocumentMinAggregateInputType = {
     id?: true
     investor_id?: true
-    name?: true
+    title?: true
     file_url?: true
-    doc_type?: true
+    file_type?: true
     description?: true
-    created_at?: true
-    updated_at?: true
+    is_global?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type DocumentMaxAggregateInputType = {
     id?: true
     investor_id?: true
-    name?: true
+    title?: true
     file_url?: true
-    doc_type?: true
+    file_type?: true
     description?: true
-    created_at?: true
-    updated_at?: true
+    is_global?: true
+    createdAt?: true
+    updatedAt?: true
   }
 
   export type DocumentCountAggregateInputType = {
     id?: true
     investor_id?: true
-    name?: true
+    title?: true
     file_url?: true
-    doc_type?: true
+    file_type?: true
     description?: true
-    created_at?: true
-    updated_at?: true
+    is_global?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
@@ -12059,12 +13426,13 @@ export namespace Prisma {
   export type DocumentGroupByOutputType = {
     id: string
     investor_id: string | null
-    name: string
-    file_url: string
-    doc_type: string
+    title: string
+    file_url: string | null
+    file_type: string | null
     description: string | null
-    created_at: Date
-    updated_at: Date
+    is_global: boolean
+    createdAt: Date
+    updatedAt: Date
     _count: DocumentCountAggregateOutputType | null
     _min: DocumentMinAggregateOutputType | null
     _max: DocumentMaxAggregateOutputType | null
@@ -12087,51 +13455,55 @@ export namespace Prisma {
   export type DocumentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     investor_id?: boolean
-    name?: boolean
+    title?: boolean
     file_url?: boolean
-    doc_type?: boolean
+    file_type?: boolean
     description?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    is_global?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     investor?: boolean | Document$investorArgs<ExtArgs>
   }, ExtArgs["result"]["document"]>
 
   export type DocumentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     investor_id?: boolean
-    name?: boolean
+    title?: boolean
     file_url?: boolean
-    doc_type?: boolean
+    file_type?: boolean
     description?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    is_global?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     investor?: boolean | Document$investorArgs<ExtArgs>
   }, ExtArgs["result"]["document"]>
 
   export type DocumentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     investor_id?: boolean
-    name?: boolean
+    title?: boolean
     file_url?: boolean
-    doc_type?: boolean
+    file_type?: boolean
     description?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    is_global?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
     investor?: boolean | Document$investorArgs<ExtArgs>
   }, ExtArgs["result"]["document"]>
 
   export type DocumentSelectScalar = {
     id?: boolean
     investor_id?: boolean
-    name?: boolean
+    title?: boolean
     file_url?: boolean
-    doc_type?: boolean
+    file_type?: boolean
     description?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    is_global?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type DocumentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "investor_id" | "name" | "file_url" | "doc_type" | "description" | "created_at" | "updated_at", ExtArgs["result"]["document"]>
+  export type DocumentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "investor_id" | "title" | "file_url" | "file_type" | "description" | "is_global" | "createdAt" | "updatedAt", ExtArgs["result"]["document"]>
   export type DocumentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     investor?: boolean | Document$investorArgs<ExtArgs>
   }
@@ -12150,12 +13522,13 @@ export namespace Prisma {
     scalars: $Extensions.GetPayloadResult<{
       id: string
       investor_id: string | null
-      name: string
-      file_url: string
-      doc_type: string
+      title: string
+      file_url: string | null
+      file_type: string | null
       description: string | null
-      created_at: Date
-      updated_at: Date
+      is_global: boolean
+      createdAt: Date
+      updatedAt: Date
     }, ExtArgs["result"]["document"]>
     composites: {}
   }
@@ -12582,12 +13955,13 @@ export namespace Prisma {
   interface DocumentFieldRefs {
     readonly id: FieldRef<"Document", 'String'>
     readonly investor_id: FieldRef<"Document", 'String'>
-    readonly name: FieldRef<"Document", 'String'>
+    readonly title: FieldRef<"Document", 'String'>
     readonly file_url: FieldRef<"Document", 'String'>
-    readonly doc_type: FieldRef<"Document", 'String'>
+    readonly file_type: FieldRef<"Document", 'String'>
     readonly description: FieldRef<"Document", 'String'>
-    readonly created_at: FieldRef<"Document", 'DateTime'>
-    readonly updated_at: FieldRef<"Document", 'DateTime'>
+    readonly is_global: FieldRef<"Document", 'Boolean'>
+    readonly createdAt: FieldRef<"Document", 'DateTime'>
+    readonly updatedAt: FieldRef<"Document", 'DateTime'>
   }
     
 
@@ -13027,384 +14401,432 @@ export namespace Prisma {
 
 
   /**
-   * Model Notification
+   * Model Reinvestment
    */
 
-  export type AggregateNotification = {
-    _count: NotificationCountAggregateOutputType | null
-    _min: NotificationMinAggregateOutputType | null
-    _max: NotificationMaxAggregateOutputType | null
+  export type AggregateReinvestment = {
+    _count: ReinvestmentCountAggregateOutputType | null
+    _avg: ReinvestmentAvgAggregateOutputType | null
+    _sum: ReinvestmentSumAggregateOutputType | null
+    _min: ReinvestmentMinAggregateOutputType | null
+    _max: ReinvestmentMaxAggregateOutputType | null
   }
 
-  export type NotificationMinAggregateOutputType = {
+  export type ReinvestmentAvgAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type ReinvestmentSumAggregateOutputType = {
+    amount: number | null
+  }
+
+  export type ReinvestmentMinAggregateOutputType = {
     id: string | null
-    user_email: string | null
-    title: string | null
-    message: string | null
-    type: string | null
-    read: boolean | null
-    link: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    investor_id: string | null
+    amount: number | null
+    from_investment_id: string | null
+    to_slate_id: string | null
+    status: string | null
+    date: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type NotificationMaxAggregateOutputType = {
+  export type ReinvestmentMaxAggregateOutputType = {
     id: string | null
-    user_email: string | null
-    title: string | null
-    message: string | null
-    type: string | null
-    read: boolean | null
-    link: string | null
-    created_at: Date | null
-    updated_at: Date | null
+    investor_id: string | null
+    amount: number | null
+    from_investment_id: string | null
+    to_slate_id: string | null
+    status: string | null
+    date: Date | null
+    createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type NotificationCountAggregateOutputType = {
+  export type ReinvestmentCountAggregateOutputType = {
     id: number
-    user_email: number
-    title: number
-    message: number
-    type: number
-    read: number
-    link: number
-    created_at: number
-    updated_at: number
+    investor_id: number
+    amount: number
+    from_investment_id: number
+    to_slate_id: number
+    status: number
+    date: number
+    createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
-  export type NotificationMinAggregateInputType = {
-    id?: true
-    user_email?: true
-    title?: true
-    message?: true
-    type?: true
-    read?: true
-    link?: true
-    created_at?: true
-    updated_at?: true
+  export type ReinvestmentAvgAggregateInputType = {
+    amount?: true
   }
 
-  export type NotificationMaxAggregateInputType = {
-    id?: true
-    user_email?: true
-    title?: true
-    message?: true
-    type?: true
-    read?: true
-    link?: true
-    created_at?: true
-    updated_at?: true
+  export type ReinvestmentSumAggregateInputType = {
+    amount?: true
   }
 
-  export type NotificationCountAggregateInputType = {
+  export type ReinvestmentMinAggregateInputType = {
     id?: true
-    user_email?: true
-    title?: true
-    message?: true
-    type?: true
-    read?: true
-    link?: true
-    created_at?: true
-    updated_at?: true
+    investor_id?: true
+    amount?: true
+    from_investment_id?: true
+    to_slate_id?: true
+    status?: true
+    date?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ReinvestmentMaxAggregateInputType = {
+    id?: true
+    investor_id?: true
+    amount?: true
+    from_investment_id?: true
+    to_slate_id?: true
+    status?: true
+    date?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type ReinvestmentCountAggregateInputType = {
+    id?: true
+    investor_id?: true
+    amount?: true
+    from_investment_id?: true
+    to_slate_id?: true
+    status?: true
+    date?: true
+    createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
-  export type NotificationAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Notification to aggregate.
+     * Filter which Reinvestment to aggregate.
      */
-    where?: NotificationWhereInput
+    where?: ReinvestmentWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Notifications to fetch.
+     * Determine the order of Reinvestments to fetch.
      */
-    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    orderBy?: ReinvestmentOrderByWithRelationInput | ReinvestmentOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: NotificationWhereUniqueInput
+    cursor?: ReinvestmentWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Notifications from the position of the cursor.
+     * Take `±n` Reinvestments from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Notifications.
+     * Skip the first `n` Reinvestments.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Notifications
+     * Count returned Reinvestments
     **/
-    _count?: true | NotificationCountAggregateInputType
+    _count?: true | ReinvestmentCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: ReinvestmentAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: ReinvestmentSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: NotificationMinAggregateInputType
+    _min?: ReinvestmentMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: NotificationMaxAggregateInputType
+    _max?: ReinvestmentMaxAggregateInputType
   }
 
-  export type GetNotificationAggregateType<T extends NotificationAggregateArgs> = {
-        [P in keyof T & keyof AggregateNotification]: P extends '_count' | 'count'
+  export type GetReinvestmentAggregateType<T extends ReinvestmentAggregateArgs> = {
+        [P in keyof T & keyof AggregateReinvestment]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateNotification[P]>
-      : GetScalarType<T[P], AggregateNotification[P]>
+        : GetScalarType<T[P], AggregateReinvestment[P]>
+      : GetScalarType<T[P], AggregateReinvestment[P]>
   }
 
 
 
 
-  export type NotificationGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: NotificationWhereInput
-    orderBy?: NotificationOrderByWithAggregationInput | NotificationOrderByWithAggregationInput[]
-    by: NotificationScalarFieldEnum[] | NotificationScalarFieldEnum
-    having?: NotificationScalarWhereWithAggregatesInput
+  export type ReinvestmentGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReinvestmentWhereInput
+    orderBy?: ReinvestmentOrderByWithAggregationInput | ReinvestmentOrderByWithAggregationInput[]
+    by: ReinvestmentScalarFieldEnum[] | ReinvestmentScalarFieldEnum
+    having?: ReinvestmentScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: NotificationCountAggregateInputType | true
-    _min?: NotificationMinAggregateInputType
-    _max?: NotificationMaxAggregateInputType
+    _count?: ReinvestmentCountAggregateInputType | true
+    _avg?: ReinvestmentAvgAggregateInputType
+    _sum?: ReinvestmentSumAggregateInputType
+    _min?: ReinvestmentMinAggregateInputType
+    _max?: ReinvestmentMaxAggregateInputType
   }
 
-  export type NotificationGroupByOutputType = {
+  export type ReinvestmentGroupByOutputType = {
     id: string
-    user_email: string
-    title: string
-    message: string
-    type: string
-    read: boolean
-    link: string | null
-    created_at: Date
-    updated_at: Date
-    _count: NotificationCountAggregateOutputType | null
-    _min: NotificationMinAggregateOutputType | null
-    _max: NotificationMaxAggregateOutputType | null
+    investor_id: string
+    amount: number
+    from_investment_id: string | null
+    to_slate_id: string | null
+    status: string
+    date: Date | null
+    createdAt: Date
+    updatedAt: Date
+    _count: ReinvestmentCountAggregateOutputType | null
+    _avg: ReinvestmentAvgAggregateOutputType | null
+    _sum: ReinvestmentSumAggregateOutputType | null
+    _min: ReinvestmentMinAggregateOutputType | null
+    _max: ReinvestmentMaxAggregateOutputType | null
   }
 
-  type GetNotificationGroupByPayload<T extends NotificationGroupByArgs> = Prisma.PrismaPromise<
+  type GetReinvestmentGroupByPayload<T extends ReinvestmentGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<NotificationGroupByOutputType, T['by']> &
+      PickEnumerable<ReinvestmentGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof NotificationGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ReinvestmentGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], NotificationGroupByOutputType[P]>
-            : GetScalarType<T[P], NotificationGroupByOutputType[P]>
+              : GetScalarType<T[P], ReinvestmentGroupByOutputType[P]>
+            : GetScalarType<T[P], ReinvestmentGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type NotificationSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ReinvestmentSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    user_email?: boolean
-    title?: boolean
-    message?: boolean
-    type?: boolean
-    read?: boolean
-    link?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-  }, ExtArgs["result"]["notification"]>
+    investor_id?: boolean
+    amount?: boolean
+    from_investment_id?: boolean
+    to_slate_id?: boolean
+    status?: boolean
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["reinvestment"]>
 
-  export type NotificationSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ReinvestmentSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    user_email?: boolean
-    title?: boolean
-    message?: boolean
-    type?: boolean
-    read?: boolean
-    link?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-  }, ExtArgs["result"]["notification"]>
+    investor_id?: boolean
+    amount?: boolean
+    from_investment_id?: boolean
+    to_slate_id?: boolean
+    status?: boolean
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["reinvestment"]>
 
-  export type NotificationSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ReinvestmentSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    user_email?: boolean
-    title?: boolean
-    message?: boolean
-    type?: boolean
-    read?: boolean
-    link?: boolean
-    created_at?: boolean
-    updated_at?: boolean
-  }, ExtArgs["result"]["notification"]>
+    investor_id?: boolean
+    amount?: boolean
+    from_investment_id?: boolean
+    to_slate_id?: boolean
+    status?: boolean
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["reinvestment"]>
 
-  export type NotificationSelectScalar = {
+  export type ReinvestmentSelectScalar = {
     id?: boolean
-    user_email?: boolean
-    title?: boolean
-    message?: boolean
-    type?: boolean
-    read?: boolean
-    link?: boolean
-    created_at?: boolean
-    updated_at?: boolean
+    investor_id?: boolean
+    amount?: boolean
+    from_investment_id?: boolean
+    to_slate_id?: boolean
+    status?: boolean
+    date?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type NotificationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_email" | "title" | "message" | "type" | "read" | "link" | "created_at" | "updated_at", ExtArgs["result"]["notification"]>
+  export type ReinvestmentOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "investor_id" | "amount" | "from_investment_id" | "to_slate_id" | "status" | "date" | "createdAt" | "updatedAt", ExtArgs["result"]["reinvestment"]>
+  export type ReinvestmentInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }
+  export type ReinvestmentIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }
+  export type ReinvestmentIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    investor?: boolean | InvestorDefaultArgs<ExtArgs>
+  }
 
-  export type $NotificationPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Notification"
-    objects: {}
+  export type $ReinvestmentPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Reinvestment"
+    objects: {
+      investor: Prisma.$InvestorPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      user_email: string
-      title: string
-      message: string
-      type: string
-      read: boolean
-      link: string | null
-      created_at: Date
-      updated_at: Date
-    }, ExtArgs["result"]["notification"]>
+      investor_id: string
+      amount: number
+      from_investment_id: string | null
+      to_slate_id: string | null
+      status: string
+      date: Date | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["reinvestment"]>
     composites: {}
   }
 
-  type NotificationGetPayload<S extends boolean | null | undefined | NotificationDefaultArgs> = $Result.GetResult<Prisma.$NotificationPayload, S>
+  type ReinvestmentGetPayload<S extends boolean | null | undefined | ReinvestmentDefaultArgs> = $Result.GetResult<Prisma.$ReinvestmentPayload, S>
 
-  type NotificationCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<NotificationFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: NotificationCountAggregateInputType | true
+  type ReinvestmentCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ReinvestmentFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ReinvestmentCountAggregateInputType | true
     }
 
-  export interface NotificationDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Notification'], meta: { name: 'Notification' } }
+  export interface ReinvestmentDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Reinvestment'], meta: { name: 'Reinvestment' } }
     /**
-     * Find zero or one Notification that matches the filter.
-     * @param {NotificationFindUniqueArgs} args - Arguments to find a Notification
+     * Find zero or one Reinvestment that matches the filter.
+     * @param {ReinvestmentFindUniqueArgs} args - Arguments to find a Reinvestment
      * @example
-     * // Get one Notification
-     * const notification = await prisma.notification.findUnique({
+     * // Get one Reinvestment
+     * const reinvestment = await prisma.reinvestment.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends NotificationFindUniqueArgs>(args: SelectSubset<T, NotificationFindUniqueArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends ReinvestmentFindUniqueArgs>(args: SelectSubset<T, ReinvestmentFindUniqueArgs<ExtArgs>>): Prisma__ReinvestmentClient<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Notification that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Reinvestment that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {NotificationFindUniqueOrThrowArgs} args - Arguments to find a Notification
+     * @param {ReinvestmentFindUniqueOrThrowArgs} args - Arguments to find a Reinvestment
      * @example
-     * // Get one Notification
-     * const notification = await prisma.notification.findUniqueOrThrow({
+     * // Get one Reinvestment
+     * const reinvestment = await prisma.reinvestment.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends NotificationFindUniqueOrThrowArgs>(args: SelectSubset<T, NotificationFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends ReinvestmentFindUniqueOrThrowArgs>(args: SelectSubset<T, ReinvestmentFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ReinvestmentClient<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Notification that matches the filter.
+     * Find the first Reinvestment that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NotificationFindFirstArgs} args - Arguments to find a Notification
+     * @param {ReinvestmentFindFirstArgs} args - Arguments to find a Reinvestment
      * @example
-     * // Get one Notification
-     * const notification = await prisma.notification.findFirst({
+     * // Get one Reinvestment
+     * const reinvestment = await prisma.reinvestment.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends NotificationFindFirstArgs>(args?: SelectSubset<T, NotificationFindFirstArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends ReinvestmentFindFirstArgs>(args?: SelectSubset<T, ReinvestmentFindFirstArgs<ExtArgs>>): Prisma__ReinvestmentClient<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Notification that matches the filter or
+     * Find the first Reinvestment that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NotificationFindFirstOrThrowArgs} args - Arguments to find a Notification
+     * @param {ReinvestmentFindFirstOrThrowArgs} args - Arguments to find a Reinvestment
      * @example
-     * // Get one Notification
-     * const notification = await prisma.notification.findFirstOrThrow({
+     * // Get one Reinvestment
+     * const reinvestment = await prisma.reinvestment.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends NotificationFindFirstOrThrowArgs>(args?: SelectSubset<T, NotificationFindFirstOrThrowArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends ReinvestmentFindFirstOrThrowArgs>(args?: SelectSubset<T, ReinvestmentFindFirstOrThrowArgs<ExtArgs>>): Prisma__ReinvestmentClient<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Notifications that matches the filter.
+     * Find zero or more Reinvestments that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NotificationFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {ReinvestmentFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Notifications
-     * const notifications = await prisma.notification.findMany()
+     * // Get all Reinvestments
+     * const reinvestments = await prisma.reinvestment.findMany()
      * 
-     * // Get first 10 Notifications
-     * const notifications = await prisma.notification.findMany({ take: 10 })
+     * // Get first 10 Reinvestments
+     * const reinvestments = await prisma.reinvestment.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const notificationWithIdOnly = await prisma.notification.findMany({ select: { id: true } })
+     * const reinvestmentWithIdOnly = await prisma.reinvestment.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends NotificationFindManyArgs>(args?: SelectSubset<T, NotificationFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends ReinvestmentFindManyArgs>(args?: SelectSubset<T, ReinvestmentFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Notification.
-     * @param {NotificationCreateArgs} args - Arguments to create a Notification.
+     * Create a Reinvestment.
+     * @param {ReinvestmentCreateArgs} args - Arguments to create a Reinvestment.
      * @example
-     * // Create one Notification
-     * const Notification = await prisma.notification.create({
+     * // Create one Reinvestment
+     * const Reinvestment = await prisma.reinvestment.create({
      *   data: {
-     *     // ... data to create a Notification
+     *     // ... data to create a Reinvestment
      *   }
      * })
      * 
      */
-    create<T extends NotificationCreateArgs>(args: SelectSubset<T, NotificationCreateArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends ReinvestmentCreateArgs>(args: SelectSubset<T, ReinvestmentCreateArgs<ExtArgs>>): Prisma__ReinvestmentClient<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Notifications.
-     * @param {NotificationCreateManyArgs} args - Arguments to create many Notifications.
+     * Create many Reinvestments.
+     * @param {ReinvestmentCreateManyArgs} args - Arguments to create many Reinvestments.
      * @example
-     * // Create many Notifications
-     * const notification = await prisma.notification.createMany({
+     * // Create many Reinvestments
+     * const reinvestment = await prisma.reinvestment.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends NotificationCreateManyArgs>(args?: SelectSubset<T, NotificationCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends ReinvestmentCreateManyArgs>(args?: SelectSubset<T, ReinvestmentCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Notifications and returns the data saved in the database.
-     * @param {NotificationCreateManyAndReturnArgs} args - Arguments to create many Notifications.
+     * Create many Reinvestments and returns the data saved in the database.
+     * @param {ReinvestmentCreateManyAndReturnArgs} args - Arguments to create many Reinvestments.
      * @example
-     * // Create many Notifications
-     * const notification = await prisma.notification.createManyAndReturn({
+     * // Create many Reinvestments
+     * const reinvestment = await prisma.reinvestment.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Notifications and only return the `id`
-     * const notificationWithIdOnly = await prisma.notification.createManyAndReturn({
+     * // Create many Reinvestments and only return the `id`
+     * const reinvestmentWithIdOnly = await prisma.reinvestment.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -13414,28 +14836,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends NotificationCreateManyAndReturnArgs>(args?: SelectSubset<T, NotificationCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends ReinvestmentCreateManyAndReturnArgs>(args?: SelectSubset<T, ReinvestmentCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Notification.
-     * @param {NotificationDeleteArgs} args - Arguments to delete one Notification.
+     * Delete a Reinvestment.
+     * @param {ReinvestmentDeleteArgs} args - Arguments to delete one Reinvestment.
      * @example
-     * // Delete one Notification
-     * const Notification = await prisma.notification.delete({
+     * // Delete one Reinvestment
+     * const Reinvestment = await prisma.reinvestment.delete({
      *   where: {
-     *     // ... filter to delete one Notification
+     *     // ... filter to delete one Reinvestment
      *   }
      * })
      * 
      */
-    delete<T extends NotificationDeleteArgs>(args: SelectSubset<T, NotificationDeleteArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends ReinvestmentDeleteArgs>(args: SelectSubset<T, ReinvestmentDeleteArgs<ExtArgs>>): Prisma__ReinvestmentClient<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Notification.
-     * @param {NotificationUpdateArgs} args - Arguments to update one Notification.
+     * Update one Reinvestment.
+     * @param {ReinvestmentUpdateArgs} args - Arguments to update one Reinvestment.
      * @example
-     * // Update one Notification
-     * const notification = await prisma.notification.update({
+     * // Update one Reinvestment
+     * const reinvestment = await prisma.reinvestment.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -13445,30 +14867,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends NotificationUpdateArgs>(args: SelectSubset<T, NotificationUpdateArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends ReinvestmentUpdateArgs>(args: SelectSubset<T, ReinvestmentUpdateArgs<ExtArgs>>): Prisma__ReinvestmentClient<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Notifications.
-     * @param {NotificationDeleteManyArgs} args - Arguments to filter Notifications to delete.
+     * Delete zero or more Reinvestments.
+     * @param {ReinvestmentDeleteManyArgs} args - Arguments to filter Reinvestments to delete.
      * @example
-     * // Delete a few Notifications
-     * const { count } = await prisma.notification.deleteMany({
+     * // Delete a few Reinvestments
+     * const { count } = await prisma.reinvestment.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends NotificationDeleteManyArgs>(args?: SelectSubset<T, NotificationDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends ReinvestmentDeleteManyArgs>(args?: SelectSubset<T, ReinvestmentDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Notifications.
+     * Update zero or more Reinvestments.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NotificationUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ReinvestmentUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Notifications
-     * const notification = await prisma.notification.updateMany({
+     * // Update many Reinvestments
+     * const reinvestment = await prisma.reinvestment.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -13478,14 +14900,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends NotificationUpdateManyArgs>(args: SelectSubset<T, NotificationUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends ReinvestmentUpdateManyArgs>(args: SelectSubset<T, ReinvestmentUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Notifications and returns the data updated in the database.
-     * @param {NotificationUpdateManyAndReturnArgs} args - Arguments to update many Notifications.
+     * Update zero or more Reinvestments and returns the data updated in the database.
+     * @param {ReinvestmentUpdateManyAndReturnArgs} args - Arguments to update many Reinvestments.
      * @example
-     * // Update many Notifications
-     * const notification = await prisma.notification.updateManyAndReturn({
+     * // Update many Reinvestments
+     * const reinvestment = await prisma.reinvestment.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -13494,8 +14916,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Notifications and only return the `id`
-     * const notificationWithIdOnly = await prisma.notification.updateManyAndReturn({
+     * // Update zero or more Reinvestments and only return the `id`
+     * const reinvestmentWithIdOnly = await prisma.reinvestment.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -13508,56 +14930,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends NotificationUpdateManyAndReturnArgs>(args: SelectSubset<T, NotificationUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends ReinvestmentUpdateManyAndReturnArgs>(args: SelectSubset<T, ReinvestmentUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Notification.
-     * @param {NotificationUpsertArgs} args - Arguments to update or create a Notification.
+     * Create or update one Reinvestment.
+     * @param {ReinvestmentUpsertArgs} args - Arguments to update or create a Reinvestment.
      * @example
-     * // Update or create a Notification
-     * const notification = await prisma.notification.upsert({
+     * // Update or create a Reinvestment
+     * const reinvestment = await prisma.reinvestment.upsert({
      *   create: {
-     *     // ... data to create a Notification
+     *     // ... data to create a Reinvestment
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Notification we want to update
+     *     // ... the filter for the Reinvestment we want to update
      *   }
      * })
      */
-    upsert<T extends NotificationUpsertArgs>(args: SelectSubset<T, NotificationUpsertArgs<ExtArgs>>): Prisma__NotificationClient<$Result.GetResult<Prisma.$NotificationPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends ReinvestmentUpsertArgs>(args: SelectSubset<T, ReinvestmentUpsertArgs<ExtArgs>>): Prisma__ReinvestmentClient<$Result.GetResult<Prisma.$ReinvestmentPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Notifications.
+     * Count the number of Reinvestments.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NotificationCountArgs} args - Arguments to filter Notifications to count.
+     * @param {ReinvestmentCountArgs} args - Arguments to filter Reinvestments to count.
      * @example
-     * // Count the number of Notifications
-     * const count = await prisma.notification.count({
+     * // Count the number of Reinvestments
+     * const count = await prisma.reinvestment.count({
      *   where: {
-     *     // ... the filter for the Notifications we want to count
+     *     // ... the filter for the Reinvestments we want to count
      *   }
      * })
     **/
-    count<T extends NotificationCountArgs>(
-      args?: Subset<T, NotificationCountArgs>,
+    count<T extends ReinvestmentCountArgs>(
+      args?: Subset<T, ReinvestmentCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], NotificationCountAggregateOutputType>
+          : GetScalarType<T['select'], ReinvestmentCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Notification.
+     * Allows you to perform aggregations operations on a Reinvestment.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NotificationAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ReinvestmentAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -13577,13 +14999,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends NotificationAggregateArgs>(args: Subset<T, NotificationAggregateArgs>): Prisma.PrismaPromise<GetNotificationAggregateType<T>>
+    aggregate<T extends ReinvestmentAggregateArgs>(args: Subset<T, ReinvestmentAggregateArgs>): Prisma.PrismaPromise<GetReinvestmentAggregateType<T>>
 
     /**
-     * Group by Notification.
+     * Group by Reinvestment.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NotificationGroupByArgs} args - Group by arguments.
+     * @param {ReinvestmentGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -13598,14 +15020,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends NotificationGroupByArgs,
+      T extends ReinvestmentGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: NotificationGroupByArgs['orderBy'] }
-        : { orderBy?: NotificationGroupByArgs['orderBy'] },
+        ? { orderBy: ReinvestmentGroupByArgs['orderBy'] }
+        : { orderBy?: ReinvestmentGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -13654,21 +15076,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, NotificationGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNotificationGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, ReinvestmentGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetReinvestmentGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Notification model
+   * Fields of the Reinvestment model
    */
-  readonly fields: NotificationFieldRefs;
+  readonly fields: ReinvestmentFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Notification.
+   * The delegate class that acts as a "Promise-like" for Reinvestment.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__NotificationClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__ReinvestmentClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    investor<T extends InvestorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, InvestorDefaultArgs<ExtArgs>>): Prisma__InvestorClient<$Result.GetResult<Prisma.$InvestorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -13695,386 +15118,434 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Notification model
+   * Fields of the Reinvestment model
    */
-  interface NotificationFieldRefs {
-    readonly id: FieldRef<"Notification", 'String'>
-    readonly user_email: FieldRef<"Notification", 'String'>
-    readonly title: FieldRef<"Notification", 'String'>
-    readonly message: FieldRef<"Notification", 'String'>
-    readonly type: FieldRef<"Notification", 'String'>
-    readonly read: FieldRef<"Notification", 'Boolean'>
-    readonly link: FieldRef<"Notification", 'String'>
-    readonly created_at: FieldRef<"Notification", 'DateTime'>
-    readonly updated_at: FieldRef<"Notification", 'DateTime'>
+  interface ReinvestmentFieldRefs {
+    readonly id: FieldRef<"Reinvestment", 'String'>
+    readonly investor_id: FieldRef<"Reinvestment", 'String'>
+    readonly amount: FieldRef<"Reinvestment", 'Float'>
+    readonly from_investment_id: FieldRef<"Reinvestment", 'String'>
+    readonly to_slate_id: FieldRef<"Reinvestment", 'String'>
+    readonly status: FieldRef<"Reinvestment", 'String'>
+    readonly date: FieldRef<"Reinvestment", 'DateTime'>
+    readonly createdAt: FieldRef<"Reinvestment", 'DateTime'>
+    readonly updatedAt: FieldRef<"Reinvestment", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Notification findUnique
+   * Reinvestment findUnique
    */
-  export type NotificationFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Notification
+     * Select specific fields to fetch from the Reinvestment
      */
-    select?: NotificationSelect<ExtArgs> | null
+    select?: ReinvestmentSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Notification
+     * Omit specific fields from the Reinvestment
      */
-    omit?: NotificationOmit<ExtArgs> | null
+    omit?: ReinvestmentOmit<ExtArgs> | null
     /**
-     * Filter, which Notification to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: NotificationWhereUniqueInput
+    include?: ReinvestmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Reinvestment to fetch.
+     */
+    where: ReinvestmentWhereUniqueInput
   }
 
   /**
-   * Notification findUniqueOrThrow
+   * Reinvestment findUniqueOrThrow
    */
-  export type NotificationFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Notification
+     * Select specific fields to fetch from the Reinvestment
      */
-    select?: NotificationSelect<ExtArgs> | null
+    select?: ReinvestmentSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Notification
+     * Omit specific fields from the Reinvestment
      */
-    omit?: NotificationOmit<ExtArgs> | null
+    omit?: ReinvestmentOmit<ExtArgs> | null
     /**
-     * Filter, which Notification to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: NotificationWhereUniqueInput
+    include?: ReinvestmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Reinvestment to fetch.
+     */
+    where: ReinvestmentWhereUniqueInput
   }
 
   /**
-   * Notification findFirst
+   * Reinvestment findFirst
    */
-  export type NotificationFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Notification
+     * Select specific fields to fetch from the Reinvestment
      */
-    select?: NotificationSelect<ExtArgs> | null
+    select?: ReinvestmentSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Notification
+     * Omit specific fields from the Reinvestment
      */
-    omit?: NotificationOmit<ExtArgs> | null
+    omit?: ReinvestmentOmit<ExtArgs> | null
     /**
-     * Filter, which Notification to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: NotificationWhereInput
+    include?: ReinvestmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Reinvestment to fetch.
+     */
+    where?: ReinvestmentWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Notifications to fetch.
+     * Determine the order of Reinvestments to fetch.
      */
-    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    orderBy?: ReinvestmentOrderByWithRelationInput | ReinvestmentOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Notifications.
+     * Sets the position for searching for Reinvestments.
      */
-    cursor?: NotificationWhereUniqueInput
+    cursor?: ReinvestmentWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Notifications from the position of the cursor.
+     * Take `±n` Reinvestments from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Notifications.
+     * Skip the first `n` Reinvestments.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Notifications.
+     * Filter by unique combinations of Reinvestments.
      */
-    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+    distinct?: ReinvestmentScalarFieldEnum | ReinvestmentScalarFieldEnum[]
   }
 
   /**
-   * Notification findFirstOrThrow
+   * Reinvestment findFirstOrThrow
    */
-  export type NotificationFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Notification
+     * Select specific fields to fetch from the Reinvestment
      */
-    select?: NotificationSelect<ExtArgs> | null
+    select?: ReinvestmentSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Notification
+     * Omit specific fields from the Reinvestment
      */
-    omit?: NotificationOmit<ExtArgs> | null
+    omit?: ReinvestmentOmit<ExtArgs> | null
     /**
-     * Filter, which Notification to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: NotificationWhereInput
+    include?: ReinvestmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Reinvestment to fetch.
+     */
+    where?: ReinvestmentWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Notifications to fetch.
+     * Determine the order of Reinvestments to fetch.
      */
-    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    orderBy?: ReinvestmentOrderByWithRelationInput | ReinvestmentOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Notifications.
+     * Sets the position for searching for Reinvestments.
      */
-    cursor?: NotificationWhereUniqueInput
+    cursor?: ReinvestmentWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Notifications from the position of the cursor.
+     * Take `±n` Reinvestments from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Notifications.
+     * Skip the first `n` Reinvestments.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Notifications.
+     * Filter by unique combinations of Reinvestments.
      */
-    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+    distinct?: ReinvestmentScalarFieldEnum | ReinvestmentScalarFieldEnum[]
   }
 
   /**
-   * Notification findMany
+   * Reinvestment findMany
    */
-  export type NotificationFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Notification
+     * Select specific fields to fetch from the Reinvestment
      */
-    select?: NotificationSelect<ExtArgs> | null
+    select?: ReinvestmentSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Notification
+     * Omit specific fields from the Reinvestment
      */
-    omit?: NotificationOmit<ExtArgs> | null
+    omit?: ReinvestmentOmit<ExtArgs> | null
     /**
-     * Filter, which Notifications to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: NotificationWhereInput
+    include?: ReinvestmentInclude<ExtArgs> | null
+    /**
+     * Filter, which Reinvestments to fetch.
+     */
+    where?: ReinvestmentWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Notifications to fetch.
+     * Determine the order of Reinvestments to fetch.
      */
-    orderBy?: NotificationOrderByWithRelationInput | NotificationOrderByWithRelationInput[]
+    orderBy?: ReinvestmentOrderByWithRelationInput | ReinvestmentOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Notifications.
+     * Sets the position for listing Reinvestments.
      */
-    cursor?: NotificationWhereUniqueInput
+    cursor?: ReinvestmentWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Notifications from the position of the cursor.
+     * Take `±n` Reinvestments from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Notifications.
+     * Skip the first `n` Reinvestments.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Notifications.
+     * Filter by unique combinations of Reinvestments.
      */
-    distinct?: NotificationScalarFieldEnum | NotificationScalarFieldEnum[]
+    distinct?: ReinvestmentScalarFieldEnum | ReinvestmentScalarFieldEnum[]
   }
 
   /**
-   * Notification create
+   * Reinvestment create
    */
-  export type NotificationCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Notification
+     * Select specific fields to fetch from the Reinvestment
      */
-    select?: NotificationSelect<ExtArgs> | null
+    select?: ReinvestmentSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Notification
+     * Omit specific fields from the Reinvestment
      */
-    omit?: NotificationOmit<ExtArgs> | null
+    omit?: ReinvestmentOmit<ExtArgs> | null
     /**
-     * The data needed to create a Notification.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<NotificationCreateInput, NotificationUncheckedCreateInput>
+    include?: ReinvestmentInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Reinvestment.
+     */
+    data: XOR<ReinvestmentCreateInput, ReinvestmentUncheckedCreateInput>
   }
 
   /**
-   * Notification createMany
+   * Reinvestment createMany
    */
-  export type NotificationCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Notifications.
+     * The data used to create many Reinvestments.
      */
-    data: NotificationCreateManyInput | NotificationCreateManyInput[]
+    data: ReinvestmentCreateManyInput | ReinvestmentCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Notification createManyAndReturn
+   * Reinvestment createManyAndReturn
    */
-  export type NotificationCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Notification
+     * Select specific fields to fetch from the Reinvestment
      */
-    select?: NotificationSelectCreateManyAndReturn<ExtArgs> | null
+    select?: ReinvestmentSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Notification
+     * Omit specific fields from the Reinvestment
      */
-    omit?: NotificationOmit<ExtArgs> | null
+    omit?: ReinvestmentOmit<ExtArgs> | null
     /**
-     * The data used to create many Notifications.
+     * The data used to create many Reinvestments.
      */
-    data: NotificationCreateManyInput | NotificationCreateManyInput[]
+    data: ReinvestmentCreateManyInput | ReinvestmentCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReinvestmentIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Notification update
+   * Reinvestment update
    */
-  export type NotificationUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Notification
+     * Select specific fields to fetch from the Reinvestment
      */
-    select?: NotificationSelect<ExtArgs> | null
+    select?: ReinvestmentSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Notification
+     * Omit specific fields from the Reinvestment
      */
-    omit?: NotificationOmit<ExtArgs> | null
+    omit?: ReinvestmentOmit<ExtArgs> | null
     /**
-     * The data needed to update a Notification.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<NotificationUpdateInput, NotificationUncheckedUpdateInput>
+    include?: ReinvestmentInclude<ExtArgs> | null
     /**
-     * Choose, which Notification to update.
+     * The data needed to update a Reinvestment.
      */
-    where: NotificationWhereUniqueInput
+    data: XOR<ReinvestmentUpdateInput, ReinvestmentUncheckedUpdateInput>
+    /**
+     * Choose, which Reinvestment to update.
+     */
+    where: ReinvestmentWhereUniqueInput
   }
 
   /**
-   * Notification updateMany
+   * Reinvestment updateMany
    */
-  export type NotificationUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Notifications.
+     * The data used to update Reinvestments.
      */
-    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyInput>
+    data: XOR<ReinvestmentUpdateManyMutationInput, ReinvestmentUncheckedUpdateManyInput>
     /**
-     * Filter which Notifications to update
+     * Filter which Reinvestments to update
      */
-    where?: NotificationWhereInput
+    where?: ReinvestmentWhereInput
     /**
-     * Limit how many Notifications to update.
+     * Limit how many Reinvestments to update.
      */
     limit?: number
   }
 
   /**
-   * Notification updateManyAndReturn
+   * Reinvestment updateManyAndReturn
    */
-  export type NotificationUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Notification
+     * Select specific fields to fetch from the Reinvestment
      */
-    select?: NotificationSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: ReinvestmentSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Notification
+     * Omit specific fields from the Reinvestment
      */
-    omit?: NotificationOmit<ExtArgs> | null
+    omit?: ReinvestmentOmit<ExtArgs> | null
     /**
-     * The data used to update Notifications.
+     * The data used to update Reinvestments.
      */
-    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyInput>
+    data: XOR<ReinvestmentUpdateManyMutationInput, ReinvestmentUncheckedUpdateManyInput>
     /**
-     * Filter which Notifications to update
+     * Filter which Reinvestments to update
      */
-    where?: NotificationWhereInput
+    where?: ReinvestmentWhereInput
     /**
-     * Limit how many Notifications to update.
+     * Limit how many Reinvestments to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReinvestmentIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Reinvestment upsert
+   */
+  export type ReinvestmentUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reinvestment
+     */
+    select?: ReinvestmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reinvestment
+     */
+    omit?: ReinvestmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReinvestmentInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Reinvestment to update in case it exists.
+     */
+    where: ReinvestmentWhereUniqueInput
+    /**
+     * In case the Reinvestment found by the `where` argument doesn't exist, create a new Reinvestment with this data.
+     */
+    create: XOR<ReinvestmentCreateInput, ReinvestmentUncheckedCreateInput>
+    /**
+     * In case the Reinvestment was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<ReinvestmentUpdateInput, ReinvestmentUncheckedUpdateInput>
+  }
+
+  /**
+   * Reinvestment delete
+   */
+  export type ReinvestmentDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Reinvestment
+     */
+    select?: ReinvestmentSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Reinvestment
+     */
+    omit?: ReinvestmentOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: ReinvestmentInclude<ExtArgs> | null
+    /**
+     * Filter which Reinvestment to delete.
+     */
+    where: ReinvestmentWhereUniqueInput
+  }
+
+  /**
+   * Reinvestment deleteMany
+   */
+  export type ReinvestmentDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Reinvestments to delete
+     */
+    where?: ReinvestmentWhereInput
+    /**
+     * Limit how many Reinvestments to delete.
      */
     limit?: number
   }
 
   /**
-   * Notification upsert
+   * Reinvestment without action
    */
-  export type NotificationUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReinvestmentDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Notification
+     * Select specific fields to fetch from the Reinvestment
      */
-    select?: NotificationSelect<ExtArgs> | null
+    select?: ReinvestmentSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Notification
+     * Omit specific fields from the Reinvestment
      */
-    omit?: NotificationOmit<ExtArgs> | null
+    omit?: ReinvestmentOmit<ExtArgs> | null
     /**
-     * The filter to search for the Notification to update in case it exists.
+     * Choose, which related nodes to fetch as well
      */
-    where: NotificationWhereUniqueInput
-    /**
-     * In case the Notification found by the `where` argument doesn't exist, create a new Notification with this data.
-     */
-    create: XOR<NotificationCreateInput, NotificationUncheckedCreateInput>
-    /**
-     * In case the Notification was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<NotificationUpdateInput, NotificationUncheckedUpdateInput>
-  }
-
-  /**
-   * Notification delete
-   */
-  export type NotificationDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Notification
-     */
-    select?: NotificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Notification
-     */
-    omit?: NotificationOmit<ExtArgs> | null
-    /**
-     * Filter which Notification to delete.
-     */
-    where: NotificationWhereUniqueInput
-  }
-
-  /**
-   * Notification deleteMany
-   */
-  export type NotificationDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which Notifications to delete
-     */
-    where?: NotificationWhereInput
-    /**
-     * Limit how many Notifications to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * Notification without action
-   */
-  export type NotificationDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the Notification
-     */
-    select?: NotificationSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the Notification
-     */
-    omit?: NotificationOmit<ExtArgs> | null
+    include?: ReinvestmentInclude<ExtArgs> | null
   }
 
 
@@ -20787,8 +22258,8 @@ export namespace Prisma {
     password_hash: 'password_hash',
     full_name: 'full_name',
     role: 'role',
-    created_at: 'created_at',
-    updated_at: 'updated_at'
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type UserScalarFieldEnum = (typeof UserScalarFieldEnum)[keyof typeof UserScalarFieldEnum]
@@ -20796,14 +22267,20 @@ export namespace Prisma {
 
   export const InvestorScalarFieldEnum: {
     id: 'id',
+    first_name: 'first_name',
+    last_name: 'last_name',
     name: 'name',
     email: 'email',
     phone: 'phone',
     company: 'company',
+    notes: 'notes',
     user_id: 'user_id',
+    has_login: 'has_login',
+    invite_token: 'invite_token',
     invite_sent_at: 'invite_sent_at',
-    created_at: 'created_at',
-    updated_at: 'updated_at'
+    invite_accepted_at: 'invite_accepted_at',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type InvestorScalarFieldEnum = (typeof InvestorScalarFieldEnum)[keyof typeof InvestorScalarFieldEnum]
@@ -20813,12 +22290,13 @@ export namespace Prisma {
     id: 'id',
     name: 'name',
     description: 'description',
+    status: 'status',
     budget: 'budget',
     start_date: 'start_date',
     end_date: 'end_date',
-    status: 'status',
-    created_at: 'created_at',
-    updated_at: 'updated_at'
+    target_return: 'target_return',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type SlateScalarFieldEnum = (typeof SlateScalarFieldEnum)[keyof typeof SlateScalarFieldEnum]
@@ -20827,17 +22305,15 @@ export namespace Prisma {
   export const FilmScalarFieldEnum: {
     id: 'id',
     title: 'title',
-    description: 'description',
-    genre: 'genre',
-    status: 'status',
-    budget: 'budget',
-    revenue: 'revenue',
-    poster_url: 'poster_url',
-    trailer_url: 'trailer_url',
-    release_date: 'release_date',
     slate_id: 'slate_id',
-    created_at: 'created_at',
-    updated_at: 'updated_at'
+    budget: 'budget',
+    status: 'status',
+    genre: 'genre',
+    description: 'description',
+    release_date: 'release_date',
+    total_revenue: 'total_revenue',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type FilmScalarFieldEnum = (typeof FilmScalarFieldEnum)[keyof typeof FilmScalarFieldEnum]
@@ -20848,30 +22324,26 @@ export namespace Prisma {
     investor_id: 'investor_id',
     slate_id: 'slate_id',
     amount: 'amount',
-    date: 'date',
-    status: 'status',
-    notes: 'notes',
-    created_at: 'created_at',
-    updated_at: 'updated_at'
+    ownership_percentage: 'ownership_percentage',
+    rollover_amount: 'rollover_amount',
+    new_cash_amount: 'new_cash_amount',
+    total_investment: 'total_investment',
+    source_investment_id: 'source_investment_id',
+    is_reinvestment: 'is_reinvestment',
+    reinvested_amount: 'reinvested_amount',
+    recouped_amount: 'recouped_amount',
+    total_returned: 'total_returned',
+    current_stage: 'current_stage',
+    recoupment_percentage: 'recoupment_percentage',
+    premium_target: 'premium_target',
+    premium_paid: 'premium_paid',
+    backend_percentage: 'backend_percentage',
+    backend_paid: 'backend_paid',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type InvestmentScalarFieldEnum = (typeof InvestmentScalarFieldEnum)[keyof typeof InvestmentScalarFieldEnum]
-
-
-  export const PaymentScalarFieldEnum: {
-    id: 'id',
-    investor_id: 'investor_id',
-    amount: 'amount',
-    date: 'date',
-    type: 'type',
-    status: 'status',
-    description: 'description',
-    reference: 'reference',
-    created_at: 'created_at',
-    updated_at: 'updated_at'
-  };
-
-  export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
 
 
   export const RevenueEntryScalarFieldEnum: {
@@ -20881,8 +22353,8 @@ export namespace Prisma {
     source: 'source',
     date: 'date',
     description: 'description',
-    created_at: 'created_at',
-    updated_at: 'updated_at'
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type RevenueEntryScalarFieldEnum = (typeof RevenueEntryScalarFieldEnum)[keyof typeof RevenueEntryScalarFieldEnum]
@@ -20891,46 +22363,74 @@ export namespace Prisma {
   export const ExpenseScalarFieldEnum: {
     id: 'id',
     film_id: 'film_id',
-    slate_id: 'slate_id',
     amount: 'amount',
     category: 'category',
-    date: 'date',
     description: 'description',
-    vendor: 'vendor',
-    created_at: 'created_at',
-    updated_at: 'updated_at'
+    date: 'date',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type ExpenseScalarFieldEnum = (typeof ExpenseScalarFieldEnum)[keyof typeof ExpenseScalarFieldEnum]
 
 
+  export const PaymentScalarFieldEnum: {
+    id: 'id',
+    investor_id: 'investor_id',
+    amount: 'amount',
+    type: 'type',
+    status: 'status',
+    date: 'date',
+    description: 'description',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type PaymentScalarFieldEnum = (typeof PaymentScalarFieldEnum)[keyof typeof PaymentScalarFieldEnum]
+
+
+  export const NotificationScalarFieldEnum: {
+    id: 'id',
+    investor_id: 'investor_id',
+    title: 'title',
+    message: 'message',
+    read: 'read',
+    type: 'type',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
+
+
   export const DocumentScalarFieldEnum: {
     id: 'id',
     investor_id: 'investor_id',
-    name: 'name',
+    title: 'title',
     file_url: 'file_url',
-    doc_type: 'doc_type',
+    file_type: 'file_type',
     description: 'description',
-    created_at: 'created_at',
-    updated_at: 'updated_at'
+    is_global: 'is_global',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
   export type DocumentScalarFieldEnum = (typeof DocumentScalarFieldEnum)[keyof typeof DocumentScalarFieldEnum]
 
 
-  export const NotificationScalarFieldEnum: {
+  export const ReinvestmentScalarFieldEnum: {
     id: 'id',
-    user_email: 'user_email',
-    title: 'title',
-    message: 'message',
-    type: 'type',
-    read: 'read',
-    link: 'link',
-    created_at: 'created_at',
-    updated_at: 'updated_at'
+    investor_id: 'investor_id',
+    amount: 'amount',
+    from_investment_id: 'from_investment_id',
+    to_slate_id: 'to_slate_id',
+    status: 'status',
+    date: 'date',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
-  export type NotificationScalarFieldEnum = (typeof NotificationScalarFieldEnum)[keyof typeof NotificationScalarFieldEnum]
+  export type ReinvestmentScalarFieldEnum = (typeof ReinvestmentScalarFieldEnum)[keyof typeof ReinvestmentScalarFieldEnum]
 
 
   export const MccSessionScalarFieldEnum: {
@@ -21099,6 +22599,13 @@ export namespace Prisma {
 
 
   /**
+   * Reference to a field of type 'Boolean'
+   */
+  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
+    
+
+
+  /**
    * Reference to a field of type 'Float'
    */
   export type FloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float'>
@@ -21109,13 +22616,6 @@ export namespace Prisma {
    * Reference to a field of type 'Float[]'
    */
   export type ListFloatFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Float[]'>
-    
-
-
-  /**
-   * Reference to a field of type 'Boolean'
-   */
-  export type BooleanFieldRefInput<$PrismaModel> = FieldRefInputType<$PrismaModel, 'Boolean'>
     
 
 
@@ -21143,10 +22643,10 @@ export namespace Prisma {
     id?: StringFilter<"User"> | string
     email?: StringFilter<"User"> | string
     password_hash?: StringFilter<"User"> | string
-    full_name?: StringFilter<"User"> | string
+    full_name?: StringNullableFilter<"User"> | string | null
     role?: StringFilter<"User"> | string
-    created_at?: DateTimeFilter<"User"> | Date | string
-    updated_at?: DateTimeFilter<"User"> | Date | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
     investor?: XOR<InvestorNullableScalarRelationFilter, InvestorWhereInput> | null
     mcc_session?: XOR<MccSessionNullableScalarRelationFilter, MccSessionWhereInput> | null
   }
@@ -21155,10 +22655,10 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     password_hash?: SortOrder
-    full_name?: SortOrder
+    full_name?: SortOrderInput | SortOrder
     role?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     investor?: InvestorOrderByWithRelationInput
     mcc_session?: MccSessionOrderByWithRelationInput
   }
@@ -21170,10 +22670,10 @@ export namespace Prisma {
     OR?: UserWhereInput[]
     NOT?: UserWhereInput | UserWhereInput[]
     password_hash?: StringFilter<"User"> | string
-    full_name?: StringFilter<"User"> | string
+    full_name?: StringNullableFilter<"User"> | string | null
     role?: StringFilter<"User"> | string
-    created_at?: DateTimeFilter<"User"> | Date | string
-    updated_at?: DateTimeFilter<"User"> | Date | string
+    createdAt?: DateTimeFilter<"User"> | Date | string
+    updatedAt?: DateTimeFilter<"User"> | Date | string
     investor?: XOR<InvestorNullableScalarRelationFilter, InvestorWhereInput> | null
     mcc_session?: XOR<MccSessionNullableScalarRelationFilter, MccSessionWhereInput> | null
   }, "id" | "email">
@@ -21182,10 +22682,10 @@ export namespace Prisma {
     id?: SortOrder
     email?: SortOrder
     password_hash?: SortOrder
-    full_name?: SortOrder
+    full_name?: SortOrderInput | SortOrder
     role?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: UserCountOrderByAggregateInput
     _max?: UserMaxOrderByAggregateInput
     _min?: UserMinOrderByAggregateInput
@@ -21198,10 +22698,10 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"User"> | string
     email?: StringWithAggregatesFilter<"User"> | string
     password_hash?: StringWithAggregatesFilter<"User"> | string
-    full_name?: StringWithAggregatesFilter<"User"> | string
+    full_name?: StringNullableWithAggregatesFilter<"User"> | string | null
     role?: StringWithAggregatesFilter<"User"> | string
-    created_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
-    updated_at?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"User"> | Date | string
   }
 
   export type InvestorWhereInput = {
@@ -21209,65 +22709,95 @@ export namespace Prisma {
     OR?: InvestorWhereInput[]
     NOT?: InvestorWhereInput | InvestorWhereInput[]
     id?: StringFilter<"Investor"> | string
+    first_name?: StringFilter<"Investor"> | string
+    last_name?: StringFilter<"Investor"> | string
     name?: StringFilter<"Investor"> | string
     email?: StringFilter<"Investor"> | string
     phone?: StringNullableFilter<"Investor"> | string | null
     company?: StringNullableFilter<"Investor"> | string | null
+    notes?: StringNullableFilter<"Investor"> | string | null
     user_id?: StringNullableFilter<"Investor"> | string | null
+    has_login?: BoolFilter<"Investor"> | boolean
+    invite_token?: StringNullableFilter<"Investor"> | string | null
     invite_sent_at?: DateTimeNullableFilter<"Investor"> | Date | string | null
-    created_at?: DateTimeFilter<"Investor"> | Date | string
-    updated_at?: DateTimeFilter<"Investor"> | Date | string
+    invite_accepted_at?: DateTimeNullableFilter<"Investor"> | Date | string | null
+    createdAt?: DateTimeFilter<"Investor"> | Date | string
+    updatedAt?: DateTimeFilter<"Investor"> | Date | string
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     investments?: InvestmentListRelationFilter
     payments?: PaymentListRelationFilter
+    notifications?: NotificationListRelationFilter
     documents?: DocumentListRelationFilter
+    reinvestments?: ReinvestmentListRelationFilter
   }
 
   export type InvestorOrderByWithRelationInput = {
     id?: SortOrder
+    first_name?: SortOrder
+    last_name?: SortOrder
     name?: SortOrder
     email?: SortOrder
     phone?: SortOrderInput | SortOrder
     company?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
     user_id?: SortOrderInput | SortOrder
+    has_login?: SortOrder
+    invite_token?: SortOrderInput | SortOrder
     invite_sent_at?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    invite_accepted_at?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     user?: UserOrderByWithRelationInput
     investments?: InvestmentOrderByRelationAggregateInput
     payments?: PaymentOrderByRelationAggregateInput
+    notifications?: NotificationOrderByRelationAggregateInput
     documents?: DocumentOrderByRelationAggregateInput
+    reinvestments?: ReinvestmentOrderByRelationAggregateInput
   }
 
   export type InvestorWhereUniqueInput = Prisma.AtLeast<{
     id?: string
     email?: string
     user_id?: string
+    invite_token?: string
     AND?: InvestorWhereInput | InvestorWhereInput[]
     OR?: InvestorWhereInput[]
     NOT?: InvestorWhereInput | InvestorWhereInput[]
+    first_name?: StringFilter<"Investor"> | string
+    last_name?: StringFilter<"Investor"> | string
     name?: StringFilter<"Investor"> | string
     phone?: StringNullableFilter<"Investor"> | string | null
     company?: StringNullableFilter<"Investor"> | string | null
+    notes?: StringNullableFilter<"Investor"> | string | null
+    has_login?: BoolFilter<"Investor"> | boolean
     invite_sent_at?: DateTimeNullableFilter<"Investor"> | Date | string | null
-    created_at?: DateTimeFilter<"Investor"> | Date | string
-    updated_at?: DateTimeFilter<"Investor"> | Date | string
+    invite_accepted_at?: DateTimeNullableFilter<"Investor"> | Date | string | null
+    createdAt?: DateTimeFilter<"Investor"> | Date | string
+    updatedAt?: DateTimeFilter<"Investor"> | Date | string
     user?: XOR<UserNullableScalarRelationFilter, UserWhereInput> | null
     investments?: InvestmentListRelationFilter
     payments?: PaymentListRelationFilter
+    notifications?: NotificationListRelationFilter
     documents?: DocumentListRelationFilter
-  }, "id" | "email" | "user_id">
+    reinvestments?: ReinvestmentListRelationFilter
+  }, "id" | "email" | "user_id" | "invite_token">
 
   export type InvestorOrderByWithAggregationInput = {
     id?: SortOrder
+    first_name?: SortOrder
+    last_name?: SortOrder
     name?: SortOrder
     email?: SortOrder
     phone?: SortOrderInput | SortOrder
     company?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
     user_id?: SortOrderInput | SortOrder
+    has_login?: SortOrder
+    invite_token?: SortOrderInput | SortOrder
     invite_sent_at?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    invite_accepted_at?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: InvestorCountOrderByAggregateInput
     _max?: InvestorMaxOrderByAggregateInput
     _min?: InvestorMinOrderByAggregateInput
@@ -21278,14 +22808,20 @@ export namespace Prisma {
     OR?: InvestorScalarWhereWithAggregatesInput[]
     NOT?: InvestorScalarWhereWithAggregatesInput | InvestorScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Investor"> | string
+    first_name?: StringWithAggregatesFilter<"Investor"> | string
+    last_name?: StringWithAggregatesFilter<"Investor"> | string
     name?: StringWithAggregatesFilter<"Investor"> | string
     email?: StringWithAggregatesFilter<"Investor"> | string
     phone?: StringNullableWithAggregatesFilter<"Investor"> | string | null
     company?: StringNullableWithAggregatesFilter<"Investor"> | string | null
+    notes?: StringNullableWithAggregatesFilter<"Investor"> | string | null
     user_id?: StringNullableWithAggregatesFilter<"Investor"> | string | null
+    has_login?: BoolWithAggregatesFilter<"Investor"> | boolean
+    invite_token?: StringNullableWithAggregatesFilter<"Investor"> | string | null
     invite_sent_at?: DateTimeNullableWithAggregatesFilter<"Investor"> | Date | string | null
-    created_at?: DateTimeWithAggregatesFilter<"Investor"> | Date | string
-    updated_at?: DateTimeWithAggregatesFilter<"Investor"> | Date | string
+    invite_accepted_at?: DateTimeNullableWithAggregatesFilter<"Investor"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Investor"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Investor"> | Date | string
   }
 
   export type SlateWhereInput = {
@@ -21295,30 +22831,30 @@ export namespace Prisma {
     id?: StringFilter<"Slate"> | string
     name?: StringFilter<"Slate"> | string
     description?: StringNullableFilter<"Slate"> | string | null
+    status?: StringFilter<"Slate"> | string
     budget?: FloatFilter<"Slate"> | number
     start_date?: DateTimeNullableFilter<"Slate"> | Date | string | null
     end_date?: DateTimeNullableFilter<"Slate"> | Date | string | null
-    status?: StringFilter<"Slate"> | string
-    created_at?: DateTimeFilter<"Slate"> | Date | string
-    updated_at?: DateTimeFilter<"Slate"> | Date | string
+    target_return?: FloatNullableFilter<"Slate"> | number | null
+    createdAt?: DateTimeFilter<"Slate"> | Date | string
+    updatedAt?: DateTimeFilter<"Slate"> | Date | string
     films?: FilmListRelationFilter
     investments?: InvestmentListRelationFilter
-    expenses?: ExpenseListRelationFilter
   }
 
   export type SlateOrderByWithRelationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
+    status?: SortOrder
     budget?: SortOrder
     start_date?: SortOrderInput | SortOrder
     end_date?: SortOrderInput | SortOrder
-    status?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    target_return?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     films?: FilmOrderByRelationAggregateInput
     investments?: InvestmentOrderByRelationAggregateInput
-    expenses?: ExpenseOrderByRelationAggregateInput
   }
 
   export type SlateWhereUniqueInput = Prisma.AtLeast<{
@@ -21328,27 +22864,28 @@ export namespace Prisma {
     NOT?: SlateWhereInput | SlateWhereInput[]
     name?: StringFilter<"Slate"> | string
     description?: StringNullableFilter<"Slate"> | string | null
+    status?: StringFilter<"Slate"> | string
     budget?: FloatFilter<"Slate"> | number
     start_date?: DateTimeNullableFilter<"Slate"> | Date | string | null
     end_date?: DateTimeNullableFilter<"Slate"> | Date | string | null
-    status?: StringFilter<"Slate"> | string
-    created_at?: DateTimeFilter<"Slate"> | Date | string
-    updated_at?: DateTimeFilter<"Slate"> | Date | string
+    target_return?: FloatNullableFilter<"Slate"> | number | null
+    createdAt?: DateTimeFilter<"Slate"> | Date | string
+    updatedAt?: DateTimeFilter<"Slate"> | Date | string
     films?: FilmListRelationFilter
     investments?: InvestmentListRelationFilter
-    expenses?: ExpenseListRelationFilter
   }, "id">
 
   export type SlateOrderByWithAggregationInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrderInput | SortOrder
+    status?: SortOrder
     budget?: SortOrder
     start_date?: SortOrderInput | SortOrder
     end_date?: SortOrderInput | SortOrder
-    status?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    target_return?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: SlateCountOrderByAggregateInput
     _avg?: SlateAvgOrderByAggregateInput
     _max?: SlateMaxOrderByAggregateInput
@@ -21363,12 +22900,13 @@ export namespace Prisma {
     id?: StringWithAggregatesFilter<"Slate"> | string
     name?: StringWithAggregatesFilter<"Slate"> | string
     description?: StringNullableWithAggregatesFilter<"Slate"> | string | null
+    status?: StringWithAggregatesFilter<"Slate"> | string
     budget?: FloatWithAggregatesFilter<"Slate"> | number
     start_date?: DateTimeNullableWithAggregatesFilter<"Slate"> | Date | string | null
     end_date?: DateTimeNullableWithAggregatesFilter<"Slate"> | Date | string | null
-    status?: StringWithAggregatesFilter<"Slate"> | string
-    created_at?: DateTimeWithAggregatesFilter<"Slate"> | Date | string
-    updated_at?: DateTimeWithAggregatesFilter<"Slate"> | Date | string
+    target_return?: FloatNullableWithAggregatesFilter<"Slate"> | number | null
+    createdAt?: DateTimeWithAggregatesFilter<"Slate"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Slate"> | Date | string
   }
 
   export type FilmWhereInput = {
@@ -21377,18 +22915,16 @@ export namespace Prisma {
     NOT?: FilmWhereInput | FilmWhereInput[]
     id?: StringFilter<"Film"> | string
     title?: StringFilter<"Film"> | string
-    description?: StringNullableFilter<"Film"> | string | null
-    genre?: StringNullableFilter<"Film"> | string | null
-    status?: StringFilter<"Film"> | string
+    slate_id?: StringFilter<"Film"> | string
     budget?: FloatFilter<"Film"> | number
-    revenue?: FloatFilter<"Film"> | number
-    poster_url?: StringNullableFilter<"Film"> | string | null
-    trailer_url?: StringNullableFilter<"Film"> | string | null
+    status?: StringFilter<"Film"> | string
+    genre?: StringNullableFilter<"Film"> | string | null
+    description?: StringNullableFilter<"Film"> | string | null
     release_date?: DateTimeNullableFilter<"Film"> | Date | string | null
-    slate_id?: StringNullableFilter<"Film"> | string | null
-    created_at?: DateTimeFilter<"Film"> | Date | string
-    updated_at?: DateTimeFilter<"Film"> | Date | string
-    slate?: XOR<SlateNullableScalarRelationFilter, SlateWhereInput> | null
+    total_revenue?: FloatFilter<"Film"> | number
+    createdAt?: DateTimeFilter<"Film"> | Date | string
+    updatedAt?: DateTimeFilter<"Film"> | Date | string
+    slate?: XOR<SlateScalarRelationFilter, SlateWhereInput>
     revenue_entries?: RevenueEntryListRelationFilter
     expenses?: ExpenseListRelationFilter
   }
@@ -21396,17 +22932,15 @@ export namespace Prisma {
   export type FilmOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
-    description?: SortOrderInput | SortOrder
-    genre?: SortOrderInput | SortOrder
-    status?: SortOrder
+    slate_id?: SortOrder
     budget?: SortOrder
-    revenue?: SortOrder
-    poster_url?: SortOrderInput | SortOrder
-    trailer_url?: SortOrderInput | SortOrder
+    status?: SortOrder
+    genre?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     release_date?: SortOrderInput | SortOrder
-    slate_id?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    total_revenue?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     slate?: SlateOrderByWithRelationInput
     revenue_entries?: RevenueEntryOrderByRelationAggregateInput
     expenses?: ExpenseOrderByRelationAggregateInput
@@ -21418,18 +22952,16 @@ export namespace Prisma {
     OR?: FilmWhereInput[]
     NOT?: FilmWhereInput | FilmWhereInput[]
     title?: StringFilter<"Film"> | string
-    description?: StringNullableFilter<"Film"> | string | null
-    genre?: StringNullableFilter<"Film"> | string | null
-    status?: StringFilter<"Film"> | string
+    slate_id?: StringFilter<"Film"> | string
     budget?: FloatFilter<"Film"> | number
-    revenue?: FloatFilter<"Film"> | number
-    poster_url?: StringNullableFilter<"Film"> | string | null
-    trailer_url?: StringNullableFilter<"Film"> | string | null
+    status?: StringFilter<"Film"> | string
+    genre?: StringNullableFilter<"Film"> | string | null
+    description?: StringNullableFilter<"Film"> | string | null
     release_date?: DateTimeNullableFilter<"Film"> | Date | string | null
-    slate_id?: StringNullableFilter<"Film"> | string | null
-    created_at?: DateTimeFilter<"Film"> | Date | string
-    updated_at?: DateTimeFilter<"Film"> | Date | string
-    slate?: XOR<SlateNullableScalarRelationFilter, SlateWhereInput> | null
+    total_revenue?: FloatFilter<"Film"> | number
+    createdAt?: DateTimeFilter<"Film"> | Date | string
+    updatedAt?: DateTimeFilter<"Film"> | Date | string
+    slate?: XOR<SlateScalarRelationFilter, SlateWhereInput>
     revenue_entries?: RevenueEntryListRelationFilter
     expenses?: ExpenseListRelationFilter
   }, "id">
@@ -21437,17 +22969,15 @@ export namespace Prisma {
   export type FilmOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
-    description?: SortOrderInput | SortOrder
-    genre?: SortOrderInput | SortOrder
-    status?: SortOrder
+    slate_id?: SortOrder
     budget?: SortOrder
-    revenue?: SortOrder
-    poster_url?: SortOrderInput | SortOrder
-    trailer_url?: SortOrderInput | SortOrder
+    status?: SortOrder
+    genre?: SortOrderInput | SortOrder
+    description?: SortOrderInput | SortOrder
     release_date?: SortOrderInput | SortOrder
-    slate_id?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    total_revenue?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: FilmCountOrderByAggregateInput
     _avg?: FilmAvgOrderByAggregateInput
     _max?: FilmMaxOrderByAggregateInput
@@ -21461,17 +22991,15 @@ export namespace Prisma {
     NOT?: FilmScalarWhereWithAggregatesInput | FilmScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Film"> | string
     title?: StringWithAggregatesFilter<"Film"> | string
-    description?: StringNullableWithAggregatesFilter<"Film"> | string | null
-    genre?: StringNullableWithAggregatesFilter<"Film"> | string | null
-    status?: StringWithAggregatesFilter<"Film"> | string
+    slate_id?: StringWithAggregatesFilter<"Film"> | string
     budget?: FloatWithAggregatesFilter<"Film"> | number
-    revenue?: FloatWithAggregatesFilter<"Film"> | number
-    poster_url?: StringNullableWithAggregatesFilter<"Film"> | string | null
-    trailer_url?: StringNullableWithAggregatesFilter<"Film"> | string | null
+    status?: StringWithAggregatesFilter<"Film"> | string
+    genre?: StringNullableWithAggregatesFilter<"Film"> | string | null
+    description?: StringNullableWithAggregatesFilter<"Film"> | string | null
     release_date?: DateTimeNullableWithAggregatesFilter<"Film"> | Date | string | null
-    slate_id?: StringNullableWithAggregatesFilter<"Film"> | string | null
-    created_at?: DateTimeWithAggregatesFilter<"Film"> | Date | string
-    updated_at?: DateTimeWithAggregatesFilter<"Film"> | Date | string
+    total_revenue?: FloatWithAggregatesFilter<"Film"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Film"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Film"> | Date | string
   }
 
   export type InvestmentWhereInput = {
@@ -21482,11 +23010,23 @@ export namespace Prisma {
     investor_id?: StringFilter<"Investment"> | string
     slate_id?: StringFilter<"Investment"> | string
     amount?: FloatFilter<"Investment"> | number
-    date?: DateTimeFilter<"Investment"> | Date | string
-    status?: StringFilter<"Investment"> | string
-    notes?: StringNullableFilter<"Investment"> | string | null
-    created_at?: DateTimeFilter<"Investment"> | Date | string
-    updated_at?: DateTimeFilter<"Investment"> | Date | string
+    ownership_percentage?: FloatFilter<"Investment"> | number
+    rollover_amount?: FloatFilter<"Investment"> | number
+    new_cash_amount?: FloatFilter<"Investment"> | number
+    total_investment?: FloatFilter<"Investment"> | number
+    source_investment_id?: StringNullableFilter<"Investment"> | string | null
+    is_reinvestment?: BoolFilter<"Investment"> | boolean
+    reinvested_amount?: FloatFilter<"Investment"> | number
+    recouped_amount?: FloatFilter<"Investment"> | number
+    total_returned?: FloatFilter<"Investment"> | number
+    current_stage?: StringFilter<"Investment"> | string
+    recoupment_percentage?: FloatFilter<"Investment"> | number
+    premium_target?: FloatFilter<"Investment"> | number
+    premium_paid?: FloatFilter<"Investment"> | number
+    backend_percentage?: FloatFilter<"Investment"> | number
+    backend_paid?: FloatFilter<"Investment"> | number
+    createdAt?: DateTimeFilter<"Investment"> | Date | string
+    updatedAt?: DateTimeFilter<"Investment"> | Date | string
     investor?: XOR<InvestorScalarRelationFilter, InvestorWhereInput>
     slate?: XOR<SlateScalarRelationFilter, SlateWhereInput>
   }
@@ -21496,11 +23036,23 @@ export namespace Prisma {
     investor_id?: SortOrder
     slate_id?: SortOrder
     amount?: SortOrder
-    date?: SortOrder
-    status?: SortOrder
-    notes?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    ownership_percentage?: SortOrder
+    rollover_amount?: SortOrder
+    new_cash_amount?: SortOrder
+    total_investment?: SortOrder
+    source_investment_id?: SortOrderInput | SortOrder
+    is_reinvestment?: SortOrder
+    reinvested_amount?: SortOrder
+    recouped_amount?: SortOrder
+    total_returned?: SortOrder
+    current_stage?: SortOrder
+    recoupment_percentage?: SortOrder
+    premium_target?: SortOrder
+    premium_paid?: SortOrder
+    backend_percentage?: SortOrder
+    backend_paid?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     investor?: InvestorOrderByWithRelationInput
     slate?: SlateOrderByWithRelationInput
   }
@@ -21513,11 +23065,23 @@ export namespace Prisma {
     investor_id?: StringFilter<"Investment"> | string
     slate_id?: StringFilter<"Investment"> | string
     amount?: FloatFilter<"Investment"> | number
-    date?: DateTimeFilter<"Investment"> | Date | string
-    status?: StringFilter<"Investment"> | string
-    notes?: StringNullableFilter<"Investment"> | string | null
-    created_at?: DateTimeFilter<"Investment"> | Date | string
-    updated_at?: DateTimeFilter<"Investment"> | Date | string
+    ownership_percentage?: FloatFilter<"Investment"> | number
+    rollover_amount?: FloatFilter<"Investment"> | number
+    new_cash_amount?: FloatFilter<"Investment"> | number
+    total_investment?: FloatFilter<"Investment"> | number
+    source_investment_id?: StringNullableFilter<"Investment"> | string | null
+    is_reinvestment?: BoolFilter<"Investment"> | boolean
+    reinvested_amount?: FloatFilter<"Investment"> | number
+    recouped_amount?: FloatFilter<"Investment"> | number
+    total_returned?: FloatFilter<"Investment"> | number
+    current_stage?: StringFilter<"Investment"> | string
+    recoupment_percentage?: FloatFilter<"Investment"> | number
+    premium_target?: FloatFilter<"Investment"> | number
+    premium_paid?: FloatFilter<"Investment"> | number
+    backend_percentage?: FloatFilter<"Investment"> | number
+    backend_paid?: FloatFilter<"Investment"> | number
+    createdAt?: DateTimeFilter<"Investment"> | Date | string
+    updatedAt?: DateTimeFilter<"Investment"> | Date | string
     investor?: XOR<InvestorScalarRelationFilter, InvestorWhereInput>
     slate?: XOR<SlateScalarRelationFilter, SlateWhereInput>
   }, "id">
@@ -21527,11 +23091,23 @@ export namespace Prisma {
     investor_id?: SortOrder
     slate_id?: SortOrder
     amount?: SortOrder
-    date?: SortOrder
-    status?: SortOrder
-    notes?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    ownership_percentage?: SortOrder
+    rollover_amount?: SortOrder
+    new_cash_amount?: SortOrder
+    total_investment?: SortOrder
+    source_investment_id?: SortOrderInput | SortOrder
+    is_reinvestment?: SortOrder
+    reinvested_amount?: SortOrder
+    recouped_amount?: SortOrder
+    total_returned?: SortOrder
+    current_stage?: SortOrder
+    recoupment_percentage?: SortOrder
+    premium_target?: SortOrder
+    premium_paid?: SortOrder
+    backend_percentage?: SortOrder
+    backend_paid?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: InvestmentCountOrderByAggregateInput
     _avg?: InvestmentAvgOrderByAggregateInput
     _max?: InvestmentMaxOrderByAggregateInput
@@ -21547,93 +23123,23 @@ export namespace Prisma {
     investor_id?: StringWithAggregatesFilter<"Investment"> | string
     slate_id?: StringWithAggregatesFilter<"Investment"> | string
     amount?: FloatWithAggregatesFilter<"Investment"> | number
-    date?: DateTimeWithAggregatesFilter<"Investment"> | Date | string
-    status?: StringWithAggregatesFilter<"Investment"> | string
-    notes?: StringNullableWithAggregatesFilter<"Investment"> | string | null
-    created_at?: DateTimeWithAggregatesFilter<"Investment"> | Date | string
-    updated_at?: DateTimeWithAggregatesFilter<"Investment"> | Date | string
-  }
-
-  export type PaymentWhereInput = {
-    AND?: PaymentWhereInput | PaymentWhereInput[]
-    OR?: PaymentWhereInput[]
-    NOT?: PaymentWhereInput | PaymentWhereInput[]
-    id?: StringFilter<"Payment"> | string
-    investor_id?: StringNullableFilter<"Payment"> | string | null
-    amount?: FloatFilter<"Payment"> | number
-    date?: DateTimeFilter<"Payment"> | Date | string
-    type?: StringFilter<"Payment"> | string
-    status?: StringFilter<"Payment"> | string
-    description?: StringNullableFilter<"Payment"> | string | null
-    reference?: StringNullableFilter<"Payment"> | string | null
-    created_at?: DateTimeFilter<"Payment"> | Date | string
-    updated_at?: DateTimeFilter<"Payment"> | Date | string
-    investor?: XOR<InvestorNullableScalarRelationFilter, InvestorWhereInput> | null
-  }
-
-  export type PaymentOrderByWithRelationInput = {
-    id?: SortOrder
-    investor_id?: SortOrderInput | SortOrder
-    amount?: SortOrder
-    date?: SortOrder
-    type?: SortOrder
-    status?: SortOrder
-    description?: SortOrderInput | SortOrder
-    reference?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
-    investor?: InvestorOrderByWithRelationInput
-  }
-
-  export type PaymentWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: PaymentWhereInput | PaymentWhereInput[]
-    OR?: PaymentWhereInput[]
-    NOT?: PaymentWhereInput | PaymentWhereInput[]
-    investor_id?: StringNullableFilter<"Payment"> | string | null
-    amount?: FloatFilter<"Payment"> | number
-    date?: DateTimeFilter<"Payment"> | Date | string
-    type?: StringFilter<"Payment"> | string
-    status?: StringFilter<"Payment"> | string
-    description?: StringNullableFilter<"Payment"> | string | null
-    reference?: StringNullableFilter<"Payment"> | string | null
-    created_at?: DateTimeFilter<"Payment"> | Date | string
-    updated_at?: DateTimeFilter<"Payment"> | Date | string
-    investor?: XOR<InvestorNullableScalarRelationFilter, InvestorWhereInput> | null
-  }, "id">
-
-  export type PaymentOrderByWithAggregationInput = {
-    id?: SortOrder
-    investor_id?: SortOrderInput | SortOrder
-    amount?: SortOrder
-    date?: SortOrder
-    type?: SortOrder
-    status?: SortOrder
-    description?: SortOrderInput | SortOrder
-    reference?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
-    _count?: PaymentCountOrderByAggregateInput
-    _avg?: PaymentAvgOrderByAggregateInput
-    _max?: PaymentMaxOrderByAggregateInput
-    _min?: PaymentMinOrderByAggregateInput
-    _sum?: PaymentSumOrderByAggregateInput
-  }
-
-  export type PaymentScalarWhereWithAggregatesInput = {
-    AND?: PaymentScalarWhereWithAggregatesInput | PaymentScalarWhereWithAggregatesInput[]
-    OR?: PaymentScalarWhereWithAggregatesInput[]
-    NOT?: PaymentScalarWhereWithAggregatesInput | PaymentScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Payment"> | string
-    investor_id?: StringNullableWithAggregatesFilter<"Payment"> | string | null
-    amount?: FloatWithAggregatesFilter<"Payment"> | number
-    date?: DateTimeWithAggregatesFilter<"Payment"> | Date | string
-    type?: StringWithAggregatesFilter<"Payment"> | string
-    status?: StringWithAggregatesFilter<"Payment"> | string
-    description?: StringNullableWithAggregatesFilter<"Payment"> | string | null
-    reference?: StringNullableWithAggregatesFilter<"Payment"> | string | null
-    created_at?: DateTimeWithAggregatesFilter<"Payment"> | Date | string
-    updated_at?: DateTimeWithAggregatesFilter<"Payment"> | Date | string
+    ownership_percentage?: FloatWithAggregatesFilter<"Investment"> | number
+    rollover_amount?: FloatWithAggregatesFilter<"Investment"> | number
+    new_cash_amount?: FloatWithAggregatesFilter<"Investment"> | number
+    total_investment?: FloatWithAggregatesFilter<"Investment"> | number
+    source_investment_id?: StringNullableWithAggregatesFilter<"Investment"> | string | null
+    is_reinvestment?: BoolWithAggregatesFilter<"Investment"> | boolean
+    reinvested_amount?: FloatWithAggregatesFilter<"Investment"> | number
+    recouped_amount?: FloatWithAggregatesFilter<"Investment"> | number
+    total_returned?: FloatWithAggregatesFilter<"Investment"> | number
+    current_stage?: StringWithAggregatesFilter<"Investment"> | string
+    recoupment_percentage?: FloatWithAggregatesFilter<"Investment"> | number
+    premium_target?: FloatWithAggregatesFilter<"Investment"> | number
+    premium_paid?: FloatWithAggregatesFilter<"Investment"> | number
+    backend_percentage?: FloatWithAggregatesFilter<"Investment"> | number
+    backend_paid?: FloatWithAggregatesFilter<"Investment"> | number
+    createdAt?: DateTimeWithAggregatesFilter<"Investment"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Investment"> | Date | string
   }
 
   export type RevenueEntryWhereInput = {
@@ -21641,25 +23147,25 @@ export namespace Prisma {
     OR?: RevenueEntryWhereInput[]
     NOT?: RevenueEntryWhereInput | RevenueEntryWhereInput[]
     id?: StringFilter<"RevenueEntry"> | string
-    film_id?: StringNullableFilter<"RevenueEntry"> | string | null
+    film_id?: StringFilter<"RevenueEntry"> | string
     amount?: FloatFilter<"RevenueEntry"> | number
-    source?: StringFilter<"RevenueEntry"> | string
+    source?: StringNullableFilter<"RevenueEntry"> | string | null
     date?: DateTimeFilter<"RevenueEntry"> | Date | string
     description?: StringNullableFilter<"RevenueEntry"> | string | null
-    created_at?: DateTimeFilter<"RevenueEntry"> | Date | string
-    updated_at?: DateTimeFilter<"RevenueEntry"> | Date | string
-    film?: XOR<FilmNullableScalarRelationFilter, FilmWhereInput> | null
+    createdAt?: DateTimeFilter<"RevenueEntry"> | Date | string
+    updatedAt?: DateTimeFilter<"RevenueEntry"> | Date | string
+    film?: XOR<FilmScalarRelationFilter, FilmWhereInput>
   }
 
   export type RevenueEntryOrderByWithRelationInput = {
     id?: SortOrder
-    film_id?: SortOrderInput | SortOrder
+    film_id?: SortOrder
     amount?: SortOrder
-    source?: SortOrder
+    source?: SortOrderInput | SortOrder
     date?: SortOrder
     description?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     film?: FilmOrderByWithRelationInput
   }
 
@@ -21668,25 +23174,25 @@ export namespace Prisma {
     AND?: RevenueEntryWhereInput | RevenueEntryWhereInput[]
     OR?: RevenueEntryWhereInput[]
     NOT?: RevenueEntryWhereInput | RevenueEntryWhereInput[]
-    film_id?: StringNullableFilter<"RevenueEntry"> | string | null
+    film_id?: StringFilter<"RevenueEntry"> | string
     amount?: FloatFilter<"RevenueEntry"> | number
-    source?: StringFilter<"RevenueEntry"> | string
+    source?: StringNullableFilter<"RevenueEntry"> | string | null
     date?: DateTimeFilter<"RevenueEntry"> | Date | string
     description?: StringNullableFilter<"RevenueEntry"> | string | null
-    created_at?: DateTimeFilter<"RevenueEntry"> | Date | string
-    updated_at?: DateTimeFilter<"RevenueEntry"> | Date | string
-    film?: XOR<FilmNullableScalarRelationFilter, FilmWhereInput> | null
+    createdAt?: DateTimeFilter<"RevenueEntry"> | Date | string
+    updatedAt?: DateTimeFilter<"RevenueEntry"> | Date | string
+    film?: XOR<FilmScalarRelationFilter, FilmWhereInput>
   }, "id">
 
   export type RevenueEntryOrderByWithAggregationInput = {
     id?: SortOrder
-    film_id?: SortOrderInput | SortOrder
+    film_id?: SortOrder
     amount?: SortOrder
-    source?: SortOrder
+    source?: SortOrderInput | SortOrder
     date?: SortOrder
     description?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: RevenueEntryCountOrderByAggregateInput
     _avg?: RevenueEntryAvgOrderByAggregateInput
     _max?: RevenueEntryMaxOrderByAggregateInput
@@ -21699,13 +23205,13 @@ export namespace Prisma {
     OR?: RevenueEntryScalarWhereWithAggregatesInput[]
     NOT?: RevenueEntryScalarWhereWithAggregatesInput | RevenueEntryScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"RevenueEntry"> | string
-    film_id?: StringNullableWithAggregatesFilter<"RevenueEntry"> | string | null
+    film_id?: StringWithAggregatesFilter<"RevenueEntry"> | string
     amount?: FloatWithAggregatesFilter<"RevenueEntry"> | number
-    source?: StringWithAggregatesFilter<"RevenueEntry"> | string
+    source?: StringNullableWithAggregatesFilter<"RevenueEntry"> | string | null
     date?: DateTimeWithAggregatesFilter<"RevenueEntry"> | Date | string
     description?: StringNullableWithAggregatesFilter<"RevenueEntry"> | string | null
-    created_at?: DateTimeWithAggregatesFilter<"RevenueEntry"> | Date | string
-    updated_at?: DateTimeWithAggregatesFilter<"RevenueEntry"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"RevenueEntry"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"RevenueEntry"> | Date | string
   }
 
   export type ExpenseWhereInput = {
@@ -21713,32 +23219,26 @@ export namespace Prisma {
     OR?: ExpenseWhereInput[]
     NOT?: ExpenseWhereInput | ExpenseWhereInput[]
     id?: StringFilter<"Expense"> | string
-    film_id?: StringNullableFilter<"Expense"> | string | null
-    slate_id?: StringNullableFilter<"Expense"> | string | null
+    film_id?: StringFilter<"Expense"> | string
     amount?: FloatFilter<"Expense"> | number
-    category?: StringFilter<"Expense"> | string
-    date?: DateTimeFilter<"Expense"> | Date | string
+    category?: StringNullableFilter<"Expense"> | string | null
     description?: StringNullableFilter<"Expense"> | string | null
-    vendor?: StringNullableFilter<"Expense"> | string | null
-    created_at?: DateTimeFilter<"Expense"> | Date | string
-    updated_at?: DateTimeFilter<"Expense"> | Date | string
-    film?: XOR<FilmNullableScalarRelationFilter, FilmWhereInput> | null
-    slate?: XOR<SlateNullableScalarRelationFilter, SlateWhereInput> | null
+    date?: DateTimeFilter<"Expense"> | Date | string
+    createdAt?: DateTimeFilter<"Expense"> | Date | string
+    updatedAt?: DateTimeFilter<"Expense"> | Date | string
+    film?: XOR<FilmScalarRelationFilter, FilmWhereInput>
   }
 
   export type ExpenseOrderByWithRelationInput = {
     id?: SortOrder
-    film_id?: SortOrderInput | SortOrder
-    slate_id?: SortOrderInput | SortOrder
+    film_id?: SortOrder
     amount?: SortOrder
-    category?: SortOrder
-    date?: SortOrder
+    category?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
-    vendor?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     film?: FilmOrderByWithRelationInput
-    slate?: SlateOrderByWithRelationInput
   }
 
   export type ExpenseWhereUniqueInput = Prisma.AtLeast<{
@@ -21746,30 +23246,25 @@ export namespace Prisma {
     AND?: ExpenseWhereInput | ExpenseWhereInput[]
     OR?: ExpenseWhereInput[]
     NOT?: ExpenseWhereInput | ExpenseWhereInput[]
-    film_id?: StringNullableFilter<"Expense"> | string | null
-    slate_id?: StringNullableFilter<"Expense"> | string | null
+    film_id?: StringFilter<"Expense"> | string
     amount?: FloatFilter<"Expense"> | number
-    category?: StringFilter<"Expense"> | string
-    date?: DateTimeFilter<"Expense"> | Date | string
+    category?: StringNullableFilter<"Expense"> | string | null
     description?: StringNullableFilter<"Expense"> | string | null
-    vendor?: StringNullableFilter<"Expense"> | string | null
-    created_at?: DateTimeFilter<"Expense"> | Date | string
-    updated_at?: DateTimeFilter<"Expense"> | Date | string
-    film?: XOR<FilmNullableScalarRelationFilter, FilmWhereInput> | null
-    slate?: XOR<SlateNullableScalarRelationFilter, SlateWhereInput> | null
+    date?: DateTimeFilter<"Expense"> | Date | string
+    createdAt?: DateTimeFilter<"Expense"> | Date | string
+    updatedAt?: DateTimeFilter<"Expense"> | Date | string
+    film?: XOR<FilmScalarRelationFilter, FilmWhereInput>
   }, "id">
 
   export type ExpenseOrderByWithAggregationInput = {
     id?: SortOrder
-    film_id?: SortOrderInput | SortOrder
-    slate_id?: SortOrderInput | SortOrder
+    film_id?: SortOrder
     amount?: SortOrder
-    category?: SortOrder
-    date?: SortOrder
+    category?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
-    vendor?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: ExpenseCountOrderByAggregateInput
     _avg?: ExpenseAvgOrderByAggregateInput
     _max?: ExpenseMaxOrderByAggregateInput
@@ -21782,15 +23277,160 @@ export namespace Prisma {
     OR?: ExpenseScalarWhereWithAggregatesInput[]
     NOT?: ExpenseScalarWhereWithAggregatesInput | ExpenseScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Expense"> | string
-    film_id?: StringNullableWithAggregatesFilter<"Expense"> | string | null
-    slate_id?: StringNullableWithAggregatesFilter<"Expense"> | string | null
+    film_id?: StringWithAggregatesFilter<"Expense"> | string
     amount?: FloatWithAggregatesFilter<"Expense"> | number
-    category?: StringWithAggregatesFilter<"Expense"> | string
-    date?: DateTimeWithAggregatesFilter<"Expense"> | Date | string
+    category?: StringNullableWithAggregatesFilter<"Expense"> | string | null
     description?: StringNullableWithAggregatesFilter<"Expense"> | string | null
-    vendor?: StringNullableWithAggregatesFilter<"Expense"> | string | null
-    created_at?: DateTimeWithAggregatesFilter<"Expense"> | Date | string
-    updated_at?: DateTimeWithAggregatesFilter<"Expense"> | Date | string
+    date?: DateTimeWithAggregatesFilter<"Expense"> | Date | string
+    createdAt?: DateTimeWithAggregatesFilter<"Expense"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Expense"> | Date | string
+  }
+
+  export type PaymentWhereInput = {
+    AND?: PaymentWhereInput | PaymentWhereInput[]
+    OR?: PaymentWhereInput[]
+    NOT?: PaymentWhereInput | PaymentWhereInput[]
+    id?: StringFilter<"Payment"> | string
+    investor_id?: StringFilter<"Payment"> | string
+    amount?: FloatFilter<"Payment"> | number
+    type?: StringNullableFilter<"Payment"> | string | null
+    status?: StringFilter<"Payment"> | string
+    date?: DateTimeFilter<"Payment"> | Date | string
+    description?: StringNullableFilter<"Payment"> | string | null
+    createdAt?: DateTimeFilter<"Payment"> | Date | string
+    updatedAt?: DateTimeFilter<"Payment"> | Date | string
+    investor?: XOR<InvestorScalarRelationFilter, InvestorWhereInput>
+  }
+
+  export type PaymentOrderByWithRelationInput = {
+    id?: SortOrder
+    investor_id?: SortOrder
+    amount?: SortOrder
+    type?: SortOrderInput | SortOrder
+    status?: SortOrder
+    date?: SortOrder
+    description?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    investor?: InvestorOrderByWithRelationInput
+  }
+
+  export type PaymentWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: PaymentWhereInput | PaymentWhereInput[]
+    OR?: PaymentWhereInput[]
+    NOT?: PaymentWhereInput | PaymentWhereInput[]
+    investor_id?: StringFilter<"Payment"> | string
+    amount?: FloatFilter<"Payment"> | number
+    type?: StringNullableFilter<"Payment"> | string | null
+    status?: StringFilter<"Payment"> | string
+    date?: DateTimeFilter<"Payment"> | Date | string
+    description?: StringNullableFilter<"Payment"> | string | null
+    createdAt?: DateTimeFilter<"Payment"> | Date | string
+    updatedAt?: DateTimeFilter<"Payment"> | Date | string
+    investor?: XOR<InvestorScalarRelationFilter, InvestorWhereInput>
+  }, "id">
+
+  export type PaymentOrderByWithAggregationInput = {
+    id?: SortOrder
+    investor_id?: SortOrder
+    amount?: SortOrder
+    type?: SortOrderInput | SortOrder
+    status?: SortOrder
+    date?: SortOrder
+    description?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: PaymentCountOrderByAggregateInput
+    _avg?: PaymentAvgOrderByAggregateInput
+    _max?: PaymentMaxOrderByAggregateInput
+    _min?: PaymentMinOrderByAggregateInput
+    _sum?: PaymentSumOrderByAggregateInput
+  }
+
+  export type PaymentScalarWhereWithAggregatesInput = {
+    AND?: PaymentScalarWhereWithAggregatesInput | PaymentScalarWhereWithAggregatesInput[]
+    OR?: PaymentScalarWhereWithAggregatesInput[]
+    NOT?: PaymentScalarWhereWithAggregatesInput | PaymentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Payment"> | string
+    investor_id?: StringWithAggregatesFilter<"Payment"> | string
+    amount?: FloatWithAggregatesFilter<"Payment"> | number
+    type?: StringNullableWithAggregatesFilter<"Payment"> | string | null
+    status?: StringWithAggregatesFilter<"Payment"> | string
+    date?: DateTimeWithAggregatesFilter<"Payment"> | Date | string
+    description?: StringNullableWithAggregatesFilter<"Payment"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Payment"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Payment"> | Date | string
+  }
+
+  export type NotificationWhereInput = {
+    AND?: NotificationWhereInput | NotificationWhereInput[]
+    OR?: NotificationWhereInput[]
+    NOT?: NotificationWhereInput | NotificationWhereInput[]
+    id?: StringFilter<"Notification"> | string
+    investor_id?: StringFilter<"Notification"> | string
+    title?: StringFilter<"Notification"> | string
+    message?: StringFilter<"Notification"> | string
+    read?: BoolFilter<"Notification"> | boolean
+    type?: StringNullableFilter<"Notification"> | string | null
+    createdAt?: DateTimeFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeFilter<"Notification"> | Date | string
+    investor?: XOR<InvestorScalarRelationFilter, InvestorWhereInput>
+  }
+
+  export type NotificationOrderByWithRelationInput = {
+    id?: SortOrder
+    investor_id?: SortOrder
+    title?: SortOrder
+    message?: SortOrder
+    read?: SortOrder
+    type?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    investor?: InvestorOrderByWithRelationInput
+  }
+
+  export type NotificationWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: NotificationWhereInput | NotificationWhereInput[]
+    OR?: NotificationWhereInput[]
+    NOT?: NotificationWhereInput | NotificationWhereInput[]
+    investor_id?: StringFilter<"Notification"> | string
+    title?: StringFilter<"Notification"> | string
+    message?: StringFilter<"Notification"> | string
+    read?: BoolFilter<"Notification"> | boolean
+    type?: StringNullableFilter<"Notification"> | string | null
+    createdAt?: DateTimeFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeFilter<"Notification"> | Date | string
+    investor?: XOR<InvestorScalarRelationFilter, InvestorWhereInput>
+  }, "id">
+
+  export type NotificationOrderByWithAggregationInput = {
+    id?: SortOrder
+    investor_id?: SortOrder
+    title?: SortOrder
+    message?: SortOrder
+    read?: SortOrder
+    type?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: NotificationCountOrderByAggregateInput
+    _max?: NotificationMaxOrderByAggregateInput
+    _min?: NotificationMinOrderByAggregateInput
+  }
+
+  export type NotificationScalarWhereWithAggregatesInput = {
+    AND?: NotificationScalarWhereWithAggregatesInput | NotificationScalarWhereWithAggregatesInput[]
+    OR?: NotificationScalarWhereWithAggregatesInput[]
+    NOT?: NotificationScalarWhereWithAggregatesInput | NotificationScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Notification"> | string
+    investor_id?: StringWithAggregatesFilter<"Notification"> | string
+    title?: StringWithAggregatesFilter<"Notification"> | string
+    message?: StringWithAggregatesFilter<"Notification"> | string
+    read?: BoolWithAggregatesFilter<"Notification"> | boolean
+    type?: StringNullableWithAggregatesFilter<"Notification"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Notification"> | Date | string
   }
 
   export type DocumentWhereInput = {
@@ -21799,24 +23439,26 @@ export namespace Prisma {
     NOT?: DocumentWhereInput | DocumentWhereInput[]
     id?: StringFilter<"Document"> | string
     investor_id?: StringNullableFilter<"Document"> | string | null
-    name?: StringFilter<"Document"> | string
-    file_url?: StringFilter<"Document"> | string
-    doc_type?: StringFilter<"Document"> | string
+    title?: StringFilter<"Document"> | string
+    file_url?: StringNullableFilter<"Document"> | string | null
+    file_type?: StringNullableFilter<"Document"> | string | null
     description?: StringNullableFilter<"Document"> | string | null
-    created_at?: DateTimeFilter<"Document"> | Date | string
-    updated_at?: DateTimeFilter<"Document"> | Date | string
+    is_global?: BoolFilter<"Document"> | boolean
+    createdAt?: DateTimeFilter<"Document"> | Date | string
+    updatedAt?: DateTimeFilter<"Document"> | Date | string
     investor?: XOR<InvestorNullableScalarRelationFilter, InvestorWhereInput> | null
   }
 
   export type DocumentOrderByWithRelationInput = {
     id?: SortOrder
     investor_id?: SortOrderInput | SortOrder
-    name?: SortOrder
-    file_url?: SortOrder
-    doc_type?: SortOrder
+    title?: SortOrder
+    file_url?: SortOrderInput | SortOrder
+    file_type?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    is_global?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     investor?: InvestorOrderByWithRelationInput
   }
 
@@ -21826,24 +23468,26 @@ export namespace Prisma {
     OR?: DocumentWhereInput[]
     NOT?: DocumentWhereInput | DocumentWhereInput[]
     investor_id?: StringNullableFilter<"Document"> | string | null
-    name?: StringFilter<"Document"> | string
-    file_url?: StringFilter<"Document"> | string
-    doc_type?: StringFilter<"Document"> | string
+    title?: StringFilter<"Document"> | string
+    file_url?: StringNullableFilter<"Document"> | string | null
+    file_type?: StringNullableFilter<"Document"> | string | null
     description?: StringNullableFilter<"Document"> | string | null
-    created_at?: DateTimeFilter<"Document"> | Date | string
-    updated_at?: DateTimeFilter<"Document"> | Date | string
+    is_global?: BoolFilter<"Document"> | boolean
+    createdAt?: DateTimeFilter<"Document"> | Date | string
+    updatedAt?: DateTimeFilter<"Document"> | Date | string
     investor?: XOR<InvestorNullableScalarRelationFilter, InvestorWhereInput> | null
   }, "id">
 
   export type DocumentOrderByWithAggregationInput = {
     id?: SortOrder
     investor_id?: SortOrderInput | SortOrder
-    name?: SortOrder
-    file_url?: SortOrder
-    doc_type?: SortOrder
+    title?: SortOrder
+    file_url?: SortOrderInput | SortOrder
+    file_type?: SortOrderInput | SortOrder
     description?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    is_global?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
     _count?: DocumentCountOrderByAggregateInput
     _max?: DocumentMaxOrderByAggregateInput
     _min?: DocumentMinOrderByAggregateInput
@@ -21855,84 +23499,90 @@ export namespace Prisma {
     NOT?: DocumentScalarWhereWithAggregatesInput | DocumentScalarWhereWithAggregatesInput[]
     id?: StringWithAggregatesFilter<"Document"> | string
     investor_id?: StringNullableWithAggregatesFilter<"Document"> | string | null
-    name?: StringWithAggregatesFilter<"Document"> | string
-    file_url?: StringWithAggregatesFilter<"Document"> | string
-    doc_type?: StringWithAggregatesFilter<"Document"> | string
+    title?: StringWithAggregatesFilter<"Document"> | string
+    file_url?: StringNullableWithAggregatesFilter<"Document"> | string | null
+    file_type?: StringNullableWithAggregatesFilter<"Document"> | string | null
     description?: StringNullableWithAggregatesFilter<"Document"> | string | null
-    created_at?: DateTimeWithAggregatesFilter<"Document"> | Date | string
-    updated_at?: DateTimeWithAggregatesFilter<"Document"> | Date | string
+    is_global?: BoolWithAggregatesFilter<"Document"> | boolean
+    createdAt?: DateTimeWithAggregatesFilter<"Document"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Document"> | Date | string
   }
 
-  export type NotificationWhereInput = {
-    AND?: NotificationWhereInput | NotificationWhereInput[]
-    OR?: NotificationWhereInput[]
-    NOT?: NotificationWhereInput | NotificationWhereInput[]
-    id?: StringFilter<"Notification"> | string
-    user_email?: StringFilter<"Notification"> | string
-    title?: StringFilter<"Notification"> | string
-    message?: StringFilter<"Notification"> | string
-    type?: StringFilter<"Notification"> | string
-    read?: BoolFilter<"Notification"> | boolean
-    link?: StringNullableFilter<"Notification"> | string | null
-    created_at?: DateTimeFilter<"Notification"> | Date | string
-    updated_at?: DateTimeFilter<"Notification"> | Date | string
+  export type ReinvestmentWhereInput = {
+    AND?: ReinvestmentWhereInput | ReinvestmentWhereInput[]
+    OR?: ReinvestmentWhereInput[]
+    NOT?: ReinvestmentWhereInput | ReinvestmentWhereInput[]
+    id?: StringFilter<"Reinvestment"> | string
+    investor_id?: StringFilter<"Reinvestment"> | string
+    amount?: FloatFilter<"Reinvestment"> | number
+    from_investment_id?: StringNullableFilter<"Reinvestment"> | string | null
+    to_slate_id?: StringNullableFilter<"Reinvestment"> | string | null
+    status?: StringFilter<"Reinvestment"> | string
+    date?: DateTimeNullableFilter<"Reinvestment"> | Date | string | null
+    createdAt?: DateTimeFilter<"Reinvestment"> | Date | string
+    updatedAt?: DateTimeFilter<"Reinvestment"> | Date | string
+    investor?: XOR<InvestorScalarRelationFilter, InvestorWhereInput>
   }
 
-  export type NotificationOrderByWithRelationInput = {
+  export type ReinvestmentOrderByWithRelationInput = {
     id?: SortOrder
-    user_email?: SortOrder
-    title?: SortOrder
-    message?: SortOrder
-    type?: SortOrder
-    read?: SortOrder
-    link?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    investor_id?: SortOrder
+    amount?: SortOrder
+    from_investment_id?: SortOrderInput | SortOrder
+    to_slate_id?: SortOrderInput | SortOrder
+    status?: SortOrder
+    date?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    investor?: InvestorOrderByWithRelationInput
   }
 
-  export type NotificationWhereUniqueInput = Prisma.AtLeast<{
+  export type ReinvestmentWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: NotificationWhereInput | NotificationWhereInput[]
-    OR?: NotificationWhereInput[]
-    NOT?: NotificationWhereInput | NotificationWhereInput[]
-    user_email?: StringFilter<"Notification"> | string
-    title?: StringFilter<"Notification"> | string
-    message?: StringFilter<"Notification"> | string
-    type?: StringFilter<"Notification"> | string
-    read?: BoolFilter<"Notification"> | boolean
-    link?: StringNullableFilter<"Notification"> | string | null
-    created_at?: DateTimeFilter<"Notification"> | Date | string
-    updated_at?: DateTimeFilter<"Notification"> | Date | string
+    AND?: ReinvestmentWhereInput | ReinvestmentWhereInput[]
+    OR?: ReinvestmentWhereInput[]
+    NOT?: ReinvestmentWhereInput | ReinvestmentWhereInput[]
+    investor_id?: StringFilter<"Reinvestment"> | string
+    amount?: FloatFilter<"Reinvestment"> | number
+    from_investment_id?: StringNullableFilter<"Reinvestment"> | string | null
+    to_slate_id?: StringNullableFilter<"Reinvestment"> | string | null
+    status?: StringFilter<"Reinvestment"> | string
+    date?: DateTimeNullableFilter<"Reinvestment"> | Date | string | null
+    createdAt?: DateTimeFilter<"Reinvestment"> | Date | string
+    updatedAt?: DateTimeFilter<"Reinvestment"> | Date | string
+    investor?: XOR<InvestorScalarRelationFilter, InvestorWhereInput>
   }, "id">
 
-  export type NotificationOrderByWithAggregationInput = {
+  export type ReinvestmentOrderByWithAggregationInput = {
     id?: SortOrder
-    user_email?: SortOrder
-    title?: SortOrder
-    message?: SortOrder
-    type?: SortOrder
-    read?: SortOrder
-    link?: SortOrderInput | SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
-    _count?: NotificationCountOrderByAggregateInput
-    _max?: NotificationMaxOrderByAggregateInput
-    _min?: NotificationMinOrderByAggregateInput
+    investor_id?: SortOrder
+    amount?: SortOrder
+    from_investment_id?: SortOrderInput | SortOrder
+    to_slate_id?: SortOrderInput | SortOrder
+    status?: SortOrder
+    date?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: ReinvestmentCountOrderByAggregateInput
+    _avg?: ReinvestmentAvgOrderByAggregateInput
+    _max?: ReinvestmentMaxOrderByAggregateInput
+    _min?: ReinvestmentMinOrderByAggregateInput
+    _sum?: ReinvestmentSumOrderByAggregateInput
   }
 
-  export type NotificationScalarWhereWithAggregatesInput = {
-    AND?: NotificationScalarWhereWithAggregatesInput | NotificationScalarWhereWithAggregatesInput[]
-    OR?: NotificationScalarWhereWithAggregatesInput[]
-    NOT?: NotificationScalarWhereWithAggregatesInput | NotificationScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Notification"> | string
-    user_email?: StringWithAggregatesFilter<"Notification"> | string
-    title?: StringWithAggregatesFilter<"Notification"> | string
-    message?: StringWithAggregatesFilter<"Notification"> | string
-    type?: StringWithAggregatesFilter<"Notification"> | string
-    read?: BoolWithAggregatesFilter<"Notification"> | boolean
-    link?: StringNullableWithAggregatesFilter<"Notification"> | string | null
-    created_at?: DateTimeWithAggregatesFilter<"Notification"> | Date | string
-    updated_at?: DateTimeWithAggregatesFilter<"Notification"> | Date | string
+  export type ReinvestmentScalarWhereWithAggregatesInput = {
+    AND?: ReinvestmentScalarWhereWithAggregatesInput | ReinvestmentScalarWhereWithAggregatesInput[]
+    OR?: ReinvestmentScalarWhereWithAggregatesInput[]
+    NOT?: ReinvestmentScalarWhereWithAggregatesInput | ReinvestmentScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Reinvestment"> | string
+    investor_id?: StringWithAggregatesFilter<"Reinvestment"> | string
+    amount?: FloatWithAggregatesFilter<"Reinvestment"> | number
+    from_investment_id?: StringNullableWithAggregatesFilter<"Reinvestment"> | string | null
+    to_slate_id?: StringNullableWithAggregatesFilter<"Reinvestment"> | string | null
+    status?: StringWithAggregatesFilter<"Reinvestment"> | string
+    date?: DateTimeNullableWithAggregatesFilter<"Reinvestment"> | Date | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Reinvestment"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Reinvestment"> | Date | string
   }
 
   export type MccSessionWhereInput = {
@@ -22468,10 +24118,10 @@ export namespace Prisma {
     id?: string
     email: string
     password_hash: string
-    full_name: string
+    full_name?: string | null
     role?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investor?: InvestorCreateNestedOneWithoutUserInput
     mcc_session?: MccSessionCreateNestedOneWithoutUserInput
   }
@@ -22480,10 +24130,10 @@ export namespace Prisma {
     id?: string
     email: string
     password_hash: string
-    full_name: string
+    full_name?: string | null
     role?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investor?: InvestorUncheckedCreateNestedOneWithoutUserInput
     mcc_session?: MccSessionUncheckedCreateNestedOneWithoutUserInput
   }
@@ -22492,10 +24142,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
-    full_name?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investor?: InvestorUpdateOneWithoutUserNestedInput
     mcc_session?: MccSessionUpdateOneWithoutUserNestedInput
   }
@@ -22504,10 +24154,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
-    full_name?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investor?: InvestorUncheckedUpdateOneWithoutUserNestedInput
     mcc_session?: MccSessionUncheckedUpdateOneWithoutUserNestedInput
   }
@@ -22516,237 +24166,288 @@ export namespace Prisma {
     id?: string
     email: string
     password_hash: string
-    full_name: string
+    full_name?: string | null
     role?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type UserUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
-    full_name?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type UserUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
-    full_name?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type InvestorCreateInput = {
     id?: string
+    first_name: string
+    last_name: string
     name: string
     email: string
     phone?: string | null
     company?: string | null
+    notes?: string | null
+    has_login?: boolean
+    invite_token?: string | null
     invite_sent_at?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     user?: UserCreateNestedOneWithoutInvestorInput
     investments?: InvestmentCreateNestedManyWithoutInvestorInput
     payments?: PaymentCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationCreateNestedManyWithoutInvestorInput
     documents?: DocumentCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentCreateNestedManyWithoutInvestorInput
   }
 
   export type InvestorUncheckedCreateInput = {
     id?: string
+    first_name: string
+    last_name: string
     name: string
     email: string
     phone?: string | null
     company?: string | null
+    notes?: string | null
     user_id?: string | null
+    has_login?: boolean
+    invite_token?: string | null
     invite_sent_at?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investments?: InvestmentUncheckedCreateNestedManyWithoutInvestorInput
     payments?: PaymentUncheckedCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutInvestorInput
     documents?: DocumentUncheckedCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentUncheckedCreateNestedManyWithoutInvestorInput
   }
 
   export type InvestorUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
     invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneWithoutInvestorNestedInput
     investments?: InvestmentUpdateManyWithoutInvestorNestedInput
     payments?: PaymentUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUpdateManyWithoutInvestorNestedInput
     documents?: DocumentUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUpdateManyWithoutInvestorNestedInput
   }
 
   export type InvestorUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
     invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investments?: InvestmentUncheckedUpdateManyWithoutInvestorNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutInvestorNestedInput
     documents?: DocumentUncheckedUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUncheckedUpdateManyWithoutInvestorNestedInput
   }
 
   export type InvestorCreateManyInput = {
     id?: string
+    first_name: string
+    last_name: string
     name: string
     email: string
     phone?: string | null
     company?: string | null
+    notes?: string | null
     user_id?: string | null
+    has_login?: boolean
+    invite_token?: string | null
     invite_sent_at?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type InvestorUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
     invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type InvestorUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
     invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SlateCreateInput = {
     id?: string
     name: string
     description?: string | null
-    budget: number
+    status?: string
+    budget?: number
     start_date?: Date | string | null
     end_date?: Date | string | null
-    status?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    target_return?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     films?: FilmCreateNestedManyWithoutSlateInput
     investments?: InvestmentCreateNestedManyWithoutSlateInput
-    expenses?: ExpenseCreateNestedManyWithoutSlateInput
   }
 
   export type SlateUncheckedCreateInput = {
     id?: string
     name: string
     description?: string | null
-    budget: number
+    status?: string
+    budget?: number
     start_date?: Date | string | null
     end_date?: Date | string | null
-    status?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    target_return?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     films?: FilmUncheckedCreateNestedManyWithoutSlateInput
     investments?: InvestmentUncheckedCreateNestedManyWithoutSlateInput
-    expenses?: ExpenseUncheckedCreateNestedManyWithoutSlateInput
   }
 
   export type SlateUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    target_return?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     films?: FilmUpdateManyWithoutSlateNestedInput
     investments?: InvestmentUpdateManyWithoutSlateNestedInput
-    expenses?: ExpenseUpdateManyWithoutSlateNestedInput
   }
 
   export type SlateUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    target_return?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     films?: FilmUncheckedUpdateManyWithoutSlateNestedInput
     investments?: InvestmentUncheckedUpdateManyWithoutSlateNestedInput
-    expenses?: ExpenseUncheckedUpdateManyWithoutSlateNestedInput
   }
 
   export type SlateCreateManyInput = {
     id?: string
     name: string
     description?: string | null
-    budget: number
+    status?: string
+    budget?: number
     start_date?: Date | string | null
     end_date?: Date | string | null
-    status?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    target_return?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type SlateUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    target_return?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type SlateUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    target_return?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FilmCreateInput = {
     id?: string
     title: string
-    description?: string | null
-    genre?: string | null
-    status?: string
     budget?: number
-    revenue?: number
-    poster_url?: string | null
-    trailer_url?: string | null
+    status?: string
+    genre?: string | null
+    description?: string | null
     release_date?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    slate?: SlateCreateNestedOneWithoutFilmsInput
+    total_revenue?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    slate: SlateCreateNestedOneWithoutFilmsInput
     revenue_entries?: RevenueEntryCreateNestedManyWithoutFilmInput
     expenses?: ExpenseCreateNestedManyWithoutFilmInput
   }
@@ -22754,17 +24455,15 @@ export namespace Prisma {
   export type FilmUncheckedCreateInput = {
     id?: string
     title: string
-    description?: string | null
-    genre?: string | null
-    status?: string
+    slate_id: string
     budget?: number
-    revenue?: number
-    poster_url?: string | null
-    trailer_url?: string | null
+    status?: string
+    genre?: string | null
+    description?: string | null
     release_date?: Date | string | null
-    slate_id?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    total_revenue?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
     revenue_entries?: RevenueEntryUncheckedCreateNestedManyWithoutFilmInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutFilmInput
   }
@@ -22772,17 +24471,15 @@ export namespace Prisma {
   export type FilmUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
-    revenue?: FloatFieldUpdateOperationsInput | number
-    poster_url?: NullableStringFieldUpdateOperationsInput | string | null
-    trailer_url?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     release_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    slate?: SlateUpdateOneWithoutFilmsNestedInput
+    total_revenue?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    slate?: SlateUpdateOneRequiredWithoutFilmsNestedInput
     revenue_entries?: RevenueEntryUpdateManyWithoutFilmNestedInput
     expenses?: ExpenseUpdateManyWithoutFilmNestedInput
   }
@@ -22790,17 +24487,15 @@ export namespace Prisma {
   export type FilmUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
+    slate_id?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
-    revenue?: FloatFieldUpdateOperationsInput | number
-    poster_url?: NullableStringFieldUpdateOperationsInput | string | null
-    trailer_url?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     release_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    slate_id?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    total_revenue?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     revenue_entries?: RevenueEntryUncheckedUpdateManyWithoutFilmNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutFilmNestedInput
   }
@@ -22808,58 +24503,64 @@ export namespace Prisma {
   export type FilmCreateManyInput = {
     id?: string
     title: string
-    description?: string | null
-    genre?: string | null
-    status?: string
+    slate_id: string
     budget?: number
-    revenue?: number
-    poster_url?: string | null
-    trailer_url?: string | null
+    status?: string
+    genre?: string | null
+    description?: string | null
     release_date?: Date | string | null
-    slate_id?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    total_revenue?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type FilmUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
-    revenue?: FloatFieldUpdateOperationsInput | number
-    poster_url?: NullableStringFieldUpdateOperationsInput | string | null
-    trailer_url?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     release_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    total_revenue?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FilmUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
+    slate_id?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
-    revenue?: FloatFieldUpdateOperationsInput | number
-    poster_url?: NullableStringFieldUpdateOperationsInput | string | null
-    trailer_url?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     release_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    slate_id?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    total_revenue?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type InvestmentCreateInput = {
     id?: string
-    amount: number
-    date: Date | string
-    status?: string
-    notes?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    amount?: number
+    ownership_percentage?: number
+    rollover_amount?: number
+    new_cash_amount?: number
+    total_investment?: number
+    source_investment_id?: string | null
+    is_reinvestment?: boolean
+    reinvested_amount?: number
+    recouped_amount?: number
+    total_returned?: number
+    current_stage?: string
+    recoupment_percentage?: number
+    premium_target?: number
+    premium_paid?: number
+    backend_percentage?: number
+    backend_paid?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investor: InvestorCreateNestedOneWithoutInvestmentsInput
     slate: SlateCreateNestedOneWithoutInvestmentsInput
   }
@@ -22868,22 +24569,46 @@ export namespace Prisma {
     id?: string
     investor_id: string
     slate_id: string
-    amount: number
-    date: Date | string
-    status?: string
-    notes?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    amount?: number
+    ownership_percentage?: number
+    rollover_amount?: number
+    new_cash_amount?: number
+    total_investment?: number
+    source_investment_id?: string | null
+    is_reinvestment?: boolean
+    reinvested_amount?: number
+    recouped_amount?: number
+    total_returned?: number
+    current_stage?: string
+    recoupment_percentage?: number
+    premium_target?: number
+    premium_paid?: number
+    backend_percentage?: number
+    backend_paid?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type InvestmentUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: StringFieldUpdateOperationsInput | string
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownership_percentage?: FloatFieldUpdateOperationsInput | number
+    rollover_amount?: FloatFieldUpdateOperationsInput | number
+    new_cash_amount?: FloatFieldUpdateOperationsInput | number
+    total_investment?: FloatFieldUpdateOperationsInput | number
+    source_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_reinvestment?: BoolFieldUpdateOperationsInput | boolean
+    reinvested_amount?: FloatFieldUpdateOperationsInput | number
+    recouped_amount?: FloatFieldUpdateOperationsInput | number
+    total_returned?: FloatFieldUpdateOperationsInput | number
+    current_stage?: StringFieldUpdateOperationsInput | string
+    recoupment_percentage?: FloatFieldUpdateOperationsInput | number
+    premium_target?: FloatFieldUpdateOperationsInput | number
+    premium_paid?: FloatFieldUpdateOperationsInput | number
+    backend_percentage?: FloatFieldUpdateOperationsInput | number
+    backend_paid?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investor?: InvestorUpdateOneRequiredWithoutInvestmentsNestedInput
     slate?: SlateUpdateOneRequiredWithoutInvestmentsNestedInput
   }
@@ -22893,33 +24618,69 @@ export namespace Prisma {
     investor_id?: StringFieldUpdateOperationsInput | string
     slate_id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: StringFieldUpdateOperationsInput | string
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownership_percentage?: FloatFieldUpdateOperationsInput | number
+    rollover_amount?: FloatFieldUpdateOperationsInput | number
+    new_cash_amount?: FloatFieldUpdateOperationsInput | number
+    total_investment?: FloatFieldUpdateOperationsInput | number
+    source_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_reinvestment?: BoolFieldUpdateOperationsInput | boolean
+    reinvested_amount?: FloatFieldUpdateOperationsInput | number
+    recouped_amount?: FloatFieldUpdateOperationsInput | number
+    total_returned?: FloatFieldUpdateOperationsInput | number
+    current_stage?: StringFieldUpdateOperationsInput | string
+    recoupment_percentage?: FloatFieldUpdateOperationsInput | number
+    premium_target?: FloatFieldUpdateOperationsInput | number
+    premium_paid?: FloatFieldUpdateOperationsInput | number
+    backend_percentage?: FloatFieldUpdateOperationsInput | number
+    backend_paid?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type InvestmentCreateManyInput = {
     id?: string
     investor_id: string
     slate_id: string
-    amount: number
-    date: Date | string
-    status?: string
-    notes?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    amount?: number
+    ownership_percentage?: number
+    rollover_amount?: number
+    new_cash_amount?: number
+    total_investment?: number
+    source_investment_id?: string | null
+    is_reinvestment?: boolean
+    reinvested_amount?: number
+    recouped_amount?: number
+    total_returned?: number
+    current_stage?: string
+    recoupment_percentage?: number
+    premium_target?: number
+    premium_paid?: number
+    backend_percentage?: number
+    backend_paid?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type InvestmentUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: StringFieldUpdateOperationsInput | string
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownership_percentage?: FloatFieldUpdateOperationsInput | number
+    rollover_amount?: FloatFieldUpdateOperationsInput | number
+    new_cash_amount?: FloatFieldUpdateOperationsInput | number
+    total_investment?: FloatFieldUpdateOperationsInput | number
+    source_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_reinvestment?: BoolFieldUpdateOperationsInput | boolean
+    reinvested_amount?: FloatFieldUpdateOperationsInput | number
+    recouped_amount?: FloatFieldUpdateOperationsInput | number
+    total_returned?: FloatFieldUpdateOperationsInput | number
+    current_stage?: StringFieldUpdateOperationsInput | string
+    recoupment_percentage?: FloatFieldUpdateOperationsInput | number
+    premium_target?: FloatFieldUpdateOperationsInput | number
+    premium_paid?: FloatFieldUpdateOperationsInput | number
+    backend_percentage?: FloatFieldUpdateOperationsInput | number
+    backend_paid?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type InvestmentUncheckedUpdateManyInput = {
@@ -22927,426 +24688,500 @@ export namespace Prisma {
     investor_id?: StringFieldUpdateOperationsInput | string
     slate_id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: StringFieldUpdateOperationsInput | string
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PaymentCreateInput = {
-    id?: string
-    amount: number
-    date: Date | string
-    type: string
-    status?: string
-    description?: string | null
-    reference?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    investor?: InvestorCreateNestedOneWithoutPaymentsInput
-  }
-
-  export type PaymentUncheckedCreateInput = {
-    id?: string
-    investor_id?: string | null
-    amount: number
-    date: Date | string
-    type: string
-    status?: string
-    description?: string | null
-    reference?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-  }
-
-  export type PaymentUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    investor?: InvestorUpdateOneWithoutPaymentsNestedInput
-  }
-
-  export type PaymentUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    investor_id?: NullableStringFieldUpdateOperationsInput | string | null
-    amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PaymentCreateManyInput = {
-    id?: string
-    investor_id?: string | null
-    amount: number
-    date: Date | string
-    type: string
-    status?: string
-    description?: string | null
-    reference?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-  }
-
-  export type PaymentUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PaymentUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    investor_id?: NullableStringFieldUpdateOperationsInput | string | null
-    amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownership_percentage?: FloatFieldUpdateOperationsInput | number
+    rollover_amount?: FloatFieldUpdateOperationsInput | number
+    new_cash_amount?: FloatFieldUpdateOperationsInput | number
+    total_investment?: FloatFieldUpdateOperationsInput | number
+    source_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_reinvestment?: BoolFieldUpdateOperationsInput | boolean
+    reinvested_amount?: FloatFieldUpdateOperationsInput | number
+    recouped_amount?: FloatFieldUpdateOperationsInput | number
+    total_returned?: FloatFieldUpdateOperationsInput | number
+    current_stage?: StringFieldUpdateOperationsInput | string
+    recoupment_percentage?: FloatFieldUpdateOperationsInput | number
+    premium_target?: FloatFieldUpdateOperationsInput | number
+    premium_paid?: FloatFieldUpdateOperationsInput | number
+    backend_percentage?: FloatFieldUpdateOperationsInput | number
+    backend_paid?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type RevenueEntryCreateInput = {
     id?: string
     amount: number
-    source: string
+    source?: string | null
     date: Date | string
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    film?: FilmCreateNestedOneWithoutRevenue_entriesInput
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    film: FilmCreateNestedOneWithoutRevenue_entriesInput
   }
 
   export type RevenueEntryUncheckedCreateInput = {
     id?: string
-    film_id?: string | null
+    film_id: string
     amount: number
-    source: string
+    source?: string | null
     date: Date | string
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type RevenueEntryUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    source?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    film?: FilmUpdateOneWithoutRevenue_entriesNestedInput
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    film?: FilmUpdateOneRequiredWithoutRevenue_entriesNestedInput
   }
 
   export type RevenueEntryUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    film_id?: NullableStringFieldUpdateOperationsInput | string | null
+    film_id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    source?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type RevenueEntryCreateManyInput = {
     id?: string
-    film_id?: string | null
+    film_id: string
     amount: number
-    source: string
+    source?: string | null
     date: Date | string
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type RevenueEntryUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    source?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type RevenueEntryUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    film_id?: NullableStringFieldUpdateOperationsInput | string | null
+    film_id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    source?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ExpenseCreateInput = {
     id?: string
     amount: number
-    category: string
-    date: Date | string
+    category?: string | null
     description?: string | null
-    vendor?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    film?: FilmCreateNestedOneWithoutExpensesInput
-    slate?: SlateCreateNestedOneWithoutExpensesInput
+    date: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    film: FilmCreateNestedOneWithoutExpensesInput
   }
 
   export type ExpenseUncheckedCreateInput = {
     id?: string
-    film_id?: string | null
-    slate_id?: string | null
+    film_id: string
     amount: number
-    category: string
-    date: Date | string
+    category?: string | null
     description?: string | null
-    vendor?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    date: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ExpenseUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    category?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    vendor?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    film?: FilmUpdateOneWithoutExpensesNestedInput
-    slate?: SlateUpdateOneWithoutExpensesNestedInput
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    film?: FilmUpdateOneRequiredWithoutExpensesNestedInput
   }
 
   export type ExpenseUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    film_id?: NullableStringFieldUpdateOperationsInput | string | null
-    slate_id?: NullableStringFieldUpdateOperationsInput | string | null
+    film_id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    category?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    vendor?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ExpenseCreateManyInput = {
     id?: string
-    film_id?: string | null
-    slate_id?: string | null
+    film_id: string
     amount: number
-    category: string
-    date: Date | string
+    category?: string | null
     description?: string | null
-    vendor?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    date: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ExpenseUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    category?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    vendor?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ExpenseUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    film_id?: NullableStringFieldUpdateOperationsInput | string | null
-    slate_id?: NullableStringFieldUpdateOperationsInput | string | null
+    film_id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    category?: StringFieldUpdateOperationsInput | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PaymentCreateInput = {
+    id?: string
+    amount: number
+    type?: string | null
+    status?: string
+    date: Date | string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    investor: InvestorCreateNestedOneWithoutPaymentsInput
+  }
+
+  export type PaymentUncheckedCreateInput = {
+    id?: string
+    investor_id: string
+    amount: number
+    type?: string | null
+    status?: string
+    date: Date | string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PaymentUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    vendor?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    investor?: InvestorUpdateOneRequiredWithoutPaymentsNestedInput
+  }
+
+  export type PaymentUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    investor_id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PaymentCreateManyInput = {
+    id?: string
+    investor_id: string
+    amount: number
+    type?: string | null
+    status?: string
+    date: Date | string
+    description?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type PaymentUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type PaymentUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    investor_id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationCreateInput = {
+    id?: string
+    title: string
+    message: string
+    read?: boolean
+    type?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    investor: InvestorCreateNestedOneWithoutNotificationsInput
+  }
+
+  export type NotificationUncheckedCreateInput = {
+    id?: string
+    investor_id: string
+    title: string
+    message: string
+    read?: boolean
+    type?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    investor?: InvestorUpdateOneRequiredWithoutNotificationsNestedInput
+  }
+
+  export type NotificationUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    investor_id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationCreateManyInput = {
+    id?: string
+    investor_id: string
+    title: string
+    message: string
+    read?: boolean
+    type?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    investor_id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DocumentCreateInput = {
     id?: string
-    name: string
-    file_url: string
-    doc_type: string
+    title: string
+    file_url?: string | null
+    file_type?: string | null
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    is_global?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investor?: InvestorCreateNestedOneWithoutDocumentsInput
   }
 
   export type DocumentUncheckedCreateInput = {
     id?: string
     investor_id?: string | null
-    name: string
-    file_url: string
-    doc_type: string
+    title: string
+    file_url?: string | null
+    file_type?: string | null
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    is_global?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type DocumentUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    file_url?: StringFieldUpdateOperationsInput | string
-    doc_type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    file_url?: NullableStringFieldUpdateOperationsInput | string | null
+    file_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_global?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investor?: InvestorUpdateOneWithoutDocumentsNestedInput
   }
 
   export type DocumentUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     investor_id?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: StringFieldUpdateOperationsInput | string
-    file_url?: StringFieldUpdateOperationsInput | string
-    doc_type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    file_url?: NullableStringFieldUpdateOperationsInput | string | null
+    file_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_global?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DocumentCreateManyInput = {
     id?: string
     investor_id?: string | null
-    name: string
-    file_url: string
-    doc_type: string
+    title: string
+    file_url?: string | null
+    file_type?: string | null
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    is_global?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type DocumentUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    file_url?: StringFieldUpdateOperationsInput | string
-    doc_type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    file_url?: NullableStringFieldUpdateOperationsInput | string | null
+    file_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_global?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DocumentUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     investor_id?: NullableStringFieldUpdateOperationsInput | string | null
-    name?: StringFieldUpdateOperationsInput | string
-    file_url?: StringFieldUpdateOperationsInput | string
-    doc_type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    file_url?: NullableStringFieldUpdateOperationsInput | string | null
+    file_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_global?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type NotificationCreateInput = {
+  export type ReinvestmentCreateInput = {
     id?: string
-    user_email: string
-    title: string
-    message: string
-    type: string
-    read?: boolean
-    link?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    amount: number
+    from_investment_id?: string | null
+    to_slate_id?: string | null
+    status?: string
+    date?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    investor: InvestorCreateNestedOneWithoutReinvestmentsInput
   }
 
-  export type NotificationUncheckedCreateInput = {
+  export type ReinvestmentUncheckedCreateInput = {
     id?: string
-    user_email: string
-    title: string
-    message: string
-    type: string
-    read?: boolean
-    link?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    investor_id: string
+    amount: number
+    from_investment_id?: string | null
+    to_slate_id?: string | null
+    status?: string
+    date?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type NotificationUpdateInput = {
+  export type ReinvestmentUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_email?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    read?: BoolFieldUpdateOperationsInput | boolean
-    link?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    from_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    to_slate_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    investor?: InvestorUpdateOneRequiredWithoutReinvestmentsNestedInput
   }
 
-  export type NotificationUncheckedUpdateInput = {
+  export type ReinvestmentUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_email?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    read?: BoolFieldUpdateOperationsInput | boolean
-    link?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    investor_id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    from_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    to_slate_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type NotificationCreateManyInput = {
+  export type ReinvestmentCreateManyInput = {
     id?: string
-    user_email: string
-    title: string
-    message: string
-    type: string
-    read?: boolean
-    link?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    investor_id: string
+    amount: number
+    from_investment_id?: string | null
+    to_slate_id?: string | null
+    status?: string
+    date?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type NotificationUpdateManyMutationInput = {
+  export type ReinvestmentUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_email?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    read?: BoolFieldUpdateOperationsInput | boolean
-    link?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    from_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    to_slate_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type NotificationUncheckedUpdateManyInput = {
+  export type ReinvestmentUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
-    user_email?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    read?: BoolFieldUpdateOperationsInput | boolean
-    link?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    investor_id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    from_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    to_slate_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type MccSessionCreateInput = {
@@ -23993,6 +25828,21 @@ export namespace Prisma {
     not?: NestedStringFilter<$PrismaModel> | string
   }
 
+  export type StringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  }
+
   export type DateTimeFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -24014,14 +25864,19 @@ export namespace Prisma {
     isNot?: MccSessionWhereInput | null
   }
 
+  export type SortOrderInput = {
+    sort: SortOrder
+    nulls?: NullsOrder
+  }
+
   export type UserCountOrderByAggregateInput = {
     id?: SortOrder
     email?: SortOrder
     password_hash?: SortOrder
     full_name?: SortOrder
     role?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserMaxOrderByAggregateInput = {
@@ -24030,8 +25885,8 @@ export namespace Prisma {
     password_hash?: SortOrder
     full_name?: SortOrder
     role?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type UserMinOrderByAggregateInput = {
@@ -24040,8 +25895,8 @@ export namespace Prisma {
     password_hash?: SortOrder
     full_name?: SortOrder
     role?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type StringWithAggregatesFilter<$PrismaModel = never> = {
@@ -24062,6 +25917,24 @@ export namespace Prisma {
     _max?: NestedStringFilter<$PrismaModel>
   }
 
+  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    mode?: QueryMode
+    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _min?: NestedStringNullableFilter<$PrismaModel>
+    _max?: NestedStringNullableFilter<$PrismaModel>
+  }
+
   export type DateTimeWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
@@ -24076,19 +25949,9 @@ export namespace Prisma {
     _max?: NestedDateTimeFilter<$PrismaModel>
   }
 
-  export type StringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
+  export type BoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
   }
 
   export type DateTimeNullableFilter<$PrismaModel = never> = {
@@ -24119,15 +25982,22 @@ export namespace Prisma {
     none?: PaymentWhereInput
   }
 
+  export type NotificationListRelationFilter = {
+    every?: NotificationWhereInput
+    some?: NotificationWhereInput
+    none?: NotificationWhereInput
+  }
+
   export type DocumentListRelationFilter = {
     every?: DocumentWhereInput
     some?: DocumentWhereInput
     none?: DocumentWhereInput
   }
 
-  export type SortOrderInput = {
-    sort: SortOrder
-    nulls?: NullsOrder
+  export type ReinvestmentListRelationFilter = {
+    every?: ReinvestmentWhereInput
+    some?: ReinvestmentWhereInput
+    none?: ReinvestmentWhereInput
   }
 
   export type InvestmentOrderByRelationAggregateInput = {
@@ -24138,62 +26008,78 @@ export namespace Prisma {
     _count?: SortOrder
   }
 
+  export type NotificationOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
   export type DocumentOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ReinvestmentOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type InvestorCountOrderByAggregateInput = {
     id?: SortOrder
+    first_name?: SortOrder
+    last_name?: SortOrder
     name?: SortOrder
     email?: SortOrder
     phone?: SortOrder
     company?: SortOrder
+    notes?: SortOrder
     user_id?: SortOrder
+    has_login?: SortOrder
+    invite_token?: SortOrder
     invite_sent_at?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    invite_accepted_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type InvestorMaxOrderByAggregateInput = {
     id?: SortOrder
+    first_name?: SortOrder
+    last_name?: SortOrder
     name?: SortOrder
     email?: SortOrder
     phone?: SortOrder
     company?: SortOrder
+    notes?: SortOrder
     user_id?: SortOrder
+    has_login?: SortOrder
+    invite_token?: SortOrder
     invite_sent_at?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    invite_accepted_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type InvestorMinOrderByAggregateInput = {
     id?: SortOrder
+    first_name?: SortOrder
+    last_name?: SortOrder
     name?: SortOrder
     email?: SortOrder
     phone?: SortOrder
     company?: SortOrder
+    notes?: SortOrder
     user_id?: SortOrder
+    has_login?: SortOrder
+    invite_token?: SortOrder
     invite_sent_at?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    invite_accepted_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type StringNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    mode?: QueryMode
-    not?: NestedStringNullableWithAggregatesFilter<$PrismaModel> | string | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedStringNullableFilter<$PrismaModel>
-    _max?: NestedStringNullableFilter<$PrismaModel>
+  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
   }
 
   export type DateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -24221,23 +26107,24 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type FloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type FilmListRelationFilter = {
     every?: FilmWhereInput
     some?: FilmWhereInput
     none?: FilmWhereInput
   }
 
-  export type ExpenseListRelationFilter = {
-    every?: ExpenseWhereInput
-    some?: ExpenseWhereInput
-    none?: ExpenseWhereInput
-  }
-
   export type FilmOrderByRelationAggregateInput = {
-    _count?: SortOrder
-  }
-
-  export type ExpenseOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -24245,44 +26132,49 @@ export namespace Prisma {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    status?: SortOrder
     budget?: SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
-    status?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    target_return?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SlateAvgOrderByAggregateInput = {
     budget?: SortOrder
+    target_return?: SortOrder
   }
 
   export type SlateMaxOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    status?: SortOrder
     budget?: SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
-    status?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    target_return?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SlateMinOrderByAggregateInput = {
     id?: SortOrder
     name?: SortOrder
     description?: SortOrder
+    status?: SortOrder
     budget?: SortOrder
     start_date?: SortOrder
     end_date?: SortOrder
-    status?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    target_return?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type SlateSumOrderByAggregateInput = {
     budget?: SortOrder
+    target_return?: SortOrder
   }
 
   export type FloatWithAggregatesFilter<$PrismaModel = never> = {
@@ -24301,9 +26193,25 @@ export namespace Prisma {
     _max?: NestedFloatFilter<$PrismaModel>
   }
 
-  export type SlateNullableScalarRelationFilter = {
-    is?: SlateWhereInput | null
-    isNot?: SlateWhereInput | null
+  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
+    _count?: NestedIntNullableFilter<$PrismaModel>
+    _avg?: NestedFloatNullableFilter<$PrismaModel>
+    _sum?: NestedFloatNullableFilter<$PrismaModel>
+    _min?: NestedFloatNullableFilter<$PrismaModel>
+    _max?: NestedFloatNullableFilter<$PrismaModel>
+  }
+
+  export type SlateScalarRelationFilter = {
+    is?: SlateWhereInput
+    isNot?: SlateWhereInput
   }
 
   export type RevenueEntryListRelationFilter = {
@@ -24312,66 +26220,70 @@ export namespace Prisma {
     none?: RevenueEntryWhereInput
   }
 
+  export type ExpenseListRelationFilter = {
+    every?: ExpenseWhereInput
+    some?: ExpenseWhereInput
+    none?: ExpenseWhereInput
+  }
+
   export type RevenueEntryOrderByRelationAggregateInput = {
+    _count?: SortOrder
+  }
+
+  export type ExpenseOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
   export type FilmCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    description?: SortOrder
-    genre?: SortOrder
-    status?: SortOrder
-    budget?: SortOrder
-    revenue?: SortOrder
-    poster_url?: SortOrder
-    trailer_url?: SortOrder
-    release_date?: SortOrder
     slate_id?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    budget?: SortOrder
+    status?: SortOrder
+    genre?: SortOrder
+    description?: SortOrder
+    release_date?: SortOrder
+    total_revenue?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type FilmAvgOrderByAggregateInput = {
     budget?: SortOrder
-    revenue?: SortOrder
+    total_revenue?: SortOrder
   }
 
   export type FilmMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    description?: SortOrder
-    genre?: SortOrder
-    status?: SortOrder
-    budget?: SortOrder
-    revenue?: SortOrder
-    poster_url?: SortOrder
-    trailer_url?: SortOrder
-    release_date?: SortOrder
     slate_id?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    budget?: SortOrder
+    status?: SortOrder
+    genre?: SortOrder
+    description?: SortOrder
+    release_date?: SortOrder
+    total_revenue?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type FilmMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    description?: SortOrder
-    genre?: SortOrder
-    status?: SortOrder
-    budget?: SortOrder
-    revenue?: SortOrder
-    poster_url?: SortOrder
-    trailer_url?: SortOrder
-    release_date?: SortOrder
     slate_id?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    budget?: SortOrder
+    status?: SortOrder
+    genre?: SortOrder
+    description?: SortOrder
+    release_date?: SortOrder
+    total_revenue?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type FilmSumOrderByAggregateInput = {
     budget?: SortOrder
-    revenue?: SortOrder
+    total_revenue?: SortOrder
   }
 
   export type InvestorScalarRelationFilter = {
@@ -24379,25 +26291,44 @@ export namespace Prisma {
     isNot?: InvestorWhereInput
   }
 
-  export type SlateScalarRelationFilter = {
-    is?: SlateWhereInput
-    isNot?: SlateWhereInput
-  }
-
   export type InvestmentCountOrderByAggregateInput = {
     id?: SortOrder
     investor_id?: SortOrder
     slate_id?: SortOrder
     amount?: SortOrder
-    date?: SortOrder
-    status?: SortOrder
-    notes?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    ownership_percentage?: SortOrder
+    rollover_amount?: SortOrder
+    new_cash_amount?: SortOrder
+    total_investment?: SortOrder
+    source_investment_id?: SortOrder
+    is_reinvestment?: SortOrder
+    reinvested_amount?: SortOrder
+    recouped_amount?: SortOrder
+    total_returned?: SortOrder
+    current_stage?: SortOrder
+    recoupment_percentage?: SortOrder
+    premium_target?: SortOrder
+    premium_paid?: SortOrder
+    backend_percentage?: SortOrder
+    backend_paid?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type InvestmentAvgOrderByAggregateInput = {
     amount?: SortOrder
+    ownership_percentage?: SortOrder
+    rollover_amount?: SortOrder
+    new_cash_amount?: SortOrder
+    total_investment?: SortOrder
+    reinvested_amount?: SortOrder
+    recouped_amount?: SortOrder
+    total_returned?: SortOrder
+    recoupment_percentage?: SortOrder
+    premium_target?: SortOrder
+    premium_paid?: SortOrder
+    backend_percentage?: SortOrder
+    backend_paid?: SortOrder
   }
 
   export type InvestmentMaxOrderByAggregateInput = {
@@ -24405,11 +26336,23 @@ export namespace Prisma {
     investor_id?: SortOrder
     slate_id?: SortOrder
     amount?: SortOrder
-    date?: SortOrder
-    status?: SortOrder
-    notes?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    ownership_percentage?: SortOrder
+    rollover_amount?: SortOrder
+    new_cash_amount?: SortOrder
+    total_investment?: SortOrder
+    source_investment_id?: SortOrder
+    is_reinvestment?: SortOrder
+    reinvested_amount?: SortOrder
+    recouped_amount?: SortOrder
+    total_returned?: SortOrder
+    current_stage?: SortOrder
+    recoupment_percentage?: SortOrder
+    premium_target?: SortOrder
+    premium_paid?: SortOrder
+    backend_percentage?: SortOrder
+    backend_paid?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type InvestmentMinOrderByAggregateInput = {
@@ -24417,67 +26360,44 @@ export namespace Prisma {
     investor_id?: SortOrder
     slate_id?: SortOrder
     amount?: SortOrder
-    date?: SortOrder
-    status?: SortOrder
-    notes?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    ownership_percentage?: SortOrder
+    rollover_amount?: SortOrder
+    new_cash_amount?: SortOrder
+    total_investment?: SortOrder
+    source_investment_id?: SortOrder
+    is_reinvestment?: SortOrder
+    reinvested_amount?: SortOrder
+    recouped_amount?: SortOrder
+    total_returned?: SortOrder
+    current_stage?: SortOrder
+    recoupment_percentage?: SortOrder
+    premium_target?: SortOrder
+    premium_paid?: SortOrder
+    backend_percentage?: SortOrder
+    backend_paid?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type InvestmentSumOrderByAggregateInput = {
     amount?: SortOrder
+    ownership_percentage?: SortOrder
+    rollover_amount?: SortOrder
+    new_cash_amount?: SortOrder
+    total_investment?: SortOrder
+    reinvested_amount?: SortOrder
+    recouped_amount?: SortOrder
+    total_returned?: SortOrder
+    recoupment_percentage?: SortOrder
+    premium_target?: SortOrder
+    premium_paid?: SortOrder
+    backend_percentage?: SortOrder
+    backend_paid?: SortOrder
   }
 
-  export type PaymentCountOrderByAggregateInput = {
-    id?: SortOrder
-    investor_id?: SortOrder
-    amount?: SortOrder
-    date?: SortOrder
-    type?: SortOrder
-    status?: SortOrder
-    description?: SortOrder
-    reference?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
-  }
-
-  export type PaymentAvgOrderByAggregateInput = {
-    amount?: SortOrder
-  }
-
-  export type PaymentMaxOrderByAggregateInput = {
-    id?: SortOrder
-    investor_id?: SortOrder
-    amount?: SortOrder
-    date?: SortOrder
-    type?: SortOrder
-    status?: SortOrder
-    description?: SortOrder
-    reference?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
-  }
-
-  export type PaymentMinOrderByAggregateInput = {
-    id?: SortOrder
-    investor_id?: SortOrder
-    amount?: SortOrder
-    date?: SortOrder
-    type?: SortOrder
-    status?: SortOrder
-    description?: SortOrder
-    reference?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
-  }
-
-  export type PaymentSumOrderByAggregateInput = {
-    amount?: SortOrder
-  }
-
-  export type FilmNullableScalarRelationFilter = {
-    is?: FilmWhereInput | null
-    isNot?: FilmWhereInput | null
+  export type FilmScalarRelationFilter = {
+    is?: FilmWhereInput
+    isNot?: FilmWhereInput
   }
 
   export type RevenueEntryCountOrderByAggregateInput = {
@@ -24487,8 +26407,8 @@ export namespace Prisma {
     source?: SortOrder
     date?: SortOrder
     description?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type RevenueEntryAvgOrderByAggregateInput = {
@@ -24502,8 +26422,8 @@ export namespace Prisma {
     source?: SortOrder
     date?: SortOrder
     description?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type RevenueEntryMinOrderByAggregateInput = {
@@ -24513,8 +26433,8 @@ export namespace Prisma {
     source?: SortOrder
     date?: SortOrder
     description?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type RevenueEntrySumOrderByAggregateInput = {
@@ -24524,14 +26444,12 @@ export namespace Prisma {
   export type ExpenseCountOrderByAggregateInput = {
     id?: SortOrder
     film_id?: SortOrder
-    slate_id?: SortOrder
     amount?: SortOrder
     category?: SortOrder
-    date?: SortOrder
     description?: SortOrder
-    vendor?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ExpenseAvgOrderByAggregateInput = {
@@ -24541,113 +26459,184 @@ export namespace Prisma {
   export type ExpenseMaxOrderByAggregateInput = {
     id?: SortOrder
     film_id?: SortOrder
-    slate_id?: SortOrder
     amount?: SortOrder
     category?: SortOrder
-    date?: SortOrder
     description?: SortOrder
-    vendor?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ExpenseMinOrderByAggregateInput = {
     id?: SortOrder
     film_id?: SortOrder
-    slate_id?: SortOrder
     amount?: SortOrder
     category?: SortOrder
-    date?: SortOrder
     description?: SortOrder
-    vendor?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type ExpenseSumOrderByAggregateInput = {
     amount?: SortOrder
   }
 
+  export type PaymentCountOrderByAggregateInput = {
+    id?: SortOrder
+    investor_id?: SortOrder
+    amount?: SortOrder
+    type?: SortOrder
+    status?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PaymentAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type PaymentMaxOrderByAggregateInput = {
+    id?: SortOrder
+    investor_id?: SortOrder
+    amount?: SortOrder
+    type?: SortOrder
+    status?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PaymentMinOrderByAggregateInput = {
+    id?: SortOrder
+    investor_id?: SortOrder
+    amount?: SortOrder
+    type?: SortOrder
+    status?: SortOrder
+    date?: SortOrder
+    description?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type PaymentSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type NotificationCountOrderByAggregateInput = {
+    id?: SortOrder
+    investor_id?: SortOrder
+    title?: SortOrder
+    message?: SortOrder
+    read?: SortOrder
+    type?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NotificationMaxOrderByAggregateInput = {
+    id?: SortOrder
+    investor_id?: SortOrder
+    title?: SortOrder
+    message?: SortOrder
+    read?: SortOrder
+    type?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type NotificationMinOrderByAggregateInput = {
+    id?: SortOrder
+    investor_id?: SortOrder
+    title?: SortOrder
+    message?: SortOrder
+    read?: SortOrder
+    type?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
   export type DocumentCountOrderByAggregateInput = {
     id?: SortOrder
     investor_id?: SortOrder
-    name?: SortOrder
+    title?: SortOrder
     file_url?: SortOrder
-    doc_type?: SortOrder
+    file_type?: SortOrder
     description?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    is_global?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type DocumentMaxOrderByAggregateInput = {
     id?: SortOrder
     investor_id?: SortOrder
-    name?: SortOrder
+    title?: SortOrder
     file_url?: SortOrder
-    doc_type?: SortOrder
+    file_type?: SortOrder
     description?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    is_global?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
   export type DocumentMinOrderByAggregateInput = {
     id?: SortOrder
     investor_id?: SortOrder
-    name?: SortOrder
+    title?: SortOrder
     file_url?: SortOrder
-    doc_type?: SortOrder
+    file_type?: SortOrder
     description?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    is_global?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type BoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NotificationCountOrderByAggregateInput = {
+  export type ReinvestmentCountOrderByAggregateInput = {
     id?: SortOrder
-    user_email?: SortOrder
-    title?: SortOrder
-    message?: SortOrder
-    type?: SortOrder
-    read?: SortOrder
-    link?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    investor_id?: SortOrder
+    amount?: SortOrder
+    from_investment_id?: SortOrder
+    to_slate_id?: SortOrder
+    status?: SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type NotificationMaxOrderByAggregateInput = {
+  export type ReinvestmentAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type ReinvestmentMaxOrderByAggregateInput = {
     id?: SortOrder
-    user_email?: SortOrder
-    title?: SortOrder
-    message?: SortOrder
-    type?: SortOrder
-    read?: SortOrder
-    link?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    investor_id?: SortOrder
+    amount?: SortOrder
+    from_investment_id?: SortOrder
+    to_slate_id?: SortOrder
+    status?: SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type NotificationMinOrderByAggregateInput = {
+  export type ReinvestmentMinOrderByAggregateInput = {
     id?: SortOrder
-    user_email?: SortOrder
-    title?: SortOrder
-    message?: SortOrder
-    type?: SortOrder
-    read?: SortOrder
-    link?: SortOrder
-    created_at?: SortOrder
-    updated_at?: SortOrder
+    investor_id?: SortOrder
+    amount?: SortOrder
+    from_investment_id?: SortOrder
+    to_slate_id?: SortOrder
+    status?: SortOrder
+    date?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type BoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
+  export type ReinvestmentSumOrderByAggregateInput = {
+    amount?: SortOrder
   }
 
   export type UserScalarRelationFilter = {
@@ -24689,17 +26678,6 @@ export namespace Prisma {
     cliq_webhook_url?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-  }
-
-  export type FloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type EmailDigestCountOrderByAggregateInput = {
@@ -24774,22 +26752,6 @@ export namespace Prisma {
 
   export type EmailDigestSumOrderByAggregateInput = {
     ai_confidence?: SortOrder
-  }
-
-  export type FloatNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedFloatNullableFilter<$PrismaModel>
-    _min?: NestedFloatNullableFilter<$PrismaModel>
-    _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
   export type CalendarEventCountOrderByAggregateInput = {
@@ -25056,6 +27018,10 @@ export namespace Prisma {
     set?: string
   }
 
+  export type NullableStringFieldUpdateOperationsInput = {
+    set?: string | null
+  }
+
   export type DateTimeFieldUpdateOperationsInput = {
     set?: Date | string
   }
@@ -25120,11 +27086,25 @@ export namespace Prisma {
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
   }
 
+  export type NotificationCreateNestedManyWithoutInvestorInput = {
+    create?: XOR<NotificationCreateWithoutInvestorInput, NotificationUncheckedCreateWithoutInvestorInput> | NotificationCreateWithoutInvestorInput[] | NotificationUncheckedCreateWithoutInvestorInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutInvestorInput | NotificationCreateOrConnectWithoutInvestorInput[]
+    createMany?: NotificationCreateManyInvestorInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
   export type DocumentCreateNestedManyWithoutInvestorInput = {
     create?: XOR<DocumentCreateWithoutInvestorInput, DocumentUncheckedCreateWithoutInvestorInput> | DocumentCreateWithoutInvestorInput[] | DocumentUncheckedCreateWithoutInvestorInput[]
     connectOrCreate?: DocumentCreateOrConnectWithoutInvestorInput | DocumentCreateOrConnectWithoutInvestorInput[]
     createMany?: DocumentCreateManyInvestorInputEnvelope
     connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
+  }
+
+  export type ReinvestmentCreateNestedManyWithoutInvestorInput = {
+    create?: XOR<ReinvestmentCreateWithoutInvestorInput, ReinvestmentUncheckedCreateWithoutInvestorInput> | ReinvestmentCreateWithoutInvestorInput[] | ReinvestmentUncheckedCreateWithoutInvestorInput[]
+    connectOrCreate?: ReinvestmentCreateOrConnectWithoutInvestorInput | ReinvestmentCreateOrConnectWithoutInvestorInput[]
+    createMany?: ReinvestmentCreateManyInvestorInputEnvelope
+    connect?: ReinvestmentWhereUniqueInput | ReinvestmentWhereUniqueInput[]
   }
 
   export type InvestmentUncheckedCreateNestedManyWithoutInvestorInput = {
@@ -25141,6 +27121,13 @@ export namespace Prisma {
     connect?: PaymentWhereUniqueInput | PaymentWhereUniqueInput[]
   }
 
+  export type NotificationUncheckedCreateNestedManyWithoutInvestorInput = {
+    create?: XOR<NotificationCreateWithoutInvestorInput, NotificationUncheckedCreateWithoutInvestorInput> | NotificationCreateWithoutInvestorInput[] | NotificationUncheckedCreateWithoutInvestorInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutInvestorInput | NotificationCreateOrConnectWithoutInvestorInput[]
+    createMany?: NotificationCreateManyInvestorInputEnvelope
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+  }
+
   export type DocumentUncheckedCreateNestedManyWithoutInvestorInput = {
     create?: XOR<DocumentCreateWithoutInvestorInput, DocumentUncheckedCreateWithoutInvestorInput> | DocumentCreateWithoutInvestorInput[] | DocumentUncheckedCreateWithoutInvestorInput[]
     connectOrCreate?: DocumentCreateOrConnectWithoutInvestorInput | DocumentCreateOrConnectWithoutInvestorInput[]
@@ -25148,8 +27135,15 @@ export namespace Prisma {
     connect?: DocumentWhereUniqueInput | DocumentWhereUniqueInput[]
   }
 
-  export type NullableStringFieldUpdateOperationsInput = {
-    set?: string | null
+  export type ReinvestmentUncheckedCreateNestedManyWithoutInvestorInput = {
+    create?: XOR<ReinvestmentCreateWithoutInvestorInput, ReinvestmentUncheckedCreateWithoutInvestorInput> | ReinvestmentCreateWithoutInvestorInput[] | ReinvestmentUncheckedCreateWithoutInvestorInput[]
+    connectOrCreate?: ReinvestmentCreateOrConnectWithoutInvestorInput | ReinvestmentCreateOrConnectWithoutInvestorInput[]
+    createMany?: ReinvestmentCreateManyInvestorInputEnvelope
+    connect?: ReinvestmentWhereUniqueInput | ReinvestmentWhereUniqueInput[]
+  }
+
+  export type BoolFieldUpdateOperationsInput = {
+    set?: boolean
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -25194,6 +27188,20 @@ export namespace Prisma {
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
+  export type NotificationUpdateManyWithoutInvestorNestedInput = {
+    create?: XOR<NotificationCreateWithoutInvestorInput, NotificationUncheckedCreateWithoutInvestorInput> | NotificationCreateWithoutInvestorInput[] | NotificationUncheckedCreateWithoutInvestorInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutInvestorInput | NotificationCreateOrConnectWithoutInvestorInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutInvestorInput | NotificationUpsertWithWhereUniqueWithoutInvestorInput[]
+    createMany?: NotificationCreateManyInvestorInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutInvestorInput | NotificationUpdateWithWhereUniqueWithoutInvestorInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutInvestorInput | NotificationUpdateManyWithWhereWithoutInvestorInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
   export type DocumentUpdateManyWithoutInvestorNestedInput = {
     create?: XOR<DocumentCreateWithoutInvestorInput, DocumentUncheckedCreateWithoutInvestorInput> | DocumentCreateWithoutInvestorInput[] | DocumentUncheckedCreateWithoutInvestorInput[]
     connectOrCreate?: DocumentCreateOrConnectWithoutInvestorInput | DocumentCreateOrConnectWithoutInvestorInput[]
@@ -25206,6 +27214,20 @@ export namespace Prisma {
     update?: DocumentUpdateWithWhereUniqueWithoutInvestorInput | DocumentUpdateWithWhereUniqueWithoutInvestorInput[]
     updateMany?: DocumentUpdateManyWithWhereWithoutInvestorInput | DocumentUpdateManyWithWhereWithoutInvestorInput[]
     deleteMany?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
+  }
+
+  export type ReinvestmentUpdateManyWithoutInvestorNestedInput = {
+    create?: XOR<ReinvestmentCreateWithoutInvestorInput, ReinvestmentUncheckedCreateWithoutInvestorInput> | ReinvestmentCreateWithoutInvestorInput[] | ReinvestmentUncheckedCreateWithoutInvestorInput[]
+    connectOrCreate?: ReinvestmentCreateOrConnectWithoutInvestorInput | ReinvestmentCreateOrConnectWithoutInvestorInput[]
+    upsert?: ReinvestmentUpsertWithWhereUniqueWithoutInvestorInput | ReinvestmentUpsertWithWhereUniqueWithoutInvestorInput[]
+    createMany?: ReinvestmentCreateManyInvestorInputEnvelope
+    set?: ReinvestmentWhereUniqueInput | ReinvestmentWhereUniqueInput[]
+    disconnect?: ReinvestmentWhereUniqueInput | ReinvestmentWhereUniqueInput[]
+    delete?: ReinvestmentWhereUniqueInput | ReinvestmentWhereUniqueInput[]
+    connect?: ReinvestmentWhereUniqueInput | ReinvestmentWhereUniqueInput[]
+    update?: ReinvestmentUpdateWithWhereUniqueWithoutInvestorInput | ReinvestmentUpdateWithWhereUniqueWithoutInvestorInput[]
+    updateMany?: ReinvestmentUpdateManyWithWhereWithoutInvestorInput | ReinvestmentUpdateManyWithWhereWithoutInvestorInput[]
+    deleteMany?: ReinvestmentScalarWhereInput | ReinvestmentScalarWhereInput[]
   }
 
   export type InvestmentUncheckedUpdateManyWithoutInvestorNestedInput = {
@@ -25236,6 +27258,20 @@ export namespace Prisma {
     deleteMany?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
   }
 
+  export type NotificationUncheckedUpdateManyWithoutInvestorNestedInput = {
+    create?: XOR<NotificationCreateWithoutInvestorInput, NotificationUncheckedCreateWithoutInvestorInput> | NotificationCreateWithoutInvestorInput[] | NotificationUncheckedCreateWithoutInvestorInput[]
+    connectOrCreate?: NotificationCreateOrConnectWithoutInvestorInput | NotificationCreateOrConnectWithoutInvestorInput[]
+    upsert?: NotificationUpsertWithWhereUniqueWithoutInvestorInput | NotificationUpsertWithWhereUniqueWithoutInvestorInput[]
+    createMany?: NotificationCreateManyInvestorInputEnvelope
+    set?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    disconnect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    delete?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    connect?: NotificationWhereUniqueInput | NotificationWhereUniqueInput[]
+    update?: NotificationUpdateWithWhereUniqueWithoutInvestorInput | NotificationUpdateWithWhereUniqueWithoutInvestorInput[]
+    updateMany?: NotificationUpdateManyWithWhereWithoutInvestorInput | NotificationUpdateManyWithWhereWithoutInvestorInput[]
+    deleteMany?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+  }
+
   export type DocumentUncheckedUpdateManyWithoutInvestorNestedInput = {
     create?: XOR<DocumentCreateWithoutInvestorInput, DocumentUncheckedCreateWithoutInvestorInput> | DocumentCreateWithoutInvestorInput[] | DocumentUncheckedCreateWithoutInvestorInput[]
     connectOrCreate?: DocumentCreateOrConnectWithoutInvestorInput | DocumentCreateOrConnectWithoutInvestorInput[]
@@ -25248,6 +27284,20 @@ export namespace Prisma {
     update?: DocumentUpdateWithWhereUniqueWithoutInvestorInput | DocumentUpdateWithWhereUniqueWithoutInvestorInput[]
     updateMany?: DocumentUpdateManyWithWhereWithoutInvestorInput | DocumentUpdateManyWithWhereWithoutInvestorInput[]
     deleteMany?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
+  }
+
+  export type ReinvestmentUncheckedUpdateManyWithoutInvestorNestedInput = {
+    create?: XOR<ReinvestmentCreateWithoutInvestorInput, ReinvestmentUncheckedCreateWithoutInvestorInput> | ReinvestmentCreateWithoutInvestorInput[] | ReinvestmentUncheckedCreateWithoutInvestorInput[]
+    connectOrCreate?: ReinvestmentCreateOrConnectWithoutInvestorInput | ReinvestmentCreateOrConnectWithoutInvestorInput[]
+    upsert?: ReinvestmentUpsertWithWhereUniqueWithoutInvestorInput | ReinvestmentUpsertWithWhereUniqueWithoutInvestorInput[]
+    createMany?: ReinvestmentCreateManyInvestorInputEnvelope
+    set?: ReinvestmentWhereUniqueInput | ReinvestmentWhereUniqueInput[]
+    disconnect?: ReinvestmentWhereUniqueInput | ReinvestmentWhereUniqueInput[]
+    delete?: ReinvestmentWhereUniqueInput | ReinvestmentWhereUniqueInput[]
+    connect?: ReinvestmentWhereUniqueInput | ReinvestmentWhereUniqueInput[]
+    update?: ReinvestmentUpdateWithWhereUniqueWithoutInvestorInput | ReinvestmentUpdateWithWhereUniqueWithoutInvestorInput[]
+    updateMany?: ReinvestmentUpdateManyWithWhereWithoutInvestorInput | ReinvestmentUpdateManyWithWhereWithoutInvestorInput[]
+    deleteMany?: ReinvestmentScalarWhereInput | ReinvestmentScalarWhereInput[]
   }
 
   export type FilmCreateNestedManyWithoutSlateInput = {
@@ -25264,13 +27314,6 @@ export namespace Prisma {
     connect?: InvestmentWhereUniqueInput | InvestmentWhereUniqueInput[]
   }
 
-  export type ExpenseCreateNestedManyWithoutSlateInput = {
-    create?: XOR<ExpenseCreateWithoutSlateInput, ExpenseUncheckedCreateWithoutSlateInput> | ExpenseCreateWithoutSlateInput[] | ExpenseUncheckedCreateWithoutSlateInput[]
-    connectOrCreate?: ExpenseCreateOrConnectWithoutSlateInput | ExpenseCreateOrConnectWithoutSlateInput[]
-    createMany?: ExpenseCreateManySlateInputEnvelope
-    connect?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
-  }
-
   export type FilmUncheckedCreateNestedManyWithoutSlateInput = {
     create?: XOR<FilmCreateWithoutSlateInput, FilmUncheckedCreateWithoutSlateInput> | FilmCreateWithoutSlateInput[] | FilmUncheckedCreateWithoutSlateInput[]
     connectOrCreate?: FilmCreateOrConnectWithoutSlateInput | FilmCreateOrConnectWithoutSlateInput[]
@@ -25285,15 +27328,16 @@ export namespace Prisma {
     connect?: InvestmentWhereUniqueInput | InvestmentWhereUniqueInput[]
   }
 
-  export type ExpenseUncheckedCreateNestedManyWithoutSlateInput = {
-    create?: XOR<ExpenseCreateWithoutSlateInput, ExpenseUncheckedCreateWithoutSlateInput> | ExpenseCreateWithoutSlateInput[] | ExpenseUncheckedCreateWithoutSlateInput[]
-    connectOrCreate?: ExpenseCreateOrConnectWithoutSlateInput | ExpenseCreateOrConnectWithoutSlateInput[]
-    createMany?: ExpenseCreateManySlateInputEnvelope
-    connect?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
-  }
-
   export type FloatFieldUpdateOperationsInput = {
     set?: number
+    increment?: number
+    decrement?: number
+    multiply?: number
+    divide?: number
+  }
+
+  export type NullableFloatFieldUpdateOperationsInput = {
+    set?: number | null
     increment?: number
     decrement?: number
     multiply?: number
@@ -25328,20 +27372,6 @@ export namespace Prisma {
     deleteMany?: InvestmentScalarWhereInput | InvestmentScalarWhereInput[]
   }
 
-  export type ExpenseUpdateManyWithoutSlateNestedInput = {
-    create?: XOR<ExpenseCreateWithoutSlateInput, ExpenseUncheckedCreateWithoutSlateInput> | ExpenseCreateWithoutSlateInput[] | ExpenseUncheckedCreateWithoutSlateInput[]
-    connectOrCreate?: ExpenseCreateOrConnectWithoutSlateInput | ExpenseCreateOrConnectWithoutSlateInput[]
-    upsert?: ExpenseUpsertWithWhereUniqueWithoutSlateInput | ExpenseUpsertWithWhereUniqueWithoutSlateInput[]
-    createMany?: ExpenseCreateManySlateInputEnvelope
-    set?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
-    disconnect?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
-    delete?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
-    connect?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
-    update?: ExpenseUpdateWithWhereUniqueWithoutSlateInput | ExpenseUpdateWithWhereUniqueWithoutSlateInput[]
-    updateMany?: ExpenseUpdateManyWithWhereWithoutSlateInput | ExpenseUpdateManyWithWhereWithoutSlateInput[]
-    deleteMany?: ExpenseScalarWhereInput | ExpenseScalarWhereInput[]
-  }
-
   export type FilmUncheckedUpdateManyWithoutSlateNestedInput = {
     create?: XOR<FilmCreateWithoutSlateInput, FilmUncheckedCreateWithoutSlateInput> | FilmCreateWithoutSlateInput[] | FilmUncheckedCreateWithoutSlateInput[]
     connectOrCreate?: FilmCreateOrConnectWithoutSlateInput | FilmCreateOrConnectWithoutSlateInput[]
@@ -25368,20 +27398,6 @@ export namespace Prisma {
     update?: InvestmentUpdateWithWhereUniqueWithoutSlateInput | InvestmentUpdateWithWhereUniqueWithoutSlateInput[]
     updateMany?: InvestmentUpdateManyWithWhereWithoutSlateInput | InvestmentUpdateManyWithWhereWithoutSlateInput[]
     deleteMany?: InvestmentScalarWhereInput | InvestmentScalarWhereInput[]
-  }
-
-  export type ExpenseUncheckedUpdateManyWithoutSlateNestedInput = {
-    create?: XOR<ExpenseCreateWithoutSlateInput, ExpenseUncheckedCreateWithoutSlateInput> | ExpenseCreateWithoutSlateInput[] | ExpenseUncheckedCreateWithoutSlateInput[]
-    connectOrCreate?: ExpenseCreateOrConnectWithoutSlateInput | ExpenseCreateOrConnectWithoutSlateInput[]
-    upsert?: ExpenseUpsertWithWhereUniqueWithoutSlateInput | ExpenseUpsertWithWhereUniqueWithoutSlateInput[]
-    createMany?: ExpenseCreateManySlateInputEnvelope
-    set?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
-    disconnect?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
-    delete?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
-    connect?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
-    update?: ExpenseUpdateWithWhereUniqueWithoutSlateInput | ExpenseUpdateWithWhereUniqueWithoutSlateInput[]
-    updateMany?: ExpenseUpdateManyWithWhereWithoutSlateInput | ExpenseUpdateManyWithWhereWithoutSlateInput[]
-    deleteMany?: ExpenseScalarWhereInput | ExpenseScalarWhereInput[]
   }
 
   export type SlateCreateNestedOneWithoutFilmsInput = {
@@ -25418,12 +27434,10 @@ export namespace Prisma {
     connect?: ExpenseWhereUniqueInput | ExpenseWhereUniqueInput[]
   }
 
-  export type SlateUpdateOneWithoutFilmsNestedInput = {
+  export type SlateUpdateOneRequiredWithoutFilmsNestedInput = {
     create?: XOR<SlateCreateWithoutFilmsInput, SlateUncheckedCreateWithoutFilmsInput>
     connectOrCreate?: SlateCreateOrConnectWithoutFilmsInput
     upsert?: SlateUpsertWithoutFilmsInput
-    disconnect?: SlateWhereInput | boolean
-    delete?: SlateWhereInput | boolean
     connect?: SlateWhereUniqueInput
     update?: XOR<XOR<SlateUpdateToOneWithWhereWithoutFilmsInput, SlateUpdateWithoutFilmsInput>, SlateUncheckedUpdateWithoutFilmsInput>
   }
@@ -25512,34 +27526,16 @@ export namespace Prisma {
     update?: XOR<XOR<SlateUpdateToOneWithWhereWithoutInvestmentsInput, SlateUpdateWithoutInvestmentsInput>, SlateUncheckedUpdateWithoutInvestmentsInput>
   }
 
-  export type InvestorCreateNestedOneWithoutPaymentsInput = {
-    create?: XOR<InvestorCreateWithoutPaymentsInput, InvestorUncheckedCreateWithoutPaymentsInput>
-    connectOrCreate?: InvestorCreateOrConnectWithoutPaymentsInput
-    connect?: InvestorWhereUniqueInput
-  }
-
-  export type InvestorUpdateOneWithoutPaymentsNestedInput = {
-    create?: XOR<InvestorCreateWithoutPaymentsInput, InvestorUncheckedCreateWithoutPaymentsInput>
-    connectOrCreate?: InvestorCreateOrConnectWithoutPaymentsInput
-    upsert?: InvestorUpsertWithoutPaymentsInput
-    disconnect?: InvestorWhereInput | boolean
-    delete?: InvestorWhereInput | boolean
-    connect?: InvestorWhereUniqueInput
-    update?: XOR<XOR<InvestorUpdateToOneWithWhereWithoutPaymentsInput, InvestorUpdateWithoutPaymentsInput>, InvestorUncheckedUpdateWithoutPaymentsInput>
-  }
-
   export type FilmCreateNestedOneWithoutRevenue_entriesInput = {
     create?: XOR<FilmCreateWithoutRevenue_entriesInput, FilmUncheckedCreateWithoutRevenue_entriesInput>
     connectOrCreate?: FilmCreateOrConnectWithoutRevenue_entriesInput
     connect?: FilmWhereUniqueInput
   }
 
-  export type FilmUpdateOneWithoutRevenue_entriesNestedInput = {
+  export type FilmUpdateOneRequiredWithoutRevenue_entriesNestedInput = {
     create?: XOR<FilmCreateWithoutRevenue_entriesInput, FilmUncheckedCreateWithoutRevenue_entriesInput>
     connectOrCreate?: FilmCreateOrConnectWithoutRevenue_entriesInput
     upsert?: FilmUpsertWithoutRevenue_entriesInput
-    disconnect?: FilmWhereInput | boolean
-    delete?: FilmWhereInput | boolean
     connect?: FilmWhereUniqueInput
     update?: XOR<XOR<FilmUpdateToOneWithWhereWithoutRevenue_entriesInput, FilmUpdateWithoutRevenue_entriesInput>, FilmUncheckedUpdateWithoutRevenue_entriesInput>
   }
@@ -25550,30 +27546,40 @@ export namespace Prisma {
     connect?: FilmWhereUniqueInput
   }
 
-  export type SlateCreateNestedOneWithoutExpensesInput = {
-    create?: XOR<SlateCreateWithoutExpensesInput, SlateUncheckedCreateWithoutExpensesInput>
-    connectOrCreate?: SlateCreateOrConnectWithoutExpensesInput
-    connect?: SlateWhereUniqueInput
-  }
-
-  export type FilmUpdateOneWithoutExpensesNestedInput = {
+  export type FilmUpdateOneRequiredWithoutExpensesNestedInput = {
     create?: XOR<FilmCreateWithoutExpensesInput, FilmUncheckedCreateWithoutExpensesInput>
     connectOrCreate?: FilmCreateOrConnectWithoutExpensesInput
     upsert?: FilmUpsertWithoutExpensesInput
-    disconnect?: FilmWhereInput | boolean
-    delete?: FilmWhereInput | boolean
     connect?: FilmWhereUniqueInput
     update?: XOR<XOR<FilmUpdateToOneWithWhereWithoutExpensesInput, FilmUpdateWithoutExpensesInput>, FilmUncheckedUpdateWithoutExpensesInput>
   }
 
-  export type SlateUpdateOneWithoutExpensesNestedInput = {
-    create?: XOR<SlateCreateWithoutExpensesInput, SlateUncheckedCreateWithoutExpensesInput>
-    connectOrCreate?: SlateCreateOrConnectWithoutExpensesInput
-    upsert?: SlateUpsertWithoutExpensesInput
-    disconnect?: SlateWhereInput | boolean
-    delete?: SlateWhereInput | boolean
-    connect?: SlateWhereUniqueInput
-    update?: XOR<XOR<SlateUpdateToOneWithWhereWithoutExpensesInput, SlateUpdateWithoutExpensesInput>, SlateUncheckedUpdateWithoutExpensesInput>
+  export type InvestorCreateNestedOneWithoutPaymentsInput = {
+    create?: XOR<InvestorCreateWithoutPaymentsInput, InvestorUncheckedCreateWithoutPaymentsInput>
+    connectOrCreate?: InvestorCreateOrConnectWithoutPaymentsInput
+    connect?: InvestorWhereUniqueInput
+  }
+
+  export type InvestorUpdateOneRequiredWithoutPaymentsNestedInput = {
+    create?: XOR<InvestorCreateWithoutPaymentsInput, InvestorUncheckedCreateWithoutPaymentsInput>
+    connectOrCreate?: InvestorCreateOrConnectWithoutPaymentsInput
+    upsert?: InvestorUpsertWithoutPaymentsInput
+    connect?: InvestorWhereUniqueInput
+    update?: XOR<XOR<InvestorUpdateToOneWithWhereWithoutPaymentsInput, InvestorUpdateWithoutPaymentsInput>, InvestorUncheckedUpdateWithoutPaymentsInput>
+  }
+
+  export type InvestorCreateNestedOneWithoutNotificationsInput = {
+    create?: XOR<InvestorCreateWithoutNotificationsInput, InvestorUncheckedCreateWithoutNotificationsInput>
+    connectOrCreate?: InvestorCreateOrConnectWithoutNotificationsInput
+    connect?: InvestorWhereUniqueInput
+  }
+
+  export type InvestorUpdateOneRequiredWithoutNotificationsNestedInput = {
+    create?: XOR<InvestorCreateWithoutNotificationsInput, InvestorUncheckedCreateWithoutNotificationsInput>
+    connectOrCreate?: InvestorCreateOrConnectWithoutNotificationsInput
+    upsert?: InvestorUpsertWithoutNotificationsInput
+    connect?: InvestorWhereUniqueInput
+    update?: XOR<XOR<InvestorUpdateToOneWithWhereWithoutNotificationsInput, InvestorUpdateWithoutNotificationsInput>, InvestorUncheckedUpdateWithoutNotificationsInput>
   }
 
   export type InvestorCreateNestedOneWithoutDocumentsInput = {
@@ -25592,8 +27598,18 @@ export namespace Prisma {
     update?: XOR<XOR<InvestorUpdateToOneWithWhereWithoutDocumentsInput, InvestorUpdateWithoutDocumentsInput>, InvestorUncheckedUpdateWithoutDocumentsInput>
   }
 
-  export type BoolFieldUpdateOperationsInput = {
-    set?: boolean
+  export type InvestorCreateNestedOneWithoutReinvestmentsInput = {
+    create?: XOR<InvestorCreateWithoutReinvestmentsInput, InvestorUncheckedCreateWithoutReinvestmentsInput>
+    connectOrCreate?: InvestorCreateOrConnectWithoutReinvestmentsInput
+    connect?: InvestorWhereUniqueInput
+  }
+
+  export type InvestorUpdateOneRequiredWithoutReinvestmentsNestedInput = {
+    create?: XOR<InvestorCreateWithoutReinvestmentsInput, InvestorUncheckedCreateWithoutReinvestmentsInput>
+    connectOrCreate?: InvestorCreateOrConnectWithoutReinvestmentsInput
+    upsert?: InvestorUpsertWithoutReinvestmentsInput
+    connect?: InvestorWhereUniqueInput
+    update?: XOR<XOR<InvestorUpdateToOneWithWhereWithoutReinvestmentsInput, InvestorUpdateWithoutReinvestmentsInput>, InvestorUncheckedUpdateWithoutReinvestmentsInput>
   }
 
   export type UserCreateNestedOneWithoutMcc_sessionInput = {
@@ -25608,14 +27624,6 @@ export namespace Prisma {
     upsert?: UserUpsertWithoutMcc_sessionInput
     connect?: UserWhereUniqueInput
     update?: XOR<XOR<UserUpdateToOneWithWhereWithoutMcc_sessionInput, UserUpdateWithoutMcc_sessionInput>, UserUncheckedUpdateWithoutMcc_sessionInput>
-  }
-
-  export type NullableFloatFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
   }
 
   export type IntFieldUpdateOperationsInput = {
@@ -25646,6 +27654,20 @@ export namespace Prisma {
     startsWith?: string | StringFieldRefInput<$PrismaModel>
     endsWith?: string | StringFieldRefInput<$PrismaModel>
     not?: NestedStringFilter<$PrismaModel> | string
+  }
+
+  export type NestedStringNullableFilter<$PrismaModel = never> = {
+    equals?: string | StringFieldRefInput<$PrismaModel> | null
+    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
+    lt?: string | StringFieldRefInput<$PrismaModel>
+    lte?: string | StringFieldRefInput<$PrismaModel>
+    gt?: string | StringFieldRefInput<$PrismaModel>
+    gte?: string | StringFieldRefInput<$PrismaModel>
+    contains?: string | StringFieldRefInput<$PrismaModel>
+    startsWith?: string | StringFieldRefInput<$PrismaModel>
+    endsWith?: string | StringFieldRefInput<$PrismaModel>
+    not?: NestedStringNullableFilter<$PrismaModel> | string | null
   }
 
   export type NestedDateTimeFilter<$PrismaModel = never> = {
@@ -25687,45 +27709,6 @@ export namespace Prisma {
     not?: NestedIntFilter<$PrismaModel> | number
   }
 
-  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedDateTimeFilter<$PrismaModel>
-    _max?: NestedDateTimeFilter<$PrismaModel>
-  }
-
-  export type NestedStringNullableFilter<$PrismaModel = never> = {
-    equals?: string | StringFieldRefInput<$PrismaModel> | null
-    in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    notIn?: string[] | ListStringFieldRefInput<$PrismaModel> | null
-    lt?: string | StringFieldRefInput<$PrismaModel>
-    lte?: string | StringFieldRefInput<$PrismaModel>
-    gt?: string | StringFieldRefInput<$PrismaModel>
-    gte?: string | StringFieldRefInput<$PrismaModel>
-    contains?: string | StringFieldRefInput<$PrismaModel>
-    startsWith?: string | StringFieldRefInput<$PrismaModel>
-    endsWith?: string | StringFieldRefInput<$PrismaModel>
-    not?: NestedStringNullableFilter<$PrismaModel> | string | null
-  }
-
-  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
-    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
-    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
-    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
-    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
-  }
-
   export type NestedStringNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: string | StringFieldRefInput<$PrismaModel> | null
     in?: string[] | ListStringFieldRefInput<$PrismaModel> | null
@@ -25754,6 +27737,44 @@ export namespace Prisma {
     not?: NestedIntNullableFilter<$PrismaModel> | number | null
   }
 
+  export type NestedDateTimeWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel>
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeWithAggregatesFilter<$PrismaModel> | Date | string
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedDateTimeFilter<$PrismaModel>
+    _max?: NestedDateTimeFilter<$PrismaModel>
+  }
+
+  export type NestedBoolFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolFilter<$PrismaModel> | boolean
+  }
+
+  export type NestedDateTimeNullableFilter<$PrismaModel = never> = {
+    equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
+    in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    notIn?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
+    lt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    lte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gt?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    gte?: Date | string | DateTimeFieldRefInput<$PrismaModel>
+    not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
+  }
+
+  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
+    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
+    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
+    _count?: NestedIntFilter<$PrismaModel>
+    _min?: NestedBoolFilter<$PrismaModel>
+    _max?: NestedBoolFilter<$PrismaModel>
+  }
+
   export type NestedDateTimeNullableWithAggregatesFilter<$PrismaModel = never> = {
     equals?: Date | string | DateTimeFieldRefInput<$PrismaModel> | null
     in?: Date[] | string[] | ListDateTimeFieldRefInput<$PrismaModel> | null
@@ -25779,6 +27800,17 @@ export namespace Prisma {
     not?: NestedFloatFilter<$PrismaModel> | number
   }
 
+  export type NestedFloatNullableFilter<$PrismaModel = never> = {
+    equals?: number | FloatFieldRefInput<$PrismaModel> | null
+    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
+    lt?: number | FloatFieldRefInput<$PrismaModel>
+    lte?: number | FloatFieldRefInput<$PrismaModel>
+    gt?: number | FloatFieldRefInput<$PrismaModel>
+    gte?: number | FloatFieldRefInput<$PrismaModel>
+    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
+  }
+
   export type NestedFloatWithAggregatesFilter<$PrismaModel = never> = {
     equals?: number | FloatFieldRefInput<$PrismaModel>
     in?: number[] | ListFloatFieldRefInput<$PrismaModel>
@@ -25793,30 +27825,6 @@ export namespace Prisma {
     _sum?: NestedFloatFilter<$PrismaModel>
     _min?: NestedFloatFilter<$PrismaModel>
     _max?: NestedFloatFilter<$PrismaModel>
-  }
-
-  export type NestedBoolFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolFilter<$PrismaModel> | boolean
-  }
-
-  export type NestedBoolWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: boolean | BooleanFieldRefInput<$PrismaModel>
-    not?: NestedBoolWithAggregatesFilter<$PrismaModel> | boolean
-    _count?: NestedIntFilter<$PrismaModel>
-    _min?: NestedBoolFilter<$PrismaModel>
-    _max?: NestedBoolFilter<$PrismaModel>
-  }
-
-  export type NestedFloatNullableFilter<$PrismaModel = never> = {
-    equals?: number | FloatFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListFloatFieldRefInput<$PrismaModel> | null
-    lt?: number | FloatFieldRefInput<$PrismaModel>
-    lte?: number | FloatFieldRefInput<$PrismaModel>
-    gt?: number | FloatFieldRefInput<$PrismaModel>
-    gte?: number | FloatFieldRefInput<$PrismaModel>
-    not?: NestedFloatNullableFilter<$PrismaModel> | number | null
   }
 
   export type NestedFloatNullableWithAggregatesFilter<$PrismaModel = never> = {
@@ -25869,30 +27877,46 @@ export namespace Prisma {
 
   export type InvestorCreateWithoutUserInput = {
     id?: string
+    first_name: string
+    last_name: string
     name: string
     email: string
     phone?: string | null
     company?: string | null
+    notes?: string | null
+    has_login?: boolean
+    invite_token?: string | null
     invite_sent_at?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investments?: InvestmentCreateNestedManyWithoutInvestorInput
     payments?: PaymentCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationCreateNestedManyWithoutInvestorInput
     documents?: DocumentCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentCreateNestedManyWithoutInvestorInput
   }
 
   export type InvestorUncheckedCreateWithoutUserInput = {
     id?: string
+    first_name: string
+    last_name: string
     name: string
     email: string
     phone?: string | null
     company?: string | null
+    notes?: string | null
+    has_login?: boolean
+    invite_token?: string | null
     invite_sent_at?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investments?: InvestmentUncheckedCreateNestedManyWithoutInvestorInput
     payments?: PaymentUncheckedCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutInvestorInput
     documents?: DocumentUncheckedCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentUncheckedCreateNestedManyWithoutInvestorInput
   }
 
   export type InvestorCreateOrConnectWithoutUserInput = {
@@ -25940,30 +27964,46 @@ export namespace Prisma {
 
   export type InvestorUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
     invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investments?: InvestmentUpdateManyWithoutInvestorNestedInput
     payments?: PaymentUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUpdateManyWithoutInvestorNestedInput
     documents?: DocumentUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUpdateManyWithoutInvestorNestedInput
   }
 
   export type InvestorUncheckedUpdateWithoutUserInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
     invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investments?: InvestmentUncheckedUpdateManyWithoutInvestorNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutInvestorNestedInput
     documents?: DocumentUncheckedUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUncheckedUpdateManyWithoutInvestorNestedInput
   }
 
   export type MccSessionUpsertWithoutUserInput = {
@@ -26003,10 +28043,10 @@ export namespace Prisma {
     id?: string
     email: string
     password_hash: string
-    full_name: string
+    full_name?: string | null
     role?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     mcc_session?: MccSessionCreateNestedOneWithoutUserInput
   }
 
@@ -26014,10 +28054,10 @@ export namespace Prisma {
     id?: string
     email: string
     password_hash: string
-    full_name: string
+    full_name?: string | null
     role?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     mcc_session?: MccSessionUncheckedCreateNestedOneWithoutUserInput
   }
 
@@ -26028,24 +28068,48 @@ export namespace Prisma {
 
   export type InvestmentCreateWithoutInvestorInput = {
     id?: string
-    amount: number
-    date: Date | string
-    status?: string
-    notes?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    amount?: number
+    ownership_percentage?: number
+    rollover_amount?: number
+    new_cash_amount?: number
+    total_investment?: number
+    source_investment_id?: string | null
+    is_reinvestment?: boolean
+    reinvested_amount?: number
+    recouped_amount?: number
+    total_returned?: number
+    current_stage?: string
+    recoupment_percentage?: number
+    premium_target?: number
+    premium_paid?: number
+    backend_percentage?: number
+    backend_paid?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
     slate: SlateCreateNestedOneWithoutInvestmentsInput
   }
 
   export type InvestmentUncheckedCreateWithoutInvestorInput = {
     id?: string
     slate_id: string
-    amount: number
-    date: Date | string
-    status?: string
-    notes?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    amount?: number
+    ownership_percentage?: number
+    rollover_amount?: number
+    new_cash_amount?: number
+    total_investment?: number
+    source_investment_id?: string | null
+    is_reinvestment?: boolean
+    reinvested_amount?: number
+    recouped_amount?: number
+    total_returned?: number
+    current_stage?: string
+    recoupment_percentage?: number
+    premium_target?: number
+    premium_paid?: number
+    backend_percentage?: number
+    backend_paid?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type InvestmentCreateOrConnectWithoutInvestorInput = {
@@ -26061,25 +28125,23 @@ export namespace Prisma {
   export type PaymentCreateWithoutInvestorInput = {
     id?: string
     amount: number
-    date: Date | string
-    type: string
+    type?: string | null
     status?: string
+    date: Date | string
     description?: string | null
-    reference?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PaymentUncheckedCreateWithoutInvestorInput = {
     id?: string
     amount: number
-    date: Date | string
-    type: string
+    type?: string | null
     status?: string
+    date: Date | string
     description?: string | null
-    reference?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PaymentCreateOrConnectWithoutInvestorInput = {
@@ -26092,24 +28154,56 @@ export namespace Prisma {
     skipDuplicates?: boolean
   }
 
+  export type NotificationCreateWithoutInvestorInput = {
+    id?: string
+    title: string
+    message: string
+    read?: boolean
+    type?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationUncheckedCreateWithoutInvestorInput = {
+    id?: string
+    title: string
+    message: string
+    read?: boolean
+    type?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationCreateOrConnectWithoutInvestorInput = {
+    where: NotificationWhereUniqueInput
+    create: XOR<NotificationCreateWithoutInvestorInput, NotificationUncheckedCreateWithoutInvestorInput>
+  }
+
+  export type NotificationCreateManyInvestorInputEnvelope = {
+    data: NotificationCreateManyInvestorInput | NotificationCreateManyInvestorInput[]
+    skipDuplicates?: boolean
+  }
+
   export type DocumentCreateWithoutInvestorInput = {
     id?: string
-    name: string
-    file_url: string
-    doc_type: string
+    title: string
+    file_url?: string | null
+    file_type?: string | null
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    is_global?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type DocumentUncheckedCreateWithoutInvestorInput = {
     id?: string
-    name: string
-    file_url: string
-    doc_type: string
+    title: string
+    file_url?: string | null
+    file_type?: string | null
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    is_global?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type DocumentCreateOrConnectWithoutInvestorInput = {
@@ -26119,6 +28213,38 @@ export namespace Prisma {
 
   export type DocumentCreateManyInvestorInputEnvelope = {
     data: DocumentCreateManyInvestorInput | DocumentCreateManyInvestorInput[]
+    skipDuplicates?: boolean
+  }
+
+  export type ReinvestmentCreateWithoutInvestorInput = {
+    id?: string
+    amount: number
+    from_investment_id?: string | null
+    to_slate_id?: string | null
+    status?: string
+    date?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReinvestmentUncheckedCreateWithoutInvestorInput = {
+    id?: string
+    amount: number
+    from_investment_id?: string | null
+    to_slate_id?: string | null
+    status?: string
+    date?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReinvestmentCreateOrConnectWithoutInvestorInput = {
+    where: ReinvestmentWhereUniqueInput
+    create: XOR<ReinvestmentCreateWithoutInvestorInput, ReinvestmentUncheckedCreateWithoutInvestorInput>
+  }
+
+  export type ReinvestmentCreateManyInvestorInputEnvelope = {
+    data: ReinvestmentCreateManyInvestorInput | ReinvestmentCreateManyInvestorInput[]
     skipDuplicates?: boolean
   }
 
@@ -26137,10 +28263,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
-    full_name?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mcc_session?: MccSessionUpdateOneWithoutUserNestedInput
   }
 
@@ -26148,10 +28274,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
-    full_name?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     mcc_session?: MccSessionUncheckedUpdateOneWithoutUserNestedInput
   }
 
@@ -26179,11 +28305,23 @@ export namespace Prisma {
     investor_id?: StringFilter<"Investment"> | string
     slate_id?: StringFilter<"Investment"> | string
     amount?: FloatFilter<"Investment"> | number
-    date?: DateTimeFilter<"Investment"> | Date | string
-    status?: StringFilter<"Investment"> | string
-    notes?: StringNullableFilter<"Investment"> | string | null
-    created_at?: DateTimeFilter<"Investment"> | Date | string
-    updated_at?: DateTimeFilter<"Investment"> | Date | string
+    ownership_percentage?: FloatFilter<"Investment"> | number
+    rollover_amount?: FloatFilter<"Investment"> | number
+    new_cash_amount?: FloatFilter<"Investment"> | number
+    total_investment?: FloatFilter<"Investment"> | number
+    source_investment_id?: StringNullableFilter<"Investment"> | string | null
+    is_reinvestment?: BoolFilter<"Investment"> | boolean
+    reinvested_amount?: FloatFilter<"Investment"> | number
+    recouped_amount?: FloatFilter<"Investment"> | number
+    total_returned?: FloatFilter<"Investment"> | number
+    current_stage?: StringFilter<"Investment"> | string
+    recoupment_percentage?: FloatFilter<"Investment"> | number
+    premium_target?: FloatFilter<"Investment"> | number
+    premium_paid?: FloatFilter<"Investment"> | number
+    backend_percentage?: FloatFilter<"Investment"> | number
+    backend_paid?: FloatFilter<"Investment"> | number
+    createdAt?: DateTimeFilter<"Investment"> | Date | string
+    updatedAt?: DateTimeFilter<"Investment"> | Date | string
   }
 
   export type PaymentUpsertWithWhereUniqueWithoutInvestorInput = {
@@ -26207,15 +28345,44 @@ export namespace Prisma {
     OR?: PaymentScalarWhereInput[]
     NOT?: PaymentScalarWhereInput | PaymentScalarWhereInput[]
     id?: StringFilter<"Payment"> | string
-    investor_id?: StringNullableFilter<"Payment"> | string | null
+    investor_id?: StringFilter<"Payment"> | string
     amount?: FloatFilter<"Payment"> | number
-    date?: DateTimeFilter<"Payment"> | Date | string
-    type?: StringFilter<"Payment"> | string
+    type?: StringNullableFilter<"Payment"> | string | null
     status?: StringFilter<"Payment"> | string
+    date?: DateTimeFilter<"Payment"> | Date | string
     description?: StringNullableFilter<"Payment"> | string | null
-    reference?: StringNullableFilter<"Payment"> | string | null
-    created_at?: DateTimeFilter<"Payment"> | Date | string
-    updated_at?: DateTimeFilter<"Payment"> | Date | string
+    createdAt?: DateTimeFilter<"Payment"> | Date | string
+    updatedAt?: DateTimeFilter<"Payment"> | Date | string
+  }
+
+  export type NotificationUpsertWithWhereUniqueWithoutInvestorInput = {
+    where: NotificationWhereUniqueInput
+    update: XOR<NotificationUpdateWithoutInvestorInput, NotificationUncheckedUpdateWithoutInvestorInput>
+    create: XOR<NotificationCreateWithoutInvestorInput, NotificationUncheckedCreateWithoutInvestorInput>
+  }
+
+  export type NotificationUpdateWithWhereUniqueWithoutInvestorInput = {
+    where: NotificationWhereUniqueInput
+    data: XOR<NotificationUpdateWithoutInvestorInput, NotificationUncheckedUpdateWithoutInvestorInput>
+  }
+
+  export type NotificationUpdateManyWithWhereWithoutInvestorInput = {
+    where: NotificationScalarWhereInput
+    data: XOR<NotificationUpdateManyMutationInput, NotificationUncheckedUpdateManyWithoutInvestorInput>
+  }
+
+  export type NotificationScalarWhereInput = {
+    AND?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+    OR?: NotificationScalarWhereInput[]
+    NOT?: NotificationScalarWhereInput | NotificationScalarWhereInput[]
+    id?: StringFilter<"Notification"> | string
+    investor_id?: StringFilter<"Notification"> | string
+    title?: StringFilter<"Notification"> | string
+    message?: StringFilter<"Notification"> | string
+    read?: BoolFilter<"Notification"> | boolean
+    type?: StringNullableFilter<"Notification"> | string | null
+    createdAt?: DateTimeFilter<"Notification"> | Date | string
+    updatedAt?: DateTimeFilter<"Notification"> | Date | string
   }
 
   export type DocumentUpsertWithWhereUniqueWithoutInvestorInput = {
@@ -26240,27 +28407,57 @@ export namespace Prisma {
     NOT?: DocumentScalarWhereInput | DocumentScalarWhereInput[]
     id?: StringFilter<"Document"> | string
     investor_id?: StringNullableFilter<"Document"> | string | null
-    name?: StringFilter<"Document"> | string
-    file_url?: StringFilter<"Document"> | string
-    doc_type?: StringFilter<"Document"> | string
+    title?: StringFilter<"Document"> | string
+    file_url?: StringNullableFilter<"Document"> | string | null
+    file_type?: StringNullableFilter<"Document"> | string | null
     description?: StringNullableFilter<"Document"> | string | null
-    created_at?: DateTimeFilter<"Document"> | Date | string
-    updated_at?: DateTimeFilter<"Document"> | Date | string
+    is_global?: BoolFilter<"Document"> | boolean
+    createdAt?: DateTimeFilter<"Document"> | Date | string
+    updatedAt?: DateTimeFilter<"Document"> | Date | string
+  }
+
+  export type ReinvestmentUpsertWithWhereUniqueWithoutInvestorInput = {
+    where: ReinvestmentWhereUniqueInput
+    update: XOR<ReinvestmentUpdateWithoutInvestorInput, ReinvestmentUncheckedUpdateWithoutInvestorInput>
+    create: XOR<ReinvestmentCreateWithoutInvestorInput, ReinvestmentUncheckedCreateWithoutInvestorInput>
+  }
+
+  export type ReinvestmentUpdateWithWhereUniqueWithoutInvestorInput = {
+    where: ReinvestmentWhereUniqueInput
+    data: XOR<ReinvestmentUpdateWithoutInvestorInput, ReinvestmentUncheckedUpdateWithoutInvestorInput>
+  }
+
+  export type ReinvestmentUpdateManyWithWhereWithoutInvestorInput = {
+    where: ReinvestmentScalarWhereInput
+    data: XOR<ReinvestmentUpdateManyMutationInput, ReinvestmentUncheckedUpdateManyWithoutInvestorInput>
+  }
+
+  export type ReinvestmentScalarWhereInput = {
+    AND?: ReinvestmentScalarWhereInput | ReinvestmentScalarWhereInput[]
+    OR?: ReinvestmentScalarWhereInput[]
+    NOT?: ReinvestmentScalarWhereInput | ReinvestmentScalarWhereInput[]
+    id?: StringFilter<"Reinvestment"> | string
+    investor_id?: StringFilter<"Reinvestment"> | string
+    amount?: FloatFilter<"Reinvestment"> | number
+    from_investment_id?: StringNullableFilter<"Reinvestment"> | string | null
+    to_slate_id?: StringNullableFilter<"Reinvestment"> | string | null
+    status?: StringFilter<"Reinvestment"> | string
+    date?: DateTimeNullableFilter<"Reinvestment"> | Date | string | null
+    createdAt?: DateTimeFilter<"Reinvestment"> | Date | string
+    updatedAt?: DateTimeFilter<"Reinvestment"> | Date | string
   }
 
   export type FilmCreateWithoutSlateInput = {
     id?: string
     title: string
-    description?: string | null
-    genre?: string | null
-    status?: string
     budget?: number
-    revenue?: number
-    poster_url?: string | null
-    trailer_url?: string | null
+    status?: string
+    genre?: string | null
+    description?: string | null
     release_date?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    total_revenue?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
     revenue_entries?: RevenueEntryCreateNestedManyWithoutFilmInput
     expenses?: ExpenseCreateNestedManyWithoutFilmInput
   }
@@ -26268,16 +28465,14 @@ export namespace Prisma {
   export type FilmUncheckedCreateWithoutSlateInput = {
     id?: string
     title: string
-    description?: string | null
-    genre?: string | null
-    status?: string
     budget?: number
-    revenue?: number
-    poster_url?: string | null
-    trailer_url?: string | null
+    status?: string
+    genre?: string | null
+    description?: string | null
     release_date?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    total_revenue?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
     revenue_entries?: RevenueEntryUncheckedCreateNestedManyWithoutFilmInput
     expenses?: ExpenseUncheckedCreateNestedManyWithoutFilmInput
   }
@@ -26294,24 +28489,48 @@ export namespace Prisma {
 
   export type InvestmentCreateWithoutSlateInput = {
     id?: string
-    amount: number
-    date: Date | string
-    status?: string
-    notes?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    amount?: number
+    ownership_percentage?: number
+    rollover_amount?: number
+    new_cash_amount?: number
+    total_investment?: number
+    source_investment_id?: string | null
+    is_reinvestment?: boolean
+    reinvested_amount?: number
+    recouped_amount?: number
+    total_returned?: number
+    current_stage?: string
+    recoupment_percentage?: number
+    premium_target?: number
+    premium_paid?: number
+    backend_percentage?: number
+    backend_paid?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investor: InvestorCreateNestedOneWithoutInvestmentsInput
   }
 
   export type InvestmentUncheckedCreateWithoutSlateInput = {
     id?: string
     investor_id: string
-    amount: number
-    date: Date | string
-    status?: string
-    notes?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    amount?: number
+    ownership_percentage?: number
+    rollover_amount?: number
+    new_cash_amount?: number
+    total_investment?: number
+    source_investment_id?: string | null
+    is_reinvestment?: boolean
+    reinvested_amount?: number
+    recouped_amount?: number
+    total_returned?: number
+    current_stage?: string
+    recoupment_percentage?: number
+    premium_target?: number
+    premium_paid?: number
+    backend_percentage?: number
+    backend_paid?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type InvestmentCreateOrConnectWithoutSlateInput = {
@@ -26321,40 +28540,6 @@ export namespace Prisma {
 
   export type InvestmentCreateManySlateInputEnvelope = {
     data: InvestmentCreateManySlateInput | InvestmentCreateManySlateInput[]
-    skipDuplicates?: boolean
-  }
-
-  export type ExpenseCreateWithoutSlateInput = {
-    id?: string
-    amount: number
-    category: string
-    date: Date | string
-    description?: string | null
-    vendor?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    film?: FilmCreateNestedOneWithoutExpensesInput
-  }
-
-  export type ExpenseUncheckedCreateWithoutSlateInput = {
-    id?: string
-    film_id?: string | null
-    amount: number
-    category: string
-    date: Date | string
-    description?: string | null
-    vendor?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-  }
-
-  export type ExpenseCreateOrConnectWithoutSlateInput = {
-    where: ExpenseWhereUniqueInput
-    create: XOR<ExpenseCreateWithoutSlateInput, ExpenseUncheckedCreateWithoutSlateInput>
-  }
-
-  export type ExpenseCreateManySlateInputEnvelope = {
-    data: ExpenseCreateManySlateInput | ExpenseCreateManySlateInput[]
     skipDuplicates?: boolean
   }
 
@@ -26380,17 +28565,15 @@ export namespace Prisma {
     NOT?: FilmScalarWhereInput | FilmScalarWhereInput[]
     id?: StringFilter<"Film"> | string
     title?: StringFilter<"Film"> | string
-    description?: StringNullableFilter<"Film"> | string | null
-    genre?: StringNullableFilter<"Film"> | string | null
-    status?: StringFilter<"Film"> | string
+    slate_id?: StringFilter<"Film"> | string
     budget?: FloatFilter<"Film"> | number
-    revenue?: FloatFilter<"Film"> | number
-    poster_url?: StringNullableFilter<"Film"> | string | null
-    trailer_url?: StringNullableFilter<"Film"> | string | null
+    status?: StringFilter<"Film"> | string
+    genre?: StringNullableFilter<"Film"> | string | null
+    description?: StringNullableFilter<"Film"> | string | null
     release_date?: DateTimeNullableFilter<"Film"> | Date | string | null
-    slate_id?: StringNullableFilter<"Film"> | string | null
-    created_at?: DateTimeFilter<"Film"> | Date | string
-    updated_at?: DateTimeFilter<"Film"> | Date | string
+    total_revenue?: FloatFilter<"Film"> | number
+    createdAt?: DateTimeFilter<"Film"> | Date | string
+    updatedAt?: DateTimeFilter<"Film"> | Date | string
   }
 
   export type InvestmentUpsertWithWhereUniqueWithoutSlateInput = {
@@ -26409,64 +28592,32 @@ export namespace Prisma {
     data: XOR<InvestmentUpdateManyMutationInput, InvestmentUncheckedUpdateManyWithoutSlateInput>
   }
 
-  export type ExpenseUpsertWithWhereUniqueWithoutSlateInput = {
-    where: ExpenseWhereUniqueInput
-    update: XOR<ExpenseUpdateWithoutSlateInput, ExpenseUncheckedUpdateWithoutSlateInput>
-    create: XOR<ExpenseCreateWithoutSlateInput, ExpenseUncheckedCreateWithoutSlateInput>
-  }
-
-  export type ExpenseUpdateWithWhereUniqueWithoutSlateInput = {
-    where: ExpenseWhereUniqueInput
-    data: XOR<ExpenseUpdateWithoutSlateInput, ExpenseUncheckedUpdateWithoutSlateInput>
-  }
-
-  export type ExpenseUpdateManyWithWhereWithoutSlateInput = {
-    where: ExpenseScalarWhereInput
-    data: XOR<ExpenseUpdateManyMutationInput, ExpenseUncheckedUpdateManyWithoutSlateInput>
-  }
-
-  export type ExpenseScalarWhereInput = {
-    AND?: ExpenseScalarWhereInput | ExpenseScalarWhereInput[]
-    OR?: ExpenseScalarWhereInput[]
-    NOT?: ExpenseScalarWhereInput | ExpenseScalarWhereInput[]
-    id?: StringFilter<"Expense"> | string
-    film_id?: StringNullableFilter<"Expense"> | string | null
-    slate_id?: StringNullableFilter<"Expense"> | string | null
-    amount?: FloatFilter<"Expense"> | number
-    category?: StringFilter<"Expense"> | string
-    date?: DateTimeFilter<"Expense"> | Date | string
-    description?: StringNullableFilter<"Expense"> | string | null
-    vendor?: StringNullableFilter<"Expense"> | string | null
-    created_at?: DateTimeFilter<"Expense"> | Date | string
-    updated_at?: DateTimeFilter<"Expense"> | Date | string
-  }
-
   export type SlateCreateWithoutFilmsInput = {
     id?: string
     name: string
     description?: string | null
-    budget: number
+    status?: string
+    budget?: number
     start_date?: Date | string | null
     end_date?: Date | string | null
-    status?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    target_return?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investments?: InvestmentCreateNestedManyWithoutSlateInput
-    expenses?: ExpenseCreateNestedManyWithoutSlateInput
   }
 
   export type SlateUncheckedCreateWithoutFilmsInput = {
     id?: string
     name: string
     description?: string | null
-    budget: number
+    status?: string
+    budget?: number
     start_date?: Date | string | null
     end_date?: Date | string | null
-    status?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    target_return?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investments?: InvestmentUncheckedCreateNestedManyWithoutSlateInput
-    expenses?: ExpenseUncheckedCreateNestedManyWithoutSlateInput
   }
 
   export type SlateCreateOrConnectWithoutFilmsInput = {
@@ -26477,21 +28628,21 @@ export namespace Prisma {
   export type RevenueEntryCreateWithoutFilmInput = {
     id?: string
     amount: number
-    source: string
+    source?: string | null
     date: Date | string
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type RevenueEntryUncheckedCreateWithoutFilmInput = {
     id?: string
     amount: number
-    source: string
+    source?: string | null
     date: Date | string
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type RevenueEntryCreateOrConnectWithoutFilmInput = {
@@ -26507,25 +28658,21 @@ export namespace Prisma {
   export type ExpenseCreateWithoutFilmInput = {
     id?: string
     amount: number
-    category: string
-    date: Date | string
+    category?: string | null
     description?: string | null
-    vendor?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    slate?: SlateCreateNestedOneWithoutExpensesInput
+    date: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ExpenseUncheckedCreateWithoutFilmInput = {
     id?: string
-    slate_id?: string | null
     amount: number
-    category: string
-    date: Date | string
+    category?: string | null
     description?: string | null
-    vendor?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    date: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ExpenseCreateOrConnectWithoutFilmInput = {
@@ -26553,28 +28700,28 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    target_return?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investments?: InvestmentUpdateManyWithoutSlateNestedInput
-    expenses?: ExpenseUpdateManyWithoutSlateNestedInput
   }
 
   export type SlateUncheckedUpdateWithoutFilmsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    target_return?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investments?: InvestmentUncheckedUpdateManyWithoutSlateNestedInput
-    expenses?: ExpenseUncheckedUpdateManyWithoutSlateNestedInput
   }
 
   export type RevenueEntryUpsertWithWhereUniqueWithoutFilmInput = {
@@ -26598,13 +28745,13 @@ export namespace Prisma {
     OR?: RevenueEntryScalarWhereInput[]
     NOT?: RevenueEntryScalarWhereInput | RevenueEntryScalarWhereInput[]
     id?: StringFilter<"RevenueEntry"> | string
-    film_id?: StringNullableFilter<"RevenueEntry"> | string | null
+    film_id?: StringFilter<"RevenueEntry"> | string
     amount?: FloatFilter<"RevenueEntry"> | number
-    source?: StringFilter<"RevenueEntry"> | string
+    source?: StringNullableFilter<"RevenueEntry"> | string | null
     date?: DateTimeFilter<"RevenueEntry"> | Date | string
     description?: StringNullableFilter<"RevenueEntry"> | string | null
-    created_at?: DateTimeFilter<"RevenueEntry"> | Date | string
-    updated_at?: DateTimeFilter<"RevenueEntry"> | Date | string
+    createdAt?: DateTimeFilter<"RevenueEntry"> | Date | string
+    updatedAt?: DateTimeFilter<"RevenueEntry"> | Date | string
   }
 
   export type ExpenseUpsertWithWhereUniqueWithoutFilmInput = {
@@ -26623,32 +28770,62 @@ export namespace Prisma {
     data: XOR<ExpenseUpdateManyMutationInput, ExpenseUncheckedUpdateManyWithoutFilmInput>
   }
 
+  export type ExpenseScalarWhereInput = {
+    AND?: ExpenseScalarWhereInput | ExpenseScalarWhereInput[]
+    OR?: ExpenseScalarWhereInput[]
+    NOT?: ExpenseScalarWhereInput | ExpenseScalarWhereInput[]
+    id?: StringFilter<"Expense"> | string
+    film_id?: StringFilter<"Expense"> | string
+    amount?: FloatFilter<"Expense"> | number
+    category?: StringNullableFilter<"Expense"> | string | null
+    description?: StringNullableFilter<"Expense"> | string | null
+    date?: DateTimeFilter<"Expense"> | Date | string
+    createdAt?: DateTimeFilter<"Expense"> | Date | string
+    updatedAt?: DateTimeFilter<"Expense"> | Date | string
+  }
+
   export type InvestorCreateWithoutInvestmentsInput = {
     id?: string
+    first_name: string
+    last_name: string
     name: string
     email: string
     phone?: string | null
     company?: string | null
+    notes?: string | null
+    has_login?: boolean
+    invite_token?: string | null
     invite_sent_at?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     user?: UserCreateNestedOneWithoutInvestorInput
     payments?: PaymentCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationCreateNestedManyWithoutInvestorInput
     documents?: DocumentCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentCreateNestedManyWithoutInvestorInput
   }
 
   export type InvestorUncheckedCreateWithoutInvestmentsInput = {
     id?: string
+    first_name: string
+    last_name: string
     name: string
     email: string
     phone?: string | null
     company?: string | null
+    notes?: string | null
     user_id?: string | null
+    has_login?: boolean
+    invite_token?: string | null
     invite_sent_at?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     payments?: PaymentUncheckedCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutInvestorInput
     documents?: DocumentUncheckedCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentUncheckedCreateNestedManyWithoutInvestorInput
   }
 
   export type InvestorCreateOrConnectWithoutInvestmentsInput = {
@@ -26660,28 +28837,28 @@ export namespace Prisma {
     id?: string
     name: string
     description?: string | null
-    budget: number
+    status?: string
+    budget?: number
     start_date?: Date | string | null
     end_date?: Date | string | null
-    status?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    target_return?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     films?: FilmCreateNestedManyWithoutSlateInput
-    expenses?: ExpenseCreateNestedManyWithoutSlateInput
   }
 
   export type SlateUncheckedCreateWithoutInvestmentsInput = {
     id?: string
     name: string
     description?: string | null
-    budget: number
+    status?: string
+    budget?: number
     start_date?: Date | string | null
     end_date?: Date | string | null
-    status?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    target_return?: number | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     films?: FilmUncheckedCreateNestedManyWithoutSlateInput
-    expenses?: ExpenseUncheckedCreateNestedManyWithoutSlateInput
   }
 
   export type SlateCreateOrConnectWithoutInvestmentsInput = {
@@ -26702,30 +28879,46 @@ export namespace Prisma {
 
   export type InvestorUpdateWithoutInvestmentsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
     invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneWithoutInvestorNestedInput
     payments?: PaymentUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUpdateManyWithoutInvestorNestedInput
     documents?: DocumentUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUpdateManyWithoutInvestorNestedInput
   }
 
   export type InvestorUncheckedUpdateWithoutInvestmentsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
     invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     payments?: PaymentUncheckedUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutInvestorNestedInput
     documents?: DocumentUncheckedUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUncheckedUpdateManyWithoutInvestorNestedInput
   }
 
   export type SlateUpsertWithoutInvestmentsInput = {
@@ -26743,133 +28936,57 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    target_return?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     films?: FilmUpdateManyWithoutSlateNestedInput
-    expenses?: ExpenseUpdateManyWithoutSlateNestedInput
   }
 
   export type SlateUncheckedUpdateWithoutInvestmentsInput = {
     id?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
     start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
     end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    target_return?: NullableFloatFieldUpdateOperationsInput | number | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     films?: FilmUncheckedUpdateManyWithoutSlateNestedInput
-    expenses?: ExpenseUncheckedUpdateManyWithoutSlateNestedInput
-  }
-
-  export type InvestorCreateWithoutPaymentsInput = {
-    id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
-    invite_sent_at?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    user?: UserCreateNestedOneWithoutInvestorInput
-    investments?: InvestmentCreateNestedManyWithoutInvestorInput
-    documents?: DocumentCreateNestedManyWithoutInvestorInput
-  }
-
-  export type InvestorUncheckedCreateWithoutPaymentsInput = {
-    id?: string
-    name: string
-    email: string
-    phone?: string | null
-    company?: string | null
-    user_id?: string | null
-    invite_sent_at?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    investments?: InvestmentUncheckedCreateNestedManyWithoutInvestorInput
-    documents?: DocumentUncheckedCreateNestedManyWithoutInvestorInput
-  }
-
-  export type InvestorCreateOrConnectWithoutPaymentsInput = {
-    where: InvestorWhereUniqueInput
-    create: XOR<InvestorCreateWithoutPaymentsInput, InvestorUncheckedCreateWithoutPaymentsInput>
-  }
-
-  export type InvestorUpsertWithoutPaymentsInput = {
-    update: XOR<InvestorUpdateWithoutPaymentsInput, InvestorUncheckedUpdateWithoutPaymentsInput>
-    create: XOR<InvestorCreateWithoutPaymentsInput, InvestorUncheckedCreateWithoutPaymentsInput>
-    where?: InvestorWhereInput
-  }
-
-  export type InvestorUpdateToOneWithWhereWithoutPaymentsInput = {
-    where?: InvestorWhereInput
-    data: XOR<InvestorUpdateWithoutPaymentsInput, InvestorUncheckedUpdateWithoutPaymentsInput>
-  }
-
-  export type InvestorUpdateWithoutPaymentsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
-    invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneWithoutInvestorNestedInput
-    investments?: InvestmentUpdateManyWithoutInvestorNestedInput
-    documents?: DocumentUpdateManyWithoutInvestorNestedInput
-  }
-
-  export type InvestorUncheckedUpdateWithoutPaymentsInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    phone?: NullableStringFieldUpdateOperationsInput | string | null
-    company?: NullableStringFieldUpdateOperationsInput | string | null
-    user_id?: NullableStringFieldUpdateOperationsInput | string | null
-    invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    investments?: InvestmentUncheckedUpdateManyWithoutInvestorNestedInput
-    documents?: DocumentUncheckedUpdateManyWithoutInvestorNestedInput
   }
 
   export type FilmCreateWithoutRevenue_entriesInput = {
     id?: string
     title: string
-    description?: string | null
-    genre?: string | null
-    status?: string
     budget?: number
-    revenue?: number
-    poster_url?: string | null
-    trailer_url?: string | null
+    status?: string
+    genre?: string | null
+    description?: string | null
     release_date?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    slate?: SlateCreateNestedOneWithoutFilmsInput
+    total_revenue?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    slate: SlateCreateNestedOneWithoutFilmsInput
     expenses?: ExpenseCreateNestedManyWithoutFilmInput
   }
 
   export type FilmUncheckedCreateWithoutRevenue_entriesInput = {
     id?: string
     title: string
-    description?: string | null
-    genre?: string | null
-    status?: string
+    slate_id: string
     budget?: number
-    revenue?: number
-    poster_url?: string | null
-    trailer_url?: string | null
+    status?: string
+    genre?: string | null
+    description?: string | null
     release_date?: Date | string | null
-    slate_id?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    total_revenue?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
     expenses?: ExpenseUncheckedCreateNestedManyWithoutFilmInput
   }
 
@@ -26892,107 +29009,66 @@ export namespace Prisma {
   export type FilmUpdateWithoutRevenue_entriesInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
-    revenue?: FloatFieldUpdateOperationsInput | number
-    poster_url?: NullableStringFieldUpdateOperationsInput | string | null
-    trailer_url?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     release_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    slate?: SlateUpdateOneWithoutFilmsNestedInput
+    total_revenue?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    slate?: SlateUpdateOneRequiredWithoutFilmsNestedInput
     expenses?: ExpenseUpdateManyWithoutFilmNestedInput
   }
 
   export type FilmUncheckedUpdateWithoutRevenue_entriesInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
+    slate_id?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
-    revenue?: FloatFieldUpdateOperationsInput | number
-    poster_url?: NullableStringFieldUpdateOperationsInput | string | null
-    trailer_url?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     release_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    slate_id?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    total_revenue?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     expenses?: ExpenseUncheckedUpdateManyWithoutFilmNestedInput
   }
 
   export type FilmCreateWithoutExpensesInput = {
     id?: string
     title: string
-    description?: string | null
-    genre?: string | null
-    status?: string
     budget?: number
-    revenue?: number
-    poster_url?: string | null
-    trailer_url?: string | null
+    status?: string
+    genre?: string | null
+    description?: string | null
     release_date?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-    slate?: SlateCreateNestedOneWithoutFilmsInput
+    total_revenue?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    slate: SlateCreateNestedOneWithoutFilmsInput
     revenue_entries?: RevenueEntryCreateNestedManyWithoutFilmInput
   }
 
   export type FilmUncheckedCreateWithoutExpensesInput = {
     id?: string
     title: string
-    description?: string | null
-    genre?: string | null
-    status?: string
+    slate_id: string
     budget?: number
-    revenue?: number
-    poster_url?: string | null
-    trailer_url?: string | null
+    status?: string
+    genre?: string | null
+    description?: string | null
     release_date?: Date | string | null
-    slate_id?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    total_revenue?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
     revenue_entries?: RevenueEntryUncheckedCreateNestedManyWithoutFilmInput
   }
 
   export type FilmCreateOrConnectWithoutExpensesInput = {
     where: FilmWhereUniqueInput
     create: XOR<FilmCreateWithoutExpensesInput, FilmUncheckedCreateWithoutExpensesInput>
-  }
-
-  export type SlateCreateWithoutExpensesInput = {
-    id?: string
-    name: string
-    description?: string | null
-    budget: number
-    start_date?: Date | string | null
-    end_date?: Date | string | null
-    status?: string
-    created_at?: Date | string
-    updated_at?: Date | string
-    films?: FilmCreateNestedManyWithoutSlateInput
-    investments?: InvestmentCreateNestedManyWithoutSlateInput
-  }
-
-  export type SlateUncheckedCreateWithoutExpensesInput = {
-    id?: string
-    name: string
-    description?: string | null
-    budget: number
-    start_date?: Date | string | null
-    end_date?: Date | string | null
-    status?: string
-    created_at?: Date | string
-    updated_at?: Date | string
-    films?: FilmUncheckedCreateNestedManyWithoutSlateInput
-    investments?: InvestmentUncheckedCreateNestedManyWithoutSlateInput
-  }
-
-  export type SlateCreateOrConnectWithoutExpensesInput = {
-    where: SlateWhereUniqueInput
-    create: XOR<SlateCreateWithoutExpensesInput, SlateUncheckedCreateWithoutExpensesInput>
   }
 
   export type FilmUpsertWithoutExpensesInput = {
@@ -27009,102 +29085,283 @@ export namespace Prisma {
   export type FilmUpdateWithoutExpensesInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
-    revenue?: FloatFieldUpdateOperationsInput | number
-    poster_url?: NullableStringFieldUpdateOperationsInput | string | null
-    trailer_url?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     release_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    slate?: SlateUpdateOneWithoutFilmsNestedInput
+    total_revenue?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    slate?: SlateUpdateOneRequiredWithoutFilmsNestedInput
     revenue_entries?: RevenueEntryUpdateManyWithoutFilmNestedInput
   }
 
   export type FilmUncheckedUpdateWithoutExpensesInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
+    slate_id?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
-    revenue?: FloatFieldUpdateOperationsInput | number
-    poster_url?: NullableStringFieldUpdateOperationsInput | string | null
-    trailer_url?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     release_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    slate_id?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    total_revenue?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     revenue_entries?: RevenueEntryUncheckedUpdateManyWithoutFilmNestedInput
   }
 
-  export type SlateUpsertWithoutExpensesInput = {
-    update: XOR<SlateUpdateWithoutExpensesInput, SlateUncheckedUpdateWithoutExpensesInput>
-    create: XOR<SlateCreateWithoutExpensesInput, SlateUncheckedCreateWithoutExpensesInput>
-    where?: SlateWhereInput
+  export type InvestorCreateWithoutPaymentsInput = {
+    id?: string
+    first_name: string
+    last_name: string
+    name: string
+    email: string
+    phone?: string | null
+    company?: string | null
+    notes?: string | null
+    has_login?: boolean
+    invite_token?: string | null
+    invite_sent_at?: Date | string | null
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user?: UserCreateNestedOneWithoutInvestorInput
+    investments?: InvestmentCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationCreateNestedManyWithoutInvestorInput
+    documents?: DocumentCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentCreateNestedManyWithoutInvestorInput
   }
 
-  export type SlateUpdateToOneWithWhereWithoutExpensesInput = {
-    where?: SlateWhereInput
-    data: XOR<SlateUpdateWithoutExpensesInput, SlateUncheckedUpdateWithoutExpensesInput>
+  export type InvestorUncheckedCreateWithoutPaymentsInput = {
+    id?: string
+    first_name: string
+    last_name: string
+    name: string
+    email: string
+    phone?: string | null
+    company?: string | null
+    notes?: string | null
+    user_id?: string | null
+    has_login?: boolean
+    invite_token?: string | null
+    invite_sent_at?: Date | string | null
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    investments?: InvestmentUncheckedCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutInvestorInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentUncheckedCreateNestedManyWithoutInvestorInput
   }
 
-  export type SlateUpdateWithoutExpensesInput = {
+  export type InvestorCreateOrConnectWithoutPaymentsInput = {
+    where: InvestorWhereUniqueInput
+    create: XOR<InvestorCreateWithoutPaymentsInput, InvestorUncheckedCreateWithoutPaymentsInput>
+  }
+
+  export type InvestorUpsertWithoutPaymentsInput = {
+    update: XOR<InvestorUpdateWithoutPaymentsInput, InvestorUncheckedUpdateWithoutPaymentsInput>
+    create: XOR<InvestorCreateWithoutPaymentsInput, InvestorUncheckedCreateWithoutPaymentsInput>
+    where?: InvestorWhereInput
+  }
+
+  export type InvestorUpdateToOneWithWhereWithoutPaymentsInput = {
+    where?: InvestorWhereInput
+    data: XOR<InvestorUpdateWithoutPaymentsInput, InvestorUncheckedUpdateWithoutPaymentsInput>
+  }
+
+  export type InvestorUpdateWithoutPaymentsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    budget?: FloatFieldUpdateOperationsInput | number
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    films?: FilmUpdateManyWithoutSlateNestedInput
-    investments?: InvestmentUpdateManyWithoutSlateNestedInput
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
+    invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutInvestorNestedInput
+    investments?: InvestmentUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUpdateManyWithoutInvestorNestedInput
+    documents?: DocumentUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUpdateManyWithoutInvestorNestedInput
   }
 
-  export type SlateUncheckedUpdateWithoutExpensesInput = {
+  export type InvestorUncheckedUpdateWithoutPaymentsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    budget?: FloatFieldUpdateOperationsInput | number
-    start_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    end_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    films?: FilmUncheckedUpdateManyWithoutSlateNestedInput
-    investments?: InvestmentUncheckedUpdateManyWithoutSlateNestedInput
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
+    invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    investments?: InvestmentUncheckedUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutInvestorNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUncheckedUpdateManyWithoutInvestorNestedInput
+  }
+
+  export type InvestorCreateWithoutNotificationsInput = {
+    id?: string
+    first_name: string
+    last_name: string
+    name: string
+    email: string
+    phone?: string | null
+    company?: string | null
+    notes?: string | null
+    has_login?: boolean
+    invite_token?: string | null
+    invite_sent_at?: Date | string | null
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user?: UserCreateNestedOneWithoutInvestorInput
+    investments?: InvestmentCreateNestedManyWithoutInvestorInput
+    payments?: PaymentCreateNestedManyWithoutInvestorInput
+    documents?: DocumentCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentCreateNestedManyWithoutInvestorInput
+  }
+
+  export type InvestorUncheckedCreateWithoutNotificationsInput = {
+    id?: string
+    first_name: string
+    last_name: string
+    name: string
+    email: string
+    phone?: string | null
+    company?: string | null
+    notes?: string | null
+    user_id?: string | null
+    has_login?: boolean
+    invite_token?: string | null
+    invite_sent_at?: Date | string | null
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    investments?: InvestmentUncheckedCreateNestedManyWithoutInvestorInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutInvestorInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentUncheckedCreateNestedManyWithoutInvestorInput
+  }
+
+  export type InvestorCreateOrConnectWithoutNotificationsInput = {
+    where: InvestorWhereUniqueInput
+    create: XOR<InvestorCreateWithoutNotificationsInput, InvestorUncheckedCreateWithoutNotificationsInput>
+  }
+
+  export type InvestorUpsertWithoutNotificationsInput = {
+    update: XOR<InvestorUpdateWithoutNotificationsInput, InvestorUncheckedUpdateWithoutNotificationsInput>
+    create: XOR<InvestorCreateWithoutNotificationsInput, InvestorUncheckedCreateWithoutNotificationsInput>
+    where?: InvestorWhereInput
+  }
+
+  export type InvestorUpdateToOneWithWhereWithoutNotificationsInput = {
+    where?: InvestorWhereInput
+    data: XOR<InvestorUpdateWithoutNotificationsInput, InvestorUncheckedUpdateWithoutNotificationsInput>
+  }
+
+  export type InvestorUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
+    invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutInvestorNestedInput
+    investments?: InvestmentUpdateManyWithoutInvestorNestedInput
+    payments?: PaymentUpdateManyWithoutInvestorNestedInput
+    documents?: DocumentUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUpdateManyWithoutInvestorNestedInput
+  }
+
+  export type InvestorUncheckedUpdateWithoutNotificationsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
+    invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    investments?: InvestmentUncheckedUpdateManyWithoutInvestorNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutInvestorNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUncheckedUpdateManyWithoutInvestorNestedInput
   }
 
   export type InvestorCreateWithoutDocumentsInput = {
     id?: string
+    first_name: string
+    last_name: string
     name: string
     email: string
     phone?: string | null
     company?: string | null
+    notes?: string | null
+    has_login?: boolean
+    invite_token?: string | null
     invite_sent_at?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     user?: UserCreateNestedOneWithoutInvestorInput
     investments?: InvestmentCreateNestedManyWithoutInvestorInput
     payments?: PaymentCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentCreateNestedManyWithoutInvestorInput
   }
 
   export type InvestorUncheckedCreateWithoutDocumentsInput = {
     id?: string
+    first_name: string
+    last_name: string
     name: string
     email: string
     phone?: string | null
     company?: string | null
+    notes?: string | null
     user_id?: string | null
+    has_login?: boolean
+    invite_token?: string | null
     invite_sent_at?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investments?: InvestmentUncheckedCreateNestedManyWithoutInvestorInput
     payments?: PaymentUncheckedCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutInvestorInput
+    reinvestments?: ReinvestmentUncheckedCreateNestedManyWithoutInvestorInput
   }
 
   export type InvestorCreateOrConnectWithoutDocumentsInput = {
@@ -27125,40 +29382,160 @@ export namespace Prisma {
 
   export type InvestorUpdateWithoutDocumentsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
     invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     user?: UserUpdateOneWithoutInvestorNestedInput
     investments?: InvestmentUpdateManyWithoutInvestorNestedInput
     payments?: PaymentUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUpdateManyWithoutInvestorNestedInput
   }
 
   export type InvestorUncheckedUpdateWithoutDocumentsInput = {
     id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
     name?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     phone?: NullableStringFieldUpdateOperationsInput | string | null
     company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
     invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investments?: InvestmentUncheckedUpdateManyWithoutInvestorNestedInput
     payments?: PaymentUncheckedUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutInvestorNestedInput
+    reinvestments?: ReinvestmentUncheckedUpdateManyWithoutInvestorNestedInput
+  }
+
+  export type InvestorCreateWithoutReinvestmentsInput = {
+    id?: string
+    first_name: string
+    last_name: string
+    name: string
+    email: string
+    phone?: string | null
+    company?: string | null
+    notes?: string | null
+    has_login?: boolean
+    invite_token?: string | null
+    invite_sent_at?: Date | string | null
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    user?: UserCreateNestedOneWithoutInvestorInput
+    investments?: InvestmentCreateNestedManyWithoutInvestorInput
+    payments?: PaymentCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationCreateNestedManyWithoutInvestorInput
+    documents?: DocumentCreateNestedManyWithoutInvestorInput
+  }
+
+  export type InvestorUncheckedCreateWithoutReinvestmentsInput = {
+    id?: string
+    first_name: string
+    last_name: string
+    name: string
+    email: string
+    phone?: string | null
+    company?: string | null
+    notes?: string | null
+    user_id?: string | null
+    has_login?: boolean
+    invite_token?: string | null
+    invite_sent_at?: Date | string | null
+    invite_accepted_at?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    investments?: InvestmentUncheckedCreateNestedManyWithoutInvestorInput
+    payments?: PaymentUncheckedCreateNestedManyWithoutInvestorInput
+    notifications?: NotificationUncheckedCreateNestedManyWithoutInvestorInput
+    documents?: DocumentUncheckedCreateNestedManyWithoutInvestorInput
+  }
+
+  export type InvestorCreateOrConnectWithoutReinvestmentsInput = {
+    where: InvestorWhereUniqueInput
+    create: XOR<InvestorCreateWithoutReinvestmentsInput, InvestorUncheckedCreateWithoutReinvestmentsInput>
+  }
+
+  export type InvestorUpsertWithoutReinvestmentsInput = {
+    update: XOR<InvestorUpdateWithoutReinvestmentsInput, InvestorUncheckedUpdateWithoutReinvestmentsInput>
+    create: XOR<InvestorCreateWithoutReinvestmentsInput, InvestorUncheckedCreateWithoutReinvestmentsInput>
+    where?: InvestorWhereInput
+  }
+
+  export type InvestorUpdateToOneWithWhereWithoutReinvestmentsInput = {
+    where?: InvestorWhereInput
+    data: XOR<InvestorUpdateWithoutReinvestmentsInput, InvestorUncheckedUpdateWithoutReinvestmentsInput>
+  }
+
+  export type InvestorUpdateWithoutReinvestmentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
+    invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    user?: UserUpdateOneWithoutInvestorNestedInput
+    investments?: InvestmentUpdateManyWithoutInvestorNestedInput
+    payments?: PaymentUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUpdateManyWithoutInvestorNestedInput
+    documents?: DocumentUpdateManyWithoutInvestorNestedInput
+  }
+
+  export type InvestorUncheckedUpdateWithoutReinvestmentsInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    first_name?: StringFieldUpdateOperationsInput | string
+    last_name?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: StringFieldUpdateOperationsInput | string
+    phone?: NullableStringFieldUpdateOperationsInput | string | null
+    company?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    user_id?: NullableStringFieldUpdateOperationsInput | string | null
+    has_login?: BoolFieldUpdateOperationsInput | boolean
+    invite_token?: NullableStringFieldUpdateOperationsInput | string | null
+    invite_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    invite_accepted_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    investments?: InvestmentUncheckedUpdateManyWithoutInvestorNestedInput
+    payments?: PaymentUncheckedUpdateManyWithoutInvestorNestedInput
+    notifications?: NotificationUncheckedUpdateManyWithoutInvestorNestedInput
+    documents?: DocumentUncheckedUpdateManyWithoutInvestorNestedInput
   }
 
   export type UserCreateWithoutMcc_sessionInput = {
     id?: string
     email: string
     password_hash: string
-    full_name: string
+    full_name?: string | null
     role?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investor?: InvestorCreateNestedOneWithoutUserInput
   }
 
@@ -27166,10 +29543,10 @@ export namespace Prisma {
     id?: string
     email: string
     password_hash: string
-    full_name: string
+    full_name?: string | null
     role?: string
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
     investor?: InvestorUncheckedCreateNestedOneWithoutUserInput
   }
 
@@ -27193,10 +29570,10 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
-    full_name?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investor?: InvestorUpdateOneWithoutUserNestedInput
   }
 
@@ -27204,54 +29581,99 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     email?: StringFieldUpdateOperationsInput | string
     password_hash?: StringFieldUpdateOperationsInput | string
-    full_name?: StringFieldUpdateOperationsInput | string
+    full_name?: NullableStringFieldUpdateOperationsInput | string | null
     role?: StringFieldUpdateOperationsInput | string
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investor?: InvestorUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type InvestmentCreateManyInvestorInput = {
     id?: string
     slate_id: string
-    amount: number
-    date: Date | string
-    status?: string
-    notes?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    amount?: number
+    ownership_percentage?: number
+    rollover_amount?: number
+    new_cash_amount?: number
+    total_investment?: number
+    source_investment_id?: string | null
+    is_reinvestment?: boolean
+    reinvested_amount?: number
+    recouped_amount?: number
+    total_returned?: number
+    current_stage?: string
+    recoupment_percentage?: number
+    premium_target?: number
+    premium_paid?: number
+    backend_percentage?: number
+    backend_paid?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type PaymentCreateManyInvestorInput = {
     id?: string
     amount: number
-    date: Date | string
-    type: string
+    type?: string | null
     status?: string
+    date: Date | string
     description?: string | null
-    reference?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type NotificationCreateManyInvestorInput = {
+    id?: string
+    title: string
+    message: string
+    read?: boolean
+    type?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type DocumentCreateManyInvestorInput = {
     id?: string
-    name: string
-    file_url: string
-    doc_type: string
+    title: string
+    file_url?: string | null
+    file_type?: string | null
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    is_global?: boolean
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type ReinvestmentCreateManyInvestorInput = {
+    id?: string
+    amount: number
+    from_investment_id?: string | null
+    to_slate_id?: string | null
+    status?: string
+    date?: Date | string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type InvestmentUpdateWithoutInvestorInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: StringFieldUpdateOperationsInput | string
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownership_percentage?: FloatFieldUpdateOperationsInput | number
+    rollover_amount?: FloatFieldUpdateOperationsInput | number
+    new_cash_amount?: FloatFieldUpdateOperationsInput | number
+    total_investment?: FloatFieldUpdateOperationsInput | number
+    source_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_reinvestment?: BoolFieldUpdateOperationsInput | boolean
+    reinvested_amount?: FloatFieldUpdateOperationsInput | number
+    recouped_amount?: FloatFieldUpdateOperationsInput | number
+    total_returned?: FloatFieldUpdateOperationsInput | number
+    current_stage?: StringFieldUpdateOperationsInput | string
+    recoupment_percentage?: FloatFieldUpdateOperationsInput | number
+    premium_target?: FloatFieldUpdateOperationsInput | number
+    premium_paid?: FloatFieldUpdateOperationsInput | number
+    backend_percentage?: FloatFieldUpdateOperationsInput | number
+    backend_paid?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     slate?: SlateUpdateOneRequiredWithoutInvestmentsNestedInput
   }
 
@@ -27259,141 +29681,224 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     slate_id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: StringFieldUpdateOperationsInput | string
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownership_percentage?: FloatFieldUpdateOperationsInput | number
+    rollover_amount?: FloatFieldUpdateOperationsInput | number
+    new_cash_amount?: FloatFieldUpdateOperationsInput | number
+    total_investment?: FloatFieldUpdateOperationsInput | number
+    source_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_reinvestment?: BoolFieldUpdateOperationsInput | boolean
+    reinvested_amount?: FloatFieldUpdateOperationsInput | number
+    recouped_amount?: FloatFieldUpdateOperationsInput | number
+    total_returned?: FloatFieldUpdateOperationsInput | number
+    current_stage?: StringFieldUpdateOperationsInput | string
+    recoupment_percentage?: FloatFieldUpdateOperationsInput | number
+    premium_target?: FloatFieldUpdateOperationsInput | number
+    premium_paid?: FloatFieldUpdateOperationsInput | number
+    backend_percentage?: FloatFieldUpdateOperationsInput | number
+    backend_paid?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type InvestmentUncheckedUpdateManyWithoutInvestorInput = {
     id?: StringFieldUpdateOperationsInput | string
     slate_id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: StringFieldUpdateOperationsInput | string
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownership_percentage?: FloatFieldUpdateOperationsInput | number
+    rollover_amount?: FloatFieldUpdateOperationsInput | number
+    new_cash_amount?: FloatFieldUpdateOperationsInput | number
+    total_investment?: FloatFieldUpdateOperationsInput | number
+    source_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_reinvestment?: BoolFieldUpdateOperationsInput | boolean
+    reinvested_amount?: FloatFieldUpdateOperationsInput | number
+    recouped_amount?: FloatFieldUpdateOperationsInput | number
+    total_returned?: FloatFieldUpdateOperationsInput | number
+    current_stage?: StringFieldUpdateOperationsInput | string
+    recoupment_percentage?: FloatFieldUpdateOperationsInput | number
+    premium_target?: FloatFieldUpdateOperationsInput | number
+    premium_paid?: FloatFieldUpdateOperationsInput | number
+    backend_percentage?: FloatFieldUpdateOperationsInput | number
+    backend_paid?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PaymentUpdateWithoutInvestorInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
+    type?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PaymentUncheckedUpdateWithoutInvestorInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
+    type?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type PaymentUncheckedUpdateManyWithoutInvestorInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    type?: StringFieldUpdateOperationsInput | string
+    type?: NullableStringFieldUpdateOperationsInput | string | null
     status?: StringFieldUpdateOperationsInput | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    reference?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUpdateWithoutInvestorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateWithoutInvestorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type NotificationUncheckedUpdateManyWithoutInvestorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    message?: StringFieldUpdateOperationsInput | string
+    read?: BoolFieldUpdateOperationsInput | boolean
+    type?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DocumentUpdateWithoutInvestorInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    file_url?: StringFieldUpdateOperationsInput | string
-    doc_type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    file_url?: NullableStringFieldUpdateOperationsInput | string | null
+    file_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_global?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DocumentUncheckedUpdateWithoutInvestorInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    file_url?: StringFieldUpdateOperationsInput | string
-    doc_type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    file_url?: NullableStringFieldUpdateOperationsInput | string | null
+    file_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_global?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type DocumentUncheckedUpdateManyWithoutInvestorInput = {
     id?: StringFieldUpdateOperationsInput | string
-    name?: StringFieldUpdateOperationsInput | string
-    file_url?: StringFieldUpdateOperationsInput | string
-    doc_type?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    file_url?: NullableStringFieldUpdateOperationsInput | string | null
+    file_type?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    is_global?: BoolFieldUpdateOperationsInput | boolean
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReinvestmentUpdateWithoutInvestorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    from_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    to_slate_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReinvestmentUncheckedUpdateWithoutInvestorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    from_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    to_slate_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type ReinvestmentUncheckedUpdateManyWithoutInvestorInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    amount?: FloatFieldUpdateOperationsInput | number
+    from_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    to_slate_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type FilmCreateManySlateInput = {
     id?: string
     title: string
-    description?: string | null
-    genre?: string | null
-    status?: string
     budget?: number
-    revenue?: number
-    poster_url?: string | null
-    trailer_url?: string | null
+    status?: string
+    genre?: string | null
+    description?: string | null
     release_date?: Date | string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    total_revenue?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type InvestmentCreateManySlateInput = {
     id?: string
     investor_id: string
-    amount: number
-    date: Date | string
-    status?: string
-    notes?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
-  }
-
-  export type ExpenseCreateManySlateInput = {
-    id?: string
-    film_id?: string | null
-    amount: number
-    category: string
-    date: Date | string
-    description?: string | null
-    vendor?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    amount?: number
+    ownership_percentage?: number
+    rollover_amount?: number
+    new_cash_amount?: number
+    total_investment?: number
+    source_investment_id?: string | null
+    is_reinvestment?: boolean
+    reinvested_amount?: number
+    recouped_amount?: number
+    total_returned?: number
+    current_stage?: string
+    recoupment_percentage?: number
+    premium_target?: number
+    premium_paid?: number
+    backend_percentage?: number
+    backend_paid?: number
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type FilmUpdateWithoutSlateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
-    revenue?: FloatFieldUpdateOperationsInput | number
-    poster_url?: NullableStringFieldUpdateOperationsInput | string | null
-    trailer_url?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     release_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    total_revenue?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     revenue_entries?: RevenueEntryUpdateManyWithoutFilmNestedInput
     expenses?: ExpenseUpdateManyWithoutFilmNestedInput
   }
@@ -27401,16 +29906,14 @@ export namespace Prisma {
   export type FilmUncheckedUpdateWithoutSlateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
-    revenue?: FloatFieldUpdateOperationsInput | number
-    poster_url?: NullableStringFieldUpdateOperationsInput | string | null
-    trailer_url?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     release_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    total_revenue?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     revenue_entries?: RevenueEntryUncheckedUpdateManyWithoutFilmNestedInput
     expenses?: ExpenseUncheckedUpdateManyWithoutFilmNestedInput
   }
@@ -27418,26 +29921,36 @@ export namespace Prisma {
   export type FilmUncheckedUpdateManyWithoutSlateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    genre?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
     budget?: FloatFieldUpdateOperationsInput | number
-    revenue?: FloatFieldUpdateOperationsInput | number
-    poster_url?: NullableStringFieldUpdateOperationsInput | string | null
-    trailer_url?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    description?: NullableStringFieldUpdateOperationsInput | string | null
     release_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    total_revenue?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type InvestmentUpdateWithoutSlateInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: StringFieldUpdateOperationsInput | string
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownership_percentage?: FloatFieldUpdateOperationsInput | number
+    rollover_amount?: FloatFieldUpdateOperationsInput | number
+    new_cash_amount?: FloatFieldUpdateOperationsInput | number
+    total_investment?: FloatFieldUpdateOperationsInput | number
+    source_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_reinvestment?: BoolFieldUpdateOperationsInput | boolean
+    reinvested_amount?: FloatFieldUpdateOperationsInput | number
+    recouped_amount?: FloatFieldUpdateOperationsInput | number
+    total_returned?: FloatFieldUpdateOperationsInput | number
+    current_stage?: StringFieldUpdateOperationsInput | string
+    recoupment_percentage?: FloatFieldUpdateOperationsInput | number
+    premium_target?: FloatFieldUpdateOperationsInput | number
+    premium_paid?: FloatFieldUpdateOperationsInput | number
+    backend_percentage?: FloatFieldUpdateOperationsInput | number
+    backend_paid?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investor?: InvestorUpdateOneRequiredWithoutInvestmentsNestedInput
   }
 
@@ -27445,146 +29958,126 @@ export namespace Prisma {
     id?: StringFieldUpdateOperationsInput | string
     investor_id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: StringFieldUpdateOperationsInput | string
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownership_percentage?: FloatFieldUpdateOperationsInput | number
+    rollover_amount?: FloatFieldUpdateOperationsInput | number
+    new_cash_amount?: FloatFieldUpdateOperationsInput | number
+    total_investment?: FloatFieldUpdateOperationsInput | number
+    source_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_reinvestment?: BoolFieldUpdateOperationsInput | boolean
+    reinvested_amount?: FloatFieldUpdateOperationsInput | number
+    recouped_amount?: FloatFieldUpdateOperationsInput | number
+    total_returned?: FloatFieldUpdateOperationsInput | number
+    current_stage?: StringFieldUpdateOperationsInput | string
+    recoupment_percentage?: FloatFieldUpdateOperationsInput | number
+    premium_target?: FloatFieldUpdateOperationsInput | number
+    premium_paid?: FloatFieldUpdateOperationsInput | number
+    backend_percentage?: FloatFieldUpdateOperationsInput | number
+    backend_paid?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type InvestmentUncheckedUpdateManyWithoutSlateInput = {
     id?: StringFieldUpdateOperationsInput | string
     investor_id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    status?: StringFieldUpdateOperationsInput | string
-    notes?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ExpenseUpdateWithoutSlateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    amount?: FloatFieldUpdateOperationsInput | number
-    category?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    vendor?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    film?: FilmUpdateOneWithoutExpensesNestedInput
-  }
-
-  export type ExpenseUncheckedUpdateWithoutSlateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    film_id?: NullableStringFieldUpdateOperationsInput | string | null
-    amount?: FloatFieldUpdateOperationsInput | number
-    category?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    vendor?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type ExpenseUncheckedUpdateManyWithoutSlateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    film_id?: NullableStringFieldUpdateOperationsInput | string | null
-    amount?: FloatFieldUpdateOperationsInput | number
-    category?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    vendor?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    ownership_percentage?: FloatFieldUpdateOperationsInput | number
+    rollover_amount?: FloatFieldUpdateOperationsInput | number
+    new_cash_amount?: FloatFieldUpdateOperationsInput | number
+    total_investment?: FloatFieldUpdateOperationsInput | number
+    source_investment_id?: NullableStringFieldUpdateOperationsInput | string | null
+    is_reinvestment?: BoolFieldUpdateOperationsInput | boolean
+    reinvested_amount?: FloatFieldUpdateOperationsInput | number
+    recouped_amount?: FloatFieldUpdateOperationsInput | number
+    total_returned?: FloatFieldUpdateOperationsInput | number
+    current_stage?: StringFieldUpdateOperationsInput | string
+    recoupment_percentage?: FloatFieldUpdateOperationsInput | number
+    premium_target?: FloatFieldUpdateOperationsInput | number
+    premium_paid?: FloatFieldUpdateOperationsInput | number
+    backend_percentage?: FloatFieldUpdateOperationsInput | number
+    backend_paid?: FloatFieldUpdateOperationsInput | number
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type RevenueEntryCreateManyFilmInput = {
     id?: string
     amount: number
-    source: string
+    source?: string | null
     date: Date | string
     description?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type ExpenseCreateManyFilmInput = {
     id?: string
-    slate_id?: string | null
     amount: number
-    category: string
-    date: Date | string
+    category?: string | null
     description?: string | null
-    vendor?: string | null
-    created_at?: Date | string
-    updated_at?: Date | string
+    date: Date | string
+    createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
   export type RevenueEntryUpdateWithoutFilmInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    source?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type RevenueEntryUncheckedUpdateWithoutFilmInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    source?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type RevenueEntryUncheckedUpdateManyWithoutFilmInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    source?: StringFieldUpdateOperationsInput | string
+    source?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ExpenseUpdateWithoutFilmInput = {
     id?: StringFieldUpdateOperationsInput | string
     amount?: FloatFieldUpdateOperationsInput | number
-    category?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    vendor?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    slate?: SlateUpdateOneWithoutExpensesNestedInput
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ExpenseUncheckedUpdateWithoutFilmInput = {
     id?: StringFieldUpdateOperationsInput | string
-    slate_id?: NullableStringFieldUpdateOperationsInput | string | null
     amount?: FloatFieldUpdateOperationsInput | number
-    category?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    vendor?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type ExpenseUncheckedUpdateManyWithoutFilmInput = {
     id?: StringFieldUpdateOperationsInput | string
-    slate_id?: NullableStringFieldUpdateOperationsInput | string | null
     amount?: FloatFieldUpdateOperationsInput | number
-    category?: StringFieldUpdateOperationsInput | string
-    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    category?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    vendor?: NullableStringFieldUpdateOperationsInput | string | null
-    created_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    updated_at?: DateTimeFieldUpdateOperationsInput | Date | string
+    date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
 

@@ -89,7 +89,7 @@ function DashboardSidebar() {
         <div className="flex items-center justify-between">
           <div className="min-w-0">
             <p className="text-sm font-medium text-[#ededed] truncate">
-              {user.full_name}
+              {user.full_name || user.email}
             </p>
             <p className="text-xs text-[#666] truncate">{user.email}</p>
           </div>

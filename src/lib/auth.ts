@@ -7,7 +7,7 @@ interface UserPayload {
   id: string
   email: string
   role: string
-  full_name: string
+  full_name: string | null
 }
 
 export async function verifyAuth(): Promise<UserPayload | null> {
@@ -23,7 +23,7 @@ export async function verifyAuth(): Promise<UserPayload | null> {
   }
 }
 
-export function createToken(user: { id: string; email: string; role: string; full_name: string }): string {
+export function createToken(user: { id: string; email: string; role: string; full_name: string | null }): string {
   return jwt.sign(
     {
       id: user.id,

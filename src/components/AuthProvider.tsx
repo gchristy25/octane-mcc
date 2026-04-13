@@ -7,7 +7,7 @@ interface User {
   id: string
   email: string
   role: string
-  full_name: string
+  full_name: string | null
 }
 
 interface AuthContextType {

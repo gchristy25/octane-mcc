@@ -126,48 +126,53 @@ exports.Prisma.UserScalarFieldEnum = {
   password_hash: 'password_hash',
   full_name: 'full_name',
   role: 'role',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.InvestorScalarFieldEnum = {
   id: 'id',
+  first_name: 'first_name',
+  last_name: 'last_name',
   name: 'name',
   email: 'email',
   phone: 'phone',
   company: 'company',
+  notes: 'notes',
   user_id: 'user_id',
+  has_login: 'has_login',
+  invite_token: 'invite_token',
   invite_sent_at: 'invite_sent_at',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  invite_accepted_at: 'invite_accepted_at',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SlateScalarFieldEnum = {
   id: 'id',
   name: 'name',
   description: 'description',
+  status: 'status',
   budget: 'budget',
   start_date: 'start_date',
   end_date: 'end_date',
-  status: 'status',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  target_return: 'target_return',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.FilmScalarFieldEnum = {
   id: 'id',
   title: 'title',
-  description: 'description',
-  genre: 'genre',
-  status: 'status',
-  budget: 'budget',
-  revenue: 'revenue',
-  poster_url: 'poster_url',
-  trailer_url: 'trailer_url',
-  release_date: 'release_date',
   slate_id: 'slate_id',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  budget: 'budget',
+  status: 'status',
+  genre: 'genre',
+  description: 'description',
+  release_date: 'release_date',
+  total_revenue: 'total_revenue',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.InvestmentScalarFieldEnum = {
@@ -175,24 +180,23 @@ exports.Prisma.InvestmentScalarFieldEnum = {
   investor_id: 'investor_id',
   slate_id: 'slate_id',
   amount: 'amount',
-  date: 'date',
-  status: 'status',
-  notes: 'notes',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
-};
-
-exports.Prisma.PaymentScalarFieldEnum = {
-  id: 'id',
-  investor_id: 'investor_id',
-  amount: 'amount',
-  date: 'date',
-  type: 'type',
-  status: 'status',
-  description: 'description',
-  reference: 'reference',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  ownership_percentage: 'ownership_percentage',
+  rollover_amount: 'rollover_amount',
+  new_cash_amount: 'new_cash_amount',
+  total_investment: 'total_investment',
+  source_investment_id: 'source_investment_id',
+  is_reinvestment: 'is_reinvestment',
+  reinvested_amount: 'reinvested_amount',
+  recouped_amount: 'recouped_amount',
+  total_returned: 'total_returned',
+  current_stage: 'current_stage',
+  recoupment_percentage: 'recoupment_percentage',
+  premium_target: 'premium_target',
+  premium_paid: 'premium_paid',
+  backend_percentage: 'backend_percentage',
+  backend_paid: 'backend_paid',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.RevenueEntryScalarFieldEnum = {
@@ -202,44 +206,66 @@ exports.Prisma.RevenueEntryScalarFieldEnum = {
   source: 'source',
   date: 'date',
   description: 'description',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.ExpenseScalarFieldEnum = {
   id: 'id',
   film_id: 'film_id',
-  slate_id: 'slate_id',
   amount: 'amount',
   category: 'category',
+  description: 'description',
+  date: 'date',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.PaymentScalarFieldEnum = {
+  id: 'id',
+  investor_id: 'investor_id',
+  amount: 'amount',
+  type: 'type',
+  status: 'status',
   date: 'date',
   description: 'description',
-  vendor: 'vendor',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.NotificationScalarFieldEnum = {
+  id: 'id',
+  investor_id: 'investor_id',
+  title: 'title',
+  message: 'message',
+  read: 'read',
+  type: 'type',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.DocumentScalarFieldEnum = {
   id: 'id',
   investor_id: 'investor_id',
-  name: 'name',
+  title: 'title',
   file_url: 'file_url',
-  doc_type: 'doc_type',
+  file_type: 'file_type',
   description: 'description',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  is_global: 'is_global',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
-exports.Prisma.NotificationScalarFieldEnum = {
+exports.Prisma.ReinvestmentScalarFieldEnum = {
   id: 'id',
-  user_email: 'user_email',
-  title: 'title',
-  message: 'message',
-  type: 'type',
-  read: 'read',
-  link: 'link',
-  created_at: 'created_at',
-  updated_at: 'updated_at'
+  investor_id: 'investor_id',
+  amount: 'amount',
+  from_investment_id: 'from_investment_id',
+  to_slate_id: 'to_slate_id',
+  status: 'status',
+  date: 'date',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.MccSessionScalarFieldEnum = {
@@ -354,11 +380,12 @@ exports.Prisma.ModelName = {
   Slate: 'Slate',
   Film: 'Film',
   Investment: 'Investment',
-  Payment: 'Payment',
   RevenueEntry: 'RevenueEntry',
   Expense: 'Expense',
-  Document: 'Document',
+  Payment: 'Payment',
   Notification: 'Notification',
+  Document: 'Document',
+  Reinvestment: 'Reinvestment',
   MccSession: 'MccSession',
   EmailDigest: 'EmailDigest',
   CalendarEvent: 'CalendarEvent',
