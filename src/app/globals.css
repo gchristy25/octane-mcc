@@ -1,19 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a0a;
-  --foreground: #ededed;
-  --card: #111111;
-  --card-hover: #1a1a1a;
-  --border: #222222;
-  --border-light: #333333;
-  --accent: #ff9900;
-  --accent-hover: #ffad33;
-  --accent-muted: rgba(255, 153, 0, 0.1);
-  --success: #22c55e;
-  --warning: #f59e0b;
-  --danger: #ef4444;
-  --muted: #888888;
+  --background: #ffffff;
+  --background-secondary: #f8fafc;
+  --foreground: #111827;
+  --card: #ffffff;
+  --card-hover: #f9fafb;
+  --border: #e5e7eb;
+  --border-light: #f3f4f6;
+  --accent: #3b82f6;
+  --accent-hover: #2563eb;
+  --accent-muted: rgba(59, 130, 246, 0.08);
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --muted: #6b7280;
 }
 
 body {
@@ -29,11 +30,11 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--background);
+  background: var(--background-secondary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-light);
+  background: var(--border);
   border-radius: 3px;
 }
 
@@ -47,5 +48,86 @@ textarea:focus,
 select:focus {
   outline: none;
   border-color: var(--accent) !important;
-  box-shadow: 0 0 0 1px var(--accent);
+  box-shadow: 0 0 0 2px var(--accent-muted);
+}
+
+/* Utility: Card */
+.card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 0.75rem;
+  padding: 1.5rem;
+  transition: box-shadow 0.15s ease;
+}
+
+.card:hover {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.06);
+}
+
+/* Utility: Badge */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.125rem 0.625rem;
+  font-size: 0.75rem;
+  font-weight: 500;
+  border-radius: 9999px;
+  line-height: 1.25rem;
+}
+
+.badge-blue {
+  background: var(--accent-muted);
+  color: var(--accent);
+}
+
+.badge-green {
+  background: rgba(22, 163, 74, 0.08);
+  color: var(--success);
+}
+
+.badge-yellow {
+  background: rgba(217, 119, 6, 0.08);
+  color: var(--warning);
+}
+
+.badge-red {
+  background: rgba(220, 38, 38, 0.08);
+  color: var(--danger);
+}
+
+/* Utility: Button */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  border-radius: 0.5rem;
+  transition: all 0.15s ease;
+  cursor: pointer;
+}
+
+.btn:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.btn-primary {
+  background: var(--accent);
+  color: #ffffff;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--accent-hover);
+}
+
+.btn-secondary {
+  background: var(--background-secondary);
+  color: var(--foreground);
+  border: 1px solid var(--border);
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--border-light);
 }

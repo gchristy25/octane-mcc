@@ -14,9 +14,7 @@ export async function POST(request: Request) {
       )
     }
 
-    const user = await prisma.user.findUnique({
-      where: { email },
-    })
+    const user = await prisma.user.findUnique({ where: { email } })
 
     if (!user) {
       return NextResponse.json(
@@ -25,18 +23,19 @@ export async function POST(request: Request) {
       )
     }
 
-    if (user.role !== 'admin') {
-      return NextResponse.json(
-        { error: 'Admin access only' },
-        { status: 403 }
-      )
-    }
+    const valid = await bcrypt.compare(password, user.password_hash)
 
-    const validPassword = await bcrypt.compare(password, user.password_hash)
-    if (!validPassword) {
+    if (!valid) {
       return NextResponse.json(
         { error: 'Invalid credentials' },
         { status: 401 }
+      )
+    }
+
+    if (user.role !== 'admin') {
+      return NextResponse.json(
+        { error: 'Access denied. Admin role required.' },
+        { status: 403 }
       )
     }
 
@@ -46,8 +45,8 @@ export async function POST(request: Request) {
       user: {
         id: user.id,
         email: user.email,
-        role: user.role,
         full_name: user.full_name,
+        role: user.role,
       },
     })
 
@@ -55,8 +54,8 @@ export async function POST(request: Request) {
       httpOnly: true,
       secure: process.env.NODE_ENV === 'production',
       sameSite: 'lax',
-      maxAge: 60 * 60 * 24 * 7, // 7 days
       path: '/',
+      maxAge: 60 * 60 * 24 * 7, // 7 days
     })
 
     return response

@@ -8,20 +8,23 @@ datasource db {
 }
 
 // ============================================
-// SHARED MODELS (must match investor portal exactly)
+// AUTH (shared with investor portal)
 // ============================================
 
 model User {
-  id            String      @id @default(cuid())
-  email         String      @unique
+  id            String    @id @default(cuid())
+  email         String    @unique
   password_hash String
   full_name     String?
-  role          String      @default("user")
-  createdAt     DateTime    @default(now())
-  updatedAt     DateTime    @updatedAt
-  investor      Investor?   @relation("InvestorUser")
-  mcc_session   MccSession?
+  role          String    @default("user")
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+  investor      Investor? @relation("InvestorUser")
 }
+
+// ============================================
+// INVESTOR PORTAL TABLES (preserve, not used by MCC)
+// ============================================
 
 model Investor {
   id                 String         @id @default(cuid())
@@ -181,107 +184,93 @@ model Reinvestment {
 }
 
 // ============================================
-// NEW MCC MODELS
+// MCC: SALES MODULE
 // ============================================
 
-model MccSession {
-  id                   String    @id @default(cuid())
-  user_id              String    @unique
-  google_access_token  String?
-  google_refresh_token String?
-  google_token_expiry  DateTime?
-  google_email         String?
-  cliq_webhook_url     String?
-  createdAt            DateTime  @default(now())
-  updatedAt            DateTime  @updatedAt
-  user                 User      @relation(fields: [user_id], references: [id])
+model SalesFilm {
+  id                String    @id @default(cuid())
+  title             String
+  genre             String?
+  status            String    @default("available")
+  territories       String?
+  buyers            String?
+  last_contact_date DateTime?
+  notes             String?
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+  deals             Deal[]
 }
 
-model EmailDigest {
-  id               String   @id @default(cuid())
-  gmail_id         String   @unique
-  thread_id        String?
-  from_address     String
-  from_name        String?
-  subject          String
-  snippet          String?
-  received_at      DateTime
-  is_important     Boolean  @default(false)
-  is_urgent        Boolean  @default(false)
-  category         String?
-  ai_summary       String?
-  ai_action_items  String?
-  ai_confidence    Float?
-  read_in_mcc      Boolean  @default(false)
-  dismissed        Boolean  @default(false)
-  raw_body_preview String?
-  createdAt        DateTime @default(now())
-  updatedAt        DateTime @updatedAt
-
-  @@index([is_important, dismissed])
-  @@index([received_at])
-  @@index([category])
+model Deal {
+  id        String    @id @default(cuid())
+  film_id   String
+  film      SalesFilm @relation(fields: [film_id], references: [id], onDelete: Cascade)
+  territory String
+  buyer     String?
+  status    String    @default("pending")
+  amount    Float?
+  notes     String?
+  createdAt DateTime  @default(now())
+  updatedAt DateTime  @updatedAt
 }
 
-model CalendarEvent {
-  id              String   @id @default(cuid())
-  google_event_id String   @unique
-  title           String
-  description     String?
-  start_time      DateTime
-  end_time        DateTime
-  location        String?
-  meet_link       String?
-  attendees       String?
-  is_important    Boolean  @default(false)
-  ai_prep_notes   String?
-  createdAt       DateTime @default(now())
-  updatedAt       DateTime @updatedAt
+// ============================================
+// MCC: ACQUISITIONS MODULE
+// ============================================
 
-  @@index([start_time])
+model Acquisition {
+  id        String   @id @default(cuid())
+  title     String
+  synopsis  String?
+  cast      String?
+  budget    Float?
+  status    String   @default("new")
+  notes     String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
 }
 
-model MccAlert {
+// ============================================
+// MCC: INVESTORS MODULE (internal tracking)
+// ============================================
+
+model MccInvestor {
+  id             String   @id @default(cuid())
+  name           String
+  email          String?
+  investments    String?
+  notes          String?
+  payment_status String   @default("current")
+  createdAt      DateTime @default(now())
+  updatedAt      DateTime @updatedAt
+}
+
+// ============================================
+// MCC: TASKS MODULE
+// ============================================
+
+model Task {
+  id                 String    @id @default(cuid())
+  title              String
+  description        String?
+  linked_entity_type String?
+  linked_entity_id   String?
+  due_date           DateTime?
+  status             String    @default("pending")
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+}
+
+// ============================================
+// MCC: MEETINGS MODULE
+// ============================================
+
+model Meeting {
   id           String    @id @default(cuid())
-  type         String
-  severity     String    @default("info")
   title        String
-  message      String
-  source_type  String?
-  source_id    String?
-  acknowledged Boolean   @default(false)
-  sent_to_cliq Boolean   @default(false)
-  cliq_sent_at DateTime?
+  participants String?
+  date         DateTime?
+  notes        String?
   createdAt    DateTime  @default(now())
   updatedAt    DateTime  @updatedAt
-
-  @@index([acknowledged, severity])
-  @@index([createdAt])
-}
-
-model MccTask {
-  id          String    @id @default(cuid())
-  title       String
-  description String?
-  status      String    @default("pending")
-  priority    String    @default("medium")
-  due_date    DateTime?
-  source_type String?
-  source_id   String?
-  createdAt   DateTime  @default(now())
-  updatedAt   DateTime  @updatedAt
-
-  @@index([status, priority])
-}
-
-model PollLog {
-  id               String   @id @default(cuid())
-  poll_type        String
-  status           String
-  emails_processed Int      @default(0)
-  events_processed Int      @default(0)
-  alerts_created   Int      @default(0)
-  error_message    String?
-  duration_ms      Int?
-  createdAt        DateTime @default(now())
 }

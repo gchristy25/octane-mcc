@@ -268,94 +268,74 @@ exports.Prisma.ReinvestmentScalarFieldEnum = {
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.MccSessionScalarFieldEnum = {
-  id: 'id',
-  user_id: 'user_id',
-  google_access_token: 'google_access_token',
-  google_refresh_token: 'google_refresh_token',
-  google_token_expiry: 'google_token_expiry',
-  google_email: 'google_email',
-  cliq_webhook_url: 'cliq_webhook_url',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.EmailDigestScalarFieldEnum = {
-  id: 'id',
-  gmail_id: 'gmail_id',
-  thread_id: 'thread_id',
-  from_address: 'from_address',
-  from_name: 'from_name',
-  subject: 'subject',
-  snippet: 'snippet',
-  received_at: 'received_at',
-  is_important: 'is_important',
-  is_urgent: 'is_urgent',
-  category: 'category',
-  ai_summary: 'ai_summary',
-  ai_action_items: 'ai_action_items',
-  ai_confidence: 'ai_confidence',
-  read_in_mcc: 'read_in_mcc',
-  dismissed: 'dismissed',
-  raw_body_preview: 'raw_body_preview',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.CalendarEventScalarFieldEnum = {
-  id: 'id',
-  google_event_id: 'google_event_id',
-  title: 'title',
-  description: 'description',
-  start_time: 'start_time',
-  end_time: 'end_time',
-  location: 'location',
-  meet_link: 'meet_link',
-  attendees: 'attendees',
-  is_important: 'is_important',
-  ai_prep_notes: 'ai_prep_notes',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.MccAlertScalarFieldEnum = {
-  id: 'id',
-  type: 'type',
-  severity: 'severity',
-  title: 'title',
-  message: 'message',
-  source_type: 'source_type',
-  source_id: 'source_id',
-  acknowledged: 'acknowledged',
-  sent_to_cliq: 'sent_to_cliq',
-  cliq_sent_at: 'cliq_sent_at',
-  createdAt: 'createdAt',
-  updatedAt: 'updatedAt'
-};
-
-exports.Prisma.MccTaskScalarFieldEnum = {
+exports.Prisma.SalesFilmScalarFieldEnum = {
   id: 'id',
   title: 'title',
-  description: 'description',
+  genre: 'genre',
   status: 'status',
-  priority: 'priority',
+  territories: 'territories',
+  buyers: 'buyers',
+  last_contact_date: 'last_contact_date',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.DealScalarFieldEnum = {
+  id: 'id',
+  film_id: 'film_id',
+  territory: 'territory',
+  buyer: 'buyer',
+  status: 'status',
+  amount: 'amount',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.AcquisitionScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  synopsis: 'synopsis',
+  cast: 'cast',
+  budget: 'budget',
+  status: 'status',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.MccInvestorScalarFieldEnum = {
+  id: 'id',
+  name: 'name',
+  email: 'email',
+  investments: 'investments',
+  notes: 'notes',
+  payment_status: 'payment_status',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
+};
+
+exports.Prisma.TaskScalarFieldEnum = {
+  id: 'id',
+  title: 'title',
+  description: 'description',
+  linked_entity_type: 'linked_entity_type',
+  linked_entity_id: 'linked_entity_id',
   due_date: 'due_date',
-  source_type: 'source_type',
-  source_id: 'source_id',
+  status: 'status',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.PollLogScalarFieldEnum = {
+exports.Prisma.MeetingScalarFieldEnum = {
   id: 'id',
-  poll_type: 'poll_type',
-  status: 'status',
-  emails_processed: 'emails_processed',
-  events_processed: 'events_processed',
-  alerts_created: 'alerts_created',
-  error_message: 'error_message',
-  duration_ms: 'duration_ms',
-  createdAt: 'createdAt'
+  title: 'title',
+  participants: 'participants',
+  date: 'date',
+  notes: 'notes',
+  createdAt: 'createdAt',
+  updatedAt: 'updatedAt'
 };
 
 exports.Prisma.SortOrder = {
@@ -386,12 +366,12 @@ exports.Prisma.ModelName = {
   Notification: 'Notification',
   Document: 'Document',
   Reinvestment: 'Reinvestment',
-  MccSession: 'MccSession',
-  EmailDigest: 'EmailDigest',
-  CalendarEvent: 'CalendarEvent',
-  MccAlert: 'MccAlert',
-  MccTask: 'MccTask',
-  PollLog: 'PollLog'
+  SalesFilm: 'SalesFilm',
+  Deal: 'Deal',
+  Acquisition: 'Acquisition',
+  MccInvestor: 'MccInvestor',
+  Task: 'Task',
+  Meeting: 'Meeting'
 };
 
 /**

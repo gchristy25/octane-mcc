@@ -9,21 +9,19 @@ export async function PUT(
     const { id } = await params
     const data = await request.json()
 
-    const task = await prisma.task.update({
+    const meeting = await prisma.meeting.update({
       where: { id },
       data: {
         title: data.title,
-        description: data.description,
-        linked_entity_type: data.linked_entity_type,
-        linked_entity_id: data.linked_entity_id,
-        due_date: data.due_date ? new Date(data.due_date) : data.due_date,
-        status: data.status,
+        participants: data.participants,
+        date: data.date ? new Date(data.date) : data.date,
+        notes: data.notes,
       },
     })
 
-    return NextResponse.json(task)
+    return NextResponse.json(meeting)
   } catch (error) {
-    console.error('Task update error:', error)
+    console.error('Meeting update error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }
@@ -38,11 +36,11 @@ export async function DELETE(
   try {
     const { id } = await params
 
-    await prisma.task.delete({ where: { id } })
+    await prisma.meeting.delete({ where: { id } })
 
     return NextResponse.json({ success: true })
   } catch (error) {
-    console.error('Task delete error:', error)
+    console.error('Meeting delete error:', error)
     return NextResponse.json(
       { error: 'Internal server error' },
       { status: 500 }

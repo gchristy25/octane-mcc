@@ -2,14 +2,22 @@ import { NextResponse } from 'next/server'
 import { verifyAuth } from '@/lib/auth'
 
 export async function GET() {
-  const user = await verifyAuth()
+  try {
+    const user = await verifyAuth()
 
-  if (!user) {
+    if (!user) {
+      return NextResponse.json(
+        { error: 'Not authenticated' },
+        { status: 401 }
+      )
+    }
+
+    return NextResponse.json({ user })
+  } catch (error) {
+    console.error('Auth check error:', error)
     return NextResponse.json(
-      { error: 'Unauthorized' },
-      { status: 401 }
+      { error: 'Internal server error' },
+      { status: 500 }
     )
   }
-
-  return NextResponse.json({ user })
 }

@@ -69,35 +69,35 @@ export type Document = $Result.DefaultSelection<Prisma.$DocumentPayload>
  */
 export type Reinvestment = $Result.DefaultSelection<Prisma.$ReinvestmentPayload>
 /**
- * Model MccSession
+ * Model SalesFilm
  * 
  */
-export type MccSession = $Result.DefaultSelection<Prisma.$MccSessionPayload>
+export type SalesFilm = $Result.DefaultSelection<Prisma.$SalesFilmPayload>
 /**
- * Model EmailDigest
+ * Model Deal
  * 
  */
-export type EmailDigest = $Result.DefaultSelection<Prisma.$EmailDigestPayload>
+export type Deal = $Result.DefaultSelection<Prisma.$DealPayload>
 /**
- * Model CalendarEvent
+ * Model Acquisition
  * 
  */
-export type CalendarEvent = $Result.DefaultSelection<Prisma.$CalendarEventPayload>
+export type Acquisition = $Result.DefaultSelection<Prisma.$AcquisitionPayload>
 /**
- * Model MccAlert
+ * Model MccInvestor
  * 
  */
-export type MccAlert = $Result.DefaultSelection<Prisma.$MccAlertPayload>
+export type MccInvestor = $Result.DefaultSelection<Prisma.$MccInvestorPayload>
 /**
- * Model MccTask
+ * Model Task
  * 
  */
-export type MccTask = $Result.DefaultSelection<Prisma.$MccTaskPayload>
+export type Task = $Result.DefaultSelection<Prisma.$TaskPayload>
 /**
- * Model PollLog
+ * Model Meeting
  * 
  */
-export type PollLog = $Result.DefaultSelection<Prisma.$PollLogPayload>
+export type Meeting = $Result.DefaultSelection<Prisma.$MeetingPayload>
 
 /**
  * ##  Prisma Client ʲˢ
@@ -331,64 +331,64 @@ export class PrismaClient<
   get reinvestment(): Prisma.ReinvestmentDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.mccSession`: Exposes CRUD operations for the **MccSession** model.
+   * `prisma.salesFilm`: Exposes CRUD operations for the **SalesFilm** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more MccSessions
-    * const mccSessions = await prisma.mccSession.findMany()
+    * // Fetch zero or more SalesFilms
+    * const salesFilms = await prisma.salesFilm.findMany()
     * ```
     */
-  get mccSession(): Prisma.MccSessionDelegate<ExtArgs, ClientOptions>;
+  get salesFilm(): Prisma.SalesFilmDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.emailDigest`: Exposes CRUD operations for the **EmailDigest** model.
+   * `prisma.deal`: Exposes CRUD operations for the **Deal** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more EmailDigests
-    * const emailDigests = await prisma.emailDigest.findMany()
+    * // Fetch zero or more Deals
+    * const deals = await prisma.deal.findMany()
     * ```
     */
-  get emailDigest(): Prisma.EmailDigestDelegate<ExtArgs, ClientOptions>;
+  get deal(): Prisma.DealDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.calendarEvent`: Exposes CRUD operations for the **CalendarEvent** model.
+   * `prisma.acquisition`: Exposes CRUD operations for the **Acquisition** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more CalendarEvents
-    * const calendarEvents = await prisma.calendarEvent.findMany()
+    * // Fetch zero or more Acquisitions
+    * const acquisitions = await prisma.acquisition.findMany()
     * ```
     */
-  get calendarEvent(): Prisma.CalendarEventDelegate<ExtArgs, ClientOptions>;
+  get acquisition(): Prisma.AcquisitionDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.mccAlert`: Exposes CRUD operations for the **MccAlert** model.
+   * `prisma.mccInvestor`: Exposes CRUD operations for the **MccInvestor** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more MccAlerts
-    * const mccAlerts = await prisma.mccAlert.findMany()
+    * // Fetch zero or more MccInvestors
+    * const mccInvestors = await prisma.mccInvestor.findMany()
     * ```
     */
-  get mccAlert(): Prisma.MccAlertDelegate<ExtArgs, ClientOptions>;
+  get mccInvestor(): Prisma.MccInvestorDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.mccTask`: Exposes CRUD operations for the **MccTask** model.
+   * `prisma.task`: Exposes CRUD operations for the **Task** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more MccTasks
-    * const mccTasks = await prisma.mccTask.findMany()
+    * // Fetch zero or more Tasks
+    * const tasks = await prisma.task.findMany()
     * ```
     */
-  get mccTask(): Prisma.MccTaskDelegate<ExtArgs, ClientOptions>;
+  get task(): Prisma.TaskDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.pollLog`: Exposes CRUD operations for the **PollLog** model.
+   * `prisma.meeting`: Exposes CRUD operations for the **Meeting** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more PollLogs
-    * const pollLogs = await prisma.pollLog.findMany()
+    * // Fetch zero or more Meetings
+    * const meetings = await prisma.meeting.findMany()
     * ```
     */
-  get pollLog(): Prisma.PollLogDelegate<ExtArgs, ClientOptions>;
+  get meeting(): Prisma.MeetingDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -834,12 +834,12 @@ export namespace Prisma {
     Notification: 'Notification',
     Document: 'Document',
     Reinvestment: 'Reinvestment',
-    MccSession: 'MccSession',
-    EmailDigest: 'EmailDigest',
-    CalendarEvent: 'CalendarEvent',
-    MccAlert: 'MccAlert',
-    MccTask: 'MccTask',
-    PollLog: 'PollLog'
+    SalesFilm: 'SalesFilm',
+    Deal: 'Deal',
+    Acquisition: 'Acquisition',
+    MccInvestor: 'MccInvestor',
+    Task: 'Task',
+    Meeting: 'Meeting'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -855,7 +855,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "user" | "investor" | "slate" | "film" | "investment" | "revenueEntry" | "expense" | "payment" | "notification" | "document" | "reinvestment" | "mccSession" | "emailDigest" | "calendarEvent" | "mccAlert" | "mccTask" | "pollLog"
+      modelProps: "user" | "investor" | "slate" | "film" | "investment" | "revenueEntry" | "expense" | "payment" | "notification" | "document" | "reinvestment" | "salesFilm" | "deal" | "acquisition" | "mccInvestor" | "task" | "meeting"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1673,447 +1673,447 @@ export namespace Prisma {
           }
         }
       }
-      MccSession: {
-        payload: Prisma.$MccSessionPayload<ExtArgs>
-        fields: Prisma.MccSessionFieldRefs
+      SalesFilm: {
+        payload: Prisma.$SalesFilmPayload<ExtArgs>
+        fields: Prisma.SalesFilmFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.MccSessionFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccSessionPayload> | null
+            args: Prisma.SalesFilmFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalesFilmPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.MccSessionFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccSessionPayload>
+            args: Prisma.SalesFilmFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalesFilmPayload>
           }
           findFirst: {
-            args: Prisma.MccSessionFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccSessionPayload> | null
+            args: Prisma.SalesFilmFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalesFilmPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.MccSessionFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccSessionPayload>
+            args: Prisma.SalesFilmFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalesFilmPayload>
           }
           findMany: {
-            args: Prisma.MccSessionFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccSessionPayload>[]
+            args: Prisma.SalesFilmFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalesFilmPayload>[]
           }
           create: {
-            args: Prisma.MccSessionCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccSessionPayload>
+            args: Prisma.SalesFilmCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalesFilmPayload>
           }
           createMany: {
-            args: Prisma.MccSessionCreateManyArgs<ExtArgs>
+            args: Prisma.SalesFilmCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.MccSessionCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccSessionPayload>[]
+            args: Prisma.SalesFilmCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalesFilmPayload>[]
           }
           delete: {
-            args: Prisma.MccSessionDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccSessionPayload>
+            args: Prisma.SalesFilmDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalesFilmPayload>
           }
           update: {
-            args: Prisma.MccSessionUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccSessionPayload>
+            args: Prisma.SalesFilmUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalesFilmPayload>
           }
           deleteMany: {
-            args: Prisma.MccSessionDeleteManyArgs<ExtArgs>
+            args: Prisma.SalesFilmDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.MccSessionUpdateManyArgs<ExtArgs>
+            args: Prisma.SalesFilmUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.MccSessionUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccSessionPayload>[]
+            args: Prisma.SalesFilmUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalesFilmPayload>[]
           }
           upsert: {
-            args: Prisma.MccSessionUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccSessionPayload>
+            args: Prisma.SalesFilmUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$SalesFilmPayload>
           }
           aggregate: {
-            args: Prisma.MccSessionAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateMccSession>
+            args: Prisma.SalesFilmAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateSalesFilm>
           }
           groupBy: {
-            args: Prisma.MccSessionGroupByArgs<ExtArgs>
-            result: $Utils.Optional<MccSessionGroupByOutputType>[]
+            args: Prisma.SalesFilmGroupByArgs<ExtArgs>
+            result: $Utils.Optional<SalesFilmGroupByOutputType>[]
           }
           count: {
-            args: Prisma.MccSessionCountArgs<ExtArgs>
-            result: $Utils.Optional<MccSessionCountAggregateOutputType> | number
+            args: Prisma.SalesFilmCountArgs<ExtArgs>
+            result: $Utils.Optional<SalesFilmCountAggregateOutputType> | number
           }
         }
       }
-      EmailDigest: {
-        payload: Prisma.$EmailDigestPayload<ExtArgs>
-        fields: Prisma.EmailDigestFieldRefs
+      Deal: {
+        payload: Prisma.$DealPayload<ExtArgs>
+        fields: Prisma.DealFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.EmailDigestFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailDigestPayload> | null
+            args: Prisma.DealFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DealPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.EmailDigestFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailDigestPayload>
+            args: Prisma.DealFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DealPayload>
           }
           findFirst: {
-            args: Prisma.EmailDigestFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailDigestPayload> | null
+            args: Prisma.DealFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DealPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.EmailDigestFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailDigestPayload>
+            args: Prisma.DealFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DealPayload>
           }
           findMany: {
-            args: Prisma.EmailDigestFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailDigestPayload>[]
+            args: Prisma.DealFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DealPayload>[]
           }
           create: {
-            args: Prisma.EmailDigestCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailDigestPayload>
+            args: Prisma.DealCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DealPayload>
           }
           createMany: {
-            args: Prisma.EmailDigestCreateManyArgs<ExtArgs>
+            args: Prisma.DealCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.EmailDigestCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailDigestPayload>[]
+            args: Prisma.DealCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DealPayload>[]
           }
           delete: {
-            args: Prisma.EmailDigestDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailDigestPayload>
+            args: Prisma.DealDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DealPayload>
           }
           update: {
-            args: Prisma.EmailDigestUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailDigestPayload>
+            args: Prisma.DealUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DealPayload>
           }
           deleteMany: {
-            args: Prisma.EmailDigestDeleteManyArgs<ExtArgs>
+            args: Prisma.DealDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.EmailDigestUpdateManyArgs<ExtArgs>
+            args: Prisma.DealUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.EmailDigestUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailDigestPayload>[]
+            args: Prisma.DealUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DealPayload>[]
           }
           upsert: {
-            args: Prisma.EmailDigestUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$EmailDigestPayload>
+            args: Prisma.DealUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$DealPayload>
           }
           aggregate: {
-            args: Prisma.EmailDigestAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateEmailDigest>
+            args: Prisma.DealAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateDeal>
           }
           groupBy: {
-            args: Prisma.EmailDigestGroupByArgs<ExtArgs>
-            result: $Utils.Optional<EmailDigestGroupByOutputType>[]
+            args: Prisma.DealGroupByArgs<ExtArgs>
+            result: $Utils.Optional<DealGroupByOutputType>[]
           }
           count: {
-            args: Prisma.EmailDigestCountArgs<ExtArgs>
-            result: $Utils.Optional<EmailDigestCountAggregateOutputType> | number
+            args: Prisma.DealCountArgs<ExtArgs>
+            result: $Utils.Optional<DealCountAggregateOutputType> | number
           }
         }
       }
-      CalendarEvent: {
-        payload: Prisma.$CalendarEventPayload<ExtArgs>
-        fields: Prisma.CalendarEventFieldRefs
+      Acquisition: {
+        payload: Prisma.$AcquisitionPayload<ExtArgs>
+        fields: Prisma.AcquisitionFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.CalendarEventFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarEventPayload> | null
+            args: Prisma.AcquisitionFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcquisitionPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.CalendarEventFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarEventPayload>
+            args: Prisma.AcquisitionFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcquisitionPayload>
           }
           findFirst: {
-            args: Prisma.CalendarEventFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarEventPayload> | null
+            args: Prisma.AcquisitionFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcquisitionPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.CalendarEventFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarEventPayload>
+            args: Prisma.AcquisitionFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcquisitionPayload>
           }
           findMany: {
-            args: Prisma.CalendarEventFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarEventPayload>[]
+            args: Prisma.AcquisitionFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcquisitionPayload>[]
           }
           create: {
-            args: Prisma.CalendarEventCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarEventPayload>
+            args: Prisma.AcquisitionCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcquisitionPayload>
           }
           createMany: {
-            args: Prisma.CalendarEventCreateManyArgs<ExtArgs>
+            args: Prisma.AcquisitionCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.CalendarEventCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarEventPayload>[]
+            args: Prisma.AcquisitionCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcquisitionPayload>[]
           }
           delete: {
-            args: Prisma.CalendarEventDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarEventPayload>
+            args: Prisma.AcquisitionDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcquisitionPayload>
           }
           update: {
-            args: Prisma.CalendarEventUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarEventPayload>
+            args: Prisma.AcquisitionUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcquisitionPayload>
           }
           deleteMany: {
-            args: Prisma.CalendarEventDeleteManyArgs<ExtArgs>
+            args: Prisma.AcquisitionDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.CalendarEventUpdateManyArgs<ExtArgs>
+            args: Prisma.AcquisitionUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.CalendarEventUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarEventPayload>[]
+            args: Prisma.AcquisitionUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcquisitionPayload>[]
           }
           upsert: {
-            args: Prisma.CalendarEventUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$CalendarEventPayload>
+            args: Prisma.AcquisitionUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$AcquisitionPayload>
           }
           aggregate: {
-            args: Prisma.CalendarEventAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateCalendarEvent>
+            args: Prisma.AcquisitionAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateAcquisition>
           }
           groupBy: {
-            args: Prisma.CalendarEventGroupByArgs<ExtArgs>
-            result: $Utils.Optional<CalendarEventGroupByOutputType>[]
+            args: Prisma.AcquisitionGroupByArgs<ExtArgs>
+            result: $Utils.Optional<AcquisitionGroupByOutputType>[]
           }
           count: {
-            args: Prisma.CalendarEventCountArgs<ExtArgs>
-            result: $Utils.Optional<CalendarEventCountAggregateOutputType> | number
+            args: Prisma.AcquisitionCountArgs<ExtArgs>
+            result: $Utils.Optional<AcquisitionCountAggregateOutputType> | number
           }
         }
       }
-      MccAlert: {
-        payload: Prisma.$MccAlertPayload<ExtArgs>
-        fields: Prisma.MccAlertFieldRefs
+      MccInvestor: {
+        payload: Prisma.$MccInvestorPayload<ExtArgs>
+        fields: Prisma.MccInvestorFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.MccAlertFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccAlertPayload> | null
+            args: Prisma.MccInvestorFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MccInvestorPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.MccAlertFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccAlertPayload>
+            args: Prisma.MccInvestorFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MccInvestorPayload>
           }
           findFirst: {
-            args: Prisma.MccAlertFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccAlertPayload> | null
+            args: Prisma.MccInvestorFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MccInvestorPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.MccAlertFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccAlertPayload>
+            args: Prisma.MccInvestorFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MccInvestorPayload>
           }
           findMany: {
-            args: Prisma.MccAlertFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccAlertPayload>[]
+            args: Prisma.MccInvestorFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MccInvestorPayload>[]
           }
           create: {
-            args: Prisma.MccAlertCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccAlertPayload>
+            args: Prisma.MccInvestorCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MccInvestorPayload>
           }
           createMany: {
-            args: Prisma.MccAlertCreateManyArgs<ExtArgs>
+            args: Prisma.MccInvestorCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.MccAlertCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccAlertPayload>[]
+            args: Prisma.MccInvestorCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MccInvestorPayload>[]
           }
           delete: {
-            args: Prisma.MccAlertDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccAlertPayload>
+            args: Prisma.MccInvestorDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MccInvestorPayload>
           }
           update: {
-            args: Prisma.MccAlertUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccAlertPayload>
+            args: Prisma.MccInvestorUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MccInvestorPayload>
           }
           deleteMany: {
-            args: Prisma.MccAlertDeleteManyArgs<ExtArgs>
+            args: Prisma.MccInvestorDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.MccAlertUpdateManyArgs<ExtArgs>
+            args: Prisma.MccInvestorUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.MccAlertUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccAlertPayload>[]
+            args: Prisma.MccInvestorUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MccInvestorPayload>[]
           }
           upsert: {
-            args: Prisma.MccAlertUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccAlertPayload>
+            args: Prisma.MccInvestorUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MccInvestorPayload>
           }
           aggregate: {
-            args: Prisma.MccAlertAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateMccAlert>
+            args: Prisma.MccInvestorAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMccInvestor>
           }
           groupBy: {
-            args: Prisma.MccAlertGroupByArgs<ExtArgs>
-            result: $Utils.Optional<MccAlertGroupByOutputType>[]
+            args: Prisma.MccInvestorGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MccInvestorGroupByOutputType>[]
           }
           count: {
-            args: Prisma.MccAlertCountArgs<ExtArgs>
-            result: $Utils.Optional<MccAlertCountAggregateOutputType> | number
+            args: Prisma.MccInvestorCountArgs<ExtArgs>
+            result: $Utils.Optional<MccInvestorCountAggregateOutputType> | number
           }
         }
       }
-      MccTask: {
-        payload: Prisma.$MccTaskPayload<ExtArgs>
-        fields: Prisma.MccTaskFieldRefs
+      Task: {
+        payload: Prisma.$TaskPayload<ExtArgs>
+        fields: Prisma.TaskFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.MccTaskFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccTaskPayload> | null
+            args: Prisma.TaskFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TaskPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.MccTaskFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccTaskPayload>
+            args: Prisma.TaskFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TaskPayload>
           }
           findFirst: {
-            args: Prisma.MccTaskFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccTaskPayload> | null
+            args: Prisma.TaskFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TaskPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.MccTaskFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccTaskPayload>
+            args: Prisma.TaskFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TaskPayload>
           }
           findMany: {
-            args: Prisma.MccTaskFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccTaskPayload>[]
+            args: Prisma.TaskFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TaskPayload>[]
           }
           create: {
-            args: Prisma.MccTaskCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccTaskPayload>
+            args: Prisma.TaskCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TaskPayload>
           }
           createMany: {
-            args: Prisma.MccTaskCreateManyArgs<ExtArgs>
+            args: Prisma.TaskCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.MccTaskCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccTaskPayload>[]
+            args: Prisma.TaskCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TaskPayload>[]
           }
           delete: {
-            args: Prisma.MccTaskDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccTaskPayload>
+            args: Prisma.TaskDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TaskPayload>
           }
           update: {
-            args: Prisma.MccTaskUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccTaskPayload>
+            args: Prisma.TaskUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TaskPayload>
           }
           deleteMany: {
-            args: Prisma.MccTaskDeleteManyArgs<ExtArgs>
+            args: Prisma.TaskDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.MccTaskUpdateManyArgs<ExtArgs>
+            args: Prisma.TaskUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.MccTaskUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccTaskPayload>[]
+            args: Prisma.TaskUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TaskPayload>[]
           }
           upsert: {
-            args: Prisma.MccTaskUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$MccTaskPayload>
+            args: Prisma.TaskUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$TaskPayload>
           }
           aggregate: {
-            args: Prisma.MccTaskAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateMccTask>
+            args: Prisma.TaskAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateTask>
           }
           groupBy: {
-            args: Prisma.MccTaskGroupByArgs<ExtArgs>
-            result: $Utils.Optional<MccTaskGroupByOutputType>[]
+            args: Prisma.TaskGroupByArgs<ExtArgs>
+            result: $Utils.Optional<TaskGroupByOutputType>[]
           }
           count: {
-            args: Prisma.MccTaskCountArgs<ExtArgs>
-            result: $Utils.Optional<MccTaskCountAggregateOutputType> | number
+            args: Prisma.TaskCountArgs<ExtArgs>
+            result: $Utils.Optional<TaskCountAggregateOutputType> | number
           }
         }
       }
-      PollLog: {
-        payload: Prisma.$PollLogPayload<ExtArgs>
-        fields: Prisma.PollLogFieldRefs
+      Meeting: {
+        payload: Prisma.$MeetingPayload<ExtArgs>
+        fields: Prisma.MeetingFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.PollLogFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PollLogPayload> | null
+            args: Prisma.MeetingFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeetingPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.PollLogFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PollLogPayload>
+            args: Prisma.MeetingFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeetingPayload>
           }
           findFirst: {
-            args: Prisma.PollLogFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PollLogPayload> | null
+            args: Prisma.MeetingFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeetingPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.PollLogFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PollLogPayload>
+            args: Prisma.MeetingFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeetingPayload>
           }
           findMany: {
-            args: Prisma.PollLogFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PollLogPayload>[]
+            args: Prisma.MeetingFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeetingPayload>[]
           }
           create: {
-            args: Prisma.PollLogCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PollLogPayload>
+            args: Prisma.MeetingCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeetingPayload>
           }
           createMany: {
-            args: Prisma.PollLogCreateManyArgs<ExtArgs>
+            args: Prisma.MeetingCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.PollLogCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PollLogPayload>[]
+            args: Prisma.MeetingCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeetingPayload>[]
           }
           delete: {
-            args: Prisma.PollLogDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PollLogPayload>
+            args: Prisma.MeetingDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeetingPayload>
           }
           update: {
-            args: Prisma.PollLogUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PollLogPayload>
+            args: Prisma.MeetingUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeetingPayload>
           }
           deleteMany: {
-            args: Prisma.PollLogDeleteManyArgs<ExtArgs>
+            args: Prisma.MeetingDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.PollLogUpdateManyArgs<ExtArgs>
+            args: Prisma.MeetingUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.PollLogUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PollLogPayload>[]
+            args: Prisma.MeetingUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeetingPayload>[]
           }
           upsert: {
-            args: Prisma.PollLogUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$PollLogPayload>
+            args: Prisma.MeetingUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$MeetingPayload>
           }
           aggregate: {
-            args: Prisma.PollLogAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregatePollLog>
+            args: Prisma.MeetingAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateMeeting>
           }
           groupBy: {
-            args: Prisma.PollLogGroupByArgs<ExtArgs>
-            result: $Utils.Optional<PollLogGroupByOutputType>[]
+            args: Prisma.MeetingGroupByArgs<ExtArgs>
+            result: $Utils.Optional<MeetingGroupByOutputType>[]
           }
           count: {
-            args: Prisma.PollLogCountArgs<ExtArgs>
-            result: $Utils.Optional<PollLogCountAggregateOutputType> | number
+            args: Prisma.MeetingCountArgs<ExtArgs>
+            result: $Utils.Optional<MeetingCountAggregateOutputType> | number
           }
         }
       }
@@ -2236,12 +2236,12 @@ export namespace Prisma {
     notification?: NotificationOmit
     document?: DocumentOmit
     reinvestment?: ReinvestmentOmit
-    mccSession?: MccSessionOmit
-    emailDigest?: EmailDigestOmit
-    calendarEvent?: CalendarEventOmit
-    mccAlert?: MccAlertOmit
-    mccTask?: MccTaskOmit
-    pollLog?: PollLogOmit
+    salesFilm?: SalesFilmOmit
+    deal?: DealOmit
+    acquisition?: AcquisitionOmit
+    mccInvestor?: MccInvestorOmit
+    task?: TaskOmit
+    meeting?: MeetingOmit
   }
 
   /* Types for Logging */
@@ -2465,6 +2465,37 @@ export namespace Prisma {
 
 
   /**
+   * Count Type SalesFilmCountOutputType
+   */
+
+  export type SalesFilmCountOutputType = {
+    deals: number
+  }
+
+  export type SalesFilmCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    deals?: boolean | SalesFilmCountOutputTypeCountDealsArgs
+  }
+
+  // Custom InputTypes
+  /**
+   * SalesFilmCountOutputType without action
+   */
+  export type SalesFilmCountOutputTypeDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalesFilmCountOutputType
+     */
+    select?: SalesFilmCountOutputTypeSelect<ExtArgs> | null
+  }
+
+  /**
+   * SalesFilmCountOutputType without action
+   */
+  export type SalesFilmCountOutputTypeCountDealsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DealWhereInput
+  }
+
+
+  /**
    * Models
    */
 
@@ -2649,7 +2680,6 @@ export namespace Prisma {
     createdAt?: boolean
     updatedAt?: boolean
     investor?: boolean | User$investorArgs<ExtArgs>
-    mcc_session?: boolean | User$mcc_sessionArgs<ExtArgs>
   }, ExtArgs["result"]["user"]>
 
   export type UserSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
@@ -2685,7 +2715,6 @@ export namespace Prisma {
   export type UserOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "email" | "password_hash" | "full_name" | "role" | "createdAt" | "updatedAt", ExtArgs["result"]["user"]>
   export type UserInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     investor?: boolean | User$investorArgs<ExtArgs>
-    mcc_session?: boolean | User$mcc_sessionArgs<ExtArgs>
   }
   export type UserIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
   export type UserIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
@@ -2694,7 +2723,6 @@ export namespace Prisma {
     name: "User"
     objects: {
       investor: Prisma.$InvestorPayload<ExtArgs> | null
-      mcc_session: Prisma.$MccSessionPayload<ExtArgs> | null
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -3099,7 +3127,6 @@ export namespace Prisma {
   export interface Prisma__UserClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     investor<T extends User$investorArgs<ExtArgs> = {}>(args?: Subset<T, User$investorArgs<ExtArgs>>): Prisma__InvestorClient<$Result.GetResult<Prisma.$InvestorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-    mcc_session<T extends User$mcc_sessionArgs<ExtArgs> = {}>(args?: Subset<T, User$mcc_sessionArgs<ExtArgs>>): Prisma__MccSessionClient<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -3545,25 +3572,6 @@ export namespace Prisma {
      */
     include?: InvestorInclude<ExtArgs> | null
     where?: InvestorWhereInput
-  }
-
-  /**
-   * User.mcc_session
-   */
-  export type User$mcc_sessionArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccSession
-     */
-    select?: MccSessionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccSession
-     */
-    omit?: MccSessionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MccSessionInclude<ExtArgs> | null
-    where?: MccSessionWhereInput
   }
 
   /**
@@ -15550,398 +15558,406 @@ export namespace Prisma {
 
 
   /**
-   * Model MccSession
+   * Model SalesFilm
    */
 
-  export type AggregateMccSession = {
-    _count: MccSessionCountAggregateOutputType | null
-    _min: MccSessionMinAggregateOutputType | null
-    _max: MccSessionMaxAggregateOutputType | null
+  export type AggregateSalesFilm = {
+    _count: SalesFilmCountAggregateOutputType | null
+    _min: SalesFilmMinAggregateOutputType | null
+    _max: SalesFilmMaxAggregateOutputType | null
   }
 
-  export type MccSessionMinAggregateOutputType = {
+  export type SalesFilmMinAggregateOutputType = {
     id: string | null
-    user_id: string | null
-    google_access_token: string | null
-    google_refresh_token: string | null
-    google_token_expiry: Date | null
-    google_email: string | null
-    cliq_webhook_url: string | null
+    title: string | null
+    genre: string | null
+    status: string | null
+    territories: string | null
+    buyers: string | null
+    last_contact_date: Date | null
+    notes: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type MccSessionMaxAggregateOutputType = {
+  export type SalesFilmMaxAggregateOutputType = {
     id: string | null
-    user_id: string | null
-    google_access_token: string | null
-    google_refresh_token: string | null
-    google_token_expiry: Date | null
-    google_email: string | null
-    cliq_webhook_url: string | null
+    title: string | null
+    genre: string | null
+    status: string | null
+    territories: string | null
+    buyers: string | null
+    last_contact_date: Date | null
+    notes: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type MccSessionCountAggregateOutputType = {
+  export type SalesFilmCountAggregateOutputType = {
     id: number
-    user_id: number
-    google_access_token: number
-    google_refresh_token: number
-    google_token_expiry: number
-    google_email: number
-    cliq_webhook_url: number
+    title: number
+    genre: number
+    status: number
+    territories: number
+    buyers: number
+    last_contact_date: number
+    notes: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
-  export type MccSessionMinAggregateInputType = {
+  export type SalesFilmMinAggregateInputType = {
     id?: true
-    user_id?: true
-    google_access_token?: true
-    google_refresh_token?: true
-    google_token_expiry?: true
-    google_email?: true
-    cliq_webhook_url?: true
+    title?: true
+    genre?: true
+    status?: true
+    territories?: true
+    buyers?: true
+    last_contact_date?: true
+    notes?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type MccSessionMaxAggregateInputType = {
+  export type SalesFilmMaxAggregateInputType = {
     id?: true
-    user_id?: true
-    google_access_token?: true
-    google_refresh_token?: true
-    google_token_expiry?: true
-    google_email?: true
-    cliq_webhook_url?: true
+    title?: true
+    genre?: true
+    status?: true
+    territories?: true
+    buyers?: true
+    last_contact_date?: true
+    notes?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type MccSessionCountAggregateInputType = {
+  export type SalesFilmCountAggregateInputType = {
     id?: true
-    user_id?: true
-    google_access_token?: true
-    google_refresh_token?: true
-    google_token_expiry?: true
-    google_email?: true
-    cliq_webhook_url?: true
+    title?: true
+    genre?: true
+    status?: true
+    territories?: true
+    buyers?: true
+    last_contact_date?: true
+    notes?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
   }
 
-  export type MccSessionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which MccSession to aggregate.
+     * Filter which SalesFilm to aggregate.
      */
-    where?: MccSessionWhereInput
+    where?: SalesFilmWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MccSessions to fetch.
+     * Determine the order of SalesFilms to fetch.
      */
-    orderBy?: MccSessionOrderByWithRelationInput | MccSessionOrderByWithRelationInput[]
+    orderBy?: SalesFilmOrderByWithRelationInput | SalesFilmOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: MccSessionWhereUniqueInput
+    cursor?: SalesFilmWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MccSessions from the position of the cursor.
+     * Take `±n` SalesFilms from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MccSessions.
+     * Skip the first `n` SalesFilms.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned MccSessions
+     * Count returned SalesFilms
     **/
-    _count?: true | MccSessionCountAggregateInputType
+    _count?: true | SalesFilmCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: MccSessionMinAggregateInputType
+    _min?: SalesFilmMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: MccSessionMaxAggregateInputType
+    _max?: SalesFilmMaxAggregateInputType
   }
 
-  export type GetMccSessionAggregateType<T extends MccSessionAggregateArgs> = {
-        [P in keyof T & keyof AggregateMccSession]: P extends '_count' | 'count'
+  export type GetSalesFilmAggregateType<T extends SalesFilmAggregateArgs> = {
+        [P in keyof T & keyof AggregateSalesFilm]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateMccSession[P]>
-      : GetScalarType<T[P], AggregateMccSession[P]>
+        : GetScalarType<T[P], AggregateSalesFilm[P]>
+      : GetScalarType<T[P], AggregateSalesFilm[P]>
   }
 
 
 
 
-  export type MccSessionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MccSessionWhereInput
-    orderBy?: MccSessionOrderByWithAggregationInput | MccSessionOrderByWithAggregationInput[]
-    by: MccSessionScalarFieldEnum[] | MccSessionScalarFieldEnum
-    having?: MccSessionScalarWhereWithAggregatesInput
+  export type SalesFilmGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: SalesFilmWhereInput
+    orderBy?: SalesFilmOrderByWithAggregationInput | SalesFilmOrderByWithAggregationInput[]
+    by: SalesFilmScalarFieldEnum[] | SalesFilmScalarFieldEnum
+    having?: SalesFilmScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: MccSessionCountAggregateInputType | true
-    _min?: MccSessionMinAggregateInputType
-    _max?: MccSessionMaxAggregateInputType
+    _count?: SalesFilmCountAggregateInputType | true
+    _min?: SalesFilmMinAggregateInputType
+    _max?: SalesFilmMaxAggregateInputType
   }
 
-  export type MccSessionGroupByOutputType = {
+  export type SalesFilmGroupByOutputType = {
     id: string
-    user_id: string
-    google_access_token: string | null
-    google_refresh_token: string | null
-    google_token_expiry: Date | null
-    google_email: string | null
-    cliq_webhook_url: string | null
+    title: string
+    genre: string | null
+    status: string
+    territories: string | null
+    buyers: string | null
+    last_contact_date: Date | null
+    notes: string | null
     createdAt: Date
     updatedAt: Date
-    _count: MccSessionCountAggregateOutputType | null
-    _min: MccSessionMinAggregateOutputType | null
-    _max: MccSessionMaxAggregateOutputType | null
+    _count: SalesFilmCountAggregateOutputType | null
+    _min: SalesFilmMinAggregateOutputType | null
+    _max: SalesFilmMaxAggregateOutputType | null
   }
 
-  type GetMccSessionGroupByPayload<T extends MccSessionGroupByArgs> = Prisma.PrismaPromise<
+  type GetSalesFilmGroupByPayload<T extends SalesFilmGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<MccSessionGroupByOutputType, T['by']> &
+      PickEnumerable<SalesFilmGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof MccSessionGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof SalesFilmGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], MccSessionGroupByOutputType[P]>
-            : GetScalarType<T[P], MccSessionGroupByOutputType[P]>
+              : GetScalarType<T[P], SalesFilmGroupByOutputType[P]>
+            : GetScalarType<T[P], SalesFilmGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type MccSessionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type SalesFilmSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    user_id?: boolean
-    google_access_token?: boolean
-    google_refresh_token?: boolean
-    google_token_expiry?: boolean
-    google_email?: boolean
-    cliq_webhook_url?: boolean
+    title?: boolean
+    genre?: boolean
+    status?: boolean
+    territories?: boolean
+    buyers?: boolean
+    last_contact_date?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["mccSession"]>
+    deals?: boolean | SalesFilm$dealsArgs<ExtArgs>
+    _count?: boolean | SalesFilmCountOutputTypeDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["salesFilm"]>
 
-  export type MccSessionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type SalesFilmSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    user_id?: boolean
-    google_access_token?: boolean
-    google_refresh_token?: boolean
-    google_token_expiry?: boolean
-    google_email?: boolean
-    cliq_webhook_url?: boolean
+    title?: boolean
+    genre?: boolean
+    status?: boolean
+    territories?: boolean
+    buyers?: boolean
+    last_contact_date?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["mccSession"]>
+  }, ExtArgs["result"]["salesFilm"]>
 
-  export type MccSessionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type SalesFilmSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    user_id?: boolean
-    google_access_token?: boolean
-    google_refresh_token?: boolean
-    google_token_expiry?: boolean
-    google_email?: boolean
-    cliq_webhook_url?: boolean
+    title?: boolean
+    genre?: boolean
+    status?: boolean
+    territories?: boolean
+    buyers?: boolean
+    last_contact_date?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["mccSession"]>
+  }, ExtArgs["result"]["salesFilm"]>
 
-  export type MccSessionSelectScalar = {
+  export type SalesFilmSelectScalar = {
     id?: boolean
-    user_id?: boolean
-    google_access_token?: boolean
-    google_refresh_token?: boolean
-    google_token_expiry?: boolean
-    google_email?: boolean
-    cliq_webhook_url?: boolean
+    title?: boolean
+    genre?: boolean
+    status?: boolean
+    territories?: boolean
+    buyers?: boolean
+    last_contact_date?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type MccSessionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "user_id" | "google_access_token" | "google_refresh_token" | "google_token_expiry" | "google_email" | "cliq_webhook_url" | "createdAt" | "updatedAt", ExtArgs["result"]["mccSession"]>
-  export type MccSessionInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
+  export type SalesFilmOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "genre" | "status" | "territories" | "buyers" | "last_contact_date" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["salesFilm"]>
+  export type SalesFilmInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    deals?: boolean | SalesFilm$dealsArgs<ExtArgs>
+    _count?: boolean | SalesFilmCountOutputTypeDefaultArgs<ExtArgs>
   }
-  export type MccSessionIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
-  export type MccSessionIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    user?: boolean | UserDefaultArgs<ExtArgs>
-  }
+  export type SalesFilmIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
+  export type SalesFilmIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {}
 
-  export type $MccSessionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "MccSession"
+  export type $SalesFilmPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "SalesFilm"
     objects: {
-      user: Prisma.$UserPayload<ExtArgs>
+      deals: Prisma.$DealPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      user_id: string
-      google_access_token: string | null
-      google_refresh_token: string | null
-      google_token_expiry: Date | null
-      google_email: string | null
-      cliq_webhook_url: string | null
+      title: string
+      genre: string | null
+      status: string
+      territories: string | null
+      buyers: string | null
+      last_contact_date: Date | null
+      notes: string | null
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["mccSession"]>
+    }, ExtArgs["result"]["salesFilm"]>
     composites: {}
   }
 
-  type MccSessionGetPayload<S extends boolean | null | undefined | MccSessionDefaultArgs> = $Result.GetResult<Prisma.$MccSessionPayload, S>
+  type SalesFilmGetPayload<S extends boolean | null | undefined | SalesFilmDefaultArgs> = $Result.GetResult<Prisma.$SalesFilmPayload, S>
 
-  type MccSessionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<MccSessionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: MccSessionCountAggregateInputType | true
+  type SalesFilmCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<SalesFilmFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: SalesFilmCountAggregateInputType | true
     }
 
-  export interface MccSessionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MccSession'], meta: { name: 'MccSession' } }
+  export interface SalesFilmDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['SalesFilm'], meta: { name: 'SalesFilm' } }
     /**
-     * Find zero or one MccSession that matches the filter.
-     * @param {MccSessionFindUniqueArgs} args - Arguments to find a MccSession
+     * Find zero or one SalesFilm that matches the filter.
+     * @param {SalesFilmFindUniqueArgs} args - Arguments to find a SalesFilm
      * @example
-     * // Get one MccSession
-     * const mccSession = await prisma.mccSession.findUnique({
+     * // Get one SalesFilm
+     * const salesFilm = await prisma.salesFilm.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends MccSessionFindUniqueArgs>(args: SelectSubset<T, MccSessionFindUniqueArgs<ExtArgs>>): Prisma__MccSessionClient<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends SalesFilmFindUniqueArgs>(args: SelectSubset<T, SalesFilmFindUniqueArgs<ExtArgs>>): Prisma__SalesFilmClient<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one MccSession that matches the filter or throw an error with `error.code='P2025'`
+     * Find one SalesFilm that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {MccSessionFindUniqueOrThrowArgs} args - Arguments to find a MccSession
+     * @param {SalesFilmFindUniqueOrThrowArgs} args - Arguments to find a SalesFilm
      * @example
-     * // Get one MccSession
-     * const mccSession = await prisma.mccSession.findUniqueOrThrow({
+     * // Get one SalesFilm
+     * const salesFilm = await prisma.salesFilm.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends MccSessionFindUniqueOrThrowArgs>(args: SelectSubset<T, MccSessionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MccSessionClient<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends SalesFilmFindUniqueOrThrowArgs>(args: SelectSubset<T, SalesFilmFindUniqueOrThrowArgs<ExtArgs>>): Prisma__SalesFilmClient<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first MccSession that matches the filter.
+     * Find the first SalesFilm that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccSessionFindFirstArgs} args - Arguments to find a MccSession
+     * @param {SalesFilmFindFirstArgs} args - Arguments to find a SalesFilm
      * @example
-     * // Get one MccSession
-     * const mccSession = await prisma.mccSession.findFirst({
+     * // Get one SalesFilm
+     * const salesFilm = await prisma.salesFilm.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends MccSessionFindFirstArgs>(args?: SelectSubset<T, MccSessionFindFirstArgs<ExtArgs>>): Prisma__MccSessionClient<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends SalesFilmFindFirstArgs>(args?: SelectSubset<T, SalesFilmFindFirstArgs<ExtArgs>>): Prisma__SalesFilmClient<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first MccSession that matches the filter or
+     * Find the first SalesFilm that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccSessionFindFirstOrThrowArgs} args - Arguments to find a MccSession
+     * @param {SalesFilmFindFirstOrThrowArgs} args - Arguments to find a SalesFilm
      * @example
-     * // Get one MccSession
-     * const mccSession = await prisma.mccSession.findFirstOrThrow({
+     * // Get one SalesFilm
+     * const salesFilm = await prisma.salesFilm.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends MccSessionFindFirstOrThrowArgs>(args?: SelectSubset<T, MccSessionFindFirstOrThrowArgs<ExtArgs>>): Prisma__MccSessionClient<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends SalesFilmFindFirstOrThrowArgs>(args?: SelectSubset<T, SalesFilmFindFirstOrThrowArgs<ExtArgs>>): Prisma__SalesFilmClient<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more MccSessions that matches the filter.
+     * Find zero or more SalesFilms that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccSessionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {SalesFilmFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all MccSessions
-     * const mccSessions = await prisma.mccSession.findMany()
+     * // Get all SalesFilms
+     * const salesFilms = await prisma.salesFilm.findMany()
      * 
-     * // Get first 10 MccSessions
-     * const mccSessions = await prisma.mccSession.findMany({ take: 10 })
+     * // Get first 10 SalesFilms
+     * const salesFilms = await prisma.salesFilm.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const mccSessionWithIdOnly = await prisma.mccSession.findMany({ select: { id: true } })
+     * const salesFilmWithIdOnly = await prisma.salesFilm.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends MccSessionFindManyArgs>(args?: SelectSubset<T, MccSessionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends SalesFilmFindManyArgs>(args?: SelectSubset<T, SalesFilmFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a MccSession.
-     * @param {MccSessionCreateArgs} args - Arguments to create a MccSession.
+     * Create a SalesFilm.
+     * @param {SalesFilmCreateArgs} args - Arguments to create a SalesFilm.
      * @example
-     * // Create one MccSession
-     * const MccSession = await prisma.mccSession.create({
+     * // Create one SalesFilm
+     * const SalesFilm = await prisma.salesFilm.create({
      *   data: {
-     *     // ... data to create a MccSession
+     *     // ... data to create a SalesFilm
      *   }
      * })
      * 
      */
-    create<T extends MccSessionCreateArgs>(args: SelectSubset<T, MccSessionCreateArgs<ExtArgs>>): Prisma__MccSessionClient<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends SalesFilmCreateArgs>(args: SelectSubset<T, SalesFilmCreateArgs<ExtArgs>>): Prisma__SalesFilmClient<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many MccSessions.
-     * @param {MccSessionCreateManyArgs} args - Arguments to create many MccSessions.
+     * Create many SalesFilms.
+     * @param {SalesFilmCreateManyArgs} args - Arguments to create many SalesFilms.
      * @example
-     * // Create many MccSessions
-     * const mccSession = await prisma.mccSession.createMany({
+     * // Create many SalesFilms
+     * const salesFilm = await prisma.salesFilm.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends MccSessionCreateManyArgs>(args?: SelectSubset<T, MccSessionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends SalesFilmCreateManyArgs>(args?: SelectSubset<T, SalesFilmCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many MccSessions and returns the data saved in the database.
-     * @param {MccSessionCreateManyAndReturnArgs} args - Arguments to create many MccSessions.
+     * Create many SalesFilms and returns the data saved in the database.
+     * @param {SalesFilmCreateManyAndReturnArgs} args - Arguments to create many SalesFilms.
      * @example
-     * // Create many MccSessions
-     * const mccSession = await prisma.mccSession.createManyAndReturn({
+     * // Create many SalesFilms
+     * const salesFilm = await prisma.salesFilm.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many MccSessions and only return the `id`
-     * const mccSessionWithIdOnly = await prisma.mccSession.createManyAndReturn({
+     * // Create many SalesFilms and only return the `id`
+     * const salesFilmWithIdOnly = await prisma.salesFilm.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -15951,28 +15967,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends MccSessionCreateManyAndReturnArgs>(args?: SelectSubset<T, MccSessionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends SalesFilmCreateManyAndReturnArgs>(args?: SelectSubset<T, SalesFilmCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a MccSession.
-     * @param {MccSessionDeleteArgs} args - Arguments to delete one MccSession.
+     * Delete a SalesFilm.
+     * @param {SalesFilmDeleteArgs} args - Arguments to delete one SalesFilm.
      * @example
-     * // Delete one MccSession
-     * const MccSession = await prisma.mccSession.delete({
+     * // Delete one SalesFilm
+     * const SalesFilm = await prisma.salesFilm.delete({
      *   where: {
-     *     // ... filter to delete one MccSession
+     *     // ... filter to delete one SalesFilm
      *   }
      * })
      * 
      */
-    delete<T extends MccSessionDeleteArgs>(args: SelectSubset<T, MccSessionDeleteArgs<ExtArgs>>): Prisma__MccSessionClient<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends SalesFilmDeleteArgs>(args: SelectSubset<T, SalesFilmDeleteArgs<ExtArgs>>): Prisma__SalesFilmClient<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one MccSession.
-     * @param {MccSessionUpdateArgs} args - Arguments to update one MccSession.
+     * Update one SalesFilm.
+     * @param {SalesFilmUpdateArgs} args - Arguments to update one SalesFilm.
      * @example
-     * // Update one MccSession
-     * const mccSession = await prisma.mccSession.update({
+     * // Update one SalesFilm
+     * const salesFilm = await prisma.salesFilm.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -15982,30 +15998,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends MccSessionUpdateArgs>(args: SelectSubset<T, MccSessionUpdateArgs<ExtArgs>>): Prisma__MccSessionClient<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends SalesFilmUpdateArgs>(args: SelectSubset<T, SalesFilmUpdateArgs<ExtArgs>>): Prisma__SalesFilmClient<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more MccSessions.
-     * @param {MccSessionDeleteManyArgs} args - Arguments to filter MccSessions to delete.
+     * Delete zero or more SalesFilms.
+     * @param {SalesFilmDeleteManyArgs} args - Arguments to filter SalesFilms to delete.
      * @example
-     * // Delete a few MccSessions
-     * const { count } = await prisma.mccSession.deleteMany({
+     * // Delete a few SalesFilms
+     * const { count } = await prisma.salesFilm.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends MccSessionDeleteManyArgs>(args?: SelectSubset<T, MccSessionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends SalesFilmDeleteManyArgs>(args?: SelectSubset<T, SalesFilmDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more MccSessions.
+     * Update zero or more SalesFilms.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccSessionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {SalesFilmUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many MccSessions
-     * const mccSession = await prisma.mccSession.updateMany({
+     * // Update many SalesFilms
+     * const salesFilm = await prisma.salesFilm.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -16015,14 +16031,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends MccSessionUpdateManyArgs>(args: SelectSubset<T, MccSessionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends SalesFilmUpdateManyArgs>(args: SelectSubset<T, SalesFilmUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more MccSessions and returns the data updated in the database.
-     * @param {MccSessionUpdateManyAndReturnArgs} args - Arguments to update many MccSessions.
+     * Update zero or more SalesFilms and returns the data updated in the database.
+     * @param {SalesFilmUpdateManyAndReturnArgs} args - Arguments to update many SalesFilms.
      * @example
-     * // Update many MccSessions
-     * const mccSession = await prisma.mccSession.updateManyAndReturn({
+     * // Update many SalesFilms
+     * const salesFilm = await prisma.salesFilm.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -16031,8 +16047,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more MccSessions and only return the `id`
-     * const mccSessionWithIdOnly = await prisma.mccSession.updateManyAndReturn({
+     * // Update zero or more SalesFilms and only return the `id`
+     * const salesFilmWithIdOnly = await prisma.salesFilm.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -16045,56 +16061,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends MccSessionUpdateManyAndReturnArgs>(args: SelectSubset<T, MccSessionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends SalesFilmUpdateManyAndReturnArgs>(args: SelectSubset<T, SalesFilmUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one MccSession.
-     * @param {MccSessionUpsertArgs} args - Arguments to update or create a MccSession.
+     * Create or update one SalesFilm.
+     * @param {SalesFilmUpsertArgs} args - Arguments to update or create a SalesFilm.
      * @example
-     * // Update or create a MccSession
-     * const mccSession = await prisma.mccSession.upsert({
+     * // Update or create a SalesFilm
+     * const salesFilm = await prisma.salesFilm.upsert({
      *   create: {
-     *     // ... data to create a MccSession
+     *     // ... data to create a SalesFilm
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the MccSession we want to update
+     *     // ... the filter for the SalesFilm we want to update
      *   }
      * })
      */
-    upsert<T extends MccSessionUpsertArgs>(args: SelectSubset<T, MccSessionUpsertArgs<ExtArgs>>): Prisma__MccSessionClient<$Result.GetResult<Prisma.$MccSessionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends SalesFilmUpsertArgs>(args: SelectSubset<T, SalesFilmUpsertArgs<ExtArgs>>): Prisma__SalesFilmClient<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of MccSessions.
+     * Count the number of SalesFilms.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccSessionCountArgs} args - Arguments to filter MccSessions to count.
+     * @param {SalesFilmCountArgs} args - Arguments to filter SalesFilms to count.
      * @example
-     * // Count the number of MccSessions
-     * const count = await prisma.mccSession.count({
+     * // Count the number of SalesFilms
+     * const count = await prisma.salesFilm.count({
      *   where: {
-     *     // ... the filter for the MccSessions we want to count
+     *     // ... the filter for the SalesFilms we want to count
      *   }
      * })
     **/
-    count<T extends MccSessionCountArgs>(
-      args?: Subset<T, MccSessionCountArgs>,
+    count<T extends SalesFilmCountArgs>(
+      args?: Subset<T, SalesFilmCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], MccSessionCountAggregateOutputType>
+          : GetScalarType<T['select'], SalesFilmCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a MccSession.
+     * Allows you to perform aggregations operations on a SalesFilm.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccSessionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {SalesFilmAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -16114,13 +16130,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends MccSessionAggregateArgs>(args: Subset<T, MccSessionAggregateArgs>): Prisma.PrismaPromise<GetMccSessionAggregateType<T>>
+    aggregate<T extends SalesFilmAggregateArgs>(args: Subset<T, SalesFilmAggregateArgs>): Prisma.PrismaPromise<GetSalesFilmAggregateType<T>>
 
     /**
-     * Group by MccSession.
+     * Group by SalesFilm.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccSessionGroupByArgs} args - Group by arguments.
+     * @param {SalesFilmGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -16135,14 +16151,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends MccSessionGroupByArgs,
+      T extends SalesFilmGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: MccSessionGroupByArgs['orderBy'] }
-        : { orderBy?: MccSessionGroupByArgs['orderBy'] },
+        ? { orderBy: SalesFilmGroupByArgs['orderBy'] }
+        : { orderBy?: SalesFilmGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -16191,22 +16207,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, MccSessionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMccSessionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, SalesFilmGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetSalesFilmGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the MccSession model
+   * Fields of the SalesFilm model
    */
-  readonly fields: MccSessionFieldRefs;
+  readonly fields: SalesFilmFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for MccSession.
+   * The delegate class that acts as a "Promise-like" for SalesFilm.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__MccSessionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__SalesFilmClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
-    user<T extends UserDefaultArgs<ExtArgs> = {}>(args?: Subset<T, UserDefaultArgs<ExtArgs>>): Prisma__UserClient<$Result.GetResult<Prisma.$UserPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
+    deals<T extends SalesFilm$dealsArgs<ExtArgs> = {}>(args?: Subset<T, SalesFilm$dealsArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -16233,970 +16249,881 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the MccSession model
+   * Fields of the SalesFilm model
    */
-  interface MccSessionFieldRefs {
-    readonly id: FieldRef<"MccSession", 'String'>
-    readonly user_id: FieldRef<"MccSession", 'String'>
-    readonly google_access_token: FieldRef<"MccSession", 'String'>
-    readonly google_refresh_token: FieldRef<"MccSession", 'String'>
-    readonly google_token_expiry: FieldRef<"MccSession", 'DateTime'>
-    readonly google_email: FieldRef<"MccSession", 'String'>
-    readonly cliq_webhook_url: FieldRef<"MccSession", 'String'>
-    readonly createdAt: FieldRef<"MccSession", 'DateTime'>
-    readonly updatedAt: FieldRef<"MccSession", 'DateTime'>
+  interface SalesFilmFieldRefs {
+    readonly id: FieldRef<"SalesFilm", 'String'>
+    readonly title: FieldRef<"SalesFilm", 'String'>
+    readonly genre: FieldRef<"SalesFilm", 'String'>
+    readonly status: FieldRef<"SalesFilm", 'String'>
+    readonly territories: FieldRef<"SalesFilm", 'String'>
+    readonly buyers: FieldRef<"SalesFilm", 'String'>
+    readonly last_contact_date: FieldRef<"SalesFilm", 'DateTime'>
+    readonly notes: FieldRef<"SalesFilm", 'String'>
+    readonly createdAt: FieldRef<"SalesFilm", 'DateTime'>
+    readonly updatedAt: FieldRef<"SalesFilm", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * MccSession findUnique
+   * SalesFilm findUnique
    */
-  export type MccSessionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccSession
+     * Select specific fields to fetch from the SalesFilm
      */
-    select?: MccSessionSelect<ExtArgs> | null
+    select?: SalesFilmSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccSession
+     * Omit specific fields from the SalesFilm
      */
-    omit?: MccSessionOmit<ExtArgs> | null
+    omit?: SalesFilmOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MccSessionInclude<ExtArgs> | null
+    include?: SalesFilmInclude<ExtArgs> | null
     /**
-     * Filter, which MccSession to fetch.
+     * Filter, which SalesFilm to fetch.
      */
-    where: MccSessionWhereUniqueInput
+    where: SalesFilmWhereUniqueInput
   }
 
   /**
-   * MccSession findUniqueOrThrow
+   * SalesFilm findUniqueOrThrow
    */
-  export type MccSessionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccSession
+     * Select specific fields to fetch from the SalesFilm
      */
-    select?: MccSessionSelect<ExtArgs> | null
+    select?: SalesFilmSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccSession
+     * Omit specific fields from the SalesFilm
      */
-    omit?: MccSessionOmit<ExtArgs> | null
+    omit?: SalesFilmOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MccSessionInclude<ExtArgs> | null
+    include?: SalesFilmInclude<ExtArgs> | null
     /**
-     * Filter, which MccSession to fetch.
+     * Filter, which SalesFilm to fetch.
      */
-    where: MccSessionWhereUniqueInput
+    where: SalesFilmWhereUniqueInput
   }
 
   /**
-   * MccSession findFirst
+   * SalesFilm findFirst
    */
-  export type MccSessionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccSession
+     * Select specific fields to fetch from the SalesFilm
      */
-    select?: MccSessionSelect<ExtArgs> | null
+    select?: SalesFilmSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccSession
+     * Omit specific fields from the SalesFilm
      */
-    omit?: MccSessionOmit<ExtArgs> | null
+    omit?: SalesFilmOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MccSessionInclude<ExtArgs> | null
+    include?: SalesFilmInclude<ExtArgs> | null
     /**
-     * Filter, which MccSession to fetch.
+     * Filter, which SalesFilm to fetch.
      */
-    where?: MccSessionWhereInput
+    where?: SalesFilmWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MccSessions to fetch.
+     * Determine the order of SalesFilms to fetch.
      */
-    orderBy?: MccSessionOrderByWithRelationInput | MccSessionOrderByWithRelationInput[]
+    orderBy?: SalesFilmOrderByWithRelationInput | SalesFilmOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for MccSessions.
+     * Sets the position for searching for SalesFilms.
      */
-    cursor?: MccSessionWhereUniqueInput
+    cursor?: SalesFilmWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MccSessions from the position of the cursor.
+     * Take `±n` SalesFilms from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MccSessions.
+     * Skip the first `n` SalesFilms.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of MccSessions.
+     * Filter by unique combinations of SalesFilms.
      */
-    distinct?: MccSessionScalarFieldEnum | MccSessionScalarFieldEnum[]
+    distinct?: SalesFilmScalarFieldEnum | SalesFilmScalarFieldEnum[]
   }
 
   /**
-   * MccSession findFirstOrThrow
+   * SalesFilm findFirstOrThrow
    */
-  export type MccSessionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccSession
+     * Select specific fields to fetch from the SalesFilm
      */
-    select?: MccSessionSelect<ExtArgs> | null
+    select?: SalesFilmSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccSession
+     * Omit specific fields from the SalesFilm
      */
-    omit?: MccSessionOmit<ExtArgs> | null
+    omit?: SalesFilmOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MccSessionInclude<ExtArgs> | null
+    include?: SalesFilmInclude<ExtArgs> | null
     /**
-     * Filter, which MccSession to fetch.
+     * Filter, which SalesFilm to fetch.
      */
-    where?: MccSessionWhereInput
+    where?: SalesFilmWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MccSessions to fetch.
+     * Determine the order of SalesFilms to fetch.
      */
-    orderBy?: MccSessionOrderByWithRelationInput | MccSessionOrderByWithRelationInput[]
+    orderBy?: SalesFilmOrderByWithRelationInput | SalesFilmOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for MccSessions.
+     * Sets the position for searching for SalesFilms.
      */
-    cursor?: MccSessionWhereUniqueInput
+    cursor?: SalesFilmWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MccSessions from the position of the cursor.
+     * Take `±n` SalesFilms from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MccSessions.
+     * Skip the first `n` SalesFilms.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of MccSessions.
+     * Filter by unique combinations of SalesFilms.
      */
-    distinct?: MccSessionScalarFieldEnum | MccSessionScalarFieldEnum[]
+    distinct?: SalesFilmScalarFieldEnum | SalesFilmScalarFieldEnum[]
   }
 
   /**
-   * MccSession findMany
+   * SalesFilm findMany
    */
-  export type MccSessionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccSession
+     * Select specific fields to fetch from the SalesFilm
      */
-    select?: MccSessionSelect<ExtArgs> | null
+    select?: SalesFilmSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccSession
+     * Omit specific fields from the SalesFilm
      */
-    omit?: MccSessionOmit<ExtArgs> | null
+    omit?: SalesFilmOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MccSessionInclude<ExtArgs> | null
+    include?: SalesFilmInclude<ExtArgs> | null
     /**
-     * Filter, which MccSessions to fetch.
+     * Filter, which SalesFilms to fetch.
      */
-    where?: MccSessionWhereInput
+    where?: SalesFilmWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MccSessions to fetch.
+     * Determine the order of SalesFilms to fetch.
      */
-    orderBy?: MccSessionOrderByWithRelationInput | MccSessionOrderByWithRelationInput[]
+    orderBy?: SalesFilmOrderByWithRelationInput | SalesFilmOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing MccSessions.
+     * Sets the position for listing SalesFilms.
      */
-    cursor?: MccSessionWhereUniqueInput
+    cursor?: SalesFilmWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MccSessions from the position of the cursor.
+     * Take `±n` SalesFilms from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MccSessions.
+     * Skip the first `n` SalesFilms.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of MccSessions.
+     * Filter by unique combinations of SalesFilms.
      */
-    distinct?: MccSessionScalarFieldEnum | MccSessionScalarFieldEnum[]
+    distinct?: SalesFilmScalarFieldEnum | SalesFilmScalarFieldEnum[]
   }
 
   /**
-   * MccSession create
+   * SalesFilm create
    */
-  export type MccSessionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccSession
+     * Select specific fields to fetch from the SalesFilm
      */
-    select?: MccSessionSelect<ExtArgs> | null
+    select?: SalesFilmSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccSession
+     * Omit specific fields from the SalesFilm
      */
-    omit?: MccSessionOmit<ExtArgs> | null
+    omit?: SalesFilmOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MccSessionInclude<ExtArgs> | null
+    include?: SalesFilmInclude<ExtArgs> | null
     /**
-     * The data needed to create a MccSession.
+     * The data needed to create a SalesFilm.
      */
-    data: XOR<MccSessionCreateInput, MccSessionUncheckedCreateInput>
+    data: XOR<SalesFilmCreateInput, SalesFilmUncheckedCreateInput>
   }
 
   /**
-   * MccSession createMany
+   * SalesFilm createMany
    */
-  export type MccSessionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many MccSessions.
+     * The data used to create many SalesFilms.
      */
-    data: MccSessionCreateManyInput | MccSessionCreateManyInput[]
+    data: SalesFilmCreateManyInput | SalesFilmCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * MccSession createManyAndReturn
+   * SalesFilm createManyAndReturn
    */
-  export type MccSessionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccSession
+     * Select specific fields to fetch from the SalesFilm
      */
-    select?: MccSessionSelectCreateManyAndReturn<ExtArgs> | null
+    select?: SalesFilmSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the MccSession
+     * Omit specific fields from the SalesFilm
      */
-    omit?: MccSessionOmit<ExtArgs> | null
+    omit?: SalesFilmOmit<ExtArgs> | null
     /**
-     * The data used to create many MccSessions.
+     * The data used to create many SalesFilms.
      */
-    data: MccSessionCreateManyInput | MccSessionCreateManyInput[]
+    data: SalesFilmCreateManyInput | SalesFilmCreateManyInput[]
     skipDuplicates?: boolean
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MccSessionIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * MccSession update
+   * SalesFilm update
    */
-  export type MccSessionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccSession
+     * Select specific fields to fetch from the SalesFilm
      */
-    select?: MccSessionSelect<ExtArgs> | null
+    select?: SalesFilmSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccSession
+     * Omit specific fields from the SalesFilm
      */
-    omit?: MccSessionOmit<ExtArgs> | null
+    omit?: SalesFilmOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MccSessionInclude<ExtArgs> | null
+    include?: SalesFilmInclude<ExtArgs> | null
     /**
-     * The data needed to update a MccSession.
+     * The data needed to update a SalesFilm.
      */
-    data: XOR<MccSessionUpdateInput, MccSessionUncheckedUpdateInput>
+    data: XOR<SalesFilmUpdateInput, SalesFilmUncheckedUpdateInput>
     /**
-     * Choose, which MccSession to update.
+     * Choose, which SalesFilm to update.
      */
-    where: MccSessionWhereUniqueInput
+    where: SalesFilmWhereUniqueInput
   }
 
   /**
-   * MccSession updateMany
+   * SalesFilm updateMany
    */
-  export type MccSessionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update MccSessions.
+     * The data used to update SalesFilms.
      */
-    data: XOR<MccSessionUpdateManyMutationInput, MccSessionUncheckedUpdateManyInput>
+    data: XOR<SalesFilmUpdateManyMutationInput, SalesFilmUncheckedUpdateManyInput>
     /**
-     * Filter which MccSessions to update
+     * Filter which SalesFilms to update
      */
-    where?: MccSessionWhereInput
+    where?: SalesFilmWhereInput
     /**
-     * Limit how many MccSessions to update.
+     * Limit how many SalesFilms to update.
      */
     limit?: number
   }
 
   /**
-   * MccSession updateManyAndReturn
+   * SalesFilm updateManyAndReturn
    */
-  export type MccSessionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccSession
+     * Select specific fields to fetch from the SalesFilm
      */
-    select?: MccSessionSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: SalesFilmSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the MccSession
+     * Omit specific fields from the SalesFilm
      */
-    omit?: MccSessionOmit<ExtArgs> | null
+    omit?: SalesFilmOmit<ExtArgs> | null
     /**
-     * The data used to update MccSessions.
+     * The data used to update SalesFilms.
      */
-    data: XOR<MccSessionUpdateManyMutationInput, MccSessionUncheckedUpdateManyInput>
+    data: XOR<SalesFilmUpdateManyMutationInput, SalesFilmUncheckedUpdateManyInput>
     /**
-     * Filter which MccSessions to update
+     * Filter which SalesFilms to update
      */
-    where?: MccSessionWhereInput
+    where?: SalesFilmWhereInput
     /**
-     * Limit how many MccSessions to update.
-     */
-    limit?: number
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MccSessionIncludeUpdateManyAndReturn<ExtArgs> | null
-  }
-
-  /**
-   * MccSession upsert
-   */
-  export type MccSessionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccSession
-     */
-    select?: MccSessionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccSession
-     */
-    omit?: MccSessionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MccSessionInclude<ExtArgs> | null
-    /**
-     * The filter to search for the MccSession to update in case it exists.
-     */
-    where: MccSessionWhereUniqueInput
-    /**
-     * In case the MccSession found by the `where` argument doesn't exist, create a new MccSession with this data.
-     */
-    create: XOR<MccSessionCreateInput, MccSessionUncheckedCreateInput>
-    /**
-     * In case the MccSession was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<MccSessionUpdateInput, MccSessionUncheckedUpdateInput>
-  }
-
-  /**
-   * MccSession delete
-   */
-  export type MccSessionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccSession
-     */
-    select?: MccSessionSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccSession
-     */
-    omit?: MccSessionOmit<ExtArgs> | null
-    /**
-     * Choose, which related nodes to fetch as well
-     */
-    include?: MccSessionInclude<ExtArgs> | null
-    /**
-     * Filter which MccSession to delete.
-     */
-    where: MccSessionWhereUniqueInput
-  }
-
-  /**
-   * MccSession deleteMany
-   */
-  export type MccSessionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which MccSessions to delete
-     */
-    where?: MccSessionWhereInput
-    /**
-     * Limit how many MccSessions to delete.
+     * Limit how many SalesFilms to update.
      */
     limit?: number
   }
 
   /**
-   * MccSession without action
+   * SalesFilm upsert
    */
-  export type MccSessionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type SalesFilmUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccSession
+     * Select specific fields to fetch from the SalesFilm
      */
-    select?: MccSessionSelect<ExtArgs> | null
+    select?: SalesFilmSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccSession
+     * Omit specific fields from the SalesFilm
      */
-    omit?: MccSessionOmit<ExtArgs> | null
+    omit?: SalesFilmOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: MccSessionInclude<ExtArgs> | null
+    include?: SalesFilmInclude<ExtArgs> | null
+    /**
+     * The filter to search for the SalesFilm to update in case it exists.
+     */
+    where: SalesFilmWhereUniqueInput
+    /**
+     * In case the SalesFilm found by the `where` argument doesn't exist, create a new SalesFilm with this data.
+     */
+    create: XOR<SalesFilmCreateInput, SalesFilmUncheckedCreateInput>
+    /**
+     * In case the SalesFilm was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<SalesFilmUpdateInput, SalesFilmUncheckedUpdateInput>
+  }
+
+  /**
+   * SalesFilm delete
+   */
+  export type SalesFilmDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalesFilm
+     */
+    select?: SalesFilmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalesFilm
+     */
+    omit?: SalesFilmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalesFilmInclude<ExtArgs> | null
+    /**
+     * Filter which SalesFilm to delete.
+     */
+    where: SalesFilmWhereUniqueInput
+  }
+
+  /**
+   * SalesFilm deleteMany
+   */
+  export type SalesFilmDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which SalesFilms to delete
+     */
+    where?: SalesFilmWhereInput
+    /**
+     * Limit how many SalesFilms to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * SalesFilm.deals
+   */
+  export type SalesFilm$dealsArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deal
+     */
+    select?: DealSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deal
+     */
+    omit?: DealOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DealInclude<ExtArgs> | null
+    where?: DealWhereInput
+    orderBy?: DealOrderByWithRelationInput | DealOrderByWithRelationInput[]
+    cursor?: DealWhereUniqueInput
+    take?: number
+    skip?: number
+    distinct?: DealScalarFieldEnum | DealScalarFieldEnum[]
+  }
+
+  /**
+   * SalesFilm without action
+   */
+  export type SalesFilmDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the SalesFilm
+     */
+    select?: SalesFilmSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the SalesFilm
+     */
+    omit?: SalesFilmOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: SalesFilmInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model EmailDigest
+   * Model Deal
    */
 
-  export type AggregateEmailDigest = {
-    _count: EmailDigestCountAggregateOutputType | null
-    _avg: EmailDigestAvgAggregateOutputType | null
-    _sum: EmailDigestSumAggregateOutputType | null
-    _min: EmailDigestMinAggregateOutputType | null
-    _max: EmailDigestMaxAggregateOutputType | null
+  export type AggregateDeal = {
+    _count: DealCountAggregateOutputType | null
+    _avg: DealAvgAggregateOutputType | null
+    _sum: DealSumAggregateOutputType | null
+    _min: DealMinAggregateOutputType | null
+    _max: DealMaxAggregateOutputType | null
   }
 
-  export type EmailDigestAvgAggregateOutputType = {
-    ai_confidence: number | null
+  export type DealAvgAggregateOutputType = {
+    amount: number | null
   }
 
-  export type EmailDigestSumAggregateOutputType = {
-    ai_confidence: number | null
+  export type DealSumAggregateOutputType = {
+    amount: number | null
   }
 
-  export type EmailDigestMinAggregateOutputType = {
+  export type DealMinAggregateOutputType = {
     id: string | null
-    gmail_id: string | null
-    thread_id: string | null
-    from_address: string | null
-    from_name: string | null
-    subject: string | null
-    snippet: string | null
-    received_at: Date | null
-    is_important: boolean | null
-    is_urgent: boolean | null
-    category: string | null
-    ai_summary: string | null
-    ai_action_items: string | null
-    ai_confidence: number | null
-    read_in_mcc: boolean | null
-    dismissed: boolean | null
-    raw_body_preview: string | null
+    film_id: string | null
+    territory: string | null
+    buyer: string | null
+    status: string | null
+    amount: number | null
+    notes: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type EmailDigestMaxAggregateOutputType = {
+  export type DealMaxAggregateOutputType = {
     id: string | null
-    gmail_id: string | null
-    thread_id: string | null
-    from_address: string | null
-    from_name: string | null
-    subject: string | null
-    snippet: string | null
-    received_at: Date | null
-    is_important: boolean | null
-    is_urgent: boolean | null
-    category: string | null
-    ai_summary: string | null
-    ai_action_items: string | null
-    ai_confidence: number | null
-    read_in_mcc: boolean | null
-    dismissed: boolean | null
-    raw_body_preview: string | null
+    film_id: string | null
+    territory: string | null
+    buyer: string | null
+    status: string | null
+    amount: number | null
+    notes: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type EmailDigestCountAggregateOutputType = {
+  export type DealCountAggregateOutputType = {
     id: number
-    gmail_id: number
-    thread_id: number
-    from_address: number
-    from_name: number
-    subject: number
-    snippet: number
-    received_at: number
-    is_important: number
-    is_urgent: number
-    category: number
-    ai_summary: number
-    ai_action_items: number
-    ai_confidence: number
-    read_in_mcc: number
-    dismissed: number
-    raw_body_preview: number
+    film_id: number
+    territory: number
+    buyer: number
+    status: number
+    amount: number
+    notes: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
-  export type EmailDigestAvgAggregateInputType = {
-    ai_confidence?: true
+  export type DealAvgAggregateInputType = {
+    amount?: true
   }
 
-  export type EmailDigestSumAggregateInputType = {
-    ai_confidence?: true
+  export type DealSumAggregateInputType = {
+    amount?: true
   }
 
-  export type EmailDigestMinAggregateInputType = {
+  export type DealMinAggregateInputType = {
     id?: true
-    gmail_id?: true
-    thread_id?: true
-    from_address?: true
-    from_name?: true
-    subject?: true
-    snippet?: true
-    received_at?: true
-    is_important?: true
-    is_urgent?: true
-    category?: true
-    ai_summary?: true
-    ai_action_items?: true
-    ai_confidence?: true
-    read_in_mcc?: true
-    dismissed?: true
-    raw_body_preview?: true
+    film_id?: true
+    territory?: true
+    buyer?: true
+    status?: true
+    amount?: true
+    notes?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type EmailDigestMaxAggregateInputType = {
+  export type DealMaxAggregateInputType = {
     id?: true
-    gmail_id?: true
-    thread_id?: true
-    from_address?: true
-    from_name?: true
-    subject?: true
-    snippet?: true
-    received_at?: true
-    is_important?: true
-    is_urgent?: true
-    category?: true
-    ai_summary?: true
-    ai_action_items?: true
-    ai_confidence?: true
-    read_in_mcc?: true
-    dismissed?: true
-    raw_body_preview?: true
+    film_id?: true
+    territory?: true
+    buyer?: true
+    status?: true
+    amount?: true
+    notes?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type EmailDigestCountAggregateInputType = {
+  export type DealCountAggregateInputType = {
     id?: true
-    gmail_id?: true
-    thread_id?: true
-    from_address?: true
-    from_name?: true
-    subject?: true
-    snippet?: true
-    received_at?: true
-    is_important?: true
-    is_urgent?: true
-    category?: true
-    ai_summary?: true
-    ai_action_items?: true
-    ai_confidence?: true
-    read_in_mcc?: true
-    dismissed?: true
-    raw_body_preview?: true
+    film_id?: true
+    territory?: true
+    buyer?: true
+    status?: true
+    amount?: true
+    notes?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
   }
 
-  export type EmailDigestAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which EmailDigest to aggregate.
+     * Filter which Deal to aggregate.
      */
-    where?: EmailDigestWhereInput
+    where?: DealWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of EmailDigests to fetch.
+     * Determine the order of Deals to fetch.
      */
-    orderBy?: EmailDigestOrderByWithRelationInput | EmailDigestOrderByWithRelationInput[]
+    orderBy?: DealOrderByWithRelationInput | DealOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: EmailDigestWhereUniqueInput
+    cursor?: DealWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` EmailDigests from the position of the cursor.
+     * Take `±n` Deals from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` EmailDigests.
+     * Skip the first `n` Deals.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned EmailDigests
+     * Count returned Deals
     **/
-    _count?: true | EmailDigestCountAggregateInputType
+    _count?: true | DealCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to average
     **/
-    _avg?: EmailDigestAvgAggregateInputType
+    _avg?: DealAvgAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to sum
     **/
-    _sum?: EmailDigestSumAggregateInputType
+    _sum?: DealSumAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: EmailDigestMinAggregateInputType
+    _min?: DealMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: EmailDigestMaxAggregateInputType
+    _max?: DealMaxAggregateInputType
   }
 
-  export type GetEmailDigestAggregateType<T extends EmailDigestAggregateArgs> = {
-        [P in keyof T & keyof AggregateEmailDigest]: P extends '_count' | 'count'
+  export type GetDealAggregateType<T extends DealAggregateArgs> = {
+        [P in keyof T & keyof AggregateDeal]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateEmailDigest[P]>
-      : GetScalarType<T[P], AggregateEmailDigest[P]>
+        : GetScalarType<T[P], AggregateDeal[P]>
+      : GetScalarType<T[P], AggregateDeal[P]>
   }
 
 
 
 
-  export type EmailDigestGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: EmailDigestWhereInput
-    orderBy?: EmailDigestOrderByWithAggregationInput | EmailDigestOrderByWithAggregationInput[]
-    by: EmailDigestScalarFieldEnum[] | EmailDigestScalarFieldEnum
-    having?: EmailDigestScalarWhereWithAggregatesInput
+  export type DealGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: DealWhereInput
+    orderBy?: DealOrderByWithAggregationInput | DealOrderByWithAggregationInput[]
+    by: DealScalarFieldEnum[] | DealScalarFieldEnum
+    having?: DealScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: EmailDigestCountAggregateInputType | true
-    _avg?: EmailDigestAvgAggregateInputType
-    _sum?: EmailDigestSumAggregateInputType
-    _min?: EmailDigestMinAggregateInputType
-    _max?: EmailDigestMaxAggregateInputType
+    _count?: DealCountAggregateInputType | true
+    _avg?: DealAvgAggregateInputType
+    _sum?: DealSumAggregateInputType
+    _min?: DealMinAggregateInputType
+    _max?: DealMaxAggregateInputType
   }
 
-  export type EmailDigestGroupByOutputType = {
+  export type DealGroupByOutputType = {
     id: string
-    gmail_id: string
-    thread_id: string | null
-    from_address: string
-    from_name: string | null
-    subject: string
-    snippet: string | null
-    received_at: Date
-    is_important: boolean
-    is_urgent: boolean
-    category: string | null
-    ai_summary: string | null
-    ai_action_items: string | null
-    ai_confidence: number | null
-    read_in_mcc: boolean
-    dismissed: boolean
-    raw_body_preview: string | null
+    film_id: string
+    territory: string
+    buyer: string | null
+    status: string
+    amount: number | null
+    notes: string | null
     createdAt: Date
     updatedAt: Date
-    _count: EmailDigestCountAggregateOutputType | null
-    _avg: EmailDigestAvgAggregateOutputType | null
-    _sum: EmailDigestSumAggregateOutputType | null
-    _min: EmailDigestMinAggregateOutputType | null
-    _max: EmailDigestMaxAggregateOutputType | null
+    _count: DealCountAggregateOutputType | null
+    _avg: DealAvgAggregateOutputType | null
+    _sum: DealSumAggregateOutputType | null
+    _min: DealMinAggregateOutputType | null
+    _max: DealMaxAggregateOutputType | null
   }
 
-  type GetEmailDigestGroupByPayload<T extends EmailDigestGroupByArgs> = Prisma.PrismaPromise<
+  type GetDealGroupByPayload<T extends DealGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<EmailDigestGroupByOutputType, T['by']> &
+      PickEnumerable<DealGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof EmailDigestGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof DealGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], EmailDigestGroupByOutputType[P]>
-            : GetScalarType<T[P], EmailDigestGroupByOutputType[P]>
+              : GetScalarType<T[P], DealGroupByOutputType[P]>
+            : GetScalarType<T[P], DealGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type EmailDigestSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DealSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    gmail_id?: boolean
-    thread_id?: boolean
-    from_address?: boolean
-    from_name?: boolean
-    subject?: boolean
-    snippet?: boolean
-    received_at?: boolean
-    is_important?: boolean
-    is_urgent?: boolean
-    category?: boolean
-    ai_summary?: boolean
-    ai_action_items?: boolean
-    ai_confidence?: boolean
-    read_in_mcc?: boolean
-    dismissed?: boolean
-    raw_body_preview?: boolean
+    film_id?: boolean
+    territory?: boolean
+    buyer?: boolean
+    status?: boolean
+    amount?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["emailDigest"]>
+    film?: boolean | SalesFilmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deal"]>
 
-  export type EmailDigestSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DealSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    gmail_id?: boolean
-    thread_id?: boolean
-    from_address?: boolean
-    from_name?: boolean
-    subject?: boolean
-    snippet?: boolean
-    received_at?: boolean
-    is_important?: boolean
-    is_urgent?: boolean
-    category?: boolean
-    ai_summary?: boolean
-    ai_action_items?: boolean
-    ai_confidence?: boolean
-    read_in_mcc?: boolean
-    dismissed?: boolean
-    raw_body_preview?: boolean
+    film_id?: boolean
+    territory?: boolean
+    buyer?: boolean
+    status?: boolean
+    amount?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["emailDigest"]>
+    film?: boolean | SalesFilmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deal"]>
 
-  export type EmailDigestSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type DealSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    gmail_id?: boolean
-    thread_id?: boolean
-    from_address?: boolean
-    from_name?: boolean
-    subject?: boolean
-    snippet?: boolean
-    received_at?: boolean
-    is_important?: boolean
-    is_urgent?: boolean
-    category?: boolean
-    ai_summary?: boolean
-    ai_action_items?: boolean
-    ai_confidence?: boolean
-    read_in_mcc?: boolean
-    dismissed?: boolean
-    raw_body_preview?: boolean
+    film_id?: boolean
+    territory?: boolean
+    buyer?: boolean
+    status?: boolean
+    amount?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["emailDigest"]>
+    film?: boolean | SalesFilmDefaultArgs<ExtArgs>
+  }, ExtArgs["result"]["deal"]>
 
-  export type EmailDigestSelectScalar = {
+  export type DealSelectScalar = {
     id?: boolean
-    gmail_id?: boolean
-    thread_id?: boolean
-    from_address?: boolean
-    from_name?: boolean
-    subject?: boolean
-    snippet?: boolean
-    received_at?: boolean
-    is_important?: boolean
-    is_urgent?: boolean
-    category?: boolean
-    ai_summary?: boolean
-    ai_action_items?: boolean
-    ai_confidence?: boolean
-    read_in_mcc?: boolean
-    dismissed?: boolean
-    raw_body_preview?: boolean
+    film_id?: boolean
+    territory?: boolean
+    buyer?: boolean
+    status?: boolean
+    amount?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type EmailDigestOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "gmail_id" | "thread_id" | "from_address" | "from_name" | "subject" | "snippet" | "received_at" | "is_important" | "is_urgent" | "category" | "ai_summary" | "ai_action_items" | "ai_confidence" | "read_in_mcc" | "dismissed" | "raw_body_preview" | "createdAt" | "updatedAt", ExtArgs["result"]["emailDigest"]>
+  export type DealOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "film_id" | "territory" | "buyer" | "status" | "amount" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["deal"]>
+  export type DealInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    film?: boolean | SalesFilmDefaultArgs<ExtArgs>
+  }
+  export type DealIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    film?: boolean | SalesFilmDefaultArgs<ExtArgs>
+  }
+  export type DealIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    film?: boolean | SalesFilmDefaultArgs<ExtArgs>
+  }
 
-  export type $EmailDigestPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "EmailDigest"
-    objects: {}
+  export type $DealPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Deal"
+    objects: {
+      film: Prisma.$SalesFilmPayload<ExtArgs>
+    }
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      gmail_id: string
-      thread_id: string | null
-      from_address: string
-      from_name: string | null
-      subject: string
-      snippet: string | null
-      received_at: Date
-      is_important: boolean
-      is_urgent: boolean
-      category: string | null
-      ai_summary: string | null
-      ai_action_items: string | null
-      ai_confidence: number | null
-      read_in_mcc: boolean
-      dismissed: boolean
-      raw_body_preview: string | null
+      film_id: string
+      territory: string
+      buyer: string | null
+      status: string
+      amount: number | null
+      notes: string | null
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["emailDigest"]>
+    }, ExtArgs["result"]["deal"]>
     composites: {}
   }
 
-  type EmailDigestGetPayload<S extends boolean | null | undefined | EmailDigestDefaultArgs> = $Result.GetResult<Prisma.$EmailDigestPayload, S>
+  type DealGetPayload<S extends boolean | null | undefined | DealDefaultArgs> = $Result.GetResult<Prisma.$DealPayload, S>
 
-  type EmailDigestCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<EmailDigestFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: EmailDigestCountAggregateInputType | true
+  type DealCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<DealFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: DealCountAggregateInputType | true
     }
 
-  export interface EmailDigestDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['EmailDigest'], meta: { name: 'EmailDigest' } }
+  export interface DealDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Deal'], meta: { name: 'Deal' } }
     /**
-     * Find zero or one EmailDigest that matches the filter.
-     * @param {EmailDigestFindUniqueArgs} args - Arguments to find a EmailDigest
+     * Find zero or one Deal that matches the filter.
+     * @param {DealFindUniqueArgs} args - Arguments to find a Deal
      * @example
-     * // Get one EmailDigest
-     * const emailDigest = await prisma.emailDigest.findUnique({
+     * // Get one Deal
+     * const deal = await prisma.deal.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends EmailDigestFindUniqueArgs>(args: SelectSubset<T, EmailDigestFindUniqueArgs<ExtArgs>>): Prisma__EmailDigestClient<$Result.GetResult<Prisma.$EmailDigestPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends DealFindUniqueArgs>(args: SelectSubset<T, DealFindUniqueArgs<ExtArgs>>): Prisma__DealClient<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one EmailDigest that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Deal that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {EmailDigestFindUniqueOrThrowArgs} args - Arguments to find a EmailDigest
+     * @param {DealFindUniqueOrThrowArgs} args - Arguments to find a Deal
      * @example
-     * // Get one EmailDigest
-     * const emailDigest = await prisma.emailDigest.findUniqueOrThrow({
+     * // Get one Deal
+     * const deal = await prisma.deal.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends EmailDigestFindUniqueOrThrowArgs>(args: SelectSubset<T, EmailDigestFindUniqueOrThrowArgs<ExtArgs>>): Prisma__EmailDigestClient<$Result.GetResult<Prisma.$EmailDigestPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends DealFindUniqueOrThrowArgs>(args: SelectSubset<T, DealFindUniqueOrThrowArgs<ExtArgs>>): Prisma__DealClient<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first EmailDigest that matches the filter.
+     * Find the first Deal that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailDigestFindFirstArgs} args - Arguments to find a EmailDigest
+     * @param {DealFindFirstArgs} args - Arguments to find a Deal
      * @example
-     * // Get one EmailDigest
-     * const emailDigest = await prisma.emailDigest.findFirst({
+     * // Get one Deal
+     * const deal = await prisma.deal.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends EmailDigestFindFirstArgs>(args?: SelectSubset<T, EmailDigestFindFirstArgs<ExtArgs>>): Prisma__EmailDigestClient<$Result.GetResult<Prisma.$EmailDigestPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends DealFindFirstArgs>(args?: SelectSubset<T, DealFindFirstArgs<ExtArgs>>): Prisma__DealClient<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first EmailDigest that matches the filter or
+     * Find the first Deal that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailDigestFindFirstOrThrowArgs} args - Arguments to find a EmailDigest
+     * @param {DealFindFirstOrThrowArgs} args - Arguments to find a Deal
      * @example
-     * // Get one EmailDigest
-     * const emailDigest = await prisma.emailDigest.findFirstOrThrow({
+     * // Get one Deal
+     * const deal = await prisma.deal.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends EmailDigestFindFirstOrThrowArgs>(args?: SelectSubset<T, EmailDigestFindFirstOrThrowArgs<ExtArgs>>): Prisma__EmailDigestClient<$Result.GetResult<Prisma.$EmailDigestPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends DealFindFirstOrThrowArgs>(args?: SelectSubset<T, DealFindFirstOrThrowArgs<ExtArgs>>): Prisma__DealClient<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more EmailDigests that matches the filter.
+     * Find zero or more Deals that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailDigestFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {DealFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all EmailDigests
-     * const emailDigests = await prisma.emailDigest.findMany()
+     * // Get all Deals
+     * const deals = await prisma.deal.findMany()
      * 
-     * // Get first 10 EmailDigests
-     * const emailDigests = await prisma.emailDigest.findMany({ take: 10 })
+     * // Get first 10 Deals
+     * const deals = await prisma.deal.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const emailDigestWithIdOnly = await prisma.emailDigest.findMany({ select: { id: true } })
+     * const dealWithIdOnly = await prisma.deal.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends EmailDigestFindManyArgs>(args?: SelectSubset<T, EmailDigestFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmailDigestPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends DealFindManyArgs>(args?: SelectSubset<T, DealFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a EmailDigest.
-     * @param {EmailDigestCreateArgs} args - Arguments to create a EmailDigest.
+     * Create a Deal.
+     * @param {DealCreateArgs} args - Arguments to create a Deal.
      * @example
-     * // Create one EmailDigest
-     * const EmailDigest = await prisma.emailDigest.create({
+     * // Create one Deal
+     * const Deal = await prisma.deal.create({
      *   data: {
-     *     // ... data to create a EmailDigest
+     *     // ... data to create a Deal
      *   }
      * })
      * 
      */
-    create<T extends EmailDigestCreateArgs>(args: SelectSubset<T, EmailDigestCreateArgs<ExtArgs>>): Prisma__EmailDigestClient<$Result.GetResult<Prisma.$EmailDigestPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends DealCreateArgs>(args: SelectSubset<T, DealCreateArgs<ExtArgs>>): Prisma__DealClient<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many EmailDigests.
-     * @param {EmailDigestCreateManyArgs} args - Arguments to create many EmailDigests.
+     * Create many Deals.
+     * @param {DealCreateManyArgs} args - Arguments to create many Deals.
      * @example
-     * // Create many EmailDigests
-     * const emailDigest = await prisma.emailDigest.createMany({
+     * // Create many Deals
+     * const deal = await prisma.deal.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends EmailDigestCreateManyArgs>(args?: SelectSubset<T, EmailDigestCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends DealCreateManyArgs>(args?: SelectSubset<T, DealCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many EmailDigests and returns the data saved in the database.
-     * @param {EmailDigestCreateManyAndReturnArgs} args - Arguments to create many EmailDigests.
+     * Create many Deals and returns the data saved in the database.
+     * @param {DealCreateManyAndReturnArgs} args - Arguments to create many Deals.
      * @example
-     * // Create many EmailDigests
-     * const emailDigest = await prisma.emailDigest.createManyAndReturn({
+     * // Create many Deals
+     * const deal = await prisma.deal.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many EmailDigests and only return the `id`
-     * const emailDigestWithIdOnly = await prisma.emailDigest.createManyAndReturn({
+     * // Create many Deals and only return the `id`
+     * const dealWithIdOnly = await prisma.deal.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -17206,28 +17133,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends EmailDigestCreateManyAndReturnArgs>(args?: SelectSubset<T, EmailDigestCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmailDigestPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends DealCreateManyAndReturnArgs>(args?: SelectSubset<T, DealCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a EmailDigest.
-     * @param {EmailDigestDeleteArgs} args - Arguments to delete one EmailDigest.
+     * Delete a Deal.
+     * @param {DealDeleteArgs} args - Arguments to delete one Deal.
      * @example
-     * // Delete one EmailDigest
-     * const EmailDigest = await prisma.emailDigest.delete({
+     * // Delete one Deal
+     * const Deal = await prisma.deal.delete({
      *   where: {
-     *     // ... filter to delete one EmailDigest
+     *     // ... filter to delete one Deal
      *   }
      * })
      * 
      */
-    delete<T extends EmailDigestDeleteArgs>(args: SelectSubset<T, EmailDigestDeleteArgs<ExtArgs>>): Prisma__EmailDigestClient<$Result.GetResult<Prisma.$EmailDigestPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends DealDeleteArgs>(args: SelectSubset<T, DealDeleteArgs<ExtArgs>>): Prisma__DealClient<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one EmailDigest.
-     * @param {EmailDigestUpdateArgs} args - Arguments to update one EmailDigest.
+     * Update one Deal.
+     * @param {DealUpdateArgs} args - Arguments to update one Deal.
      * @example
-     * // Update one EmailDigest
-     * const emailDigest = await prisma.emailDigest.update({
+     * // Update one Deal
+     * const deal = await prisma.deal.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -17237,30 +17164,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends EmailDigestUpdateArgs>(args: SelectSubset<T, EmailDigestUpdateArgs<ExtArgs>>): Prisma__EmailDigestClient<$Result.GetResult<Prisma.$EmailDigestPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends DealUpdateArgs>(args: SelectSubset<T, DealUpdateArgs<ExtArgs>>): Prisma__DealClient<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more EmailDigests.
-     * @param {EmailDigestDeleteManyArgs} args - Arguments to filter EmailDigests to delete.
+     * Delete zero or more Deals.
+     * @param {DealDeleteManyArgs} args - Arguments to filter Deals to delete.
      * @example
-     * // Delete a few EmailDigests
-     * const { count } = await prisma.emailDigest.deleteMany({
+     * // Delete a few Deals
+     * const { count } = await prisma.deal.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends EmailDigestDeleteManyArgs>(args?: SelectSubset<T, EmailDigestDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends DealDeleteManyArgs>(args?: SelectSubset<T, DealDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more EmailDigests.
+     * Update zero or more Deals.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailDigestUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {DealUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many EmailDigests
-     * const emailDigest = await prisma.emailDigest.updateMany({
+     * // Update many Deals
+     * const deal = await prisma.deal.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -17270,14 +17197,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends EmailDigestUpdateManyArgs>(args: SelectSubset<T, EmailDigestUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends DealUpdateManyArgs>(args: SelectSubset<T, DealUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more EmailDigests and returns the data updated in the database.
-     * @param {EmailDigestUpdateManyAndReturnArgs} args - Arguments to update many EmailDigests.
+     * Update zero or more Deals and returns the data updated in the database.
+     * @param {DealUpdateManyAndReturnArgs} args - Arguments to update many Deals.
      * @example
-     * // Update many EmailDigests
-     * const emailDigest = await prisma.emailDigest.updateManyAndReturn({
+     * // Update many Deals
+     * const deal = await prisma.deal.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -17286,8 +17213,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more EmailDigests and only return the `id`
-     * const emailDigestWithIdOnly = await prisma.emailDigest.updateManyAndReturn({
+     * // Update zero or more Deals and only return the `id`
+     * const dealWithIdOnly = await prisma.deal.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -17300,56 +17227,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends EmailDigestUpdateManyAndReturnArgs>(args: SelectSubset<T, EmailDigestUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$EmailDigestPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends DealUpdateManyAndReturnArgs>(args: SelectSubset<T, DealUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one EmailDigest.
-     * @param {EmailDigestUpsertArgs} args - Arguments to update or create a EmailDigest.
+     * Create or update one Deal.
+     * @param {DealUpsertArgs} args - Arguments to update or create a Deal.
      * @example
-     * // Update or create a EmailDigest
-     * const emailDigest = await prisma.emailDigest.upsert({
+     * // Update or create a Deal
+     * const deal = await prisma.deal.upsert({
      *   create: {
-     *     // ... data to create a EmailDigest
+     *     // ... data to create a Deal
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the EmailDigest we want to update
+     *     // ... the filter for the Deal we want to update
      *   }
      * })
      */
-    upsert<T extends EmailDigestUpsertArgs>(args: SelectSubset<T, EmailDigestUpsertArgs<ExtArgs>>): Prisma__EmailDigestClient<$Result.GetResult<Prisma.$EmailDigestPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends DealUpsertArgs>(args: SelectSubset<T, DealUpsertArgs<ExtArgs>>): Prisma__DealClient<$Result.GetResult<Prisma.$DealPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of EmailDigests.
+     * Count the number of Deals.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailDigestCountArgs} args - Arguments to filter EmailDigests to count.
+     * @param {DealCountArgs} args - Arguments to filter Deals to count.
      * @example
-     * // Count the number of EmailDigests
-     * const count = await prisma.emailDigest.count({
+     * // Count the number of Deals
+     * const count = await prisma.deal.count({
      *   where: {
-     *     // ... the filter for the EmailDigests we want to count
+     *     // ... the filter for the Deals we want to count
      *   }
      * })
     **/
-    count<T extends EmailDigestCountArgs>(
-      args?: Subset<T, EmailDigestCountArgs>,
+    count<T extends DealCountArgs>(
+      args?: Subset<T, DealCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], EmailDigestCountAggregateOutputType>
+          : GetScalarType<T['select'], DealCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a EmailDigest.
+     * Allows you to perform aggregations operations on a Deal.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailDigestAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {DealAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -17369,13 +17296,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends EmailDigestAggregateArgs>(args: Subset<T, EmailDigestAggregateArgs>): Prisma.PrismaPromise<GetEmailDigestAggregateType<T>>
+    aggregate<T extends DealAggregateArgs>(args: Subset<T, DealAggregateArgs>): Prisma.PrismaPromise<GetDealAggregateType<T>>
 
     /**
-     * Group by EmailDigest.
+     * Group by Deal.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {EmailDigestGroupByArgs} args - Group by arguments.
+     * @param {DealGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -17390,14 +17317,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends EmailDigestGroupByArgs,
+      T extends DealGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: EmailDigestGroupByArgs['orderBy'] }
-        : { orderBy?: EmailDigestGroupByArgs['orderBy'] },
+        ? { orderBy: DealGroupByArgs['orderBy'] }
+        : { orderBy?: DealGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -17446,21 +17373,22 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, EmailDigestGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetEmailDigestGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, DealGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetDealGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the EmailDigest model
+   * Fields of the Deal model
    */
-  readonly fields: EmailDigestFieldRefs;
+  readonly fields: DealFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for EmailDigest.
+   * The delegate class that acts as a "Promise-like" for Deal.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__EmailDigestClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__DealClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
+    film<T extends SalesFilmDefaultArgs<ExtArgs> = {}>(args?: Subset<T, SalesFilmDefaultArgs<ExtArgs>>): Prisma__SalesFilmClient<$Result.GetResult<Prisma.$SalesFilmPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -17487,2985 +17415,2941 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the EmailDigest model
+   * Fields of the Deal model
    */
-  interface EmailDigestFieldRefs {
-    readonly id: FieldRef<"EmailDigest", 'String'>
-    readonly gmail_id: FieldRef<"EmailDigest", 'String'>
-    readonly thread_id: FieldRef<"EmailDigest", 'String'>
-    readonly from_address: FieldRef<"EmailDigest", 'String'>
-    readonly from_name: FieldRef<"EmailDigest", 'String'>
-    readonly subject: FieldRef<"EmailDigest", 'String'>
-    readonly snippet: FieldRef<"EmailDigest", 'String'>
-    readonly received_at: FieldRef<"EmailDigest", 'DateTime'>
-    readonly is_important: FieldRef<"EmailDigest", 'Boolean'>
-    readonly is_urgent: FieldRef<"EmailDigest", 'Boolean'>
-    readonly category: FieldRef<"EmailDigest", 'String'>
-    readonly ai_summary: FieldRef<"EmailDigest", 'String'>
-    readonly ai_action_items: FieldRef<"EmailDigest", 'String'>
-    readonly ai_confidence: FieldRef<"EmailDigest", 'Float'>
-    readonly read_in_mcc: FieldRef<"EmailDigest", 'Boolean'>
-    readonly dismissed: FieldRef<"EmailDigest", 'Boolean'>
-    readonly raw_body_preview: FieldRef<"EmailDigest", 'String'>
-    readonly createdAt: FieldRef<"EmailDigest", 'DateTime'>
-    readonly updatedAt: FieldRef<"EmailDigest", 'DateTime'>
+  interface DealFieldRefs {
+    readonly id: FieldRef<"Deal", 'String'>
+    readonly film_id: FieldRef<"Deal", 'String'>
+    readonly territory: FieldRef<"Deal", 'String'>
+    readonly buyer: FieldRef<"Deal", 'String'>
+    readonly status: FieldRef<"Deal", 'String'>
+    readonly amount: FieldRef<"Deal", 'Float'>
+    readonly notes: FieldRef<"Deal", 'String'>
+    readonly createdAt: FieldRef<"Deal", 'DateTime'>
+    readonly updatedAt: FieldRef<"Deal", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * EmailDigest findUnique
+   * Deal findUnique
    */
-  export type EmailDigestFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EmailDigest
+     * Select specific fields to fetch from the Deal
      */
-    select?: EmailDigestSelect<ExtArgs> | null
+    select?: DealSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the EmailDigest
+     * Omit specific fields from the Deal
      */
-    omit?: EmailDigestOmit<ExtArgs> | null
+    omit?: DealOmit<ExtArgs> | null
     /**
-     * Filter, which EmailDigest to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: EmailDigestWhereUniqueInput
+    include?: DealInclude<ExtArgs> | null
+    /**
+     * Filter, which Deal to fetch.
+     */
+    where: DealWhereUniqueInput
   }
 
   /**
-   * EmailDigest findUniqueOrThrow
+   * Deal findUniqueOrThrow
    */
-  export type EmailDigestFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EmailDigest
+     * Select specific fields to fetch from the Deal
      */
-    select?: EmailDigestSelect<ExtArgs> | null
+    select?: DealSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the EmailDigest
+     * Omit specific fields from the Deal
      */
-    omit?: EmailDigestOmit<ExtArgs> | null
+    omit?: DealOmit<ExtArgs> | null
     /**
-     * Filter, which EmailDigest to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where: EmailDigestWhereUniqueInput
+    include?: DealInclude<ExtArgs> | null
+    /**
+     * Filter, which Deal to fetch.
+     */
+    where: DealWhereUniqueInput
   }
 
   /**
-   * EmailDigest findFirst
+   * Deal findFirst
    */
-  export type EmailDigestFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EmailDigest
+     * Select specific fields to fetch from the Deal
      */
-    select?: EmailDigestSelect<ExtArgs> | null
+    select?: DealSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the EmailDigest
+     * Omit specific fields from the Deal
      */
-    omit?: EmailDigestOmit<ExtArgs> | null
+    omit?: DealOmit<ExtArgs> | null
     /**
-     * Filter, which EmailDigest to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: EmailDigestWhereInput
+    include?: DealInclude<ExtArgs> | null
+    /**
+     * Filter, which Deal to fetch.
+     */
+    where?: DealWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of EmailDigests to fetch.
+     * Determine the order of Deals to fetch.
      */
-    orderBy?: EmailDigestOrderByWithRelationInput | EmailDigestOrderByWithRelationInput[]
+    orderBy?: DealOrderByWithRelationInput | DealOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for EmailDigests.
+     * Sets the position for searching for Deals.
      */
-    cursor?: EmailDigestWhereUniqueInput
+    cursor?: DealWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` EmailDigests from the position of the cursor.
+     * Take `±n` Deals from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` EmailDigests.
+     * Skip the first `n` Deals.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of EmailDigests.
+     * Filter by unique combinations of Deals.
      */
-    distinct?: EmailDigestScalarFieldEnum | EmailDigestScalarFieldEnum[]
+    distinct?: DealScalarFieldEnum | DealScalarFieldEnum[]
   }
 
   /**
-   * EmailDigest findFirstOrThrow
+   * Deal findFirstOrThrow
    */
-  export type EmailDigestFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EmailDigest
+     * Select specific fields to fetch from the Deal
      */
-    select?: EmailDigestSelect<ExtArgs> | null
+    select?: DealSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the EmailDigest
+     * Omit specific fields from the Deal
      */
-    omit?: EmailDigestOmit<ExtArgs> | null
+    omit?: DealOmit<ExtArgs> | null
     /**
-     * Filter, which EmailDigest to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: EmailDigestWhereInput
+    include?: DealInclude<ExtArgs> | null
+    /**
+     * Filter, which Deal to fetch.
+     */
+    where?: DealWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of EmailDigests to fetch.
+     * Determine the order of Deals to fetch.
      */
-    orderBy?: EmailDigestOrderByWithRelationInput | EmailDigestOrderByWithRelationInput[]
+    orderBy?: DealOrderByWithRelationInput | DealOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for EmailDigests.
+     * Sets the position for searching for Deals.
      */
-    cursor?: EmailDigestWhereUniqueInput
+    cursor?: DealWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` EmailDigests from the position of the cursor.
+     * Take `±n` Deals from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` EmailDigests.
+     * Skip the first `n` Deals.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of EmailDigests.
+     * Filter by unique combinations of Deals.
      */
-    distinct?: EmailDigestScalarFieldEnum | EmailDigestScalarFieldEnum[]
+    distinct?: DealScalarFieldEnum | DealScalarFieldEnum[]
   }
 
   /**
-   * EmailDigest findMany
+   * Deal findMany
    */
-  export type EmailDigestFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EmailDigest
+     * Select specific fields to fetch from the Deal
      */
-    select?: EmailDigestSelect<ExtArgs> | null
+    select?: DealSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the EmailDigest
+     * Omit specific fields from the Deal
      */
-    omit?: EmailDigestOmit<ExtArgs> | null
+    omit?: DealOmit<ExtArgs> | null
     /**
-     * Filter, which EmailDigests to fetch.
+     * Choose, which related nodes to fetch as well
      */
-    where?: EmailDigestWhereInput
+    include?: DealInclude<ExtArgs> | null
+    /**
+     * Filter, which Deals to fetch.
+     */
+    where?: DealWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of EmailDigests to fetch.
+     * Determine the order of Deals to fetch.
      */
-    orderBy?: EmailDigestOrderByWithRelationInput | EmailDigestOrderByWithRelationInput[]
+    orderBy?: DealOrderByWithRelationInput | DealOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing EmailDigests.
+     * Sets the position for listing Deals.
      */
-    cursor?: EmailDigestWhereUniqueInput
+    cursor?: DealWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` EmailDigests from the position of the cursor.
+     * Take `±n` Deals from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` EmailDigests.
+     * Skip the first `n` Deals.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of EmailDigests.
+     * Filter by unique combinations of Deals.
      */
-    distinct?: EmailDigestScalarFieldEnum | EmailDigestScalarFieldEnum[]
+    distinct?: DealScalarFieldEnum | DealScalarFieldEnum[]
   }
 
   /**
-   * EmailDigest create
+   * Deal create
    */
-  export type EmailDigestCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EmailDigest
+     * Select specific fields to fetch from the Deal
      */
-    select?: EmailDigestSelect<ExtArgs> | null
+    select?: DealSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the EmailDigest
+     * Omit specific fields from the Deal
      */
-    omit?: EmailDigestOmit<ExtArgs> | null
+    omit?: DealOmit<ExtArgs> | null
     /**
-     * The data needed to create a EmailDigest.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<EmailDigestCreateInput, EmailDigestUncheckedCreateInput>
+    include?: DealInclude<ExtArgs> | null
+    /**
+     * The data needed to create a Deal.
+     */
+    data: XOR<DealCreateInput, DealUncheckedCreateInput>
   }
 
   /**
-   * EmailDigest createMany
+   * Deal createMany
    */
-  export type EmailDigestCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many EmailDigests.
+     * The data used to create many Deals.
      */
-    data: EmailDigestCreateManyInput | EmailDigestCreateManyInput[]
+    data: DealCreateManyInput | DealCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * EmailDigest createManyAndReturn
+   * Deal createManyAndReturn
    */
-  export type EmailDigestCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EmailDigest
+     * Select specific fields to fetch from the Deal
      */
-    select?: EmailDigestSelectCreateManyAndReturn<ExtArgs> | null
+    select?: DealSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the EmailDigest
+     * Omit specific fields from the Deal
      */
-    omit?: EmailDigestOmit<ExtArgs> | null
+    omit?: DealOmit<ExtArgs> | null
     /**
-     * The data used to create many EmailDigests.
+     * The data used to create many Deals.
      */
-    data: EmailDigestCreateManyInput | EmailDigestCreateManyInput[]
+    data: DealCreateManyInput | DealCreateManyInput[]
     skipDuplicates?: boolean
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DealIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * EmailDigest update
+   * Deal update
    */
-  export type EmailDigestUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EmailDigest
+     * Select specific fields to fetch from the Deal
      */
-    select?: EmailDigestSelect<ExtArgs> | null
+    select?: DealSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the EmailDigest
+     * Omit specific fields from the Deal
      */
-    omit?: EmailDigestOmit<ExtArgs> | null
+    omit?: DealOmit<ExtArgs> | null
     /**
-     * The data needed to update a EmailDigest.
+     * Choose, which related nodes to fetch as well
      */
-    data: XOR<EmailDigestUpdateInput, EmailDigestUncheckedUpdateInput>
+    include?: DealInclude<ExtArgs> | null
     /**
-     * Choose, which EmailDigest to update.
+     * The data needed to update a Deal.
      */
-    where: EmailDigestWhereUniqueInput
+    data: XOR<DealUpdateInput, DealUncheckedUpdateInput>
+    /**
+     * Choose, which Deal to update.
+     */
+    where: DealWhereUniqueInput
   }
 
   /**
-   * EmailDigest updateMany
+   * Deal updateMany
    */
-  export type EmailDigestUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update EmailDigests.
+     * The data used to update Deals.
      */
-    data: XOR<EmailDigestUpdateManyMutationInput, EmailDigestUncheckedUpdateManyInput>
+    data: XOR<DealUpdateManyMutationInput, DealUncheckedUpdateManyInput>
     /**
-     * Filter which EmailDigests to update
+     * Filter which Deals to update
      */
-    where?: EmailDigestWhereInput
+    where?: DealWhereInput
     /**
-     * Limit how many EmailDigests to update.
+     * Limit how many Deals to update.
      */
     limit?: number
   }
 
   /**
-   * EmailDigest updateManyAndReturn
+   * Deal updateManyAndReturn
    */
-  export type EmailDigestUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EmailDigest
+     * Select specific fields to fetch from the Deal
      */
-    select?: EmailDigestSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: DealSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the EmailDigest
+     * Omit specific fields from the Deal
      */
-    omit?: EmailDigestOmit<ExtArgs> | null
+    omit?: DealOmit<ExtArgs> | null
     /**
-     * The data used to update EmailDigests.
+     * The data used to update Deals.
      */
-    data: XOR<EmailDigestUpdateManyMutationInput, EmailDigestUncheckedUpdateManyInput>
+    data: XOR<DealUpdateManyMutationInput, DealUncheckedUpdateManyInput>
     /**
-     * Filter which EmailDigests to update
+     * Filter which Deals to update
      */
-    where?: EmailDigestWhereInput
+    where?: DealWhereInput
     /**
-     * Limit how many EmailDigests to update.
+     * Limit how many Deals to update.
+     */
+    limit?: number
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DealIncludeUpdateManyAndReturn<ExtArgs> | null
+  }
+
+  /**
+   * Deal upsert
+   */
+  export type DealUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deal
+     */
+    select?: DealSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deal
+     */
+    omit?: DealOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DealInclude<ExtArgs> | null
+    /**
+     * The filter to search for the Deal to update in case it exists.
+     */
+    where: DealWhereUniqueInput
+    /**
+     * In case the Deal found by the `where` argument doesn't exist, create a new Deal with this data.
+     */
+    create: XOR<DealCreateInput, DealUncheckedCreateInput>
+    /**
+     * In case the Deal was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<DealUpdateInput, DealUncheckedUpdateInput>
+  }
+
+  /**
+   * Deal delete
+   */
+  export type DealDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Deal
+     */
+    select?: DealSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Deal
+     */
+    omit?: DealOmit<ExtArgs> | null
+    /**
+     * Choose, which related nodes to fetch as well
+     */
+    include?: DealInclude<ExtArgs> | null
+    /**
+     * Filter which Deal to delete.
+     */
+    where: DealWhereUniqueInput
+  }
+
+  /**
+   * Deal deleteMany
+   */
+  export type DealDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Deals to delete
+     */
+    where?: DealWhereInput
+    /**
+     * Limit how many Deals to delete.
      */
     limit?: number
   }
 
   /**
-   * EmailDigest upsert
+   * Deal without action
    */
-  export type EmailDigestUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type DealDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the EmailDigest
+     * Select specific fields to fetch from the Deal
      */
-    select?: EmailDigestSelect<ExtArgs> | null
+    select?: DealSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the EmailDigest
+     * Omit specific fields from the Deal
      */
-    omit?: EmailDigestOmit<ExtArgs> | null
+    omit?: DealOmit<ExtArgs> | null
     /**
-     * The filter to search for the EmailDigest to update in case it exists.
+     * Choose, which related nodes to fetch as well
      */
-    where: EmailDigestWhereUniqueInput
-    /**
-     * In case the EmailDigest found by the `where` argument doesn't exist, create a new EmailDigest with this data.
-     */
-    create: XOR<EmailDigestCreateInput, EmailDigestUncheckedCreateInput>
-    /**
-     * In case the EmailDigest was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<EmailDigestUpdateInput, EmailDigestUncheckedUpdateInput>
-  }
-
-  /**
-   * EmailDigest delete
-   */
-  export type EmailDigestDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the EmailDigest
-     */
-    select?: EmailDigestSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the EmailDigest
-     */
-    omit?: EmailDigestOmit<ExtArgs> | null
-    /**
-     * Filter which EmailDigest to delete.
-     */
-    where: EmailDigestWhereUniqueInput
-  }
-
-  /**
-   * EmailDigest deleteMany
-   */
-  export type EmailDigestDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which EmailDigests to delete
-     */
-    where?: EmailDigestWhereInput
-    /**
-     * Limit how many EmailDigests to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * EmailDigest without action
-   */
-  export type EmailDigestDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the EmailDigest
-     */
-    select?: EmailDigestSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the EmailDigest
-     */
-    omit?: EmailDigestOmit<ExtArgs> | null
+    include?: DealInclude<ExtArgs> | null
   }
 
 
   /**
-   * Model CalendarEvent
+   * Model Acquisition
    */
 
-  export type AggregateCalendarEvent = {
-    _count: CalendarEventCountAggregateOutputType | null
-    _min: CalendarEventMinAggregateOutputType | null
-    _max: CalendarEventMaxAggregateOutputType | null
+  export type AggregateAcquisition = {
+    _count: AcquisitionCountAggregateOutputType | null
+    _avg: AcquisitionAvgAggregateOutputType | null
+    _sum: AcquisitionSumAggregateOutputType | null
+    _min: AcquisitionMinAggregateOutputType | null
+    _max: AcquisitionMaxAggregateOutputType | null
   }
 
-  export type CalendarEventMinAggregateOutputType = {
-    id: string | null
-    google_event_id: string | null
-    title: string | null
-    description: string | null
-    start_time: Date | null
-    end_time: Date | null
-    location: string | null
-    meet_link: string | null
-    attendees: string | null
-    is_important: boolean | null
-    ai_prep_notes: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
+  export type AcquisitionAvgAggregateOutputType = {
+    budget: number | null
   }
 
-  export type CalendarEventMaxAggregateOutputType = {
-    id: string | null
-    google_event_id: string | null
-    title: string | null
-    description: string | null
-    start_time: Date | null
-    end_time: Date | null
-    location: string | null
-    meet_link: string | null
-    attendees: string | null
-    is_important: boolean | null
-    ai_prep_notes: string | null
-    createdAt: Date | null
-    updatedAt: Date | null
+  export type AcquisitionSumAggregateOutputType = {
+    budget: number | null
   }
 
-  export type CalendarEventCountAggregateOutputType = {
-    id: number
-    google_event_id: number
-    title: number
-    description: number
-    start_time: number
-    end_time: number
-    location: number
-    meet_link: number
-    attendees: number
-    is_important: number
-    ai_prep_notes: number
-    createdAt: number
-    updatedAt: number
-    _all: number
-  }
-
-
-  export type CalendarEventMinAggregateInputType = {
-    id?: true
-    google_event_id?: true
-    title?: true
-    description?: true
-    start_time?: true
-    end_time?: true
-    location?: true
-    meet_link?: true
-    attendees?: true
-    is_important?: true
-    ai_prep_notes?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type CalendarEventMaxAggregateInputType = {
-    id?: true
-    google_event_id?: true
-    title?: true
-    description?: true
-    start_time?: true
-    end_time?: true
-    location?: true
-    meet_link?: true
-    attendees?: true
-    is_important?: true
-    ai_prep_notes?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type CalendarEventCountAggregateInputType = {
-    id?: true
-    google_event_id?: true
-    title?: true
-    description?: true
-    start_time?: true
-    end_time?: true
-    location?: true
-    meet_link?: true
-    attendees?: true
-    is_important?: true
-    ai_prep_notes?: true
-    createdAt?: true
-    updatedAt?: true
-    _all?: true
-  }
-
-  export type CalendarEventAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which CalendarEvent to aggregate.
-     */
-    where?: CalendarEventWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of CalendarEvents to fetch.
-     */
-    orderBy?: CalendarEventOrderByWithRelationInput | CalendarEventOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: CalendarEventWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` CalendarEvents from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` CalendarEvents.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned CalendarEvents
-    **/
-    _count?: true | CalendarEventCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: CalendarEventMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: CalendarEventMaxAggregateInputType
-  }
-
-  export type GetCalendarEventAggregateType<T extends CalendarEventAggregateArgs> = {
-        [P in keyof T & keyof AggregateCalendarEvent]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateCalendarEvent[P]>
-      : GetScalarType<T[P], AggregateCalendarEvent[P]>
-  }
-
-
-
-
-  export type CalendarEventGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: CalendarEventWhereInput
-    orderBy?: CalendarEventOrderByWithAggregationInput | CalendarEventOrderByWithAggregationInput[]
-    by: CalendarEventScalarFieldEnum[] | CalendarEventScalarFieldEnum
-    having?: CalendarEventScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: CalendarEventCountAggregateInputType | true
-    _min?: CalendarEventMinAggregateInputType
-    _max?: CalendarEventMaxAggregateInputType
-  }
-
-  export type CalendarEventGroupByOutputType = {
-    id: string
-    google_event_id: string
-    title: string
-    description: string | null
-    start_time: Date
-    end_time: Date
-    location: string | null
-    meet_link: string | null
-    attendees: string | null
-    is_important: boolean
-    ai_prep_notes: string | null
-    createdAt: Date
-    updatedAt: Date
-    _count: CalendarEventCountAggregateOutputType | null
-    _min: CalendarEventMinAggregateOutputType | null
-    _max: CalendarEventMaxAggregateOutputType | null
-  }
-
-  type GetCalendarEventGroupByPayload<T extends CalendarEventGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<CalendarEventGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof CalendarEventGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], CalendarEventGroupByOutputType[P]>
-            : GetScalarType<T[P], CalendarEventGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type CalendarEventSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    google_event_id?: boolean
-    title?: boolean
-    description?: boolean
-    start_time?: boolean
-    end_time?: boolean
-    location?: boolean
-    meet_link?: boolean
-    attendees?: boolean
-    is_important?: boolean
-    ai_prep_notes?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["calendarEvent"]>
-
-  export type CalendarEventSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    google_event_id?: boolean
-    title?: boolean
-    description?: boolean
-    start_time?: boolean
-    end_time?: boolean
-    location?: boolean
-    meet_link?: boolean
-    attendees?: boolean
-    is_important?: boolean
-    ai_prep_notes?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["calendarEvent"]>
-
-  export type CalendarEventSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    google_event_id?: boolean
-    title?: boolean
-    description?: boolean
-    start_time?: boolean
-    end_time?: boolean
-    location?: boolean
-    meet_link?: boolean
-    attendees?: boolean
-    is_important?: boolean
-    ai_prep_notes?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["calendarEvent"]>
-
-  export type CalendarEventSelectScalar = {
-    id?: boolean
-    google_event_id?: boolean
-    title?: boolean
-    description?: boolean
-    start_time?: boolean
-    end_time?: boolean
-    location?: boolean
-    meet_link?: boolean
-    attendees?: boolean
-    is_important?: boolean
-    ai_prep_notes?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }
-
-  export type CalendarEventOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "google_event_id" | "title" | "description" | "start_time" | "end_time" | "location" | "meet_link" | "attendees" | "is_important" | "ai_prep_notes" | "createdAt" | "updatedAt", ExtArgs["result"]["calendarEvent"]>
-
-  export type $CalendarEventPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "CalendarEvent"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      google_event_id: string
-      title: string
-      description: string | null
-      start_time: Date
-      end_time: Date
-      location: string | null
-      meet_link: string | null
-      attendees: string | null
-      is_important: boolean
-      ai_prep_notes: string | null
-      createdAt: Date
-      updatedAt: Date
-    }, ExtArgs["result"]["calendarEvent"]>
-    composites: {}
-  }
-
-  type CalendarEventGetPayload<S extends boolean | null | undefined | CalendarEventDefaultArgs> = $Result.GetResult<Prisma.$CalendarEventPayload, S>
-
-  type CalendarEventCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<CalendarEventFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: CalendarEventCountAggregateInputType | true
-    }
-
-  export interface CalendarEventDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['CalendarEvent'], meta: { name: 'CalendarEvent' } }
-    /**
-     * Find zero or one CalendarEvent that matches the filter.
-     * @param {CalendarEventFindUniqueArgs} args - Arguments to find a CalendarEvent
-     * @example
-     * // Get one CalendarEvent
-     * const calendarEvent = await prisma.calendarEvent.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends CalendarEventFindUniqueArgs>(args: SelectSubset<T, CalendarEventFindUniqueArgs<ExtArgs>>): Prisma__CalendarEventClient<$Result.GetResult<Prisma.$CalendarEventPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one CalendarEvent that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {CalendarEventFindUniqueOrThrowArgs} args - Arguments to find a CalendarEvent
-     * @example
-     * // Get one CalendarEvent
-     * const calendarEvent = await prisma.calendarEvent.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends CalendarEventFindUniqueOrThrowArgs>(args: SelectSubset<T, CalendarEventFindUniqueOrThrowArgs<ExtArgs>>): Prisma__CalendarEventClient<$Result.GetResult<Prisma.$CalendarEventPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first CalendarEvent that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarEventFindFirstArgs} args - Arguments to find a CalendarEvent
-     * @example
-     * // Get one CalendarEvent
-     * const calendarEvent = await prisma.calendarEvent.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends CalendarEventFindFirstArgs>(args?: SelectSubset<T, CalendarEventFindFirstArgs<ExtArgs>>): Prisma__CalendarEventClient<$Result.GetResult<Prisma.$CalendarEventPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first CalendarEvent that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarEventFindFirstOrThrowArgs} args - Arguments to find a CalendarEvent
-     * @example
-     * // Get one CalendarEvent
-     * const calendarEvent = await prisma.calendarEvent.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends CalendarEventFindFirstOrThrowArgs>(args?: SelectSubset<T, CalendarEventFindFirstOrThrowArgs<ExtArgs>>): Prisma__CalendarEventClient<$Result.GetResult<Prisma.$CalendarEventPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more CalendarEvents that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarEventFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all CalendarEvents
-     * const calendarEvents = await prisma.calendarEvent.findMany()
-     * 
-     * // Get first 10 CalendarEvents
-     * const calendarEvents = await prisma.calendarEvent.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const calendarEventWithIdOnly = await prisma.calendarEvent.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends CalendarEventFindManyArgs>(args?: SelectSubset<T, CalendarEventFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalendarEventPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a CalendarEvent.
-     * @param {CalendarEventCreateArgs} args - Arguments to create a CalendarEvent.
-     * @example
-     * // Create one CalendarEvent
-     * const CalendarEvent = await prisma.calendarEvent.create({
-     *   data: {
-     *     // ... data to create a CalendarEvent
-     *   }
-     * })
-     * 
-     */
-    create<T extends CalendarEventCreateArgs>(args: SelectSubset<T, CalendarEventCreateArgs<ExtArgs>>): Prisma__CalendarEventClient<$Result.GetResult<Prisma.$CalendarEventPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many CalendarEvents.
-     * @param {CalendarEventCreateManyArgs} args - Arguments to create many CalendarEvents.
-     * @example
-     * // Create many CalendarEvents
-     * const calendarEvent = await prisma.calendarEvent.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends CalendarEventCreateManyArgs>(args?: SelectSubset<T, CalendarEventCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many CalendarEvents and returns the data saved in the database.
-     * @param {CalendarEventCreateManyAndReturnArgs} args - Arguments to create many CalendarEvents.
-     * @example
-     * // Create many CalendarEvents
-     * const calendarEvent = await prisma.calendarEvent.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many CalendarEvents and only return the `id`
-     * const calendarEventWithIdOnly = await prisma.calendarEvent.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends CalendarEventCreateManyAndReturnArgs>(args?: SelectSubset<T, CalendarEventCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalendarEventPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a CalendarEvent.
-     * @param {CalendarEventDeleteArgs} args - Arguments to delete one CalendarEvent.
-     * @example
-     * // Delete one CalendarEvent
-     * const CalendarEvent = await prisma.calendarEvent.delete({
-     *   where: {
-     *     // ... filter to delete one CalendarEvent
-     *   }
-     * })
-     * 
-     */
-    delete<T extends CalendarEventDeleteArgs>(args: SelectSubset<T, CalendarEventDeleteArgs<ExtArgs>>): Prisma__CalendarEventClient<$Result.GetResult<Prisma.$CalendarEventPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one CalendarEvent.
-     * @param {CalendarEventUpdateArgs} args - Arguments to update one CalendarEvent.
-     * @example
-     * // Update one CalendarEvent
-     * const calendarEvent = await prisma.calendarEvent.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends CalendarEventUpdateArgs>(args: SelectSubset<T, CalendarEventUpdateArgs<ExtArgs>>): Prisma__CalendarEventClient<$Result.GetResult<Prisma.$CalendarEventPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more CalendarEvents.
-     * @param {CalendarEventDeleteManyArgs} args - Arguments to filter CalendarEvents to delete.
-     * @example
-     * // Delete a few CalendarEvents
-     * const { count } = await prisma.calendarEvent.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends CalendarEventDeleteManyArgs>(args?: SelectSubset<T, CalendarEventDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more CalendarEvents.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarEventUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many CalendarEvents
-     * const calendarEvent = await prisma.calendarEvent.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends CalendarEventUpdateManyArgs>(args: SelectSubset<T, CalendarEventUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more CalendarEvents and returns the data updated in the database.
-     * @param {CalendarEventUpdateManyAndReturnArgs} args - Arguments to update many CalendarEvents.
-     * @example
-     * // Update many CalendarEvents
-     * const calendarEvent = await prisma.calendarEvent.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more CalendarEvents and only return the `id`
-     * const calendarEventWithIdOnly = await prisma.calendarEvent.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends CalendarEventUpdateManyAndReturnArgs>(args: SelectSubset<T, CalendarEventUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$CalendarEventPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one CalendarEvent.
-     * @param {CalendarEventUpsertArgs} args - Arguments to update or create a CalendarEvent.
-     * @example
-     * // Update or create a CalendarEvent
-     * const calendarEvent = await prisma.calendarEvent.upsert({
-     *   create: {
-     *     // ... data to create a CalendarEvent
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the CalendarEvent we want to update
-     *   }
-     * })
-     */
-    upsert<T extends CalendarEventUpsertArgs>(args: SelectSubset<T, CalendarEventUpsertArgs<ExtArgs>>): Prisma__CalendarEventClient<$Result.GetResult<Prisma.$CalendarEventPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of CalendarEvents.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarEventCountArgs} args - Arguments to filter CalendarEvents to count.
-     * @example
-     * // Count the number of CalendarEvents
-     * const count = await prisma.calendarEvent.count({
-     *   where: {
-     *     // ... the filter for the CalendarEvents we want to count
-     *   }
-     * })
-    **/
-    count<T extends CalendarEventCountArgs>(
-      args?: Subset<T, CalendarEventCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], CalendarEventCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a CalendarEvent.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarEventAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends CalendarEventAggregateArgs>(args: Subset<T, CalendarEventAggregateArgs>): Prisma.PrismaPromise<GetCalendarEventAggregateType<T>>
-
-    /**
-     * Group by CalendarEvent.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {CalendarEventGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends CalendarEventGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: CalendarEventGroupByArgs['orderBy'] }
-        : { orderBy?: CalendarEventGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, CalendarEventGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetCalendarEventGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the CalendarEvent model
-   */
-  readonly fields: CalendarEventFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for CalendarEvent.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__CalendarEventClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the CalendarEvent model
-   */
-  interface CalendarEventFieldRefs {
-    readonly id: FieldRef<"CalendarEvent", 'String'>
-    readonly google_event_id: FieldRef<"CalendarEvent", 'String'>
-    readonly title: FieldRef<"CalendarEvent", 'String'>
-    readonly description: FieldRef<"CalendarEvent", 'String'>
-    readonly start_time: FieldRef<"CalendarEvent", 'DateTime'>
-    readonly end_time: FieldRef<"CalendarEvent", 'DateTime'>
-    readonly location: FieldRef<"CalendarEvent", 'String'>
-    readonly meet_link: FieldRef<"CalendarEvent", 'String'>
-    readonly attendees: FieldRef<"CalendarEvent", 'String'>
-    readonly is_important: FieldRef<"CalendarEvent", 'Boolean'>
-    readonly ai_prep_notes: FieldRef<"CalendarEvent", 'String'>
-    readonly createdAt: FieldRef<"CalendarEvent", 'DateTime'>
-    readonly updatedAt: FieldRef<"CalendarEvent", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * CalendarEvent findUnique
-   */
-  export type CalendarEventFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-    /**
-     * Filter, which CalendarEvent to fetch.
-     */
-    where: CalendarEventWhereUniqueInput
-  }
-
-  /**
-   * CalendarEvent findUniqueOrThrow
-   */
-  export type CalendarEventFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-    /**
-     * Filter, which CalendarEvent to fetch.
-     */
-    where: CalendarEventWhereUniqueInput
-  }
-
-  /**
-   * CalendarEvent findFirst
-   */
-  export type CalendarEventFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-    /**
-     * Filter, which CalendarEvent to fetch.
-     */
-    where?: CalendarEventWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of CalendarEvents to fetch.
-     */
-    orderBy?: CalendarEventOrderByWithRelationInput | CalendarEventOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for CalendarEvents.
-     */
-    cursor?: CalendarEventWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` CalendarEvents from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` CalendarEvents.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of CalendarEvents.
-     */
-    distinct?: CalendarEventScalarFieldEnum | CalendarEventScalarFieldEnum[]
-  }
-
-  /**
-   * CalendarEvent findFirstOrThrow
-   */
-  export type CalendarEventFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-    /**
-     * Filter, which CalendarEvent to fetch.
-     */
-    where?: CalendarEventWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of CalendarEvents to fetch.
-     */
-    orderBy?: CalendarEventOrderByWithRelationInput | CalendarEventOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for CalendarEvents.
-     */
-    cursor?: CalendarEventWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` CalendarEvents from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` CalendarEvents.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of CalendarEvents.
-     */
-    distinct?: CalendarEventScalarFieldEnum | CalendarEventScalarFieldEnum[]
-  }
-
-  /**
-   * CalendarEvent findMany
-   */
-  export type CalendarEventFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-    /**
-     * Filter, which CalendarEvents to fetch.
-     */
-    where?: CalendarEventWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of CalendarEvents to fetch.
-     */
-    orderBy?: CalendarEventOrderByWithRelationInput | CalendarEventOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing CalendarEvents.
-     */
-    cursor?: CalendarEventWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` CalendarEvents from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` CalendarEvents.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of CalendarEvents.
-     */
-    distinct?: CalendarEventScalarFieldEnum | CalendarEventScalarFieldEnum[]
-  }
-
-  /**
-   * CalendarEvent create
-   */
-  export type CalendarEventCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-    /**
-     * The data needed to create a CalendarEvent.
-     */
-    data: XOR<CalendarEventCreateInput, CalendarEventUncheckedCreateInput>
-  }
-
-  /**
-   * CalendarEvent createMany
-   */
-  export type CalendarEventCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many CalendarEvents.
-     */
-    data: CalendarEventCreateManyInput | CalendarEventCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * CalendarEvent createManyAndReturn
-   */
-  export type CalendarEventCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-    /**
-     * The data used to create many CalendarEvents.
-     */
-    data: CalendarEventCreateManyInput | CalendarEventCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * CalendarEvent update
-   */
-  export type CalendarEventUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-    /**
-     * The data needed to update a CalendarEvent.
-     */
-    data: XOR<CalendarEventUpdateInput, CalendarEventUncheckedUpdateInput>
-    /**
-     * Choose, which CalendarEvent to update.
-     */
-    where: CalendarEventWhereUniqueInput
-  }
-
-  /**
-   * CalendarEvent updateMany
-   */
-  export type CalendarEventUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update CalendarEvents.
-     */
-    data: XOR<CalendarEventUpdateManyMutationInput, CalendarEventUncheckedUpdateManyInput>
-    /**
-     * Filter which CalendarEvents to update
-     */
-    where?: CalendarEventWhereInput
-    /**
-     * Limit how many CalendarEvents to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * CalendarEvent updateManyAndReturn
-   */
-  export type CalendarEventUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-    /**
-     * The data used to update CalendarEvents.
-     */
-    data: XOR<CalendarEventUpdateManyMutationInput, CalendarEventUncheckedUpdateManyInput>
-    /**
-     * Filter which CalendarEvents to update
-     */
-    where?: CalendarEventWhereInput
-    /**
-     * Limit how many CalendarEvents to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * CalendarEvent upsert
-   */
-  export type CalendarEventUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-    /**
-     * The filter to search for the CalendarEvent to update in case it exists.
-     */
-    where: CalendarEventWhereUniqueInput
-    /**
-     * In case the CalendarEvent found by the `where` argument doesn't exist, create a new CalendarEvent with this data.
-     */
-    create: XOR<CalendarEventCreateInput, CalendarEventUncheckedCreateInput>
-    /**
-     * In case the CalendarEvent was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<CalendarEventUpdateInput, CalendarEventUncheckedUpdateInput>
-  }
-
-  /**
-   * CalendarEvent delete
-   */
-  export type CalendarEventDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-    /**
-     * Filter which CalendarEvent to delete.
-     */
-    where: CalendarEventWhereUniqueInput
-  }
-
-  /**
-   * CalendarEvent deleteMany
-   */
-  export type CalendarEventDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which CalendarEvents to delete
-     */
-    where?: CalendarEventWhereInput
-    /**
-     * Limit how many CalendarEvents to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * CalendarEvent without action
-   */
-  export type CalendarEventDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the CalendarEvent
-     */
-    select?: CalendarEventSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the CalendarEvent
-     */
-    omit?: CalendarEventOmit<ExtArgs> | null
-  }
-
-
-  /**
-   * Model MccAlert
-   */
-
-  export type AggregateMccAlert = {
-    _count: MccAlertCountAggregateOutputType | null
-    _min: MccAlertMinAggregateOutputType | null
-    _max: MccAlertMaxAggregateOutputType | null
-  }
-
-  export type MccAlertMinAggregateOutputType = {
-    id: string | null
-    type: string | null
-    severity: string | null
-    title: string | null
-    message: string | null
-    source_type: string | null
-    source_id: string | null
-    acknowledged: boolean | null
-    sent_to_cliq: boolean | null
-    cliq_sent_at: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type MccAlertMaxAggregateOutputType = {
-    id: string | null
-    type: string | null
-    severity: string | null
-    title: string | null
-    message: string | null
-    source_type: string | null
-    source_id: string | null
-    acknowledged: boolean | null
-    sent_to_cliq: boolean | null
-    cliq_sent_at: Date | null
-    createdAt: Date | null
-    updatedAt: Date | null
-  }
-
-  export type MccAlertCountAggregateOutputType = {
-    id: number
-    type: number
-    severity: number
-    title: number
-    message: number
-    source_type: number
-    source_id: number
-    acknowledged: number
-    sent_to_cliq: number
-    cliq_sent_at: number
-    createdAt: number
-    updatedAt: number
-    _all: number
-  }
-
-
-  export type MccAlertMinAggregateInputType = {
-    id?: true
-    type?: true
-    severity?: true
-    title?: true
-    message?: true
-    source_type?: true
-    source_id?: true
-    acknowledged?: true
-    sent_to_cliq?: true
-    cliq_sent_at?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type MccAlertMaxAggregateInputType = {
-    id?: true
-    type?: true
-    severity?: true
-    title?: true
-    message?: true
-    source_type?: true
-    source_id?: true
-    acknowledged?: true
-    sent_to_cliq?: true
-    cliq_sent_at?: true
-    createdAt?: true
-    updatedAt?: true
-  }
-
-  export type MccAlertCountAggregateInputType = {
-    id?: true
-    type?: true
-    severity?: true
-    title?: true
-    message?: true
-    source_type?: true
-    source_id?: true
-    acknowledged?: true
-    sent_to_cliq?: true
-    cliq_sent_at?: true
-    createdAt?: true
-    updatedAt?: true
-    _all?: true
-  }
-
-  export type MccAlertAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which MccAlert to aggregate.
-     */
-    where?: MccAlertWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MccAlerts to fetch.
-     */
-    orderBy?: MccAlertOrderByWithRelationInput | MccAlertOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the start position
-     */
-    cursor?: MccAlertWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MccAlerts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MccAlerts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Count returned MccAlerts
-    **/
-    _count?: true | MccAlertCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the minimum value
-    **/
-    _min?: MccAlertMinAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to find the maximum value
-    **/
-    _max?: MccAlertMaxAggregateInputType
-  }
-
-  export type GetMccAlertAggregateType<T extends MccAlertAggregateArgs> = {
-        [P in keyof T & keyof AggregateMccAlert]: P extends '_count' | 'count'
-      ? T[P] extends true
-        ? number
-        : GetScalarType<T[P], AggregateMccAlert[P]>
-      : GetScalarType<T[P], AggregateMccAlert[P]>
-  }
-
-
-
-
-  export type MccAlertGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MccAlertWhereInput
-    orderBy?: MccAlertOrderByWithAggregationInput | MccAlertOrderByWithAggregationInput[]
-    by: MccAlertScalarFieldEnum[] | MccAlertScalarFieldEnum
-    having?: MccAlertScalarWhereWithAggregatesInput
-    take?: number
-    skip?: number
-    _count?: MccAlertCountAggregateInputType | true
-    _min?: MccAlertMinAggregateInputType
-    _max?: MccAlertMaxAggregateInputType
-  }
-
-  export type MccAlertGroupByOutputType = {
-    id: string
-    type: string
-    severity: string
-    title: string
-    message: string
-    source_type: string | null
-    source_id: string | null
-    acknowledged: boolean
-    sent_to_cliq: boolean
-    cliq_sent_at: Date | null
-    createdAt: Date
-    updatedAt: Date
-    _count: MccAlertCountAggregateOutputType | null
-    _min: MccAlertMinAggregateOutputType | null
-    _max: MccAlertMaxAggregateOutputType | null
-  }
-
-  type GetMccAlertGroupByPayload<T extends MccAlertGroupByArgs> = Prisma.PrismaPromise<
-    Array<
-      PickEnumerable<MccAlertGroupByOutputType, T['by']> &
-        {
-          [P in ((keyof T) & (keyof MccAlertGroupByOutputType))]: P extends '_count'
-            ? T[P] extends boolean
-              ? number
-              : GetScalarType<T[P], MccAlertGroupByOutputType[P]>
-            : GetScalarType<T[P], MccAlertGroupByOutputType[P]>
-        }
-      >
-    >
-
-
-  export type MccAlertSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    type?: boolean
-    severity?: boolean
-    title?: boolean
-    message?: boolean
-    source_type?: boolean
-    source_id?: boolean
-    acknowledged?: boolean
-    sent_to_cliq?: boolean
-    cliq_sent_at?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["mccAlert"]>
-
-  export type MccAlertSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    type?: boolean
-    severity?: boolean
-    title?: boolean
-    message?: boolean
-    source_type?: boolean
-    source_id?: boolean
-    acknowledged?: boolean
-    sent_to_cliq?: boolean
-    cliq_sent_at?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["mccAlert"]>
-
-  export type MccAlertSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
-    id?: boolean
-    type?: boolean
-    severity?: boolean
-    title?: boolean
-    message?: boolean
-    source_type?: boolean
-    source_id?: boolean
-    acknowledged?: boolean
-    sent_to_cliq?: boolean
-    cliq_sent_at?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }, ExtArgs["result"]["mccAlert"]>
-
-  export type MccAlertSelectScalar = {
-    id?: boolean
-    type?: boolean
-    severity?: boolean
-    title?: boolean
-    message?: boolean
-    source_type?: boolean
-    source_id?: boolean
-    acknowledged?: boolean
-    sent_to_cliq?: boolean
-    cliq_sent_at?: boolean
-    createdAt?: boolean
-    updatedAt?: boolean
-  }
-
-  export type MccAlertOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "type" | "severity" | "title" | "message" | "source_type" | "source_id" | "acknowledged" | "sent_to_cliq" | "cliq_sent_at" | "createdAt" | "updatedAt", ExtArgs["result"]["mccAlert"]>
-
-  export type $MccAlertPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "MccAlert"
-    objects: {}
-    scalars: $Extensions.GetPayloadResult<{
-      id: string
-      type: string
-      severity: string
-      title: string
-      message: string
-      source_type: string | null
-      source_id: string | null
-      acknowledged: boolean
-      sent_to_cliq: boolean
-      cliq_sent_at: Date | null
-      createdAt: Date
-      updatedAt: Date
-    }, ExtArgs["result"]["mccAlert"]>
-    composites: {}
-  }
-
-  type MccAlertGetPayload<S extends boolean | null | undefined | MccAlertDefaultArgs> = $Result.GetResult<Prisma.$MccAlertPayload, S>
-
-  type MccAlertCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<MccAlertFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: MccAlertCountAggregateInputType | true
-    }
-
-  export interface MccAlertDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MccAlert'], meta: { name: 'MccAlert' } }
-    /**
-     * Find zero or one MccAlert that matches the filter.
-     * @param {MccAlertFindUniqueArgs} args - Arguments to find a MccAlert
-     * @example
-     * // Get one MccAlert
-     * const mccAlert = await prisma.mccAlert.findUnique({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUnique<T extends MccAlertFindUniqueArgs>(args: SelectSubset<T, MccAlertFindUniqueArgs<ExtArgs>>): Prisma__MccAlertClient<$Result.GetResult<Prisma.$MccAlertPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find one MccAlert that matches the filter or throw an error with `error.code='P2025'`
-     * if no matches were found.
-     * @param {MccAlertFindUniqueOrThrowArgs} args - Arguments to find a MccAlert
-     * @example
-     * // Get one MccAlert
-     * const mccAlert = await prisma.mccAlert.findUniqueOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findUniqueOrThrow<T extends MccAlertFindUniqueOrThrowArgs>(args: SelectSubset<T, MccAlertFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MccAlertClient<$Result.GetResult<Prisma.$MccAlertPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first MccAlert that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccAlertFindFirstArgs} args - Arguments to find a MccAlert
-     * @example
-     * // Get one MccAlert
-     * const mccAlert = await prisma.mccAlert.findFirst({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirst<T extends MccAlertFindFirstArgs>(args?: SelectSubset<T, MccAlertFindFirstArgs<ExtArgs>>): Prisma__MccAlertClient<$Result.GetResult<Prisma.$MccAlertPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find the first MccAlert that matches the filter or
-     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccAlertFindFirstOrThrowArgs} args - Arguments to find a MccAlert
-     * @example
-     * // Get one MccAlert
-     * const mccAlert = await prisma.mccAlert.findFirstOrThrow({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     */
-    findFirstOrThrow<T extends MccAlertFindFirstOrThrowArgs>(args?: SelectSubset<T, MccAlertFindFirstOrThrowArgs<ExtArgs>>): Prisma__MccAlertClient<$Result.GetResult<Prisma.$MccAlertPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Find zero or more MccAlerts that matches the filter.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccAlertFindManyArgs} args - Arguments to filter and select certain fields only.
-     * @example
-     * // Get all MccAlerts
-     * const mccAlerts = await prisma.mccAlert.findMany()
-     * 
-     * // Get first 10 MccAlerts
-     * const mccAlerts = await prisma.mccAlert.findMany({ take: 10 })
-     * 
-     * // Only select the `id`
-     * const mccAlertWithIdOnly = await prisma.mccAlert.findMany({ select: { id: true } })
-     * 
-     */
-    findMany<T extends MccAlertFindManyArgs>(args?: SelectSubset<T, MccAlertFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccAlertPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
-
-    /**
-     * Create a MccAlert.
-     * @param {MccAlertCreateArgs} args - Arguments to create a MccAlert.
-     * @example
-     * // Create one MccAlert
-     * const MccAlert = await prisma.mccAlert.create({
-     *   data: {
-     *     // ... data to create a MccAlert
-     *   }
-     * })
-     * 
-     */
-    create<T extends MccAlertCreateArgs>(args: SelectSubset<T, MccAlertCreateArgs<ExtArgs>>): Prisma__MccAlertClient<$Result.GetResult<Prisma.$MccAlertPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Create many MccAlerts.
-     * @param {MccAlertCreateManyArgs} args - Arguments to create many MccAlerts.
-     * @example
-     * // Create many MccAlerts
-     * const mccAlert = await prisma.mccAlert.createMany({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     *     
-     */
-    createMany<T extends MccAlertCreateManyArgs>(args?: SelectSubset<T, MccAlertCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Create many MccAlerts and returns the data saved in the database.
-     * @param {MccAlertCreateManyAndReturnArgs} args - Arguments to create many MccAlerts.
-     * @example
-     * // Create many MccAlerts
-     * const mccAlert = await prisma.mccAlert.createManyAndReturn({
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Create many MccAlerts and only return the `id`
-     * const mccAlertWithIdOnly = await prisma.mccAlert.createManyAndReturn({
-     *   select: { id: true },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    createManyAndReturn<T extends MccAlertCreateManyAndReturnArgs>(args?: SelectSubset<T, MccAlertCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccAlertPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Delete a MccAlert.
-     * @param {MccAlertDeleteArgs} args - Arguments to delete one MccAlert.
-     * @example
-     * // Delete one MccAlert
-     * const MccAlert = await prisma.mccAlert.delete({
-     *   where: {
-     *     // ... filter to delete one MccAlert
-     *   }
-     * })
-     * 
-     */
-    delete<T extends MccAlertDeleteArgs>(args: SelectSubset<T, MccAlertDeleteArgs<ExtArgs>>): Prisma__MccAlertClient<$Result.GetResult<Prisma.$MccAlertPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Update one MccAlert.
-     * @param {MccAlertUpdateArgs} args - Arguments to update one MccAlert.
-     * @example
-     * // Update one MccAlert
-     * const mccAlert = await prisma.mccAlert.update({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    update<T extends MccAlertUpdateArgs>(args: SelectSubset<T, MccAlertUpdateArgs<ExtArgs>>): Prisma__MccAlertClient<$Result.GetResult<Prisma.$MccAlertPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-    /**
-     * Delete zero or more MccAlerts.
-     * @param {MccAlertDeleteManyArgs} args - Arguments to filter MccAlerts to delete.
-     * @example
-     * // Delete a few MccAlerts
-     * const { count } = await prisma.mccAlert.deleteMany({
-     *   where: {
-     *     // ... provide filter here
-     *   }
-     * })
-     * 
-     */
-    deleteMany<T extends MccAlertDeleteManyArgs>(args?: SelectSubset<T, MccAlertDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more MccAlerts.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccAlertUpdateManyArgs} args - Arguments to update one or more rows.
-     * @example
-     * // Update many MccAlerts
-     * const mccAlert = await prisma.mccAlert.updateMany({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: {
-     *     // ... provide data here
-     *   }
-     * })
-     * 
-     */
-    updateMany<T extends MccAlertUpdateManyArgs>(args: SelectSubset<T, MccAlertUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
-
-    /**
-     * Update zero or more MccAlerts and returns the data updated in the database.
-     * @param {MccAlertUpdateManyAndReturnArgs} args - Arguments to update many MccAlerts.
-     * @example
-     * // Update many MccAlerts
-     * const mccAlert = await prisma.mccAlert.updateManyAndReturn({
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * 
-     * // Update zero or more MccAlerts and only return the `id`
-     * const mccAlertWithIdOnly = await prisma.mccAlert.updateManyAndReturn({
-     *   select: { id: true },
-     *   where: {
-     *     // ... provide filter here
-     *   },
-     *   data: [
-     *     // ... provide data here
-     *   ]
-     * })
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * 
-     */
-    updateManyAndReturn<T extends MccAlertUpdateManyAndReturnArgs>(args: SelectSubset<T, MccAlertUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccAlertPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
-
-    /**
-     * Create or update one MccAlert.
-     * @param {MccAlertUpsertArgs} args - Arguments to update or create a MccAlert.
-     * @example
-     * // Update or create a MccAlert
-     * const mccAlert = await prisma.mccAlert.upsert({
-     *   create: {
-     *     // ... data to create a MccAlert
-     *   },
-     *   update: {
-     *     // ... in case it already exists, update
-     *   },
-     *   where: {
-     *     // ... the filter for the MccAlert we want to update
-     *   }
-     * })
-     */
-    upsert<T extends MccAlertUpsertArgs>(args: SelectSubset<T, MccAlertUpsertArgs<ExtArgs>>): Prisma__MccAlertClient<$Result.GetResult<Prisma.$MccAlertPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
-
-
-    /**
-     * Count the number of MccAlerts.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccAlertCountArgs} args - Arguments to filter MccAlerts to count.
-     * @example
-     * // Count the number of MccAlerts
-     * const count = await prisma.mccAlert.count({
-     *   where: {
-     *     // ... the filter for the MccAlerts we want to count
-     *   }
-     * })
-    **/
-    count<T extends MccAlertCountArgs>(
-      args?: Subset<T, MccAlertCountArgs>,
-    ): Prisma.PrismaPromise<
-      T extends $Utils.Record<'select', any>
-        ? T['select'] extends true
-          ? number
-          : GetScalarType<T['select'], MccAlertCountAggregateOutputType>
-        : number
-    >
-
-    /**
-     * Allows you to perform aggregations operations on a MccAlert.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccAlertAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
-     * @example
-     * // Ordered by age ascending
-     * // Where email contains prisma.io
-     * // Limited to the 10 users
-     * const aggregations = await prisma.user.aggregate({
-     *   _avg: {
-     *     age: true,
-     *   },
-     *   where: {
-     *     email: {
-     *       contains: "prisma.io",
-     *     },
-     *   },
-     *   orderBy: {
-     *     age: "asc",
-     *   },
-     *   take: 10,
-     * })
-    **/
-    aggregate<T extends MccAlertAggregateArgs>(args: Subset<T, MccAlertAggregateArgs>): Prisma.PrismaPromise<GetMccAlertAggregateType<T>>
-
-    /**
-     * Group by MccAlert.
-     * Note, that providing `undefined` is treated as the value not being there.
-     * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccAlertGroupByArgs} args - Group by arguments.
-     * @example
-     * // Group by city, order by createdAt, get count
-     * const result = await prisma.user.groupBy({
-     *   by: ['city', 'createdAt'],
-     *   orderBy: {
-     *     createdAt: true
-     *   },
-     *   _count: {
-     *     _all: true
-     *   },
-     * })
-     * 
-    **/
-    groupBy<
-      T extends MccAlertGroupByArgs,
-      HasSelectOrTake extends Or<
-        Extends<'skip', Keys<T>>,
-        Extends<'take', Keys<T>>
-      >,
-      OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: MccAlertGroupByArgs['orderBy'] }
-        : { orderBy?: MccAlertGroupByArgs['orderBy'] },
-      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
-      ByFields extends MaybeTupleToUnion<T['by']>,
-      ByValid extends Has<ByFields, OrderFields>,
-      HavingFields extends GetHavingFields<T['having']>,
-      HavingValid extends Has<ByFields, HavingFields>,
-      ByEmpty extends T['by'] extends never[] ? True : False,
-      InputErrors extends ByEmpty extends True
-      ? `Error: "by" must not be empty.`
-      : HavingValid extends False
-      ? {
-          [P in HavingFields]: P extends ByFields
-            ? never
-            : P extends string
-            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
-            : [
-                Error,
-                'Field ',
-                P,
-                ` in "having" needs to be provided in "by"`,
-              ]
-        }[HavingFields]
-      : 'take' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "take", you also need to provide "orderBy"'
-      : 'skip' extends Keys<T>
-      ? 'orderBy' extends Keys<T>
-        ? ByValid extends True
-          ? {}
-          : {
-              [P in OrderFields]: P extends ByFields
-                ? never
-                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-            }[OrderFields]
-        : 'Error: If you provide "skip", you also need to provide "orderBy"'
-      : ByValid extends True
-      ? {}
-      : {
-          [P in OrderFields]: P extends ByFields
-            ? never
-            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
-        }[OrderFields]
-    >(args: SubsetIntersection<T, MccAlertGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMccAlertGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
-  /**
-   * Fields of the MccAlert model
-   */
-  readonly fields: MccAlertFieldRefs;
-  }
-
-  /**
-   * The delegate class that acts as a "Promise-like" for MccAlert.
-   * Why is this prefixed with `Prisma__`?
-   * Because we want to prevent naming conflicts as mentioned in
-   * https://github.com/prisma/prisma-client-js/issues/707
-   */
-  export interface Prisma__MccAlertClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
-    readonly [Symbol.toStringTag]: "PrismaPromise"
-    /**
-     * Attaches callbacks for the resolution and/or rejection of the Promise.
-     * @param onfulfilled The callback to execute when the Promise is resolved.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of which ever callback is executed.
-     */
-    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
-    /**
-     * Attaches a callback for only the rejection of the Promise.
-     * @param onrejected The callback to execute when the Promise is rejected.
-     * @returns A Promise for the completion of the callback.
-     */
-    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
-    /**
-     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
-     * resolved value cannot be modified from the callback.
-     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
-     * @returns A Promise for the completion of the callback.
-     */
-    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
-  }
-
-
-
-
-  /**
-   * Fields of the MccAlert model
-   */
-  interface MccAlertFieldRefs {
-    readonly id: FieldRef<"MccAlert", 'String'>
-    readonly type: FieldRef<"MccAlert", 'String'>
-    readonly severity: FieldRef<"MccAlert", 'String'>
-    readonly title: FieldRef<"MccAlert", 'String'>
-    readonly message: FieldRef<"MccAlert", 'String'>
-    readonly source_type: FieldRef<"MccAlert", 'String'>
-    readonly source_id: FieldRef<"MccAlert", 'String'>
-    readonly acknowledged: FieldRef<"MccAlert", 'Boolean'>
-    readonly sent_to_cliq: FieldRef<"MccAlert", 'Boolean'>
-    readonly cliq_sent_at: FieldRef<"MccAlert", 'DateTime'>
-    readonly createdAt: FieldRef<"MccAlert", 'DateTime'>
-    readonly updatedAt: FieldRef<"MccAlert", 'DateTime'>
-  }
-    
-
-  // Custom InputTypes
-  /**
-   * MccAlert findUnique
-   */
-  export type MccAlertFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-    /**
-     * Filter, which MccAlert to fetch.
-     */
-    where: MccAlertWhereUniqueInput
-  }
-
-  /**
-   * MccAlert findUniqueOrThrow
-   */
-  export type MccAlertFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-    /**
-     * Filter, which MccAlert to fetch.
-     */
-    where: MccAlertWhereUniqueInput
-  }
-
-  /**
-   * MccAlert findFirst
-   */
-  export type MccAlertFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-    /**
-     * Filter, which MccAlert to fetch.
-     */
-    where?: MccAlertWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MccAlerts to fetch.
-     */
-    orderBy?: MccAlertOrderByWithRelationInput | MccAlertOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for MccAlerts.
-     */
-    cursor?: MccAlertWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MccAlerts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MccAlerts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of MccAlerts.
-     */
-    distinct?: MccAlertScalarFieldEnum | MccAlertScalarFieldEnum[]
-  }
-
-  /**
-   * MccAlert findFirstOrThrow
-   */
-  export type MccAlertFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-    /**
-     * Filter, which MccAlert to fetch.
-     */
-    where?: MccAlertWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MccAlerts to fetch.
-     */
-    orderBy?: MccAlertOrderByWithRelationInput | MccAlertOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for searching for MccAlerts.
-     */
-    cursor?: MccAlertWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MccAlerts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MccAlerts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of MccAlerts.
-     */
-    distinct?: MccAlertScalarFieldEnum | MccAlertScalarFieldEnum[]
-  }
-
-  /**
-   * MccAlert findMany
-   */
-  export type MccAlertFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-    /**
-     * Filter, which MccAlerts to fetch.
-     */
-    where?: MccAlertWhereInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
-     * 
-     * Determine the order of MccAlerts to fetch.
-     */
-    orderBy?: MccAlertOrderByWithRelationInput | MccAlertOrderByWithRelationInput[]
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
-     * 
-     * Sets the position for listing MccAlerts.
-     */
-    cursor?: MccAlertWhereUniqueInput
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Take `±n` MccAlerts from the position of the cursor.
-     */
-    take?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
-     * 
-     * Skip the first `n` MccAlerts.
-     */
-    skip?: number
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
-     * 
-     * Filter by unique combinations of MccAlerts.
-     */
-    distinct?: MccAlertScalarFieldEnum | MccAlertScalarFieldEnum[]
-  }
-
-  /**
-   * MccAlert create
-   */
-  export type MccAlertCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-    /**
-     * The data needed to create a MccAlert.
-     */
-    data: XOR<MccAlertCreateInput, MccAlertUncheckedCreateInput>
-  }
-
-  /**
-   * MccAlert createMany
-   */
-  export type MccAlertCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to create many MccAlerts.
-     */
-    data: MccAlertCreateManyInput | MccAlertCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * MccAlert createManyAndReturn
-   */
-  export type MccAlertCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelectCreateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-    /**
-     * The data used to create many MccAlerts.
-     */
-    data: MccAlertCreateManyInput | MccAlertCreateManyInput[]
-    skipDuplicates?: boolean
-  }
-
-  /**
-   * MccAlert update
-   */
-  export type MccAlertUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-    /**
-     * The data needed to update a MccAlert.
-     */
-    data: XOR<MccAlertUpdateInput, MccAlertUncheckedUpdateInput>
-    /**
-     * Choose, which MccAlert to update.
-     */
-    where: MccAlertWhereUniqueInput
-  }
-
-  /**
-   * MccAlert updateMany
-   */
-  export type MccAlertUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * The data used to update MccAlerts.
-     */
-    data: XOR<MccAlertUpdateManyMutationInput, MccAlertUncheckedUpdateManyInput>
-    /**
-     * Filter which MccAlerts to update
-     */
-    where?: MccAlertWhereInput
-    /**
-     * Limit how many MccAlerts to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * MccAlert updateManyAndReturn
-   */
-  export type MccAlertUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelectUpdateManyAndReturn<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-    /**
-     * The data used to update MccAlerts.
-     */
-    data: XOR<MccAlertUpdateManyMutationInput, MccAlertUncheckedUpdateManyInput>
-    /**
-     * Filter which MccAlerts to update
-     */
-    where?: MccAlertWhereInput
-    /**
-     * Limit how many MccAlerts to update.
-     */
-    limit?: number
-  }
-
-  /**
-   * MccAlert upsert
-   */
-  export type MccAlertUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-    /**
-     * The filter to search for the MccAlert to update in case it exists.
-     */
-    where: MccAlertWhereUniqueInput
-    /**
-     * In case the MccAlert found by the `where` argument doesn't exist, create a new MccAlert with this data.
-     */
-    create: XOR<MccAlertCreateInput, MccAlertUncheckedCreateInput>
-    /**
-     * In case the MccAlert was found with the provided `where` argument, update it with this data.
-     */
-    update: XOR<MccAlertUpdateInput, MccAlertUncheckedUpdateInput>
-  }
-
-  /**
-   * MccAlert delete
-   */
-  export type MccAlertDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-    /**
-     * Filter which MccAlert to delete.
-     */
-    where: MccAlertWhereUniqueInput
-  }
-
-  /**
-   * MccAlert deleteMany
-   */
-  export type MccAlertDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Filter which MccAlerts to delete
-     */
-    where?: MccAlertWhereInput
-    /**
-     * Limit how many MccAlerts to delete.
-     */
-    limit?: number
-  }
-
-  /**
-   * MccAlert without action
-   */
-  export type MccAlertDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    /**
-     * Select specific fields to fetch from the MccAlert
-     */
-    select?: MccAlertSelect<ExtArgs> | null
-    /**
-     * Omit specific fields from the MccAlert
-     */
-    omit?: MccAlertOmit<ExtArgs> | null
-  }
-
-
-  /**
-   * Model MccTask
-   */
-
-  export type AggregateMccTask = {
-    _count: MccTaskCountAggregateOutputType | null
-    _min: MccTaskMinAggregateOutputType | null
-    _max: MccTaskMaxAggregateOutputType | null
-  }
-
-  export type MccTaskMinAggregateOutputType = {
+  export type AcquisitionMinAggregateOutputType = {
     id: string | null
     title: string | null
-    description: string | null
+    synopsis: string | null
+    cast: string | null
+    budget: number | null
     status: string | null
-    priority: string | null
-    due_date: Date | null
-    source_type: string | null
-    source_id: string | null
+    notes: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type MccTaskMaxAggregateOutputType = {
+  export type AcquisitionMaxAggregateOutputType = {
     id: string | null
     title: string | null
-    description: string | null
+    synopsis: string | null
+    cast: string | null
+    budget: number | null
     status: string | null
-    priority: string | null
-    due_date: Date | null
-    source_type: string | null
-    source_id: string | null
+    notes: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
 
-  export type MccTaskCountAggregateOutputType = {
+  export type AcquisitionCountAggregateOutputType = {
     id: number
     title: number
-    description: number
+    synopsis: number
+    cast: number
+    budget: number
     status: number
-    priority: number
+    notes: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type AcquisitionAvgAggregateInputType = {
+    budget?: true
+  }
+
+  export type AcquisitionSumAggregateInputType = {
+    budget?: true
+  }
+
+  export type AcquisitionMinAggregateInputType = {
+    id?: true
+    title?: true
+    synopsis?: true
+    cast?: true
+    budget?: true
+    status?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AcquisitionMaxAggregateInputType = {
+    id?: true
+    title?: true
+    synopsis?: true
+    cast?: true
+    budget?: true
+    status?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type AcquisitionCountAggregateInputType = {
+    id?: true
+    title?: true
+    synopsis?: true
+    cast?: true
+    budget?: true
+    status?: true
+    notes?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type AcquisitionAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Acquisition to aggregate.
+     */
+    where?: AcquisitionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Acquisitions to fetch.
+     */
+    orderBy?: AcquisitionOrderByWithRelationInput | AcquisitionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: AcquisitionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Acquisitions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Acquisitions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned Acquisitions
+    **/
+    _count?: true | AcquisitionCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to average
+    **/
+    _avg?: AcquisitionAvgAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to sum
+    **/
+    _sum?: AcquisitionSumAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: AcquisitionMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: AcquisitionMaxAggregateInputType
+  }
+
+  export type GetAcquisitionAggregateType<T extends AcquisitionAggregateArgs> = {
+        [P in keyof T & keyof AggregateAcquisition]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateAcquisition[P]>
+      : GetScalarType<T[P], AggregateAcquisition[P]>
+  }
+
+
+
+
+  export type AcquisitionGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: AcquisitionWhereInput
+    orderBy?: AcquisitionOrderByWithAggregationInput | AcquisitionOrderByWithAggregationInput[]
+    by: AcquisitionScalarFieldEnum[] | AcquisitionScalarFieldEnum
+    having?: AcquisitionScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: AcquisitionCountAggregateInputType | true
+    _avg?: AcquisitionAvgAggregateInputType
+    _sum?: AcquisitionSumAggregateInputType
+    _min?: AcquisitionMinAggregateInputType
+    _max?: AcquisitionMaxAggregateInputType
+  }
+
+  export type AcquisitionGroupByOutputType = {
+    id: string
+    title: string
+    synopsis: string | null
+    cast: string | null
+    budget: number | null
+    status: string
+    notes: string | null
+    createdAt: Date
+    updatedAt: Date
+    _count: AcquisitionCountAggregateOutputType | null
+    _avg: AcquisitionAvgAggregateOutputType | null
+    _sum: AcquisitionSumAggregateOutputType | null
+    _min: AcquisitionMinAggregateOutputType | null
+    _max: AcquisitionMaxAggregateOutputType | null
+  }
+
+  type GetAcquisitionGroupByPayload<T extends AcquisitionGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<AcquisitionGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof AcquisitionGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], AcquisitionGroupByOutputType[P]>
+            : GetScalarType<T[P], AcquisitionGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type AcquisitionSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    synopsis?: boolean
+    cast?: boolean
+    budget?: boolean
+    status?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["acquisition"]>
+
+  export type AcquisitionSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    synopsis?: boolean
+    cast?: boolean
+    budget?: boolean
+    status?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["acquisition"]>
+
+  export type AcquisitionSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    title?: boolean
+    synopsis?: boolean
+    cast?: boolean
+    budget?: boolean
+    status?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["acquisition"]>
+
+  export type AcquisitionSelectScalar = {
+    id?: boolean
+    title?: boolean
+    synopsis?: boolean
+    cast?: boolean
+    budget?: boolean
+    status?: boolean
+    notes?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type AcquisitionOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "synopsis" | "cast" | "budget" | "status" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["acquisition"]>
+
+  export type $AcquisitionPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Acquisition"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      title: string
+      synopsis: string | null
+      cast: string | null
+      budget: number | null
+      status: string
+      notes: string | null
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["acquisition"]>
+    composites: {}
+  }
+
+  type AcquisitionGetPayload<S extends boolean | null | undefined | AcquisitionDefaultArgs> = $Result.GetResult<Prisma.$AcquisitionPayload, S>
+
+  type AcquisitionCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<AcquisitionFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: AcquisitionCountAggregateInputType | true
+    }
+
+  export interface AcquisitionDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Acquisition'], meta: { name: 'Acquisition' } }
+    /**
+     * Find zero or one Acquisition that matches the filter.
+     * @param {AcquisitionFindUniqueArgs} args - Arguments to find a Acquisition
+     * @example
+     * // Get one Acquisition
+     * const acquisition = await prisma.acquisition.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends AcquisitionFindUniqueArgs>(args: SelectSubset<T, AcquisitionFindUniqueArgs<ExtArgs>>): Prisma__AcquisitionClient<$Result.GetResult<Prisma.$AcquisitionPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one Acquisition that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {AcquisitionFindUniqueOrThrowArgs} args - Arguments to find a Acquisition
+     * @example
+     * // Get one Acquisition
+     * const acquisition = await prisma.acquisition.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends AcquisitionFindUniqueOrThrowArgs>(args: SelectSubset<T, AcquisitionFindUniqueOrThrowArgs<ExtArgs>>): Prisma__AcquisitionClient<$Result.GetResult<Prisma.$AcquisitionPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Acquisition that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcquisitionFindFirstArgs} args - Arguments to find a Acquisition
+     * @example
+     * // Get one Acquisition
+     * const acquisition = await prisma.acquisition.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends AcquisitionFindFirstArgs>(args?: SelectSubset<T, AcquisitionFindFirstArgs<ExtArgs>>): Prisma__AcquisitionClient<$Result.GetResult<Prisma.$AcquisitionPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first Acquisition that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcquisitionFindFirstOrThrowArgs} args - Arguments to find a Acquisition
+     * @example
+     * // Get one Acquisition
+     * const acquisition = await prisma.acquisition.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends AcquisitionFindFirstOrThrowArgs>(args?: SelectSubset<T, AcquisitionFindFirstOrThrowArgs<ExtArgs>>): Prisma__AcquisitionClient<$Result.GetResult<Prisma.$AcquisitionPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more Acquisitions that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcquisitionFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all Acquisitions
+     * const acquisitions = await prisma.acquisition.findMany()
+     * 
+     * // Get first 10 Acquisitions
+     * const acquisitions = await prisma.acquisition.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const acquisitionWithIdOnly = await prisma.acquisition.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends AcquisitionFindManyArgs>(args?: SelectSubset<T, AcquisitionFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AcquisitionPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a Acquisition.
+     * @param {AcquisitionCreateArgs} args - Arguments to create a Acquisition.
+     * @example
+     * // Create one Acquisition
+     * const Acquisition = await prisma.acquisition.create({
+     *   data: {
+     *     // ... data to create a Acquisition
+     *   }
+     * })
+     * 
+     */
+    create<T extends AcquisitionCreateArgs>(args: SelectSubset<T, AcquisitionCreateArgs<ExtArgs>>): Prisma__AcquisitionClient<$Result.GetResult<Prisma.$AcquisitionPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many Acquisitions.
+     * @param {AcquisitionCreateManyArgs} args - Arguments to create many Acquisitions.
+     * @example
+     * // Create many Acquisitions
+     * const acquisition = await prisma.acquisition.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends AcquisitionCreateManyArgs>(args?: SelectSubset<T, AcquisitionCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many Acquisitions and returns the data saved in the database.
+     * @param {AcquisitionCreateManyAndReturnArgs} args - Arguments to create many Acquisitions.
+     * @example
+     * // Create many Acquisitions
+     * const acquisition = await prisma.acquisition.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many Acquisitions and only return the `id`
+     * const acquisitionWithIdOnly = await prisma.acquisition.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends AcquisitionCreateManyAndReturnArgs>(args?: SelectSubset<T, AcquisitionCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AcquisitionPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a Acquisition.
+     * @param {AcquisitionDeleteArgs} args - Arguments to delete one Acquisition.
+     * @example
+     * // Delete one Acquisition
+     * const Acquisition = await prisma.acquisition.delete({
+     *   where: {
+     *     // ... filter to delete one Acquisition
+     *   }
+     * })
+     * 
+     */
+    delete<T extends AcquisitionDeleteArgs>(args: SelectSubset<T, AcquisitionDeleteArgs<ExtArgs>>): Prisma__AcquisitionClient<$Result.GetResult<Prisma.$AcquisitionPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one Acquisition.
+     * @param {AcquisitionUpdateArgs} args - Arguments to update one Acquisition.
+     * @example
+     * // Update one Acquisition
+     * const acquisition = await prisma.acquisition.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends AcquisitionUpdateArgs>(args: SelectSubset<T, AcquisitionUpdateArgs<ExtArgs>>): Prisma__AcquisitionClient<$Result.GetResult<Prisma.$AcquisitionPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more Acquisitions.
+     * @param {AcquisitionDeleteManyArgs} args - Arguments to filter Acquisitions to delete.
+     * @example
+     * // Delete a few Acquisitions
+     * const { count } = await prisma.acquisition.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends AcquisitionDeleteManyArgs>(args?: SelectSubset<T, AcquisitionDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Acquisitions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcquisitionUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many Acquisitions
+     * const acquisition = await prisma.acquisition.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends AcquisitionUpdateManyArgs>(args: SelectSubset<T, AcquisitionUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more Acquisitions and returns the data updated in the database.
+     * @param {AcquisitionUpdateManyAndReturnArgs} args - Arguments to update many Acquisitions.
+     * @example
+     * // Update many Acquisitions
+     * const acquisition = await prisma.acquisition.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more Acquisitions and only return the `id`
+     * const acquisitionWithIdOnly = await prisma.acquisition.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends AcquisitionUpdateManyAndReturnArgs>(args: SelectSubset<T, AcquisitionUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$AcquisitionPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one Acquisition.
+     * @param {AcquisitionUpsertArgs} args - Arguments to update or create a Acquisition.
+     * @example
+     * // Update or create a Acquisition
+     * const acquisition = await prisma.acquisition.upsert({
+     *   create: {
+     *     // ... data to create a Acquisition
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the Acquisition we want to update
+     *   }
+     * })
+     */
+    upsert<T extends AcquisitionUpsertArgs>(args: SelectSubset<T, AcquisitionUpsertArgs<ExtArgs>>): Prisma__AcquisitionClient<$Result.GetResult<Prisma.$AcquisitionPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of Acquisitions.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcquisitionCountArgs} args - Arguments to filter Acquisitions to count.
+     * @example
+     * // Count the number of Acquisitions
+     * const count = await prisma.acquisition.count({
+     *   where: {
+     *     // ... the filter for the Acquisitions we want to count
+     *   }
+     * })
+    **/
+    count<T extends AcquisitionCountArgs>(
+      args?: Subset<T, AcquisitionCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], AcquisitionCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a Acquisition.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcquisitionAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends AcquisitionAggregateArgs>(args: Subset<T, AcquisitionAggregateArgs>): Prisma.PrismaPromise<GetAcquisitionAggregateType<T>>
+
+    /**
+     * Group by Acquisition.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {AcquisitionGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends AcquisitionGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: AcquisitionGroupByArgs['orderBy'] }
+        : { orderBy?: AcquisitionGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, AcquisitionGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetAcquisitionGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the Acquisition model
+   */
+  readonly fields: AcquisitionFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for Acquisition.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__AcquisitionClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the Acquisition model
+   */
+  interface AcquisitionFieldRefs {
+    readonly id: FieldRef<"Acquisition", 'String'>
+    readonly title: FieldRef<"Acquisition", 'String'>
+    readonly synopsis: FieldRef<"Acquisition", 'String'>
+    readonly cast: FieldRef<"Acquisition", 'String'>
+    readonly budget: FieldRef<"Acquisition", 'Float'>
+    readonly status: FieldRef<"Acquisition", 'String'>
+    readonly notes: FieldRef<"Acquisition", 'String'>
+    readonly createdAt: FieldRef<"Acquisition", 'DateTime'>
+    readonly updatedAt: FieldRef<"Acquisition", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * Acquisition findUnique
+   */
+  export type AcquisitionFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+    /**
+     * Filter, which Acquisition to fetch.
+     */
+    where: AcquisitionWhereUniqueInput
+  }
+
+  /**
+   * Acquisition findUniqueOrThrow
+   */
+  export type AcquisitionFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+    /**
+     * Filter, which Acquisition to fetch.
+     */
+    where: AcquisitionWhereUniqueInput
+  }
+
+  /**
+   * Acquisition findFirst
+   */
+  export type AcquisitionFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+    /**
+     * Filter, which Acquisition to fetch.
+     */
+    where?: AcquisitionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Acquisitions to fetch.
+     */
+    orderBy?: AcquisitionOrderByWithRelationInput | AcquisitionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Acquisitions.
+     */
+    cursor?: AcquisitionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Acquisitions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Acquisitions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Acquisitions.
+     */
+    distinct?: AcquisitionScalarFieldEnum | AcquisitionScalarFieldEnum[]
+  }
+
+  /**
+   * Acquisition findFirstOrThrow
+   */
+  export type AcquisitionFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+    /**
+     * Filter, which Acquisition to fetch.
+     */
+    where?: AcquisitionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Acquisitions to fetch.
+     */
+    orderBy?: AcquisitionOrderByWithRelationInput | AcquisitionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for Acquisitions.
+     */
+    cursor?: AcquisitionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Acquisitions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Acquisitions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Acquisitions.
+     */
+    distinct?: AcquisitionScalarFieldEnum | AcquisitionScalarFieldEnum[]
+  }
+
+  /**
+   * Acquisition findMany
+   */
+  export type AcquisitionFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+    /**
+     * Filter, which Acquisitions to fetch.
+     */
+    where?: AcquisitionWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of Acquisitions to fetch.
+     */
+    orderBy?: AcquisitionOrderByWithRelationInput | AcquisitionOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing Acquisitions.
+     */
+    cursor?: AcquisitionWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` Acquisitions from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` Acquisitions.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of Acquisitions.
+     */
+    distinct?: AcquisitionScalarFieldEnum | AcquisitionScalarFieldEnum[]
+  }
+
+  /**
+   * Acquisition create
+   */
+  export type AcquisitionCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+    /**
+     * The data needed to create a Acquisition.
+     */
+    data: XOR<AcquisitionCreateInput, AcquisitionUncheckedCreateInput>
+  }
+
+  /**
+   * Acquisition createMany
+   */
+  export type AcquisitionCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many Acquisitions.
+     */
+    data: AcquisitionCreateManyInput | AcquisitionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Acquisition createManyAndReturn
+   */
+  export type AcquisitionCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+    /**
+     * The data used to create many Acquisitions.
+     */
+    data: AcquisitionCreateManyInput | AcquisitionCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * Acquisition update
+   */
+  export type AcquisitionUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+    /**
+     * The data needed to update a Acquisition.
+     */
+    data: XOR<AcquisitionUpdateInput, AcquisitionUncheckedUpdateInput>
+    /**
+     * Choose, which Acquisition to update.
+     */
+    where: AcquisitionWhereUniqueInput
+  }
+
+  /**
+   * Acquisition updateMany
+   */
+  export type AcquisitionUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update Acquisitions.
+     */
+    data: XOR<AcquisitionUpdateManyMutationInput, AcquisitionUncheckedUpdateManyInput>
+    /**
+     * Filter which Acquisitions to update
+     */
+    where?: AcquisitionWhereInput
+    /**
+     * Limit how many Acquisitions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Acquisition updateManyAndReturn
+   */
+  export type AcquisitionUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+    /**
+     * The data used to update Acquisitions.
+     */
+    data: XOR<AcquisitionUpdateManyMutationInput, AcquisitionUncheckedUpdateManyInput>
+    /**
+     * Filter which Acquisitions to update
+     */
+    where?: AcquisitionWhereInput
+    /**
+     * Limit how many Acquisitions to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * Acquisition upsert
+   */
+  export type AcquisitionUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+    /**
+     * The filter to search for the Acquisition to update in case it exists.
+     */
+    where: AcquisitionWhereUniqueInput
+    /**
+     * In case the Acquisition found by the `where` argument doesn't exist, create a new Acquisition with this data.
+     */
+    create: XOR<AcquisitionCreateInput, AcquisitionUncheckedCreateInput>
+    /**
+     * In case the Acquisition was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<AcquisitionUpdateInput, AcquisitionUncheckedUpdateInput>
+  }
+
+  /**
+   * Acquisition delete
+   */
+  export type AcquisitionDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+    /**
+     * Filter which Acquisition to delete.
+     */
+    where: AcquisitionWhereUniqueInput
+  }
+
+  /**
+   * Acquisition deleteMany
+   */
+  export type AcquisitionDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which Acquisitions to delete
+     */
+    where?: AcquisitionWhereInput
+    /**
+     * Limit how many Acquisitions to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * Acquisition without action
+   */
+  export type AcquisitionDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the Acquisition
+     */
+    select?: AcquisitionSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the Acquisition
+     */
+    omit?: AcquisitionOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model MccInvestor
+   */
+
+  export type AggregateMccInvestor = {
+    _count: MccInvestorCountAggregateOutputType | null
+    _min: MccInvestorMinAggregateOutputType | null
+    _max: MccInvestorMaxAggregateOutputType | null
+  }
+
+  export type MccInvestorMinAggregateOutputType = {
+    id: string | null
+    name: string | null
+    email: string | null
+    investments: string | null
+    notes: string | null
+    payment_status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MccInvestorMaxAggregateOutputType = {
+    id: string | null
+    name: string | null
+    email: string | null
+    investments: string | null
+    notes: string | null
+    payment_status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type MccInvestorCountAggregateOutputType = {
+    id: number
+    name: number
+    email: number
+    investments: number
+    notes: number
+    payment_status: number
+    createdAt: number
+    updatedAt: number
+    _all: number
+  }
+
+
+  export type MccInvestorMinAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    investments?: true
+    notes?: true
+    payment_status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MccInvestorMaxAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    investments?: true
+    notes?: true
+    payment_status?: true
+    createdAt?: true
+    updatedAt?: true
+  }
+
+  export type MccInvestorCountAggregateInputType = {
+    id?: true
+    name?: true
+    email?: true
+    investments?: true
+    notes?: true
+    payment_status?: true
+    createdAt?: true
+    updatedAt?: true
+    _all?: true
+  }
+
+  export type MccInvestorAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MccInvestor to aggregate.
+     */
+    where?: MccInvestorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MccInvestors to fetch.
+     */
+    orderBy?: MccInvestorOrderByWithRelationInput | MccInvestorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the start position
+     */
+    cursor?: MccInvestorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MccInvestors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MccInvestors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Count returned MccInvestors
+    **/
+    _count?: true | MccInvestorCountAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the minimum value
+    **/
+    _min?: MccInvestorMinAggregateInputType
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
+     * 
+     * Select which fields to find the maximum value
+    **/
+    _max?: MccInvestorMaxAggregateInputType
+  }
+
+  export type GetMccInvestorAggregateType<T extends MccInvestorAggregateArgs> = {
+        [P in keyof T & keyof AggregateMccInvestor]: P extends '_count' | 'count'
+      ? T[P] extends true
+        ? number
+        : GetScalarType<T[P], AggregateMccInvestor[P]>
+      : GetScalarType<T[P], AggregateMccInvestor[P]>
+  }
+
+
+
+
+  export type MccInvestorGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MccInvestorWhereInput
+    orderBy?: MccInvestorOrderByWithAggregationInput | MccInvestorOrderByWithAggregationInput[]
+    by: MccInvestorScalarFieldEnum[] | MccInvestorScalarFieldEnum
+    having?: MccInvestorScalarWhereWithAggregatesInput
+    take?: number
+    skip?: number
+    _count?: MccInvestorCountAggregateInputType | true
+    _min?: MccInvestorMinAggregateInputType
+    _max?: MccInvestorMaxAggregateInputType
+  }
+
+  export type MccInvestorGroupByOutputType = {
+    id: string
+    name: string
+    email: string | null
+    investments: string | null
+    notes: string | null
+    payment_status: string
+    createdAt: Date
+    updatedAt: Date
+    _count: MccInvestorCountAggregateOutputType | null
+    _min: MccInvestorMinAggregateOutputType | null
+    _max: MccInvestorMaxAggregateOutputType | null
+  }
+
+  type GetMccInvestorGroupByPayload<T extends MccInvestorGroupByArgs> = Prisma.PrismaPromise<
+    Array<
+      PickEnumerable<MccInvestorGroupByOutputType, T['by']> &
+        {
+          [P in ((keyof T) & (keyof MccInvestorGroupByOutputType))]: P extends '_count'
+            ? T[P] extends boolean
+              ? number
+              : GetScalarType<T[P], MccInvestorGroupByOutputType[P]>
+            : GetScalarType<T[P], MccInvestorGroupByOutputType[P]>
+        }
+      >
+    >
+
+
+  export type MccInvestorSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    investments?: boolean
+    notes?: boolean
+    payment_status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["mccInvestor"]>
+
+  export type MccInvestorSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    investments?: boolean
+    notes?: boolean
+    payment_status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["mccInvestor"]>
+
+  export type MccInvestorSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    investments?: boolean
+    notes?: boolean
+    payment_status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }, ExtArgs["result"]["mccInvestor"]>
+
+  export type MccInvestorSelectScalar = {
+    id?: boolean
+    name?: boolean
+    email?: boolean
+    investments?: boolean
+    notes?: boolean
+    payment_status?: boolean
+    createdAt?: boolean
+    updatedAt?: boolean
+  }
+
+  export type MccInvestorOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "name" | "email" | "investments" | "notes" | "payment_status" | "createdAt" | "updatedAt", ExtArgs["result"]["mccInvestor"]>
+
+  export type $MccInvestorPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "MccInvestor"
+    objects: {}
+    scalars: $Extensions.GetPayloadResult<{
+      id: string
+      name: string
+      email: string | null
+      investments: string | null
+      notes: string | null
+      payment_status: string
+      createdAt: Date
+      updatedAt: Date
+    }, ExtArgs["result"]["mccInvestor"]>
+    composites: {}
+  }
+
+  type MccInvestorGetPayload<S extends boolean | null | undefined | MccInvestorDefaultArgs> = $Result.GetResult<Prisma.$MccInvestorPayload, S>
+
+  type MccInvestorCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MccInvestorFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MccInvestorCountAggregateInputType | true
+    }
+
+  export interface MccInvestorDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MccInvestor'], meta: { name: 'MccInvestor' } }
+    /**
+     * Find zero or one MccInvestor that matches the filter.
+     * @param {MccInvestorFindUniqueArgs} args - Arguments to find a MccInvestor
+     * @example
+     * // Get one MccInvestor
+     * const mccInvestor = await prisma.mccInvestor.findUnique({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUnique<T extends MccInvestorFindUniqueArgs>(args: SelectSubset<T, MccInvestorFindUniqueArgs<ExtArgs>>): Prisma__MccInvestorClient<$Result.GetResult<Prisma.$MccInvestorPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find one MccInvestor that matches the filter or throw an error with `error.code='P2025'`
+     * if no matches were found.
+     * @param {MccInvestorFindUniqueOrThrowArgs} args - Arguments to find a MccInvestor
+     * @example
+     * // Get one MccInvestor
+     * const mccInvestor = await prisma.mccInvestor.findUniqueOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findUniqueOrThrow<T extends MccInvestorFindUniqueOrThrowArgs>(args: SelectSubset<T, MccInvestorFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MccInvestorClient<$Result.GetResult<Prisma.$MccInvestorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MccInvestor that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MccInvestorFindFirstArgs} args - Arguments to find a MccInvestor
+     * @example
+     * // Get one MccInvestor
+     * const mccInvestor = await prisma.mccInvestor.findFirst({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirst<T extends MccInvestorFindFirstArgs>(args?: SelectSubset<T, MccInvestorFindFirstArgs<ExtArgs>>): Prisma__MccInvestorClient<$Result.GetResult<Prisma.$MccInvestorPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find the first MccInvestor that matches the filter or
+     * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MccInvestorFindFirstOrThrowArgs} args - Arguments to find a MccInvestor
+     * @example
+     * // Get one MccInvestor
+     * const mccInvestor = await prisma.mccInvestor.findFirstOrThrow({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     */
+    findFirstOrThrow<T extends MccInvestorFindFirstOrThrowArgs>(args?: SelectSubset<T, MccInvestorFindFirstOrThrowArgs<ExtArgs>>): Prisma__MccInvestorClient<$Result.GetResult<Prisma.$MccInvestorPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Find zero or more MccInvestors that matches the filter.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MccInvestorFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @example
+     * // Get all MccInvestors
+     * const mccInvestors = await prisma.mccInvestor.findMany()
+     * 
+     * // Get first 10 MccInvestors
+     * const mccInvestors = await prisma.mccInvestor.findMany({ take: 10 })
+     * 
+     * // Only select the `id`
+     * const mccInvestorWithIdOnly = await prisma.mccInvestor.findMany({ select: { id: true } })
+     * 
+     */
+    findMany<T extends MccInvestorFindManyArgs>(args?: SelectSubset<T, MccInvestorFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccInvestorPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+
+    /**
+     * Create a MccInvestor.
+     * @param {MccInvestorCreateArgs} args - Arguments to create a MccInvestor.
+     * @example
+     * // Create one MccInvestor
+     * const MccInvestor = await prisma.mccInvestor.create({
+     *   data: {
+     *     // ... data to create a MccInvestor
+     *   }
+     * })
+     * 
+     */
+    create<T extends MccInvestorCreateArgs>(args: SelectSubset<T, MccInvestorCreateArgs<ExtArgs>>): Prisma__MccInvestorClient<$Result.GetResult<Prisma.$MccInvestorPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Create many MccInvestors.
+     * @param {MccInvestorCreateManyArgs} args - Arguments to create many MccInvestors.
+     * @example
+     * // Create many MccInvestors
+     * const mccInvestor = await prisma.mccInvestor.createMany({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     *     
+     */
+    createMany<T extends MccInvestorCreateManyArgs>(args?: SelectSubset<T, MccInvestorCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Create many MccInvestors and returns the data saved in the database.
+     * @param {MccInvestorCreateManyAndReturnArgs} args - Arguments to create many MccInvestors.
+     * @example
+     * // Create many MccInvestors
+     * const mccInvestor = await prisma.mccInvestor.createManyAndReturn({
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Create many MccInvestors and only return the `id`
+     * const mccInvestorWithIdOnly = await prisma.mccInvestor.createManyAndReturn({
+     *   select: { id: true },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    createManyAndReturn<T extends MccInvestorCreateManyAndReturnArgs>(args?: SelectSubset<T, MccInvestorCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccInvestorPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Delete a MccInvestor.
+     * @param {MccInvestorDeleteArgs} args - Arguments to delete one MccInvestor.
+     * @example
+     * // Delete one MccInvestor
+     * const MccInvestor = await prisma.mccInvestor.delete({
+     *   where: {
+     *     // ... filter to delete one MccInvestor
+     *   }
+     * })
+     * 
+     */
+    delete<T extends MccInvestorDeleteArgs>(args: SelectSubset<T, MccInvestorDeleteArgs<ExtArgs>>): Prisma__MccInvestorClient<$Result.GetResult<Prisma.$MccInvestorPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Update one MccInvestor.
+     * @param {MccInvestorUpdateArgs} args - Arguments to update one MccInvestor.
+     * @example
+     * // Update one MccInvestor
+     * const mccInvestor = await prisma.mccInvestor.update({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    update<T extends MccInvestorUpdateArgs>(args: SelectSubset<T, MccInvestorUpdateArgs<ExtArgs>>): Prisma__MccInvestorClient<$Result.GetResult<Prisma.$MccInvestorPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+    /**
+     * Delete zero or more MccInvestors.
+     * @param {MccInvestorDeleteManyArgs} args - Arguments to filter MccInvestors to delete.
+     * @example
+     * // Delete a few MccInvestors
+     * const { count } = await prisma.mccInvestor.deleteMany({
+     *   where: {
+     *     // ... provide filter here
+     *   }
+     * })
+     * 
+     */
+    deleteMany<T extends MccInvestorDeleteManyArgs>(args?: SelectSubset<T, MccInvestorDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MccInvestors.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MccInvestorUpdateManyArgs} args - Arguments to update one or more rows.
+     * @example
+     * // Update many MccInvestors
+     * const mccInvestor = await prisma.mccInvestor.updateMany({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: {
+     *     // ... provide data here
+     *   }
+     * })
+     * 
+     */
+    updateMany<T extends MccInvestorUpdateManyArgs>(args: SelectSubset<T, MccInvestorUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+
+    /**
+     * Update zero or more MccInvestors and returns the data updated in the database.
+     * @param {MccInvestorUpdateManyAndReturnArgs} args - Arguments to update many MccInvestors.
+     * @example
+     * // Update many MccInvestors
+     * const mccInvestor = await prisma.mccInvestor.updateManyAndReturn({
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * 
+     * // Update zero or more MccInvestors and only return the `id`
+     * const mccInvestorWithIdOnly = await prisma.mccInvestor.updateManyAndReturn({
+     *   select: { id: true },
+     *   where: {
+     *     // ... provide filter here
+     *   },
+     *   data: [
+     *     // ... provide data here
+     *   ]
+     * })
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * 
+     */
+    updateManyAndReturn<T extends MccInvestorUpdateManyAndReturnArgs>(args: SelectSubset<T, MccInvestorUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccInvestorPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+
+    /**
+     * Create or update one MccInvestor.
+     * @param {MccInvestorUpsertArgs} args - Arguments to update or create a MccInvestor.
+     * @example
+     * // Update or create a MccInvestor
+     * const mccInvestor = await prisma.mccInvestor.upsert({
+     *   create: {
+     *     // ... data to create a MccInvestor
+     *   },
+     *   update: {
+     *     // ... in case it already exists, update
+     *   },
+     *   where: {
+     *     // ... the filter for the MccInvestor we want to update
+     *   }
+     * })
+     */
+    upsert<T extends MccInvestorUpsertArgs>(args: SelectSubset<T, MccInvestorUpsertArgs<ExtArgs>>): Prisma__MccInvestorClient<$Result.GetResult<Prisma.$MccInvestorPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+
+
+    /**
+     * Count the number of MccInvestors.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MccInvestorCountArgs} args - Arguments to filter MccInvestors to count.
+     * @example
+     * // Count the number of MccInvestors
+     * const count = await prisma.mccInvestor.count({
+     *   where: {
+     *     // ... the filter for the MccInvestors we want to count
+     *   }
+     * })
+    **/
+    count<T extends MccInvestorCountArgs>(
+      args?: Subset<T, MccInvestorCountArgs>,
+    ): Prisma.PrismaPromise<
+      T extends $Utils.Record<'select', any>
+        ? T['select'] extends true
+          ? number
+          : GetScalarType<T['select'], MccInvestorCountAggregateOutputType>
+        : number
+    >
+
+    /**
+     * Allows you to perform aggregations operations on a MccInvestor.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MccInvestorAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @example
+     * // Ordered by age ascending
+     * // Where email contains prisma.io
+     * // Limited to the 10 users
+     * const aggregations = await prisma.user.aggregate({
+     *   _avg: {
+     *     age: true,
+     *   },
+     *   where: {
+     *     email: {
+     *       contains: "prisma.io",
+     *     },
+     *   },
+     *   orderBy: {
+     *     age: "asc",
+     *   },
+     *   take: 10,
+     * })
+    **/
+    aggregate<T extends MccInvestorAggregateArgs>(args: Subset<T, MccInvestorAggregateArgs>): Prisma.PrismaPromise<GetMccInvestorAggregateType<T>>
+
+    /**
+     * Group by MccInvestor.
+     * Note, that providing `undefined` is treated as the value not being there.
+     * Read more here: https://pris.ly/d/null-undefined
+     * @param {MccInvestorGroupByArgs} args - Group by arguments.
+     * @example
+     * // Group by city, order by createdAt, get count
+     * const result = await prisma.user.groupBy({
+     *   by: ['city', 'createdAt'],
+     *   orderBy: {
+     *     createdAt: true
+     *   },
+     *   _count: {
+     *     _all: true
+     *   },
+     * })
+     * 
+    **/
+    groupBy<
+      T extends MccInvestorGroupByArgs,
+      HasSelectOrTake extends Or<
+        Extends<'skip', Keys<T>>,
+        Extends<'take', Keys<T>>
+      >,
+      OrderByArg extends True extends HasSelectOrTake
+        ? { orderBy: MccInvestorGroupByArgs['orderBy'] }
+        : { orderBy?: MccInvestorGroupByArgs['orderBy'] },
+      OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
+      ByFields extends MaybeTupleToUnion<T['by']>,
+      ByValid extends Has<ByFields, OrderFields>,
+      HavingFields extends GetHavingFields<T['having']>,
+      HavingValid extends Has<ByFields, HavingFields>,
+      ByEmpty extends T['by'] extends never[] ? True : False,
+      InputErrors extends ByEmpty extends True
+      ? `Error: "by" must not be empty.`
+      : HavingValid extends False
+      ? {
+          [P in HavingFields]: P extends ByFields
+            ? never
+            : P extends string
+            ? `Error: Field "${P}" used in "having" needs to be provided in "by".`
+            : [
+                Error,
+                'Field ',
+                P,
+                ` in "having" needs to be provided in "by"`,
+              ]
+        }[HavingFields]
+      : 'take' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "take", you also need to provide "orderBy"'
+      : 'skip' extends Keys<T>
+      ? 'orderBy' extends Keys<T>
+        ? ByValid extends True
+          ? {}
+          : {
+              [P in OrderFields]: P extends ByFields
+                ? never
+                : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+            }[OrderFields]
+        : 'Error: If you provide "skip", you also need to provide "orderBy"'
+      : ByValid extends True
+      ? {}
+      : {
+          [P in OrderFields]: P extends ByFields
+            ? never
+            : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
+        }[OrderFields]
+    >(args: SubsetIntersection<T, MccInvestorGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMccInvestorGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+  /**
+   * Fields of the MccInvestor model
+   */
+  readonly fields: MccInvestorFieldRefs;
+  }
+
+  /**
+   * The delegate class that acts as a "Promise-like" for MccInvestor.
+   * Why is this prefixed with `Prisma__`?
+   * Because we want to prevent naming conflicts as mentioned in
+   * https://github.com/prisma/prisma-client-js/issues/707
+   */
+  export interface Prisma__MccInvestorClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+    readonly [Symbol.toStringTag]: "PrismaPromise"
+    /**
+     * Attaches callbacks for the resolution and/or rejection of the Promise.
+     * @param onfulfilled The callback to execute when the Promise is resolved.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of which ever callback is executed.
+     */
+    then<TResult1 = T, TResult2 = never>(onfulfilled?: ((value: T) => TResult1 | PromiseLike<TResult1>) | undefined | null, onrejected?: ((reason: any) => TResult2 | PromiseLike<TResult2>) | undefined | null): $Utils.JsPromise<TResult1 | TResult2>
+    /**
+     * Attaches a callback for only the rejection of the Promise.
+     * @param onrejected The callback to execute when the Promise is rejected.
+     * @returns A Promise for the completion of the callback.
+     */
+    catch<TResult = never>(onrejected?: ((reason: any) => TResult | PromiseLike<TResult>) | undefined | null): $Utils.JsPromise<T | TResult>
+    /**
+     * Attaches a callback that is invoked when the Promise is settled (fulfilled or rejected). The
+     * resolved value cannot be modified from the callback.
+     * @param onfinally The callback to execute when the Promise is settled (fulfilled or rejected).
+     * @returns A Promise for the completion of the callback.
+     */
+    finally(onfinally?: (() => void) | undefined | null): $Utils.JsPromise<T>
+  }
+
+
+
+
+  /**
+   * Fields of the MccInvestor model
+   */
+  interface MccInvestorFieldRefs {
+    readonly id: FieldRef<"MccInvestor", 'String'>
+    readonly name: FieldRef<"MccInvestor", 'String'>
+    readonly email: FieldRef<"MccInvestor", 'String'>
+    readonly investments: FieldRef<"MccInvestor", 'String'>
+    readonly notes: FieldRef<"MccInvestor", 'String'>
+    readonly payment_status: FieldRef<"MccInvestor", 'String'>
+    readonly createdAt: FieldRef<"MccInvestor", 'DateTime'>
+    readonly updatedAt: FieldRef<"MccInvestor", 'DateTime'>
+  }
+    
+
+  // Custom InputTypes
+  /**
+   * MccInvestor findUnique
+   */
+  export type MccInvestorFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+    /**
+     * Filter, which MccInvestor to fetch.
+     */
+    where: MccInvestorWhereUniqueInput
+  }
+
+  /**
+   * MccInvestor findUniqueOrThrow
+   */
+  export type MccInvestorFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+    /**
+     * Filter, which MccInvestor to fetch.
+     */
+    where: MccInvestorWhereUniqueInput
+  }
+
+  /**
+   * MccInvestor findFirst
+   */
+  export type MccInvestorFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+    /**
+     * Filter, which MccInvestor to fetch.
+     */
+    where?: MccInvestorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MccInvestors to fetch.
+     */
+    orderBy?: MccInvestorOrderByWithRelationInput | MccInvestorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MccInvestors.
+     */
+    cursor?: MccInvestorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MccInvestors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MccInvestors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MccInvestors.
+     */
+    distinct?: MccInvestorScalarFieldEnum | MccInvestorScalarFieldEnum[]
+  }
+
+  /**
+   * MccInvestor findFirstOrThrow
+   */
+  export type MccInvestorFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+    /**
+     * Filter, which MccInvestor to fetch.
+     */
+    where?: MccInvestorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MccInvestors to fetch.
+     */
+    orderBy?: MccInvestorOrderByWithRelationInput | MccInvestorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for searching for MccInvestors.
+     */
+    cursor?: MccInvestorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MccInvestors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MccInvestors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MccInvestors.
+     */
+    distinct?: MccInvestorScalarFieldEnum | MccInvestorScalarFieldEnum[]
+  }
+
+  /**
+   * MccInvestor findMany
+   */
+  export type MccInvestorFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+    /**
+     * Filter, which MccInvestors to fetch.
+     */
+    where?: MccInvestorWhereInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
+     * 
+     * Determine the order of MccInvestors to fetch.
+     */
+    orderBy?: MccInvestorOrderByWithRelationInput | MccInvestorOrderByWithRelationInput[]
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
+     * 
+     * Sets the position for listing MccInvestors.
+     */
+    cursor?: MccInvestorWhereUniqueInput
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Take `±n` MccInvestors from the position of the cursor.
+     */
+    take?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
+     * 
+     * Skip the first `n` MccInvestors.
+     */
+    skip?: number
+    /**
+     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
+     * 
+     * Filter by unique combinations of MccInvestors.
+     */
+    distinct?: MccInvestorScalarFieldEnum | MccInvestorScalarFieldEnum[]
+  }
+
+  /**
+   * MccInvestor create
+   */
+  export type MccInvestorCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+    /**
+     * The data needed to create a MccInvestor.
+     */
+    data: XOR<MccInvestorCreateInput, MccInvestorUncheckedCreateInput>
+  }
+
+  /**
+   * MccInvestor createMany
+   */
+  export type MccInvestorCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to create many MccInvestors.
+     */
+    data: MccInvestorCreateManyInput | MccInvestorCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MccInvestor createManyAndReturn
+   */
+  export type MccInvestorCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelectCreateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+    /**
+     * The data used to create many MccInvestors.
+     */
+    data: MccInvestorCreateManyInput | MccInvestorCreateManyInput[]
+    skipDuplicates?: boolean
+  }
+
+  /**
+   * MccInvestor update
+   */
+  export type MccInvestorUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+    /**
+     * The data needed to update a MccInvestor.
+     */
+    data: XOR<MccInvestorUpdateInput, MccInvestorUncheckedUpdateInput>
+    /**
+     * Choose, which MccInvestor to update.
+     */
+    where: MccInvestorWhereUniqueInput
+  }
+
+  /**
+   * MccInvestor updateMany
+   */
+  export type MccInvestorUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * The data used to update MccInvestors.
+     */
+    data: XOR<MccInvestorUpdateManyMutationInput, MccInvestorUncheckedUpdateManyInput>
+    /**
+     * Filter which MccInvestors to update
+     */
+    where?: MccInvestorWhereInput
+    /**
+     * Limit how many MccInvestors to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MccInvestor updateManyAndReturn
+   */
+  export type MccInvestorUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelectUpdateManyAndReturn<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+    /**
+     * The data used to update MccInvestors.
+     */
+    data: XOR<MccInvestorUpdateManyMutationInput, MccInvestorUncheckedUpdateManyInput>
+    /**
+     * Filter which MccInvestors to update
+     */
+    where?: MccInvestorWhereInput
+    /**
+     * Limit how many MccInvestors to update.
+     */
+    limit?: number
+  }
+
+  /**
+   * MccInvestor upsert
+   */
+  export type MccInvestorUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+    /**
+     * The filter to search for the MccInvestor to update in case it exists.
+     */
+    where: MccInvestorWhereUniqueInput
+    /**
+     * In case the MccInvestor found by the `where` argument doesn't exist, create a new MccInvestor with this data.
+     */
+    create: XOR<MccInvestorCreateInput, MccInvestorUncheckedCreateInput>
+    /**
+     * In case the MccInvestor was found with the provided `where` argument, update it with this data.
+     */
+    update: XOR<MccInvestorUpdateInput, MccInvestorUncheckedUpdateInput>
+  }
+
+  /**
+   * MccInvestor delete
+   */
+  export type MccInvestorDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+    /**
+     * Filter which MccInvestor to delete.
+     */
+    where: MccInvestorWhereUniqueInput
+  }
+
+  /**
+   * MccInvestor deleteMany
+   */
+  export type MccInvestorDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Filter which MccInvestors to delete
+     */
+    where?: MccInvestorWhereInput
+    /**
+     * Limit how many MccInvestors to delete.
+     */
+    limit?: number
+  }
+
+  /**
+   * MccInvestor without action
+   */
+  export type MccInvestorDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    /**
+     * Select specific fields to fetch from the MccInvestor
+     */
+    select?: MccInvestorSelect<ExtArgs> | null
+    /**
+     * Omit specific fields from the MccInvestor
+     */
+    omit?: MccInvestorOmit<ExtArgs> | null
+  }
+
+
+  /**
+   * Model Task
+   */
+
+  export type AggregateTask = {
+    _count: TaskCountAggregateOutputType | null
+    _min: TaskMinAggregateOutputType | null
+    _max: TaskMaxAggregateOutputType | null
+  }
+
+  export type TaskMinAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    linked_entity_type: string | null
+    linked_entity_id: string | null
+    due_date: Date | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TaskMaxAggregateOutputType = {
+    id: string | null
+    title: string | null
+    description: string | null
+    linked_entity_type: string | null
+    linked_entity_id: string | null
+    due_date: Date | null
+    status: string | null
+    createdAt: Date | null
+    updatedAt: Date | null
+  }
+
+  export type TaskCountAggregateOutputType = {
+    id: number
+    title: number
+    description: number
+    linked_entity_type: number
+    linked_entity_id: number
     due_date: number
-    source_type: number
-    source_id: number
+    status: number
     createdAt: number
     updatedAt: number
     _all: number
   }
 
 
-  export type MccTaskMinAggregateInputType = {
+  export type TaskMinAggregateInputType = {
     id?: true
     title?: true
     description?: true
-    status?: true
-    priority?: true
+    linked_entity_type?: true
+    linked_entity_id?: true
     due_date?: true
-    source_type?: true
-    source_id?: true
+    status?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type MccTaskMaxAggregateInputType = {
+  export type TaskMaxAggregateInputType = {
     id?: true
     title?: true
     description?: true
-    status?: true
-    priority?: true
+    linked_entity_type?: true
+    linked_entity_id?: true
     due_date?: true
-    source_type?: true
-    source_id?: true
+    status?: true
     createdAt?: true
     updatedAt?: true
   }
 
-  export type MccTaskCountAggregateInputType = {
+  export type TaskCountAggregateInputType = {
     id?: true
     title?: true
     description?: true
-    status?: true
-    priority?: true
+    linked_entity_type?: true
+    linked_entity_id?: true
     due_date?: true
-    source_type?: true
-    source_id?: true
+    status?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
   }
 
-  export type MccTaskAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which MccTask to aggregate.
+     * Filter which Task to aggregate.
      */
-    where?: MccTaskWhereInput
+    where?: TaskWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MccTasks to fetch.
+     * Determine the order of Tasks to fetch.
      */
-    orderBy?: MccTaskOrderByWithRelationInput | MccTaskOrderByWithRelationInput[]
+    orderBy?: TaskOrderByWithRelationInput | TaskOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: MccTaskWhereUniqueInput
+    cursor?: TaskWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MccTasks from the position of the cursor.
+     * Take `±n` Tasks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MccTasks.
+     * Skip the first `n` Tasks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned MccTasks
+     * Count returned Tasks
     **/
-    _count?: true | MccTaskCountAggregateInputType
+    _count?: true | TaskCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: MccTaskMinAggregateInputType
+    _min?: TaskMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: MccTaskMaxAggregateInputType
+    _max?: TaskMaxAggregateInputType
   }
 
-  export type GetMccTaskAggregateType<T extends MccTaskAggregateArgs> = {
-        [P in keyof T & keyof AggregateMccTask]: P extends '_count' | 'count'
+  export type GetTaskAggregateType<T extends TaskAggregateArgs> = {
+        [P in keyof T & keyof AggregateTask]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateMccTask[P]>
-      : GetScalarType<T[P], AggregateMccTask[P]>
+        : GetScalarType<T[P], AggregateTask[P]>
+      : GetScalarType<T[P], AggregateTask[P]>
   }
 
 
 
 
-  export type MccTaskGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: MccTaskWhereInput
-    orderBy?: MccTaskOrderByWithAggregationInput | MccTaskOrderByWithAggregationInput[]
-    by: MccTaskScalarFieldEnum[] | MccTaskScalarFieldEnum
-    having?: MccTaskScalarWhereWithAggregatesInput
+  export type TaskGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: TaskWhereInput
+    orderBy?: TaskOrderByWithAggregationInput | TaskOrderByWithAggregationInput[]
+    by: TaskScalarFieldEnum[] | TaskScalarFieldEnum
+    having?: TaskScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: MccTaskCountAggregateInputType | true
-    _min?: MccTaskMinAggregateInputType
-    _max?: MccTaskMaxAggregateInputType
+    _count?: TaskCountAggregateInputType | true
+    _min?: TaskMinAggregateInputType
+    _max?: TaskMaxAggregateInputType
   }
 
-  export type MccTaskGroupByOutputType = {
+  export type TaskGroupByOutputType = {
     id: string
     title: string
     description: string | null
-    status: string
-    priority: string
+    linked_entity_type: string | null
+    linked_entity_id: string | null
     due_date: Date | null
-    source_type: string | null
-    source_id: string | null
+    status: string
     createdAt: Date
     updatedAt: Date
-    _count: MccTaskCountAggregateOutputType | null
-    _min: MccTaskMinAggregateOutputType | null
-    _max: MccTaskMaxAggregateOutputType | null
+    _count: TaskCountAggregateOutputType | null
+    _min: TaskMinAggregateOutputType | null
+    _max: TaskMaxAggregateOutputType | null
   }
 
-  type GetMccTaskGroupByPayload<T extends MccTaskGroupByArgs> = Prisma.PrismaPromise<
+  type GetTaskGroupByPayload<T extends TaskGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<MccTaskGroupByOutputType, T['by']> &
+      PickEnumerable<TaskGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof MccTaskGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof TaskGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], MccTaskGroupByOutputType[P]>
-            : GetScalarType<T[P], MccTaskGroupByOutputType[P]>
+              : GetScalarType<T[P], TaskGroupByOutputType[P]>
+            : GetScalarType<T[P], TaskGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type MccTaskSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type TaskSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     description?: boolean
-    status?: boolean
-    priority?: boolean
+    linked_entity_type?: boolean
+    linked_entity_id?: boolean
     due_date?: boolean
-    source_type?: boolean
-    source_id?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["mccTask"]>
+  }, ExtArgs["result"]["task"]>
 
-  export type MccTaskSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type TaskSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     description?: boolean
-    status?: boolean
-    priority?: boolean
+    linked_entity_type?: boolean
+    linked_entity_id?: boolean
     due_date?: boolean
-    source_type?: boolean
-    source_id?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["mccTask"]>
+  }, ExtArgs["result"]["task"]>
 
-  export type MccTaskSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type TaskSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     title?: boolean
     description?: boolean
-    status?: boolean
-    priority?: boolean
+    linked_entity_type?: boolean
+    linked_entity_id?: boolean
     due_date?: boolean
-    source_type?: boolean
-    source_id?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
-  }, ExtArgs["result"]["mccTask"]>
+  }, ExtArgs["result"]["task"]>
 
-  export type MccTaskSelectScalar = {
+  export type TaskSelectScalar = {
     id?: boolean
     title?: boolean
     description?: boolean
-    status?: boolean
-    priority?: boolean
+    linked_entity_type?: boolean
+    linked_entity_id?: boolean
     due_date?: boolean
-    source_type?: boolean
-    source_id?: boolean
+    status?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type MccTaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "status" | "priority" | "due_date" | "source_type" | "source_id" | "createdAt" | "updatedAt", ExtArgs["result"]["mccTask"]>
+  export type TaskOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "description" | "linked_entity_type" | "linked_entity_id" | "due_date" | "status" | "createdAt" | "updatedAt", ExtArgs["result"]["task"]>
 
-  export type $MccTaskPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "MccTask"
+  export type $TaskPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Task"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
       title: string
       description: string | null
-      status: string
-      priority: string
+      linked_entity_type: string | null
+      linked_entity_id: string | null
       due_date: Date | null
-      source_type: string | null
-      source_id: string | null
+      status: string
       createdAt: Date
       updatedAt: Date
-    }, ExtArgs["result"]["mccTask"]>
+    }, ExtArgs["result"]["task"]>
     composites: {}
   }
 
-  type MccTaskGetPayload<S extends boolean | null | undefined | MccTaskDefaultArgs> = $Result.GetResult<Prisma.$MccTaskPayload, S>
+  type TaskGetPayload<S extends boolean | null | undefined | TaskDefaultArgs> = $Result.GetResult<Prisma.$TaskPayload, S>
 
-  type MccTaskCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<MccTaskFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: MccTaskCountAggregateInputType | true
+  type TaskCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<TaskFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: TaskCountAggregateInputType | true
     }
 
-  export interface MccTaskDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['MccTask'], meta: { name: 'MccTask' } }
+  export interface TaskDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Task'], meta: { name: 'Task' } }
     /**
-     * Find zero or one MccTask that matches the filter.
-     * @param {MccTaskFindUniqueArgs} args - Arguments to find a MccTask
+     * Find zero or one Task that matches the filter.
+     * @param {TaskFindUniqueArgs} args - Arguments to find a Task
      * @example
-     * // Get one MccTask
-     * const mccTask = await prisma.mccTask.findUnique({
+     * // Get one Task
+     * const task = await prisma.task.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends MccTaskFindUniqueArgs>(args: SelectSubset<T, MccTaskFindUniqueArgs<ExtArgs>>): Prisma__MccTaskClient<$Result.GetResult<Prisma.$MccTaskPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends TaskFindUniqueArgs>(args: SelectSubset<T, TaskFindUniqueArgs<ExtArgs>>): Prisma__TaskClient<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one MccTask that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Task that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {MccTaskFindUniqueOrThrowArgs} args - Arguments to find a MccTask
+     * @param {TaskFindUniqueOrThrowArgs} args - Arguments to find a Task
      * @example
-     * // Get one MccTask
-     * const mccTask = await prisma.mccTask.findUniqueOrThrow({
+     * // Get one Task
+     * const task = await prisma.task.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends MccTaskFindUniqueOrThrowArgs>(args: SelectSubset<T, MccTaskFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MccTaskClient<$Result.GetResult<Prisma.$MccTaskPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends TaskFindUniqueOrThrowArgs>(args: SelectSubset<T, TaskFindUniqueOrThrowArgs<ExtArgs>>): Prisma__TaskClient<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first MccTask that matches the filter.
+     * Find the first Task that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccTaskFindFirstArgs} args - Arguments to find a MccTask
+     * @param {TaskFindFirstArgs} args - Arguments to find a Task
      * @example
-     * // Get one MccTask
-     * const mccTask = await prisma.mccTask.findFirst({
+     * // Get one Task
+     * const task = await prisma.task.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends MccTaskFindFirstArgs>(args?: SelectSubset<T, MccTaskFindFirstArgs<ExtArgs>>): Prisma__MccTaskClient<$Result.GetResult<Prisma.$MccTaskPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends TaskFindFirstArgs>(args?: SelectSubset<T, TaskFindFirstArgs<ExtArgs>>): Prisma__TaskClient<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first MccTask that matches the filter or
+     * Find the first Task that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccTaskFindFirstOrThrowArgs} args - Arguments to find a MccTask
+     * @param {TaskFindFirstOrThrowArgs} args - Arguments to find a Task
      * @example
-     * // Get one MccTask
-     * const mccTask = await prisma.mccTask.findFirstOrThrow({
+     * // Get one Task
+     * const task = await prisma.task.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends MccTaskFindFirstOrThrowArgs>(args?: SelectSubset<T, MccTaskFindFirstOrThrowArgs<ExtArgs>>): Prisma__MccTaskClient<$Result.GetResult<Prisma.$MccTaskPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends TaskFindFirstOrThrowArgs>(args?: SelectSubset<T, TaskFindFirstOrThrowArgs<ExtArgs>>): Prisma__TaskClient<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more MccTasks that matches the filter.
+     * Find zero or more Tasks that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccTaskFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {TaskFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all MccTasks
-     * const mccTasks = await prisma.mccTask.findMany()
+     * // Get all Tasks
+     * const tasks = await prisma.task.findMany()
      * 
-     * // Get first 10 MccTasks
-     * const mccTasks = await prisma.mccTask.findMany({ take: 10 })
+     * // Get first 10 Tasks
+     * const tasks = await prisma.task.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const mccTaskWithIdOnly = await prisma.mccTask.findMany({ select: { id: true } })
+     * const taskWithIdOnly = await prisma.task.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends MccTaskFindManyArgs>(args?: SelectSubset<T, MccTaskFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccTaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends TaskFindManyArgs>(args?: SelectSubset<T, TaskFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a MccTask.
-     * @param {MccTaskCreateArgs} args - Arguments to create a MccTask.
+     * Create a Task.
+     * @param {TaskCreateArgs} args - Arguments to create a Task.
      * @example
-     * // Create one MccTask
-     * const MccTask = await prisma.mccTask.create({
+     * // Create one Task
+     * const Task = await prisma.task.create({
      *   data: {
-     *     // ... data to create a MccTask
+     *     // ... data to create a Task
      *   }
      * })
      * 
      */
-    create<T extends MccTaskCreateArgs>(args: SelectSubset<T, MccTaskCreateArgs<ExtArgs>>): Prisma__MccTaskClient<$Result.GetResult<Prisma.$MccTaskPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends TaskCreateArgs>(args: SelectSubset<T, TaskCreateArgs<ExtArgs>>): Prisma__TaskClient<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many MccTasks.
-     * @param {MccTaskCreateManyArgs} args - Arguments to create many MccTasks.
+     * Create many Tasks.
+     * @param {TaskCreateManyArgs} args - Arguments to create many Tasks.
      * @example
-     * // Create many MccTasks
-     * const mccTask = await prisma.mccTask.createMany({
+     * // Create many Tasks
+     * const task = await prisma.task.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends MccTaskCreateManyArgs>(args?: SelectSubset<T, MccTaskCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends TaskCreateManyArgs>(args?: SelectSubset<T, TaskCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many MccTasks and returns the data saved in the database.
-     * @param {MccTaskCreateManyAndReturnArgs} args - Arguments to create many MccTasks.
+     * Create many Tasks and returns the data saved in the database.
+     * @param {TaskCreateManyAndReturnArgs} args - Arguments to create many Tasks.
      * @example
-     * // Create many MccTasks
-     * const mccTask = await prisma.mccTask.createManyAndReturn({
+     * // Create many Tasks
+     * const task = await prisma.task.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many MccTasks and only return the `id`
-     * const mccTaskWithIdOnly = await prisma.mccTask.createManyAndReturn({
+     * // Create many Tasks and only return the `id`
+     * const taskWithIdOnly = await prisma.task.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -20475,28 +20359,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends MccTaskCreateManyAndReturnArgs>(args?: SelectSubset<T, MccTaskCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccTaskPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends TaskCreateManyAndReturnArgs>(args?: SelectSubset<T, TaskCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a MccTask.
-     * @param {MccTaskDeleteArgs} args - Arguments to delete one MccTask.
+     * Delete a Task.
+     * @param {TaskDeleteArgs} args - Arguments to delete one Task.
      * @example
-     * // Delete one MccTask
-     * const MccTask = await prisma.mccTask.delete({
+     * // Delete one Task
+     * const Task = await prisma.task.delete({
      *   where: {
-     *     // ... filter to delete one MccTask
+     *     // ... filter to delete one Task
      *   }
      * })
      * 
      */
-    delete<T extends MccTaskDeleteArgs>(args: SelectSubset<T, MccTaskDeleteArgs<ExtArgs>>): Prisma__MccTaskClient<$Result.GetResult<Prisma.$MccTaskPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends TaskDeleteArgs>(args: SelectSubset<T, TaskDeleteArgs<ExtArgs>>): Prisma__TaskClient<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one MccTask.
-     * @param {MccTaskUpdateArgs} args - Arguments to update one MccTask.
+     * Update one Task.
+     * @param {TaskUpdateArgs} args - Arguments to update one Task.
      * @example
-     * // Update one MccTask
-     * const mccTask = await prisma.mccTask.update({
+     * // Update one Task
+     * const task = await prisma.task.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -20506,30 +20390,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends MccTaskUpdateArgs>(args: SelectSubset<T, MccTaskUpdateArgs<ExtArgs>>): Prisma__MccTaskClient<$Result.GetResult<Prisma.$MccTaskPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends TaskUpdateArgs>(args: SelectSubset<T, TaskUpdateArgs<ExtArgs>>): Prisma__TaskClient<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more MccTasks.
-     * @param {MccTaskDeleteManyArgs} args - Arguments to filter MccTasks to delete.
+     * Delete zero or more Tasks.
+     * @param {TaskDeleteManyArgs} args - Arguments to filter Tasks to delete.
      * @example
-     * // Delete a few MccTasks
-     * const { count } = await prisma.mccTask.deleteMany({
+     * // Delete a few Tasks
+     * const { count } = await prisma.task.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends MccTaskDeleteManyArgs>(args?: SelectSubset<T, MccTaskDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends TaskDeleteManyArgs>(args?: SelectSubset<T, TaskDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more MccTasks.
+     * Update zero or more Tasks.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccTaskUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {TaskUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many MccTasks
-     * const mccTask = await prisma.mccTask.updateMany({
+     * // Update many Tasks
+     * const task = await prisma.task.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -20539,14 +20423,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends MccTaskUpdateManyArgs>(args: SelectSubset<T, MccTaskUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends TaskUpdateManyArgs>(args: SelectSubset<T, TaskUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more MccTasks and returns the data updated in the database.
-     * @param {MccTaskUpdateManyAndReturnArgs} args - Arguments to update many MccTasks.
+     * Update zero or more Tasks and returns the data updated in the database.
+     * @param {TaskUpdateManyAndReturnArgs} args - Arguments to update many Tasks.
      * @example
-     * // Update many MccTasks
-     * const mccTask = await prisma.mccTask.updateManyAndReturn({
+     * // Update many Tasks
+     * const task = await prisma.task.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -20555,8 +20439,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more MccTasks and only return the `id`
-     * const mccTaskWithIdOnly = await prisma.mccTask.updateManyAndReturn({
+     * // Update zero or more Tasks and only return the `id`
+     * const taskWithIdOnly = await prisma.task.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -20569,56 +20453,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends MccTaskUpdateManyAndReturnArgs>(args: SelectSubset<T, MccTaskUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MccTaskPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends TaskUpdateManyAndReturnArgs>(args: SelectSubset<T, TaskUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one MccTask.
-     * @param {MccTaskUpsertArgs} args - Arguments to update or create a MccTask.
+     * Create or update one Task.
+     * @param {TaskUpsertArgs} args - Arguments to update or create a Task.
      * @example
-     * // Update or create a MccTask
-     * const mccTask = await prisma.mccTask.upsert({
+     * // Update or create a Task
+     * const task = await prisma.task.upsert({
      *   create: {
-     *     // ... data to create a MccTask
+     *     // ... data to create a Task
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the MccTask we want to update
+     *     // ... the filter for the Task we want to update
      *   }
      * })
      */
-    upsert<T extends MccTaskUpsertArgs>(args: SelectSubset<T, MccTaskUpsertArgs<ExtArgs>>): Prisma__MccTaskClient<$Result.GetResult<Prisma.$MccTaskPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends TaskUpsertArgs>(args: SelectSubset<T, TaskUpsertArgs<ExtArgs>>): Prisma__TaskClient<$Result.GetResult<Prisma.$TaskPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of MccTasks.
+     * Count the number of Tasks.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccTaskCountArgs} args - Arguments to filter MccTasks to count.
+     * @param {TaskCountArgs} args - Arguments to filter Tasks to count.
      * @example
-     * // Count the number of MccTasks
-     * const count = await prisma.mccTask.count({
+     * // Count the number of Tasks
+     * const count = await prisma.task.count({
      *   where: {
-     *     // ... the filter for the MccTasks we want to count
+     *     // ... the filter for the Tasks we want to count
      *   }
      * })
     **/
-    count<T extends MccTaskCountArgs>(
-      args?: Subset<T, MccTaskCountArgs>,
+    count<T extends TaskCountArgs>(
+      args?: Subset<T, TaskCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], MccTaskCountAggregateOutputType>
+          : GetScalarType<T['select'], TaskCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a MccTask.
+     * Allows you to perform aggregations operations on a Task.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccTaskAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {TaskAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -20638,13 +20522,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends MccTaskAggregateArgs>(args: Subset<T, MccTaskAggregateArgs>): Prisma.PrismaPromise<GetMccTaskAggregateType<T>>
+    aggregate<T extends TaskAggregateArgs>(args: Subset<T, TaskAggregateArgs>): Prisma.PrismaPromise<GetTaskAggregateType<T>>
 
     /**
-     * Group by MccTask.
+     * Group by Task.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {MccTaskGroupByArgs} args - Group by arguments.
+     * @param {TaskGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -20659,14 +20543,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends MccTaskGroupByArgs,
+      T extends TaskGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: MccTaskGroupByArgs['orderBy'] }
-        : { orderBy?: MccTaskGroupByArgs['orderBy'] },
+        ? { orderBy: TaskGroupByArgs['orderBy'] }
+        : { orderBy?: TaskGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -20715,20 +20599,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, MccTaskGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMccTaskGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, TaskGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetTaskGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the MccTask model
+   * Fields of the Task model
    */
-  readonly fields: MccTaskFieldRefs;
+  readonly fields: TaskFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for MccTask.
+   * The delegate class that acts as a "Promise-like" for Task.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__MccTaskClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__TaskClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -20756,815 +20640,744 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the MccTask model
+   * Fields of the Task model
    */
-  interface MccTaskFieldRefs {
-    readonly id: FieldRef<"MccTask", 'String'>
-    readonly title: FieldRef<"MccTask", 'String'>
-    readonly description: FieldRef<"MccTask", 'String'>
-    readonly status: FieldRef<"MccTask", 'String'>
-    readonly priority: FieldRef<"MccTask", 'String'>
-    readonly due_date: FieldRef<"MccTask", 'DateTime'>
-    readonly source_type: FieldRef<"MccTask", 'String'>
-    readonly source_id: FieldRef<"MccTask", 'String'>
-    readonly createdAt: FieldRef<"MccTask", 'DateTime'>
-    readonly updatedAt: FieldRef<"MccTask", 'DateTime'>
+  interface TaskFieldRefs {
+    readonly id: FieldRef<"Task", 'String'>
+    readonly title: FieldRef<"Task", 'String'>
+    readonly description: FieldRef<"Task", 'String'>
+    readonly linked_entity_type: FieldRef<"Task", 'String'>
+    readonly linked_entity_id: FieldRef<"Task", 'String'>
+    readonly due_date: FieldRef<"Task", 'DateTime'>
+    readonly status: FieldRef<"Task", 'String'>
+    readonly createdAt: FieldRef<"Task", 'DateTime'>
+    readonly updatedAt: FieldRef<"Task", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * MccTask findUnique
+   * Task findUnique
    */
-  export type MccTaskFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelect<ExtArgs> | null
+    select?: TaskSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
     /**
-     * Filter, which MccTask to fetch.
+     * Filter, which Task to fetch.
      */
-    where: MccTaskWhereUniqueInput
+    where: TaskWhereUniqueInput
   }
 
   /**
-   * MccTask findUniqueOrThrow
+   * Task findUniqueOrThrow
    */
-  export type MccTaskFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelect<ExtArgs> | null
+    select?: TaskSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
     /**
-     * Filter, which MccTask to fetch.
+     * Filter, which Task to fetch.
      */
-    where: MccTaskWhereUniqueInput
+    where: TaskWhereUniqueInput
   }
 
   /**
-   * MccTask findFirst
+   * Task findFirst
    */
-  export type MccTaskFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelect<ExtArgs> | null
+    select?: TaskSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
     /**
-     * Filter, which MccTask to fetch.
+     * Filter, which Task to fetch.
      */
-    where?: MccTaskWhereInput
+    where?: TaskWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MccTasks to fetch.
+     * Determine the order of Tasks to fetch.
      */
-    orderBy?: MccTaskOrderByWithRelationInput | MccTaskOrderByWithRelationInput[]
+    orderBy?: TaskOrderByWithRelationInput | TaskOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for MccTasks.
+     * Sets the position for searching for Tasks.
      */
-    cursor?: MccTaskWhereUniqueInput
+    cursor?: TaskWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MccTasks from the position of the cursor.
+     * Take `±n` Tasks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MccTasks.
+     * Skip the first `n` Tasks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of MccTasks.
+     * Filter by unique combinations of Tasks.
      */
-    distinct?: MccTaskScalarFieldEnum | MccTaskScalarFieldEnum[]
+    distinct?: TaskScalarFieldEnum | TaskScalarFieldEnum[]
   }
 
   /**
-   * MccTask findFirstOrThrow
+   * Task findFirstOrThrow
    */
-  export type MccTaskFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelect<ExtArgs> | null
+    select?: TaskSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
     /**
-     * Filter, which MccTask to fetch.
+     * Filter, which Task to fetch.
      */
-    where?: MccTaskWhereInput
+    where?: TaskWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MccTasks to fetch.
+     * Determine the order of Tasks to fetch.
      */
-    orderBy?: MccTaskOrderByWithRelationInput | MccTaskOrderByWithRelationInput[]
+    orderBy?: TaskOrderByWithRelationInput | TaskOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for MccTasks.
+     * Sets the position for searching for Tasks.
      */
-    cursor?: MccTaskWhereUniqueInput
+    cursor?: TaskWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MccTasks from the position of the cursor.
+     * Take `±n` Tasks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MccTasks.
+     * Skip the first `n` Tasks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of MccTasks.
+     * Filter by unique combinations of Tasks.
      */
-    distinct?: MccTaskScalarFieldEnum | MccTaskScalarFieldEnum[]
+    distinct?: TaskScalarFieldEnum | TaskScalarFieldEnum[]
   }
 
   /**
-   * MccTask findMany
+   * Task findMany
    */
-  export type MccTaskFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelect<ExtArgs> | null
+    select?: TaskSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
     /**
-     * Filter, which MccTasks to fetch.
+     * Filter, which Tasks to fetch.
      */
-    where?: MccTaskWhereInput
+    where?: TaskWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of MccTasks to fetch.
+     * Determine the order of Tasks to fetch.
      */
-    orderBy?: MccTaskOrderByWithRelationInput | MccTaskOrderByWithRelationInput[]
+    orderBy?: TaskOrderByWithRelationInput | TaskOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing MccTasks.
+     * Sets the position for listing Tasks.
      */
-    cursor?: MccTaskWhereUniqueInput
+    cursor?: TaskWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` MccTasks from the position of the cursor.
+     * Take `±n` Tasks from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` MccTasks.
+     * Skip the first `n` Tasks.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of MccTasks.
+     * Filter by unique combinations of Tasks.
      */
-    distinct?: MccTaskScalarFieldEnum | MccTaskScalarFieldEnum[]
+    distinct?: TaskScalarFieldEnum | TaskScalarFieldEnum[]
   }
 
   /**
-   * MccTask create
+   * Task create
    */
-  export type MccTaskCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelect<ExtArgs> | null
+    select?: TaskSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
     /**
-     * The data needed to create a MccTask.
+     * The data needed to create a Task.
      */
-    data: XOR<MccTaskCreateInput, MccTaskUncheckedCreateInput>
+    data: XOR<TaskCreateInput, TaskUncheckedCreateInput>
   }
 
   /**
-   * MccTask createMany
+   * Task createMany
    */
-  export type MccTaskCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many MccTasks.
+     * The data used to create many Tasks.
      */
-    data: MccTaskCreateManyInput | MccTaskCreateManyInput[]
+    data: TaskCreateManyInput | TaskCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * MccTask createManyAndReturn
+   * Task createManyAndReturn
    */
-  export type MccTaskCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelectCreateManyAndReturn<ExtArgs> | null
+    select?: TaskSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
     /**
-     * The data used to create many MccTasks.
+     * The data used to create many Tasks.
      */
-    data: MccTaskCreateManyInput | MccTaskCreateManyInput[]
+    data: TaskCreateManyInput | TaskCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * MccTask update
+   * Task update
    */
-  export type MccTaskUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelect<ExtArgs> | null
+    select?: TaskSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
     /**
-     * The data needed to update a MccTask.
+     * The data needed to update a Task.
      */
-    data: XOR<MccTaskUpdateInput, MccTaskUncheckedUpdateInput>
+    data: XOR<TaskUpdateInput, TaskUncheckedUpdateInput>
     /**
-     * Choose, which MccTask to update.
+     * Choose, which Task to update.
      */
-    where: MccTaskWhereUniqueInput
+    where: TaskWhereUniqueInput
   }
 
   /**
-   * MccTask updateMany
+   * Task updateMany
    */
-  export type MccTaskUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update MccTasks.
+     * The data used to update Tasks.
      */
-    data: XOR<MccTaskUpdateManyMutationInput, MccTaskUncheckedUpdateManyInput>
+    data: XOR<TaskUpdateManyMutationInput, TaskUncheckedUpdateManyInput>
     /**
-     * Filter which MccTasks to update
+     * Filter which Tasks to update
      */
-    where?: MccTaskWhereInput
+    where?: TaskWhereInput
     /**
-     * Limit how many MccTasks to update.
+     * Limit how many Tasks to update.
      */
     limit?: number
   }
 
   /**
-   * MccTask updateManyAndReturn
+   * Task updateManyAndReturn
    */
-  export type MccTaskUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: TaskSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
     /**
-     * The data used to update MccTasks.
+     * The data used to update Tasks.
      */
-    data: XOR<MccTaskUpdateManyMutationInput, MccTaskUncheckedUpdateManyInput>
+    data: XOR<TaskUpdateManyMutationInput, TaskUncheckedUpdateManyInput>
     /**
-     * Filter which MccTasks to update
+     * Filter which Tasks to update
      */
-    where?: MccTaskWhereInput
+    where?: TaskWhereInput
     /**
-     * Limit how many MccTasks to update.
+     * Limit how many Tasks to update.
      */
     limit?: number
   }
 
   /**
-   * MccTask upsert
+   * Task upsert
    */
-  export type MccTaskUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelect<ExtArgs> | null
+    select?: TaskSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
     /**
-     * The filter to search for the MccTask to update in case it exists.
+     * The filter to search for the Task to update in case it exists.
      */
-    where: MccTaskWhereUniqueInput
+    where: TaskWhereUniqueInput
     /**
-     * In case the MccTask found by the `where` argument doesn't exist, create a new MccTask with this data.
+     * In case the Task found by the `where` argument doesn't exist, create a new Task with this data.
      */
-    create: XOR<MccTaskCreateInput, MccTaskUncheckedCreateInput>
+    create: XOR<TaskCreateInput, TaskUncheckedCreateInput>
     /**
-     * In case the MccTask was found with the provided `where` argument, update it with this data.
+     * In case the Task was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<MccTaskUpdateInput, MccTaskUncheckedUpdateInput>
+    update: XOR<TaskUpdateInput, TaskUncheckedUpdateInput>
   }
 
   /**
-   * MccTask delete
+   * Task delete
    */
-  export type MccTaskDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelect<ExtArgs> | null
+    select?: TaskSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
     /**
-     * Filter which MccTask to delete.
+     * Filter which Task to delete.
      */
-    where: MccTaskWhereUniqueInput
+    where: TaskWhereUniqueInput
   }
 
   /**
-   * MccTask deleteMany
+   * Task deleteMany
    */
-  export type MccTaskDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which MccTasks to delete
+     * Filter which Tasks to delete
      */
-    where?: MccTaskWhereInput
+    where?: TaskWhereInput
     /**
-     * Limit how many MccTasks to delete.
+     * Limit how many Tasks to delete.
      */
     limit?: number
   }
 
   /**
-   * MccTask without action
+   * Task without action
    */
-  export type MccTaskDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type TaskDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the MccTask
+     * Select specific fields to fetch from the Task
      */
-    select?: MccTaskSelect<ExtArgs> | null
+    select?: TaskSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the MccTask
+     * Omit specific fields from the Task
      */
-    omit?: MccTaskOmit<ExtArgs> | null
+    omit?: TaskOmit<ExtArgs> | null
   }
 
 
   /**
-   * Model PollLog
+   * Model Meeting
    */
 
-  export type AggregatePollLog = {
-    _count: PollLogCountAggregateOutputType | null
-    _avg: PollLogAvgAggregateOutputType | null
-    _sum: PollLogSumAggregateOutputType | null
-    _min: PollLogMinAggregateOutputType | null
-    _max: PollLogMaxAggregateOutputType | null
+  export type AggregateMeeting = {
+    _count: MeetingCountAggregateOutputType | null
+    _min: MeetingMinAggregateOutputType | null
+    _max: MeetingMaxAggregateOutputType | null
   }
 
-  export type PollLogAvgAggregateOutputType = {
-    emails_processed: number | null
-    events_processed: number | null
-    alerts_created: number | null
-    duration_ms: number | null
-  }
-
-  export type PollLogSumAggregateOutputType = {
-    emails_processed: number | null
-    events_processed: number | null
-    alerts_created: number | null
-    duration_ms: number | null
-  }
-
-  export type PollLogMinAggregateOutputType = {
+  export type MeetingMinAggregateOutputType = {
     id: string | null
-    poll_type: string | null
-    status: string | null
-    emails_processed: number | null
-    events_processed: number | null
-    alerts_created: number | null
-    error_message: string | null
-    duration_ms: number | null
+    title: string | null
+    participants: string | null
+    date: Date | null
+    notes: string | null
     createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type PollLogMaxAggregateOutputType = {
+  export type MeetingMaxAggregateOutputType = {
     id: string | null
-    poll_type: string | null
-    status: string | null
-    emails_processed: number | null
-    events_processed: number | null
-    alerts_created: number | null
-    error_message: string | null
-    duration_ms: number | null
+    title: string | null
+    participants: string | null
+    date: Date | null
+    notes: string | null
     createdAt: Date | null
+    updatedAt: Date | null
   }
 
-  export type PollLogCountAggregateOutputType = {
+  export type MeetingCountAggregateOutputType = {
     id: number
-    poll_type: number
-    status: number
-    emails_processed: number
-    events_processed: number
-    alerts_created: number
-    error_message: number
-    duration_ms: number
+    title: number
+    participants: number
+    date: number
+    notes: number
     createdAt: number
+    updatedAt: number
     _all: number
   }
 
 
-  export type PollLogAvgAggregateInputType = {
-    emails_processed?: true
-    events_processed?: true
-    alerts_created?: true
-    duration_ms?: true
-  }
-
-  export type PollLogSumAggregateInputType = {
-    emails_processed?: true
-    events_processed?: true
-    alerts_created?: true
-    duration_ms?: true
-  }
-
-  export type PollLogMinAggregateInputType = {
+  export type MeetingMinAggregateInputType = {
     id?: true
-    poll_type?: true
-    status?: true
-    emails_processed?: true
-    events_processed?: true
-    alerts_created?: true
-    error_message?: true
-    duration_ms?: true
+    title?: true
+    participants?: true
+    date?: true
+    notes?: true
     createdAt?: true
+    updatedAt?: true
   }
 
-  export type PollLogMaxAggregateInputType = {
+  export type MeetingMaxAggregateInputType = {
     id?: true
-    poll_type?: true
-    status?: true
-    emails_processed?: true
-    events_processed?: true
-    alerts_created?: true
-    error_message?: true
-    duration_ms?: true
+    title?: true
+    participants?: true
+    date?: true
+    notes?: true
     createdAt?: true
+    updatedAt?: true
   }
 
-  export type PollLogCountAggregateInputType = {
+  export type MeetingCountAggregateInputType = {
     id?: true
-    poll_type?: true
-    status?: true
-    emails_processed?: true
-    events_processed?: true
-    alerts_created?: true
-    error_message?: true
-    duration_ms?: true
+    title?: true
+    participants?: true
+    date?: true
+    notes?: true
     createdAt?: true
+    updatedAt?: true
     _all?: true
   }
 
-  export type PollLogAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which PollLog to aggregate.
+     * Filter which Meeting to aggregate.
      */
-    where?: PollLogWhereInput
+    where?: MeetingWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PollLogs to fetch.
+     * Determine the order of Meetings to fetch.
      */
-    orderBy?: PollLogOrderByWithRelationInput | PollLogOrderByWithRelationInput[]
+    orderBy?: MeetingOrderByWithRelationInput | MeetingOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: PollLogWhereUniqueInput
+    cursor?: MeetingWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PollLogs from the position of the cursor.
+     * Take `±n` Meetings from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PollLogs.
+     * Skip the first `n` Meetings.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned PollLogs
+     * Count returned Meetings
     **/
-    _count?: true | PollLogCountAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to average
-    **/
-    _avg?: PollLogAvgAggregateInputType
-    /**
-     * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
-     * 
-     * Select which fields to sum
-    **/
-    _sum?: PollLogSumAggregateInputType
+    _count?: true | MeetingCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: PollLogMinAggregateInputType
+    _min?: MeetingMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: PollLogMaxAggregateInputType
+    _max?: MeetingMaxAggregateInputType
   }
 
-  export type GetPollLogAggregateType<T extends PollLogAggregateArgs> = {
-        [P in keyof T & keyof AggregatePollLog]: P extends '_count' | 'count'
+  export type GetMeetingAggregateType<T extends MeetingAggregateArgs> = {
+        [P in keyof T & keyof AggregateMeeting]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregatePollLog[P]>
-      : GetScalarType<T[P], AggregatePollLog[P]>
+        : GetScalarType<T[P], AggregateMeeting[P]>
+      : GetScalarType<T[P], AggregateMeeting[P]>
   }
 
 
 
 
-  export type PollLogGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: PollLogWhereInput
-    orderBy?: PollLogOrderByWithAggregationInput | PollLogOrderByWithAggregationInput[]
-    by: PollLogScalarFieldEnum[] | PollLogScalarFieldEnum
-    having?: PollLogScalarWhereWithAggregatesInput
+  export type MeetingGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: MeetingWhereInput
+    orderBy?: MeetingOrderByWithAggregationInput | MeetingOrderByWithAggregationInput[]
+    by: MeetingScalarFieldEnum[] | MeetingScalarFieldEnum
+    having?: MeetingScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: PollLogCountAggregateInputType | true
-    _avg?: PollLogAvgAggregateInputType
-    _sum?: PollLogSumAggregateInputType
-    _min?: PollLogMinAggregateInputType
-    _max?: PollLogMaxAggregateInputType
+    _count?: MeetingCountAggregateInputType | true
+    _min?: MeetingMinAggregateInputType
+    _max?: MeetingMaxAggregateInputType
   }
 
-  export type PollLogGroupByOutputType = {
+  export type MeetingGroupByOutputType = {
     id: string
-    poll_type: string
-    status: string
-    emails_processed: number
-    events_processed: number
-    alerts_created: number
-    error_message: string | null
-    duration_ms: number | null
+    title: string
+    participants: string | null
+    date: Date | null
+    notes: string | null
     createdAt: Date
-    _count: PollLogCountAggregateOutputType | null
-    _avg: PollLogAvgAggregateOutputType | null
-    _sum: PollLogSumAggregateOutputType | null
-    _min: PollLogMinAggregateOutputType | null
-    _max: PollLogMaxAggregateOutputType | null
+    updatedAt: Date
+    _count: MeetingCountAggregateOutputType | null
+    _min: MeetingMinAggregateOutputType | null
+    _max: MeetingMaxAggregateOutputType | null
   }
 
-  type GetPollLogGroupByPayload<T extends PollLogGroupByArgs> = Prisma.PrismaPromise<
+  type GetMeetingGroupByPayload<T extends MeetingGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<PollLogGroupByOutputType, T['by']> &
+      PickEnumerable<MeetingGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof PollLogGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof MeetingGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], PollLogGroupByOutputType[P]>
-            : GetScalarType<T[P], PollLogGroupByOutputType[P]>
+              : GetScalarType<T[P], MeetingGroupByOutputType[P]>
+            : GetScalarType<T[P], MeetingGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type PollLogSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type MeetingSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    poll_type?: boolean
-    status?: boolean
-    emails_processed?: boolean
-    events_processed?: boolean
-    alerts_created?: boolean
-    error_message?: boolean
-    duration_ms?: boolean
+    title?: boolean
+    participants?: boolean
+    date?: boolean
+    notes?: boolean
     createdAt?: boolean
-  }, ExtArgs["result"]["pollLog"]>
+    updatedAt?: boolean
+  }, ExtArgs["result"]["meeting"]>
 
-  export type PollLogSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type MeetingSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    poll_type?: boolean
-    status?: boolean
-    emails_processed?: boolean
-    events_processed?: boolean
-    alerts_created?: boolean
-    error_message?: boolean
-    duration_ms?: boolean
+    title?: boolean
+    participants?: boolean
+    date?: boolean
+    notes?: boolean
     createdAt?: boolean
-  }, ExtArgs["result"]["pollLog"]>
+    updatedAt?: boolean
+  }, ExtArgs["result"]["meeting"]>
 
-  export type PollLogSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type MeetingSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
-    poll_type?: boolean
-    status?: boolean
-    emails_processed?: boolean
-    events_processed?: boolean
-    alerts_created?: boolean
-    error_message?: boolean
-    duration_ms?: boolean
+    title?: boolean
+    participants?: boolean
+    date?: boolean
+    notes?: boolean
     createdAt?: boolean
-  }, ExtArgs["result"]["pollLog"]>
+    updatedAt?: boolean
+  }, ExtArgs["result"]["meeting"]>
 
-  export type PollLogSelectScalar = {
+  export type MeetingSelectScalar = {
     id?: boolean
-    poll_type?: boolean
-    status?: boolean
-    emails_processed?: boolean
-    events_processed?: boolean
-    alerts_created?: boolean
-    error_message?: boolean
-    duration_ms?: boolean
+    title?: boolean
+    participants?: boolean
+    date?: boolean
+    notes?: boolean
     createdAt?: boolean
+    updatedAt?: boolean
   }
 
-  export type PollLogOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "poll_type" | "status" | "emails_processed" | "events_processed" | "alerts_created" | "error_message" | "duration_ms" | "createdAt", ExtArgs["result"]["pollLog"]>
+  export type MeetingOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "title" | "participants" | "date" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["meeting"]>
 
-  export type $PollLogPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "PollLog"
+  export type $MeetingPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Meeting"
     objects: {}
     scalars: $Extensions.GetPayloadResult<{
       id: string
-      poll_type: string
-      status: string
-      emails_processed: number
-      events_processed: number
-      alerts_created: number
-      error_message: string | null
-      duration_ms: number | null
+      title: string
+      participants: string | null
+      date: Date | null
+      notes: string | null
       createdAt: Date
-    }, ExtArgs["result"]["pollLog"]>
+      updatedAt: Date
+    }, ExtArgs["result"]["meeting"]>
     composites: {}
   }
 
-  type PollLogGetPayload<S extends boolean | null | undefined | PollLogDefaultArgs> = $Result.GetResult<Prisma.$PollLogPayload, S>
+  type MeetingGetPayload<S extends boolean | null | undefined | MeetingDefaultArgs> = $Result.GetResult<Prisma.$MeetingPayload, S>
 
-  type PollLogCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<PollLogFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: PollLogCountAggregateInputType | true
+  type MeetingCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<MeetingFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: MeetingCountAggregateInputType | true
     }
 
-  export interface PollLogDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['PollLog'], meta: { name: 'PollLog' } }
+  export interface MeetingDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Meeting'], meta: { name: 'Meeting' } }
     /**
-     * Find zero or one PollLog that matches the filter.
-     * @param {PollLogFindUniqueArgs} args - Arguments to find a PollLog
+     * Find zero or one Meeting that matches the filter.
+     * @param {MeetingFindUniqueArgs} args - Arguments to find a Meeting
      * @example
-     * // Get one PollLog
-     * const pollLog = await prisma.pollLog.findUnique({
+     * // Get one Meeting
+     * const meeting = await prisma.meeting.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends PollLogFindUniqueArgs>(args: SelectSubset<T, PollLogFindUniqueArgs<ExtArgs>>): Prisma__PollLogClient<$Result.GetResult<Prisma.$PollLogPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends MeetingFindUniqueArgs>(args: SelectSubset<T, MeetingFindUniqueArgs<ExtArgs>>): Prisma__MeetingClient<$Result.GetResult<Prisma.$MeetingPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one PollLog that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Meeting that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {PollLogFindUniqueOrThrowArgs} args - Arguments to find a PollLog
+     * @param {MeetingFindUniqueOrThrowArgs} args - Arguments to find a Meeting
      * @example
-     * // Get one PollLog
-     * const pollLog = await prisma.pollLog.findUniqueOrThrow({
+     * // Get one Meeting
+     * const meeting = await prisma.meeting.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends PollLogFindUniqueOrThrowArgs>(args: SelectSubset<T, PollLogFindUniqueOrThrowArgs<ExtArgs>>): Prisma__PollLogClient<$Result.GetResult<Prisma.$PollLogPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends MeetingFindUniqueOrThrowArgs>(args: SelectSubset<T, MeetingFindUniqueOrThrowArgs<ExtArgs>>): Prisma__MeetingClient<$Result.GetResult<Prisma.$MeetingPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first PollLog that matches the filter.
+     * Find the first Meeting that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PollLogFindFirstArgs} args - Arguments to find a PollLog
+     * @param {MeetingFindFirstArgs} args - Arguments to find a Meeting
      * @example
-     * // Get one PollLog
-     * const pollLog = await prisma.pollLog.findFirst({
+     * // Get one Meeting
+     * const meeting = await prisma.meeting.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends PollLogFindFirstArgs>(args?: SelectSubset<T, PollLogFindFirstArgs<ExtArgs>>): Prisma__PollLogClient<$Result.GetResult<Prisma.$PollLogPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends MeetingFindFirstArgs>(args?: SelectSubset<T, MeetingFindFirstArgs<ExtArgs>>): Prisma__MeetingClient<$Result.GetResult<Prisma.$MeetingPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first PollLog that matches the filter or
+     * Find the first Meeting that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PollLogFindFirstOrThrowArgs} args - Arguments to find a PollLog
+     * @param {MeetingFindFirstOrThrowArgs} args - Arguments to find a Meeting
      * @example
-     * // Get one PollLog
-     * const pollLog = await prisma.pollLog.findFirstOrThrow({
+     * // Get one Meeting
+     * const meeting = await prisma.meeting.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends PollLogFindFirstOrThrowArgs>(args?: SelectSubset<T, PollLogFindFirstOrThrowArgs<ExtArgs>>): Prisma__PollLogClient<$Result.GetResult<Prisma.$PollLogPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends MeetingFindFirstOrThrowArgs>(args?: SelectSubset<T, MeetingFindFirstOrThrowArgs<ExtArgs>>): Prisma__MeetingClient<$Result.GetResult<Prisma.$MeetingPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more PollLogs that matches the filter.
+     * Find zero or more Meetings that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PollLogFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {MeetingFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all PollLogs
-     * const pollLogs = await prisma.pollLog.findMany()
+     * // Get all Meetings
+     * const meetings = await prisma.meeting.findMany()
      * 
-     * // Get first 10 PollLogs
-     * const pollLogs = await prisma.pollLog.findMany({ take: 10 })
+     * // Get first 10 Meetings
+     * const meetings = await prisma.meeting.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const pollLogWithIdOnly = await prisma.pollLog.findMany({ select: { id: true } })
+     * const meetingWithIdOnly = await prisma.meeting.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends PollLogFindManyArgs>(args?: SelectSubset<T, PollLogFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PollLogPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends MeetingFindManyArgs>(args?: SelectSubset<T, MeetingFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MeetingPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a PollLog.
-     * @param {PollLogCreateArgs} args - Arguments to create a PollLog.
+     * Create a Meeting.
+     * @param {MeetingCreateArgs} args - Arguments to create a Meeting.
      * @example
-     * // Create one PollLog
-     * const PollLog = await prisma.pollLog.create({
+     * // Create one Meeting
+     * const Meeting = await prisma.meeting.create({
      *   data: {
-     *     // ... data to create a PollLog
+     *     // ... data to create a Meeting
      *   }
      * })
      * 
      */
-    create<T extends PollLogCreateArgs>(args: SelectSubset<T, PollLogCreateArgs<ExtArgs>>): Prisma__PollLogClient<$Result.GetResult<Prisma.$PollLogPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends MeetingCreateArgs>(args: SelectSubset<T, MeetingCreateArgs<ExtArgs>>): Prisma__MeetingClient<$Result.GetResult<Prisma.$MeetingPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many PollLogs.
-     * @param {PollLogCreateManyArgs} args - Arguments to create many PollLogs.
+     * Create many Meetings.
+     * @param {MeetingCreateManyArgs} args - Arguments to create many Meetings.
      * @example
-     * // Create many PollLogs
-     * const pollLog = await prisma.pollLog.createMany({
+     * // Create many Meetings
+     * const meeting = await prisma.meeting.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends PollLogCreateManyArgs>(args?: SelectSubset<T, PollLogCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends MeetingCreateManyArgs>(args?: SelectSubset<T, MeetingCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many PollLogs and returns the data saved in the database.
-     * @param {PollLogCreateManyAndReturnArgs} args - Arguments to create many PollLogs.
+     * Create many Meetings and returns the data saved in the database.
+     * @param {MeetingCreateManyAndReturnArgs} args - Arguments to create many Meetings.
      * @example
-     * // Create many PollLogs
-     * const pollLog = await prisma.pollLog.createManyAndReturn({
+     * // Create many Meetings
+     * const meeting = await prisma.meeting.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many PollLogs and only return the `id`
-     * const pollLogWithIdOnly = await prisma.pollLog.createManyAndReturn({
+     * // Create many Meetings and only return the `id`
+     * const meetingWithIdOnly = await prisma.meeting.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -21574,28 +21387,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends PollLogCreateManyAndReturnArgs>(args?: SelectSubset<T, PollLogCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PollLogPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends MeetingCreateManyAndReturnArgs>(args?: SelectSubset<T, MeetingCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MeetingPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a PollLog.
-     * @param {PollLogDeleteArgs} args - Arguments to delete one PollLog.
+     * Delete a Meeting.
+     * @param {MeetingDeleteArgs} args - Arguments to delete one Meeting.
      * @example
-     * // Delete one PollLog
-     * const PollLog = await prisma.pollLog.delete({
+     * // Delete one Meeting
+     * const Meeting = await prisma.meeting.delete({
      *   where: {
-     *     // ... filter to delete one PollLog
+     *     // ... filter to delete one Meeting
      *   }
      * })
      * 
      */
-    delete<T extends PollLogDeleteArgs>(args: SelectSubset<T, PollLogDeleteArgs<ExtArgs>>): Prisma__PollLogClient<$Result.GetResult<Prisma.$PollLogPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends MeetingDeleteArgs>(args: SelectSubset<T, MeetingDeleteArgs<ExtArgs>>): Prisma__MeetingClient<$Result.GetResult<Prisma.$MeetingPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one PollLog.
-     * @param {PollLogUpdateArgs} args - Arguments to update one PollLog.
+     * Update one Meeting.
+     * @param {MeetingUpdateArgs} args - Arguments to update one Meeting.
      * @example
-     * // Update one PollLog
-     * const pollLog = await prisma.pollLog.update({
+     * // Update one Meeting
+     * const meeting = await prisma.meeting.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -21605,30 +21418,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends PollLogUpdateArgs>(args: SelectSubset<T, PollLogUpdateArgs<ExtArgs>>): Prisma__PollLogClient<$Result.GetResult<Prisma.$PollLogPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends MeetingUpdateArgs>(args: SelectSubset<T, MeetingUpdateArgs<ExtArgs>>): Prisma__MeetingClient<$Result.GetResult<Prisma.$MeetingPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more PollLogs.
-     * @param {PollLogDeleteManyArgs} args - Arguments to filter PollLogs to delete.
+     * Delete zero or more Meetings.
+     * @param {MeetingDeleteManyArgs} args - Arguments to filter Meetings to delete.
      * @example
-     * // Delete a few PollLogs
-     * const { count } = await prisma.pollLog.deleteMany({
+     * // Delete a few Meetings
+     * const { count } = await prisma.meeting.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends PollLogDeleteManyArgs>(args?: SelectSubset<T, PollLogDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends MeetingDeleteManyArgs>(args?: SelectSubset<T, MeetingDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more PollLogs.
+     * Update zero or more Meetings.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PollLogUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {MeetingUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many PollLogs
-     * const pollLog = await prisma.pollLog.updateMany({
+     * // Update many Meetings
+     * const meeting = await prisma.meeting.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -21638,14 +21451,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends PollLogUpdateManyArgs>(args: SelectSubset<T, PollLogUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends MeetingUpdateManyArgs>(args: SelectSubset<T, MeetingUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more PollLogs and returns the data updated in the database.
-     * @param {PollLogUpdateManyAndReturnArgs} args - Arguments to update many PollLogs.
+     * Update zero or more Meetings and returns the data updated in the database.
+     * @param {MeetingUpdateManyAndReturnArgs} args - Arguments to update many Meetings.
      * @example
-     * // Update many PollLogs
-     * const pollLog = await prisma.pollLog.updateManyAndReturn({
+     * // Update many Meetings
+     * const meeting = await prisma.meeting.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -21654,8 +21467,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more PollLogs and only return the `id`
-     * const pollLogWithIdOnly = await prisma.pollLog.updateManyAndReturn({
+     * // Update zero or more Meetings and only return the `id`
+     * const meetingWithIdOnly = await prisma.meeting.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -21668,56 +21481,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends PollLogUpdateManyAndReturnArgs>(args: SelectSubset<T, PollLogUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$PollLogPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends MeetingUpdateManyAndReturnArgs>(args: SelectSubset<T, MeetingUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$MeetingPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one PollLog.
-     * @param {PollLogUpsertArgs} args - Arguments to update or create a PollLog.
+     * Create or update one Meeting.
+     * @param {MeetingUpsertArgs} args - Arguments to update or create a Meeting.
      * @example
-     * // Update or create a PollLog
-     * const pollLog = await prisma.pollLog.upsert({
+     * // Update or create a Meeting
+     * const meeting = await prisma.meeting.upsert({
      *   create: {
-     *     // ... data to create a PollLog
+     *     // ... data to create a Meeting
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the PollLog we want to update
+     *     // ... the filter for the Meeting we want to update
      *   }
      * })
      */
-    upsert<T extends PollLogUpsertArgs>(args: SelectSubset<T, PollLogUpsertArgs<ExtArgs>>): Prisma__PollLogClient<$Result.GetResult<Prisma.$PollLogPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends MeetingUpsertArgs>(args: SelectSubset<T, MeetingUpsertArgs<ExtArgs>>): Prisma__MeetingClient<$Result.GetResult<Prisma.$MeetingPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of PollLogs.
+     * Count the number of Meetings.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PollLogCountArgs} args - Arguments to filter PollLogs to count.
+     * @param {MeetingCountArgs} args - Arguments to filter Meetings to count.
      * @example
-     * // Count the number of PollLogs
-     * const count = await prisma.pollLog.count({
+     * // Count the number of Meetings
+     * const count = await prisma.meeting.count({
      *   where: {
-     *     // ... the filter for the PollLogs we want to count
+     *     // ... the filter for the Meetings we want to count
      *   }
      * })
     **/
-    count<T extends PollLogCountArgs>(
-      args?: Subset<T, PollLogCountArgs>,
+    count<T extends MeetingCountArgs>(
+      args?: Subset<T, MeetingCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], PollLogCountAggregateOutputType>
+          : GetScalarType<T['select'], MeetingCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a PollLog.
+     * Allows you to perform aggregations operations on a Meeting.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PollLogAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {MeetingAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -21737,13 +21550,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends PollLogAggregateArgs>(args: Subset<T, PollLogAggregateArgs>): Prisma.PrismaPromise<GetPollLogAggregateType<T>>
+    aggregate<T extends MeetingAggregateArgs>(args: Subset<T, MeetingAggregateArgs>): Prisma.PrismaPromise<GetMeetingAggregateType<T>>
 
     /**
-     * Group by PollLog.
+     * Group by Meeting.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {PollLogGroupByArgs} args - Group by arguments.
+     * @param {MeetingGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -21758,14 +21571,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends PollLogGroupByArgs,
+      T extends MeetingGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: PollLogGroupByArgs['orderBy'] }
-        : { orderBy?: PollLogGroupByArgs['orderBy'] },
+        ? { orderBy: MeetingGroupByArgs['orderBy'] }
+        : { orderBy?: MeetingGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -21814,20 +21627,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, PollLogGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetPollLogGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, MeetingGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetMeetingGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the PollLog model
+   * Fields of the Meeting model
    */
-  readonly fields: PollLogFieldRefs;
+  readonly fields: MeetingFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for PollLog.
+   * The delegate class that acts as a "Promise-like" for Meeting.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__PollLogClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__MeetingClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
@@ -21855,386 +21668,384 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the PollLog model
+   * Fields of the Meeting model
    */
-  interface PollLogFieldRefs {
-    readonly id: FieldRef<"PollLog", 'String'>
-    readonly poll_type: FieldRef<"PollLog", 'String'>
-    readonly status: FieldRef<"PollLog", 'String'>
-    readonly emails_processed: FieldRef<"PollLog", 'Int'>
-    readonly events_processed: FieldRef<"PollLog", 'Int'>
-    readonly alerts_created: FieldRef<"PollLog", 'Int'>
-    readonly error_message: FieldRef<"PollLog", 'String'>
-    readonly duration_ms: FieldRef<"PollLog", 'Int'>
-    readonly createdAt: FieldRef<"PollLog", 'DateTime'>
+  interface MeetingFieldRefs {
+    readonly id: FieldRef<"Meeting", 'String'>
+    readonly title: FieldRef<"Meeting", 'String'>
+    readonly participants: FieldRef<"Meeting", 'String'>
+    readonly date: FieldRef<"Meeting", 'DateTime'>
+    readonly notes: FieldRef<"Meeting", 'String'>
+    readonly createdAt: FieldRef<"Meeting", 'DateTime'>
+    readonly updatedAt: FieldRef<"Meeting", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * PollLog findUnique
+   * Meeting findUnique
    */
-  export type PollLogFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelect<ExtArgs> | null
+    select?: MeetingSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
     /**
-     * Filter, which PollLog to fetch.
+     * Filter, which Meeting to fetch.
      */
-    where: PollLogWhereUniqueInput
+    where: MeetingWhereUniqueInput
   }
 
   /**
-   * PollLog findUniqueOrThrow
+   * Meeting findUniqueOrThrow
    */
-  export type PollLogFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelect<ExtArgs> | null
+    select?: MeetingSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
     /**
-     * Filter, which PollLog to fetch.
+     * Filter, which Meeting to fetch.
      */
-    where: PollLogWhereUniqueInput
+    where: MeetingWhereUniqueInput
   }
 
   /**
-   * PollLog findFirst
+   * Meeting findFirst
    */
-  export type PollLogFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelect<ExtArgs> | null
+    select?: MeetingSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
     /**
-     * Filter, which PollLog to fetch.
+     * Filter, which Meeting to fetch.
      */
-    where?: PollLogWhereInput
+    where?: MeetingWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PollLogs to fetch.
+     * Determine the order of Meetings to fetch.
      */
-    orderBy?: PollLogOrderByWithRelationInput | PollLogOrderByWithRelationInput[]
+    orderBy?: MeetingOrderByWithRelationInput | MeetingOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for PollLogs.
+     * Sets the position for searching for Meetings.
      */
-    cursor?: PollLogWhereUniqueInput
+    cursor?: MeetingWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PollLogs from the position of the cursor.
+     * Take `±n` Meetings from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PollLogs.
+     * Skip the first `n` Meetings.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of PollLogs.
+     * Filter by unique combinations of Meetings.
      */
-    distinct?: PollLogScalarFieldEnum | PollLogScalarFieldEnum[]
+    distinct?: MeetingScalarFieldEnum | MeetingScalarFieldEnum[]
   }
 
   /**
-   * PollLog findFirstOrThrow
+   * Meeting findFirstOrThrow
    */
-  export type PollLogFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelect<ExtArgs> | null
+    select?: MeetingSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
     /**
-     * Filter, which PollLog to fetch.
+     * Filter, which Meeting to fetch.
      */
-    where?: PollLogWhereInput
+    where?: MeetingWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PollLogs to fetch.
+     * Determine the order of Meetings to fetch.
      */
-    orderBy?: PollLogOrderByWithRelationInput | PollLogOrderByWithRelationInput[]
+    orderBy?: MeetingOrderByWithRelationInput | MeetingOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for PollLogs.
+     * Sets the position for searching for Meetings.
      */
-    cursor?: PollLogWhereUniqueInput
+    cursor?: MeetingWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PollLogs from the position of the cursor.
+     * Take `±n` Meetings from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PollLogs.
+     * Skip the first `n` Meetings.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of PollLogs.
+     * Filter by unique combinations of Meetings.
      */
-    distinct?: PollLogScalarFieldEnum | PollLogScalarFieldEnum[]
+    distinct?: MeetingScalarFieldEnum | MeetingScalarFieldEnum[]
   }
 
   /**
-   * PollLog findMany
+   * Meeting findMany
    */
-  export type PollLogFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelect<ExtArgs> | null
+    select?: MeetingSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
     /**
-     * Filter, which PollLogs to fetch.
+     * Filter, which Meetings to fetch.
      */
-    where?: PollLogWhereInput
+    where?: MeetingWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of PollLogs to fetch.
+     * Determine the order of Meetings to fetch.
      */
-    orderBy?: PollLogOrderByWithRelationInput | PollLogOrderByWithRelationInput[]
+    orderBy?: MeetingOrderByWithRelationInput | MeetingOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing PollLogs.
+     * Sets the position for listing Meetings.
      */
-    cursor?: PollLogWhereUniqueInput
+    cursor?: MeetingWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` PollLogs from the position of the cursor.
+     * Take `±n` Meetings from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` PollLogs.
+     * Skip the first `n` Meetings.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of PollLogs.
+     * Filter by unique combinations of Meetings.
      */
-    distinct?: PollLogScalarFieldEnum | PollLogScalarFieldEnum[]
+    distinct?: MeetingScalarFieldEnum | MeetingScalarFieldEnum[]
   }
 
   /**
-   * PollLog create
+   * Meeting create
    */
-  export type PollLogCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelect<ExtArgs> | null
+    select?: MeetingSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
     /**
-     * The data needed to create a PollLog.
+     * The data needed to create a Meeting.
      */
-    data: XOR<PollLogCreateInput, PollLogUncheckedCreateInput>
+    data: XOR<MeetingCreateInput, MeetingUncheckedCreateInput>
   }
 
   /**
-   * PollLog createMany
+   * Meeting createMany
    */
-  export type PollLogCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many PollLogs.
+     * The data used to create many Meetings.
      */
-    data: PollLogCreateManyInput | PollLogCreateManyInput[]
+    data: MeetingCreateManyInput | MeetingCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * PollLog createManyAndReturn
+   * Meeting createManyAndReturn
    */
-  export type PollLogCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelectCreateManyAndReturn<ExtArgs> | null
+    select?: MeetingSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
     /**
-     * The data used to create many PollLogs.
+     * The data used to create many Meetings.
      */
-    data: PollLogCreateManyInput | PollLogCreateManyInput[]
+    data: MeetingCreateManyInput | MeetingCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * PollLog update
+   * Meeting update
    */
-  export type PollLogUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelect<ExtArgs> | null
+    select?: MeetingSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
     /**
-     * The data needed to update a PollLog.
+     * The data needed to update a Meeting.
      */
-    data: XOR<PollLogUpdateInput, PollLogUncheckedUpdateInput>
+    data: XOR<MeetingUpdateInput, MeetingUncheckedUpdateInput>
     /**
-     * Choose, which PollLog to update.
+     * Choose, which Meeting to update.
      */
-    where: PollLogWhereUniqueInput
+    where: MeetingWhereUniqueInput
   }
 
   /**
-   * PollLog updateMany
+   * Meeting updateMany
    */
-  export type PollLogUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update PollLogs.
+     * The data used to update Meetings.
      */
-    data: XOR<PollLogUpdateManyMutationInput, PollLogUncheckedUpdateManyInput>
+    data: XOR<MeetingUpdateManyMutationInput, MeetingUncheckedUpdateManyInput>
     /**
-     * Filter which PollLogs to update
+     * Filter which Meetings to update
      */
-    where?: PollLogWhereInput
+    where?: MeetingWhereInput
     /**
-     * Limit how many PollLogs to update.
+     * Limit how many Meetings to update.
      */
     limit?: number
   }
 
   /**
-   * PollLog updateManyAndReturn
+   * Meeting updateManyAndReturn
    */
-  export type PollLogUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: MeetingSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
     /**
-     * The data used to update PollLogs.
+     * The data used to update Meetings.
      */
-    data: XOR<PollLogUpdateManyMutationInput, PollLogUncheckedUpdateManyInput>
+    data: XOR<MeetingUpdateManyMutationInput, MeetingUncheckedUpdateManyInput>
     /**
-     * Filter which PollLogs to update
+     * Filter which Meetings to update
      */
-    where?: PollLogWhereInput
+    where?: MeetingWhereInput
     /**
-     * Limit how many PollLogs to update.
+     * Limit how many Meetings to update.
      */
     limit?: number
   }
 
   /**
-   * PollLog upsert
+   * Meeting upsert
    */
-  export type PollLogUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelect<ExtArgs> | null
+    select?: MeetingSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
     /**
-     * The filter to search for the PollLog to update in case it exists.
+     * The filter to search for the Meeting to update in case it exists.
      */
-    where: PollLogWhereUniqueInput
+    where: MeetingWhereUniqueInput
     /**
-     * In case the PollLog found by the `where` argument doesn't exist, create a new PollLog with this data.
+     * In case the Meeting found by the `where` argument doesn't exist, create a new Meeting with this data.
      */
-    create: XOR<PollLogCreateInput, PollLogUncheckedCreateInput>
+    create: XOR<MeetingCreateInput, MeetingUncheckedCreateInput>
     /**
-     * In case the PollLog was found with the provided `where` argument, update it with this data.
+     * In case the Meeting was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<PollLogUpdateInput, PollLogUncheckedUpdateInput>
+    update: XOR<MeetingUpdateInput, MeetingUncheckedUpdateInput>
   }
 
   /**
-   * PollLog delete
+   * Meeting delete
    */
-  export type PollLogDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelect<ExtArgs> | null
+    select?: MeetingSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
     /**
-     * Filter which PollLog to delete.
+     * Filter which Meeting to delete.
      */
-    where: PollLogWhereUniqueInput
+    where: MeetingWhereUniqueInput
   }
 
   /**
-   * PollLog deleteMany
+   * Meeting deleteMany
    */
-  export type PollLogDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which PollLogs to delete
+     * Filter which Meetings to delete
      */
-    where?: PollLogWhereInput
+    where?: MeetingWhereInput
     /**
-     * Limit how many PollLogs to delete.
+     * Limit how many Meetings to delete.
      */
     limit?: number
   }
 
   /**
-   * PollLog without action
+   * Meeting without action
    */
-  export type PollLogDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type MeetingDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the PollLog
+     * Select specific fields to fetch from the Meeting
      */
-    select?: PollLogSelect<ExtArgs> | null
+    select?: MeetingSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the PollLog
+     * Omit specific fields from the Meeting
      */
-    omit?: PollLogOmit<ExtArgs> | null
+    omit?: MeetingOmit<ExtArgs> | null
   }
 
 
@@ -22433,112 +22244,92 @@ export namespace Prisma {
   export type ReinvestmentScalarFieldEnum = (typeof ReinvestmentScalarFieldEnum)[keyof typeof ReinvestmentScalarFieldEnum]
 
 
-  export const MccSessionScalarFieldEnum: {
-    id: 'id',
-    user_id: 'user_id',
-    google_access_token: 'google_access_token',
-    google_refresh_token: 'google_refresh_token',
-    google_token_expiry: 'google_token_expiry',
-    google_email: 'google_email',
-    cliq_webhook_url: 'cliq_webhook_url',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
-  };
-
-  export type MccSessionScalarFieldEnum = (typeof MccSessionScalarFieldEnum)[keyof typeof MccSessionScalarFieldEnum]
-
-
-  export const EmailDigestScalarFieldEnum: {
-    id: 'id',
-    gmail_id: 'gmail_id',
-    thread_id: 'thread_id',
-    from_address: 'from_address',
-    from_name: 'from_name',
-    subject: 'subject',
-    snippet: 'snippet',
-    received_at: 'received_at',
-    is_important: 'is_important',
-    is_urgent: 'is_urgent',
-    category: 'category',
-    ai_summary: 'ai_summary',
-    ai_action_items: 'ai_action_items',
-    ai_confidence: 'ai_confidence',
-    read_in_mcc: 'read_in_mcc',
-    dismissed: 'dismissed',
-    raw_body_preview: 'raw_body_preview',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
-  };
-
-  export type EmailDigestScalarFieldEnum = (typeof EmailDigestScalarFieldEnum)[keyof typeof EmailDigestScalarFieldEnum]
-
-
-  export const CalendarEventScalarFieldEnum: {
-    id: 'id',
-    google_event_id: 'google_event_id',
-    title: 'title',
-    description: 'description',
-    start_time: 'start_time',
-    end_time: 'end_time',
-    location: 'location',
-    meet_link: 'meet_link',
-    attendees: 'attendees',
-    is_important: 'is_important',
-    ai_prep_notes: 'ai_prep_notes',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
-  };
-
-  export type CalendarEventScalarFieldEnum = (typeof CalendarEventScalarFieldEnum)[keyof typeof CalendarEventScalarFieldEnum]
-
-
-  export const MccAlertScalarFieldEnum: {
-    id: 'id',
-    type: 'type',
-    severity: 'severity',
-    title: 'title',
-    message: 'message',
-    source_type: 'source_type',
-    source_id: 'source_id',
-    acknowledged: 'acknowledged',
-    sent_to_cliq: 'sent_to_cliq',
-    cliq_sent_at: 'cliq_sent_at',
-    createdAt: 'createdAt',
-    updatedAt: 'updatedAt'
-  };
-
-  export type MccAlertScalarFieldEnum = (typeof MccAlertScalarFieldEnum)[keyof typeof MccAlertScalarFieldEnum]
-
-
-  export const MccTaskScalarFieldEnum: {
+  export const SalesFilmScalarFieldEnum: {
     id: 'id',
     title: 'title',
-    description: 'description',
+    genre: 'genre',
     status: 'status',
-    priority: 'priority',
+    territories: 'territories',
+    buyers: 'buyers',
+    last_contact_date: 'last_contact_date',
+    notes: 'notes',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type SalesFilmScalarFieldEnum = (typeof SalesFilmScalarFieldEnum)[keyof typeof SalesFilmScalarFieldEnum]
+
+
+  export const DealScalarFieldEnum: {
+    id: 'id',
+    film_id: 'film_id',
+    territory: 'territory',
+    buyer: 'buyer',
+    status: 'status',
+    amount: 'amount',
+    notes: 'notes',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type DealScalarFieldEnum = (typeof DealScalarFieldEnum)[keyof typeof DealScalarFieldEnum]
+
+
+  export const AcquisitionScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    synopsis: 'synopsis',
+    cast: 'cast',
+    budget: 'budget',
+    status: 'status',
+    notes: 'notes',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type AcquisitionScalarFieldEnum = (typeof AcquisitionScalarFieldEnum)[keyof typeof AcquisitionScalarFieldEnum]
+
+
+  export const MccInvestorScalarFieldEnum: {
+    id: 'id',
+    name: 'name',
+    email: 'email',
+    investments: 'investments',
+    notes: 'notes',
+    payment_status: 'payment_status',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
+  };
+
+  export type MccInvestorScalarFieldEnum = (typeof MccInvestorScalarFieldEnum)[keyof typeof MccInvestorScalarFieldEnum]
+
+
+  export const TaskScalarFieldEnum: {
+    id: 'id',
+    title: 'title',
+    description: 'description',
+    linked_entity_type: 'linked_entity_type',
+    linked_entity_id: 'linked_entity_id',
     due_date: 'due_date',
-    source_type: 'source_type',
-    source_id: 'source_id',
+    status: 'status',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
 
-  export type MccTaskScalarFieldEnum = (typeof MccTaskScalarFieldEnum)[keyof typeof MccTaskScalarFieldEnum]
+  export type TaskScalarFieldEnum = (typeof TaskScalarFieldEnum)[keyof typeof TaskScalarFieldEnum]
 
 
-  export const PollLogScalarFieldEnum: {
+  export const MeetingScalarFieldEnum: {
     id: 'id',
-    poll_type: 'poll_type',
-    status: 'status',
-    emails_processed: 'emails_processed',
-    events_processed: 'events_processed',
-    alerts_created: 'alerts_created',
-    error_message: 'error_message',
-    duration_ms: 'duration_ms',
-    createdAt: 'createdAt'
+    title: 'title',
+    participants: 'participants',
+    date: 'date',
+    notes: 'notes',
+    createdAt: 'createdAt',
+    updatedAt: 'updatedAt'
   };
 
-  export type PollLogScalarFieldEnum = (typeof PollLogScalarFieldEnum)[keyof typeof PollLogScalarFieldEnum]
+  export type MeetingScalarFieldEnum = (typeof MeetingScalarFieldEnum)[keyof typeof MeetingScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -22648,7 +22439,6 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     investor?: XOR<InvestorNullableScalarRelationFilter, InvestorWhereInput> | null
-    mcc_session?: XOR<MccSessionNullableScalarRelationFilter, MccSessionWhereInput> | null
   }
 
   export type UserOrderByWithRelationInput = {
@@ -22660,7 +22450,6 @@ export namespace Prisma {
     createdAt?: SortOrder
     updatedAt?: SortOrder
     investor?: InvestorOrderByWithRelationInput
-    mcc_session?: MccSessionOrderByWithRelationInput
   }
 
   export type UserWhereUniqueInput = Prisma.AtLeast<{
@@ -22675,7 +22464,6 @@ export namespace Prisma {
     createdAt?: DateTimeFilter<"User"> | Date | string
     updatedAt?: DateTimeFilter<"User"> | Date | string
     investor?: XOR<InvestorNullableScalarRelationFilter, InvestorWhereInput> | null
-    mcc_session?: XOR<MccSessionNullableScalarRelationFilter, MccSessionWhereInput> | null
   }, "id" | "email">
 
   export type UserOrderByWithAggregationInput = {
@@ -23585,533 +23373,436 @@ export namespace Prisma {
     updatedAt?: DateTimeWithAggregatesFilter<"Reinvestment"> | Date | string
   }
 
-  export type MccSessionWhereInput = {
-    AND?: MccSessionWhereInput | MccSessionWhereInput[]
-    OR?: MccSessionWhereInput[]
-    NOT?: MccSessionWhereInput | MccSessionWhereInput[]
-    id?: StringFilter<"MccSession"> | string
-    user_id?: StringFilter<"MccSession"> | string
-    google_access_token?: StringNullableFilter<"MccSession"> | string | null
-    google_refresh_token?: StringNullableFilter<"MccSession"> | string | null
-    google_token_expiry?: DateTimeNullableFilter<"MccSession"> | Date | string | null
-    google_email?: StringNullableFilter<"MccSession"> | string | null
-    cliq_webhook_url?: StringNullableFilter<"MccSession"> | string | null
-    createdAt?: DateTimeFilter<"MccSession"> | Date | string
-    updatedAt?: DateTimeFilter<"MccSession"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
+  export type SalesFilmWhereInput = {
+    AND?: SalesFilmWhereInput | SalesFilmWhereInput[]
+    OR?: SalesFilmWhereInput[]
+    NOT?: SalesFilmWhereInput | SalesFilmWhereInput[]
+    id?: StringFilter<"SalesFilm"> | string
+    title?: StringFilter<"SalesFilm"> | string
+    genre?: StringNullableFilter<"SalesFilm"> | string | null
+    status?: StringFilter<"SalesFilm"> | string
+    territories?: StringNullableFilter<"SalesFilm"> | string | null
+    buyers?: StringNullableFilter<"SalesFilm"> | string | null
+    last_contact_date?: DateTimeNullableFilter<"SalesFilm"> | Date | string | null
+    notes?: StringNullableFilter<"SalesFilm"> | string | null
+    createdAt?: DateTimeFilter<"SalesFilm"> | Date | string
+    updatedAt?: DateTimeFilter<"SalesFilm"> | Date | string
+    deals?: DealListRelationFilter
   }
 
-  export type MccSessionOrderByWithRelationInput = {
+  export type SalesFilmOrderByWithRelationInput = {
     id?: SortOrder
-    user_id?: SortOrder
-    google_access_token?: SortOrderInput | SortOrder
-    google_refresh_token?: SortOrderInput | SortOrder
-    google_token_expiry?: SortOrderInput | SortOrder
-    google_email?: SortOrderInput | SortOrder
-    cliq_webhook_url?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    user?: UserOrderByWithRelationInput
-  }
-
-  export type MccSessionWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    user_id?: string
-    AND?: MccSessionWhereInput | MccSessionWhereInput[]
-    OR?: MccSessionWhereInput[]
-    NOT?: MccSessionWhereInput | MccSessionWhereInput[]
-    google_access_token?: StringNullableFilter<"MccSession"> | string | null
-    google_refresh_token?: StringNullableFilter<"MccSession"> | string | null
-    google_token_expiry?: DateTimeNullableFilter<"MccSession"> | Date | string | null
-    google_email?: StringNullableFilter<"MccSession"> | string | null
-    cliq_webhook_url?: StringNullableFilter<"MccSession"> | string | null
-    createdAt?: DateTimeFilter<"MccSession"> | Date | string
-    updatedAt?: DateTimeFilter<"MccSession"> | Date | string
-    user?: XOR<UserScalarRelationFilter, UserWhereInput>
-  }, "id" | "user_id">
-
-  export type MccSessionOrderByWithAggregationInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    google_access_token?: SortOrderInput | SortOrder
-    google_refresh_token?: SortOrderInput | SortOrder
-    google_token_expiry?: SortOrderInput | SortOrder
-    google_email?: SortOrderInput | SortOrder
-    cliq_webhook_url?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    _count?: MccSessionCountOrderByAggregateInput
-    _max?: MccSessionMaxOrderByAggregateInput
-    _min?: MccSessionMinOrderByAggregateInput
-  }
-
-  export type MccSessionScalarWhereWithAggregatesInput = {
-    AND?: MccSessionScalarWhereWithAggregatesInput | MccSessionScalarWhereWithAggregatesInput[]
-    OR?: MccSessionScalarWhereWithAggregatesInput[]
-    NOT?: MccSessionScalarWhereWithAggregatesInput | MccSessionScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"MccSession"> | string
-    user_id?: StringWithAggregatesFilter<"MccSession"> | string
-    google_access_token?: StringNullableWithAggregatesFilter<"MccSession"> | string | null
-    google_refresh_token?: StringNullableWithAggregatesFilter<"MccSession"> | string | null
-    google_token_expiry?: DateTimeNullableWithAggregatesFilter<"MccSession"> | Date | string | null
-    google_email?: StringNullableWithAggregatesFilter<"MccSession"> | string | null
-    cliq_webhook_url?: StringNullableWithAggregatesFilter<"MccSession"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"MccSession"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"MccSession"> | Date | string
-  }
-
-  export type EmailDigestWhereInput = {
-    AND?: EmailDigestWhereInput | EmailDigestWhereInput[]
-    OR?: EmailDigestWhereInput[]
-    NOT?: EmailDigestWhereInput | EmailDigestWhereInput[]
-    id?: StringFilter<"EmailDigest"> | string
-    gmail_id?: StringFilter<"EmailDigest"> | string
-    thread_id?: StringNullableFilter<"EmailDigest"> | string | null
-    from_address?: StringFilter<"EmailDigest"> | string
-    from_name?: StringNullableFilter<"EmailDigest"> | string | null
-    subject?: StringFilter<"EmailDigest"> | string
-    snippet?: StringNullableFilter<"EmailDigest"> | string | null
-    received_at?: DateTimeFilter<"EmailDigest"> | Date | string
-    is_important?: BoolFilter<"EmailDigest"> | boolean
-    is_urgent?: BoolFilter<"EmailDigest"> | boolean
-    category?: StringNullableFilter<"EmailDigest"> | string | null
-    ai_summary?: StringNullableFilter<"EmailDigest"> | string | null
-    ai_action_items?: StringNullableFilter<"EmailDigest"> | string | null
-    ai_confidence?: FloatNullableFilter<"EmailDigest"> | number | null
-    read_in_mcc?: BoolFilter<"EmailDigest"> | boolean
-    dismissed?: BoolFilter<"EmailDigest"> | boolean
-    raw_body_preview?: StringNullableFilter<"EmailDigest"> | string | null
-    createdAt?: DateTimeFilter<"EmailDigest"> | Date | string
-    updatedAt?: DateTimeFilter<"EmailDigest"> | Date | string
-  }
-
-  export type EmailDigestOrderByWithRelationInput = {
-    id?: SortOrder
-    gmail_id?: SortOrder
-    thread_id?: SortOrderInput | SortOrder
-    from_address?: SortOrder
-    from_name?: SortOrderInput | SortOrder
-    subject?: SortOrder
-    snippet?: SortOrderInput | SortOrder
-    received_at?: SortOrder
-    is_important?: SortOrder
-    is_urgent?: SortOrder
-    category?: SortOrderInput | SortOrder
-    ai_summary?: SortOrderInput | SortOrder
-    ai_action_items?: SortOrderInput | SortOrder
-    ai_confidence?: SortOrderInput | SortOrder
-    read_in_mcc?: SortOrder
-    dismissed?: SortOrder
-    raw_body_preview?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type EmailDigestWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    gmail_id?: string
-    AND?: EmailDigestWhereInput | EmailDigestWhereInput[]
-    OR?: EmailDigestWhereInput[]
-    NOT?: EmailDigestWhereInput | EmailDigestWhereInput[]
-    thread_id?: StringNullableFilter<"EmailDigest"> | string | null
-    from_address?: StringFilter<"EmailDigest"> | string
-    from_name?: StringNullableFilter<"EmailDigest"> | string | null
-    subject?: StringFilter<"EmailDigest"> | string
-    snippet?: StringNullableFilter<"EmailDigest"> | string | null
-    received_at?: DateTimeFilter<"EmailDigest"> | Date | string
-    is_important?: BoolFilter<"EmailDigest"> | boolean
-    is_urgent?: BoolFilter<"EmailDigest"> | boolean
-    category?: StringNullableFilter<"EmailDigest"> | string | null
-    ai_summary?: StringNullableFilter<"EmailDigest"> | string | null
-    ai_action_items?: StringNullableFilter<"EmailDigest"> | string | null
-    ai_confidence?: FloatNullableFilter<"EmailDigest"> | number | null
-    read_in_mcc?: BoolFilter<"EmailDigest"> | boolean
-    dismissed?: BoolFilter<"EmailDigest"> | boolean
-    raw_body_preview?: StringNullableFilter<"EmailDigest"> | string | null
-    createdAt?: DateTimeFilter<"EmailDigest"> | Date | string
-    updatedAt?: DateTimeFilter<"EmailDigest"> | Date | string
-  }, "id" | "gmail_id">
-
-  export type EmailDigestOrderByWithAggregationInput = {
-    id?: SortOrder
-    gmail_id?: SortOrder
-    thread_id?: SortOrderInput | SortOrder
-    from_address?: SortOrder
-    from_name?: SortOrderInput | SortOrder
-    subject?: SortOrder
-    snippet?: SortOrderInput | SortOrder
-    received_at?: SortOrder
-    is_important?: SortOrder
-    is_urgent?: SortOrder
-    category?: SortOrderInput | SortOrder
-    ai_summary?: SortOrderInput | SortOrder
-    ai_action_items?: SortOrderInput | SortOrder
-    ai_confidence?: SortOrderInput | SortOrder
-    read_in_mcc?: SortOrder
-    dismissed?: SortOrder
-    raw_body_preview?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    _count?: EmailDigestCountOrderByAggregateInput
-    _avg?: EmailDigestAvgOrderByAggregateInput
-    _max?: EmailDigestMaxOrderByAggregateInput
-    _min?: EmailDigestMinOrderByAggregateInput
-    _sum?: EmailDigestSumOrderByAggregateInput
-  }
-
-  export type EmailDigestScalarWhereWithAggregatesInput = {
-    AND?: EmailDigestScalarWhereWithAggregatesInput | EmailDigestScalarWhereWithAggregatesInput[]
-    OR?: EmailDigestScalarWhereWithAggregatesInput[]
-    NOT?: EmailDigestScalarWhereWithAggregatesInput | EmailDigestScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"EmailDigest"> | string
-    gmail_id?: StringWithAggregatesFilter<"EmailDigest"> | string
-    thread_id?: StringNullableWithAggregatesFilter<"EmailDigest"> | string | null
-    from_address?: StringWithAggregatesFilter<"EmailDigest"> | string
-    from_name?: StringNullableWithAggregatesFilter<"EmailDigest"> | string | null
-    subject?: StringWithAggregatesFilter<"EmailDigest"> | string
-    snippet?: StringNullableWithAggregatesFilter<"EmailDigest"> | string | null
-    received_at?: DateTimeWithAggregatesFilter<"EmailDigest"> | Date | string
-    is_important?: BoolWithAggregatesFilter<"EmailDigest"> | boolean
-    is_urgent?: BoolWithAggregatesFilter<"EmailDigest"> | boolean
-    category?: StringNullableWithAggregatesFilter<"EmailDigest"> | string | null
-    ai_summary?: StringNullableWithAggregatesFilter<"EmailDigest"> | string | null
-    ai_action_items?: StringNullableWithAggregatesFilter<"EmailDigest"> | string | null
-    ai_confidence?: FloatNullableWithAggregatesFilter<"EmailDigest"> | number | null
-    read_in_mcc?: BoolWithAggregatesFilter<"EmailDigest"> | boolean
-    dismissed?: BoolWithAggregatesFilter<"EmailDigest"> | boolean
-    raw_body_preview?: StringNullableWithAggregatesFilter<"EmailDigest"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"EmailDigest"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"EmailDigest"> | Date | string
-  }
-
-  export type CalendarEventWhereInput = {
-    AND?: CalendarEventWhereInput | CalendarEventWhereInput[]
-    OR?: CalendarEventWhereInput[]
-    NOT?: CalendarEventWhereInput | CalendarEventWhereInput[]
-    id?: StringFilter<"CalendarEvent"> | string
-    google_event_id?: StringFilter<"CalendarEvent"> | string
-    title?: StringFilter<"CalendarEvent"> | string
-    description?: StringNullableFilter<"CalendarEvent"> | string | null
-    start_time?: DateTimeFilter<"CalendarEvent"> | Date | string
-    end_time?: DateTimeFilter<"CalendarEvent"> | Date | string
-    location?: StringNullableFilter<"CalendarEvent"> | string | null
-    meet_link?: StringNullableFilter<"CalendarEvent"> | string | null
-    attendees?: StringNullableFilter<"CalendarEvent"> | string | null
-    is_important?: BoolFilter<"CalendarEvent"> | boolean
-    ai_prep_notes?: StringNullableFilter<"CalendarEvent"> | string | null
-    createdAt?: DateTimeFilter<"CalendarEvent"> | Date | string
-    updatedAt?: DateTimeFilter<"CalendarEvent"> | Date | string
-  }
-
-  export type CalendarEventOrderByWithRelationInput = {
-    id?: SortOrder
-    google_event_id?: SortOrder
     title?: SortOrder
-    description?: SortOrderInput | SortOrder
-    start_time?: SortOrder
-    end_time?: SortOrder
-    location?: SortOrderInput | SortOrder
-    meet_link?: SortOrderInput | SortOrder
-    attendees?: SortOrderInput | SortOrder
-    is_important?: SortOrder
-    ai_prep_notes?: SortOrderInput | SortOrder
+    genre?: SortOrderInput | SortOrder
+    status?: SortOrder
+    territories?: SortOrderInput | SortOrder
+    buyers?: SortOrderInput | SortOrder
+    last_contact_date?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
+    deals?: DealOrderByRelationAggregateInput
   }
 
-  export type CalendarEventWhereUniqueInput = Prisma.AtLeast<{
+  export type SalesFilmWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    google_event_id?: string
-    AND?: CalendarEventWhereInput | CalendarEventWhereInput[]
-    OR?: CalendarEventWhereInput[]
-    NOT?: CalendarEventWhereInput | CalendarEventWhereInput[]
-    title?: StringFilter<"CalendarEvent"> | string
-    description?: StringNullableFilter<"CalendarEvent"> | string | null
-    start_time?: DateTimeFilter<"CalendarEvent"> | Date | string
-    end_time?: DateTimeFilter<"CalendarEvent"> | Date | string
-    location?: StringNullableFilter<"CalendarEvent"> | string | null
-    meet_link?: StringNullableFilter<"CalendarEvent"> | string | null
-    attendees?: StringNullableFilter<"CalendarEvent"> | string | null
-    is_important?: BoolFilter<"CalendarEvent"> | boolean
-    ai_prep_notes?: StringNullableFilter<"CalendarEvent"> | string | null
-    createdAt?: DateTimeFilter<"CalendarEvent"> | Date | string
-    updatedAt?: DateTimeFilter<"CalendarEvent"> | Date | string
-  }, "id" | "google_event_id">
-
-  export type CalendarEventOrderByWithAggregationInput = {
-    id?: SortOrder
-    google_event_id?: SortOrder
-    title?: SortOrder
-    description?: SortOrderInput | SortOrder
-    start_time?: SortOrder
-    end_time?: SortOrder
-    location?: SortOrderInput | SortOrder
-    meet_link?: SortOrderInput | SortOrder
-    attendees?: SortOrderInput | SortOrder
-    is_important?: SortOrder
-    ai_prep_notes?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-    _count?: CalendarEventCountOrderByAggregateInput
-    _max?: CalendarEventMaxOrderByAggregateInput
-    _min?: CalendarEventMinOrderByAggregateInput
-  }
-
-  export type CalendarEventScalarWhereWithAggregatesInput = {
-    AND?: CalendarEventScalarWhereWithAggregatesInput | CalendarEventScalarWhereWithAggregatesInput[]
-    OR?: CalendarEventScalarWhereWithAggregatesInput[]
-    NOT?: CalendarEventScalarWhereWithAggregatesInput | CalendarEventScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"CalendarEvent"> | string
-    google_event_id?: StringWithAggregatesFilter<"CalendarEvent"> | string
-    title?: StringWithAggregatesFilter<"CalendarEvent"> | string
-    description?: StringNullableWithAggregatesFilter<"CalendarEvent"> | string | null
-    start_time?: DateTimeWithAggregatesFilter<"CalendarEvent"> | Date | string
-    end_time?: DateTimeWithAggregatesFilter<"CalendarEvent"> | Date | string
-    location?: StringNullableWithAggregatesFilter<"CalendarEvent"> | string | null
-    meet_link?: StringNullableWithAggregatesFilter<"CalendarEvent"> | string | null
-    attendees?: StringNullableWithAggregatesFilter<"CalendarEvent"> | string | null
-    is_important?: BoolWithAggregatesFilter<"CalendarEvent"> | boolean
-    ai_prep_notes?: StringNullableWithAggregatesFilter<"CalendarEvent"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"CalendarEvent"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"CalendarEvent"> | Date | string
-  }
-
-  export type MccAlertWhereInput = {
-    AND?: MccAlertWhereInput | MccAlertWhereInput[]
-    OR?: MccAlertWhereInput[]
-    NOT?: MccAlertWhereInput | MccAlertWhereInput[]
-    id?: StringFilter<"MccAlert"> | string
-    type?: StringFilter<"MccAlert"> | string
-    severity?: StringFilter<"MccAlert"> | string
-    title?: StringFilter<"MccAlert"> | string
-    message?: StringFilter<"MccAlert"> | string
-    source_type?: StringNullableFilter<"MccAlert"> | string | null
-    source_id?: StringNullableFilter<"MccAlert"> | string | null
-    acknowledged?: BoolFilter<"MccAlert"> | boolean
-    sent_to_cliq?: BoolFilter<"MccAlert"> | boolean
-    cliq_sent_at?: DateTimeNullableFilter<"MccAlert"> | Date | string | null
-    createdAt?: DateTimeFilter<"MccAlert"> | Date | string
-    updatedAt?: DateTimeFilter<"MccAlert"> | Date | string
-  }
-
-  export type MccAlertOrderByWithRelationInput = {
-    id?: SortOrder
-    type?: SortOrder
-    severity?: SortOrder
-    title?: SortOrder
-    message?: SortOrder
-    source_type?: SortOrderInput | SortOrder
-    source_id?: SortOrderInput | SortOrder
-    acknowledged?: SortOrder
-    sent_to_cliq?: SortOrder
-    cliq_sent_at?: SortOrderInput | SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type MccAlertWhereUniqueInput = Prisma.AtLeast<{
-    id?: string
-    AND?: MccAlertWhereInput | MccAlertWhereInput[]
-    OR?: MccAlertWhereInput[]
-    NOT?: MccAlertWhereInput | MccAlertWhereInput[]
-    type?: StringFilter<"MccAlert"> | string
-    severity?: StringFilter<"MccAlert"> | string
-    title?: StringFilter<"MccAlert"> | string
-    message?: StringFilter<"MccAlert"> | string
-    source_type?: StringNullableFilter<"MccAlert"> | string | null
-    source_id?: StringNullableFilter<"MccAlert"> | string | null
-    acknowledged?: BoolFilter<"MccAlert"> | boolean
-    sent_to_cliq?: BoolFilter<"MccAlert"> | boolean
-    cliq_sent_at?: DateTimeNullableFilter<"MccAlert"> | Date | string | null
-    createdAt?: DateTimeFilter<"MccAlert"> | Date | string
-    updatedAt?: DateTimeFilter<"MccAlert"> | Date | string
+    AND?: SalesFilmWhereInput | SalesFilmWhereInput[]
+    OR?: SalesFilmWhereInput[]
+    NOT?: SalesFilmWhereInput | SalesFilmWhereInput[]
+    title?: StringFilter<"SalesFilm"> | string
+    genre?: StringNullableFilter<"SalesFilm"> | string | null
+    status?: StringFilter<"SalesFilm"> | string
+    territories?: StringNullableFilter<"SalesFilm"> | string | null
+    buyers?: StringNullableFilter<"SalesFilm"> | string | null
+    last_contact_date?: DateTimeNullableFilter<"SalesFilm"> | Date | string | null
+    notes?: StringNullableFilter<"SalesFilm"> | string | null
+    createdAt?: DateTimeFilter<"SalesFilm"> | Date | string
+    updatedAt?: DateTimeFilter<"SalesFilm"> | Date | string
+    deals?: DealListRelationFilter
   }, "id">
 
-  export type MccAlertOrderByWithAggregationInput = {
+  export type SalesFilmOrderByWithAggregationInput = {
     id?: SortOrder
-    type?: SortOrder
-    severity?: SortOrder
     title?: SortOrder
-    message?: SortOrder
-    source_type?: SortOrderInput | SortOrder
-    source_id?: SortOrderInput | SortOrder
-    acknowledged?: SortOrder
-    sent_to_cliq?: SortOrder
-    cliq_sent_at?: SortOrderInput | SortOrder
+    genre?: SortOrderInput | SortOrder
+    status?: SortOrder
+    territories?: SortOrderInput | SortOrder
+    buyers?: SortOrderInput | SortOrder
+    last_contact_date?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: MccAlertCountOrderByAggregateInput
-    _max?: MccAlertMaxOrderByAggregateInput
-    _min?: MccAlertMinOrderByAggregateInput
+    _count?: SalesFilmCountOrderByAggregateInput
+    _max?: SalesFilmMaxOrderByAggregateInput
+    _min?: SalesFilmMinOrderByAggregateInput
   }
 
-  export type MccAlertScalarWhereWithAggregatesInput = {
-    AND?: MccAlertScalarWhereWithAggregatesInput | MccAlertScalarWhereWithAggregatesInput[]
-    OR?: MccAlertScalarWhereWithAggregatesInput[]
-    NOT?: MccAlertScalarWhereWithAggregatesInput | MccAlertScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"MccAlert"> | string
-    type?: StringWithAggregatesFilter<"MccAlert"> | string
-    severity?: StringWithAggregatesFilter<"MccAlert"> | string
-    title?: StringWithAggregatesFilter<"MccAlert"> | string
-    message?: StringWithAggregatesFilter<"MccAlert"> | string
-    source_type?: StringNullableWithAggregatesFilter<"MccAlert"> | string | null
-    source_id?: StringNullableWithAggregatesFilter<"MccAlert"> | string | null
-    acknowledged?: BoolWithAggregatesFilter<"MccAlert"> | boolean
-    sent_to_cliq?: BoolWithAggregatesFilter<"MccAlert"> | boolean
-    cliq_sent_at?: DateTimeNullableWithAggregatesFilter<"MccAlert"> | Date | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"MccAlert"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"MccAlert"> | Date | string
+  export type SalesFilmScalarWhereWithAggregatesInput = {
+    AND?: SalesFilmScalarWhereWithAggregatesInput | SalesFilmScalarWhereWithAggregatesInput[]
+    OR?: SalesFilmScalarWhereWithAggregatesInput[]
+    NOT?: SalesFilmScalarWhereWithAggregatesInput | SalesFilmScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"SalesFilm"> | string
+    title?: StringWithAggregatesFilter<"SalesFilm"> | string
+    genre?: StringNullableWithAggregatesFilter<"SalesFilm"> | string | null
+    status?: StringWithAggregatesFilter<"SalesFilm"> | string
+    territories?: StringNullableWithAggregatesFilter<"SalesFilm"> | string | null
+    buyers?: StringNullableWithAggregatesFilter<"SalesFilm"> | string | null
+    last_contact_date?: DateTimeNullableWithAggregatesFilter<"SalesFilm"> | Date | string | null
+    notes?: StringNullableWithAggregatesFilter<"SalesFilm"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"SalesFilm"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"SalesFilm"> | Date | string
   }
 
-  export type MccTaskWhereInput = {
-    AND?: MccTaskWhereInput | MccTaskWhereInput[]
-    OR?: MccTaskWhereInput[]
-    NOT?: MccTaskWhereInput | MccTaskWhereInput[]
-    id?: StringFilter<"MccTask"> | string
-    title?: StringFilter<"MccTask"> | string
-    description?: StringNullableFilter<"MccTask"> | string | null
-    status?: StringFilter<"MccTask"> | string
-    priority?: StringFilter<"MccTask"> | string
-    due_date?: DateTimeNullableFilter<"MccTask"> | Date | string | null
-    source_type?: StringNullableFilter<"MccTask"> | string | null
-    source_id?: StringNullableFilter<"MccTask"> | string | null
-    createdAt?: DateTimeFilter<"MccTask"> | Date | string
-    updatedAt?: DateTimeFilter<"MccTask"> | Date | string
+  export type DealWhereInput = {
+    AND?: DealWhereInput | DealWhereInput[]
+    OR?: DealWhereInput[]
+    NOT?: DealWhereInput | DealWhereInput[]
+    id?: StringFilter<"Deal"> | string
+    film_id?: StringFilter<"Deal"> | string
+    territory?: StringFilter<"Deal"> | string
+    buyer?: StringNullableFilter<"Deal"> | string | null
+    status?: StringFilter<"Deal"> | string
+    amount?: FloatNullableFilter<"Deal"> | number | null
+    notes?: StringNullableFilter<"Deal"> | string | null
+    createdAt?: DateTimeFilter<"Deal"> | Date | string
+    updatedAt?: DateTimeFilter<"Deal"> | Date | string
+    film?: XOR<SalesFilmScalarRelationFilter, SalesFilmWhereInput>
   }
 
-  export type MccTaskOrderByWithRelationInput = {
+  export type DealOrderByWithRelationInput = {
+    id?: SortOrder
+    film_id?: SortOrder
+    territory?: SortOrder
+    buyer?: SortOrderInput | SortOrder
+    status?: SortOrder
+    amount?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    film?: SalesFilmOrderByWithRelationInput
+  }
+
+  export type DealWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: DealWhereInput | DealWhereInput[]
+    OR?: DealWhereInput[]
+    NOT?: DealWhereInput | DealWhereInput[]
+    film_id?: StringFilter<"Deal"> | string
+    territory?: StringFilter<"Deal"> | string
+    buyer?: StringNullableFilter<"Deal"> | string | null
+    status?: StringFilter<"Deal"> | string
+    amount?: FloatNullableFilter<"Deal"> | number | null
+    notes?: StringNullableFilter<"Deal"> | string | null
+    createdAt?: DateTimeFilter<"Deal"> | Date | string
+    updatedAt?: DateTimeFilter<"Deal"> | Date | string
+    film?: XOR<SalesFilmScalarRelationFilter, SalesFilmWhereInput>
+  }, "id">
+
+  export type DealOrderByWithAggregationInput = {
+    id?: SortOrder
+    film_id?: SortOrder
+    territory?: SortOrder
+    buyer?: SortOrderInput | SortOrder
+    status?: SortOrder
+    amount?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: DealCountOrderByAggregateInput
+    _avg?: DealAvgOrderByAggregateInput
+    _max?: DealMaxOrderByAggregateInput
+    _min?: DealMinOrderByAggregateInput
+    _sum?: DealSumOrderByAggregateInput
+  }
+
+  export type DealScalarWhereWithAggregatesInput = {
+    AND?: DealScalarWhereWithAggregatesInput | DealScalarWhereWithAggregatesInput[]
+    OR?: DealScalarWhereWithAggregatesInput[]
+    NOT?: DealScalarWhereWithAggregatesInput | DealScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Deal"> | string
+    film_id?: StringWithAggregatesFilter<"Deal"> | string
+    territory?: StringWithAggregatesFilter<"Deal"> | string
+    buyer?: StringNullableWithAggregatesFilter<"Deal"> | string | null
+    status?: StringWithAggregatesFilter<"Deal"> | string
+    amount?: FloatNullableWithAggregatesFilter<"Deal"> | number | null
+    notes?: StringNullableWithAggregatesFilter<"Deal"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Deal"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Deal"> | Date | string
+  }
+
+  export type AcquisitionWhereInput = {
+    AND?: AcquisitionWhereInput | AcquisitionWhereInput[]
+    OR?: AcquisitionWhereInput[]
+    NOT?: AcquisitionWhereInput | AcquisitionWhereInput[]
+    id?: StringFilter<"Acquisition"> | string
+    title?: StringFilter<"Acquisition"> | string
+    synopsis?: StringNullableFilter<"Acquisition"> | string | null
+    cast?: StringNullableFilter<"Acquisition"> | string | null
+    budget?: FloatNullableFilter<"Acquisition"> | number | null
+    status?: StringFilter<"Acquisition"> | string
+    notes?: StringNullableFilter<"Acquisition"> | string | null
+    createdAt?: DateTimeFilter<"Acquisition"> | Date | string
+    updatedAt?: DateTimeFilter<"Acquisition"> | Date | string
+  }
+
+  export type AcquisitionOrderByWithRelationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    synopsis?: SortOrderInput | SortOrder
+    cast?: SortOrderInput | SortOrder
+    budget?: SortOrderInput | SortOrder
+    status?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AcquisitionWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: AcquisitionWhereInput | AcquisitionWhereInput[]
+    OR?: AcquisitionWhereInput[]
+    NOT?: AcquisitionWhereInput | AcquisitionWhereInput[]
+    title?: StringFilter<"Acquisition"> | string
+    synopsis?: StringNullableFilter<"Acquisition"> | string | null
+    cast?: StringNullableFilter<"Acquisition"> | string | null
+    budget?: FloatNullableFilter<"Acquisition"> | number | null
+    status?: StringFilter<"Acquisition"> | string
+    notes?: StringNullableFilter<"Acquisition"> | string | null
+    createdAt?: DateTimeFilter<"Acquisition"> | Date | string
+    updatedAt?: DateTimeFilter<"Acquisition"> | Date | string
+  }, "id">
+
+  export type AcquisitionOrderByWithAggregationInput = {
+    id?: SortOrder
+    title?: SortOrder
+    synopsis?: SortOrderInput | SortOrder
+    cast?: SortOrderInput | SortOrder
+    budget?: SortOrderInput | SortOrder
+    status?: SortOrder
+    notes?: SortOrderInput | SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: AcquisitionCountOrderByAggregateInput
+    _avg?: AcquisitionAvgOrderByAggregateInput
+    _max?: AcquisitionMaxOrderByAggregateInput
+    _min?: AcquisitionMinOrderByAggregateInput
+    _sum?: AcquisitionSumOrderByAggregateInput
+  }
+
+  export type AcquisitionScalarWhereWithAggregatesInput = {
+    AND?: AcquisitionScalarWhereWithAggregatesInput | AcquisitionScalarWhereWithAggregatesInput[]
+    OR?: AcquisitionScalarWhereWithAggregatesInput[]
+    NOT?: AcquisitionScalarWhereWithAggregatesInput | AcquisitionScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Acquisition"> | string
+    title?: StringWithAggregatesFilter<"Acquisition"> | string
+    synopsis?: StringNullableWithAggregatesFilter<"Acquisition"> | string | null
+    cast?: StringNullableWithAggregatesFilter<"Acquisition"> | string | null
+    budget?: FloatNullableWithAggregatesFilter<"Acquisition"> | number | null
+    status?: StringWithAggregatesFilter<"Acquisition"> | string
+    notes?: StringNullableWithAggregatesFilter<"Acquisition"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Acquisition"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Acquisition"> | Date | string
+  }
+
+  export type MccInvestorWhereInput = {
+    AND?: MccInvestorWhereInput | MccInvestorWhereInput[]
+    OR?: MccInvestorWhereInput[]
+    NOT?: MccInvestorWhereInput | MccInvestorWhereInput[]
+    id?: StringFilter<"MccInvestor"> | string
+    name?: StringFilter<"MccInvestor"> | string
+    email?: StringNullableFilter<"MccInvestor"> | string | null
+    investments?: StringNullableFilter<"MccInvestor"> | string | null
+    notes?: StringNullableFilter<"MccInvestor"> | string | null
+    payment_status?: StringFilter<"MccInvestor"> | string
+    createdAt?: DateTimeFilter<"MccInvestor"> | Date | string
+    updatedAt?: DateTimeFilter<"MccInvestor"> | Date | string
+  }
+
+  export type MccInvestorOrderByWithRelationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrderInput | SortOrder
+    investments?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    payment_status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MccInvestorWhereUniqueInput = Prisma.AtLeast<{
+    id?: string
+    AND?: MccInvestorWhereInput | MccInvestorWhereInput[]
+    OR?: MccInvestorWhereInput[]
+    NOT?: MccInvestorWhereInput | MccInvestorWhereInput[]
+    name?: StringFilter<"MccInvestor"> | string
+    email?: StringNullableFilter<"MccInvestor"> | string | null
+    investments?: StringNullableFilter<"MccInvestor"> | string | null
+    notes?: StringNullableFilter<"MccInvestor"> | string | null
+    payment_status?: StringFilter<"MccInvestor"> | string
+    createdAt?: DateTimeFilter<"MccInvestor"> | Date | string
+    updatedAt?: DateTimeFilter<"MccInvestor"> | Date | string
+  }, "id">
+
+  export type MccInvestorOrderByWithAggregationInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrderInput | SortOrder
+    investments?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
+    payment_status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+    _count?: MccInvestorCountOrderByAggregateInput
+    _max?: MccInvestorMaxOrderByAggregateInput
+    _min?: MccInvestorMinOrderByAggregateInput
+  }
+
+  export type MccInvestorScalarWhereWithAggregatesInput = {
+    AND?: MccInvestorScalarWhereWithAggregatesInput | MccInvestorScalarWhereWithAggregatesInput[]
+    OR?: MccInvestorScalarWhereWithAggregatesInput[]
+    NOT?: MccInvestorScalarWhereWithAggregatesInput | MccInvestorScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"MccInvestor"> | string
+    name?: StringWithAggregatesFilter<"MccInvestor"> | string
+    email?: StringNullableWithAggregatesFilter<"MccInvestor"> | string | null
+    investments?: StringNullableWithAggregatesFilter<"MccInvestor"> | string | null
+    notes?: StringNullableWithAggregatesFilter<"MccInvestor"> | string | null
+    payment_status?: StringWithAggregatesFilter<"MccInvestor"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"MccInvestor"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"MccInvestor"> | Date | string
+  }
+
+  export type TaskWhereInput = {
+    AND?: TaskWhereInput | TaskWhereInput[]
+    OR?: TaskWhereInput[]
+    NOT?: TaskWhereInput | TaskWhereInput[]
+    id?: StringFilter<"Task"> | string
+    title?: StringFilter<"Task"> | string
+    description?: StringNullableFilter<"Task"> | string | null
+    linked_entity_type?: StringNullableFilter<"Task"> | string | null
+    linked_entity_id?: StringNullableFilter<"Task"> | string | null
+    due_date?: DateTimeNullableFilter<"Task"> | Date | string | null
+    status?: StringFilter<"Task"> | string
+    createdAt?: DateTimeFilter<"Task"> | Date | string
+    updatedAt?: DateTimeFilter<"Task"> | Date | string
+  }
+
+  export type TaskOrderByWithRelationInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    status?: SortOrder
-    priority?: SortOrder
+    linked_entity_type?: SortOrderInput | SortOrder
+    linked_entity_id?: SortOrderInput | SortOrder
     due_date?: SortOrderInput | SortOrder
-    source_type?: SortOrderInput | SortOrder
-    source_id?: SortOrderInput | SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type MccTaskWhereUniqueInput = Prisma.AtLeast<{
+  export type TaskWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: MccTaskWhereInput | MccTaskWhereInput[]
-    OR?: MccTaskWhereInput[]
-    NOT?: MccTaskWhereInput | MccTaskWhereInput[]
-    title?: StringFilter<"MccTask"> | string
-    description?: StringNullableFilter<"MccTask"> | string | null
-    status?: StringFilter<"MccTask"> | string
-    priority?: StringFilter<"MccTask"> | string
-    due_date?: DateTimeNullableFilter<"MccTask"> | Date | string | null
-    source_type?: StringNullableFilter<"MccTask"> | string | null
-    source_id?: StringNullableFilter<"MccTask"> | string | null
-    createdAt?: DateTimeFilter<"MccTask"> | Date | string
-    updatedAt?: DateTimeFilter<"MccTask"> | Date | string
+    AND?: TaskWhereInput | TaskWhereInput[]
+    OR?: TaskWhereInput[]
+    NOT?: TaskWhereInput | TaskWhereInput[]
+    title?: StringFilter<"Task"> | string
+    description?: StringNullableFilter<"Task"> | string | null
+    linked_entity_type?: StringNullableFilter<"Task"> | string | null
+    linked_entity_id?: StringNullableFilter<"Task"> | string | null
+    due_date?: DateTimeNullableFilter<"Task"> | Date | string | null
+    status?: StringFilter<"Task"> | string
+    createdAt?: DateTimeFilter<"Task"> | Date | string
+    updatedAt?: DateTimeFilter<"Task"> | Date | string
   }, "id">
 
-  export type MccTaskOrderByWithAggregationInput = {
+  export type TaskOrderByWithAggregationInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrderInput | SortOrder
-    status?: SortOrder
-    priority?: SortOrder
+    linked_entity_type?: SortOrderInput | SortOrder
+    linked_entity_id?: SortOrderInput | SortOrder
     due_date?: SortOrderInput | SortOrder
-    source_type?: SortOrderInput | SortOrder
-    source_id?: SortOrderInput | SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
-    _count?: MccTaskCountOrderByAggregateInput
-    _max?: MccTaskMaxOrderByAggregateInput
-    _min?: MccTaskMinOrderByAggregateInput
+    _count?: TaskCountOrderByAggregateInput
+    _max?: TaskMaxOrderByAggregateInput
+    _min?: TaskMinOrderByAggregateInput
   }
 
-  export type MccTaskScalarWhereWithAggregatesInput = {
-    AND?: MccTaskScalarWhereWithAggregatesInput | MccTaskScalarWhereWithAggregatesInput[]
-    OR?: MccTaskScalarWhereWithAggregatesInput[]
-    NOT?: MccTaskScalarWhereWithAggregatesInput | MccTaskScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"MccTask"> | string
-    title?: StringWithAggregatesFilter<"MccTask"> | string
-    description?: StringNullableWithAggregatesFilter<"MccTask"> | string | null
-    status?: StringWithAggregatesFilter<"MccTask"> | string
-    priority?: StringWithAggregatesFilter<"MccTask"> | string
-    due_date?: DateTimeNullableWithAggregatesFilter<"MccTask"> | Date | string | null
-    source_type?: StringNullableWithAggregatesFilter<"MccTask"> | string | null
-    source_id?: StringNullableWithAggregatesFilter<"MccTask"> | string | null
-    createdAt?: DateTimeWithAggregatesFilter<"MccTask"> | Date | string
-    updatedAt?: DateTimeWithAggregatesFilter<"MccTask"> | Date | string
+  export type TaskScalarWhereWithAggregatesInput = {
+    AND?: TaskScalarWhereWithAggregatesInput | TaskScalarWhereWithAggregatesInput[]
+    OR?: TaskScalarWhereWithAggregatesInput[]
+    NOT?: TaskScalarWhereWithAggregatesInput | TaskScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Task"> | string
+    title?: StringWithAggregatesFilter<"Task"> | string
+    description?: StringNullableWithAggregatesFilter<"Task"> | string | null
+    linked_entity_type?: StringNullableWithAggregatesFilter<"Task"> | string | null
+    linked_entity_id?: StringNullableWithAggregatesFilter<"Task"> | string | null
+    due_date?: DateTimeNullableWithAggregatesFilter<"Task"> | Date | string | null
+    status?: StringWithAggregatesFilter<"Task"> | string
+    createdAt?: DateTimeWithAggregatesFilter<"Task"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Task"> | Date | string
   }
 
-  export type PollLogWhereInput = {
-    AND?: PollLogWhereInput | PollLogWhereInput[]
-    OR?: PollLogWhereInput[]
-    NOT?: PollLogWhereInput | PollLogWhereInput[]
-    id?: StringFilter<"PollLog"> | string
-    poll_type?: StringFilter<"PollLog"> | string
-    status?: StringFilter<"PollLog"> | string
-    emails_processed?: IntFilter<"PollLog"> | number
-    events_processed?: IntFilter<"PollLog"> | number
-    alerts_created?: IntFilter<"PollLog"> | number
-    error_message?: StringNullableFilter<"PollLog"> | string | null
-    duration_ms?: IntNullableFilter<"PollLog"> | number | null
-    createdAt?: DateTimeFilter<"PollLog"> | Date | string
+  export type MeetingWhereInput = {
+    AND?: MeetingWhereInput | MeetingWhereInput[]
+    OR?: MeetingWhereInput[]
+    NOT?: MeetingWhereInput | MeetingWhereInput[]
+    id?: StringFilter<"Meeting"> | string
+    title?: StringFilter<"Meeting"> | string
+    participants?: StringNullableFilter<"Meeting"> | string | null
+    date?: DateTimeNullableFilter<"Meeting"> | Date | string | null
+    notes?: StringNullableFilter<"Meeting"> | string | null
+    createdAt?: DateTimeFilter<"Meeting"> | Date | string
+    updatedAt?: DateTimeFilter<"Meeting"> | Date | string
   }
 
-  export type PollLogOrderByWithRelationInput = {
+  export type MeetingOrderByWithRelationInput = {
     id?: SortOrder
-    poll_type?: SortOrder
-    status?: SortOrder
-    emails_processed?: SortOrder
-    events_processed?: SortOrder
-    alerts_created?: SortOrder
-    error_message?: SortOrderInput | SortOrder
-    duration_ms?: SortOrderInput | SortOrder
+    title?: SortOrder
+    participants?: SortOrderInput | SortOrder
+    date?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type PollLogWhereUniqueInput = Prisma.AtLeast<{
+  export type MeetingWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: PollLogWhereInput | PollLogWhereInput[]
-    OR?: PollLogWhereInput[]
-    NOT?: PollLogWhereInput | PollLogWhereInput[]
-    poll_type?: StringFilter<"PollLog"> | string
-    status?: StringFilter<"PollLog"> | string
-    emails_processed?: IntFilter<"PollLog"> | number
-    events_processed?: IntFilter<"PollLog"> | number
-    alerts_created?: IntFilter<"PollLog"> | number
-    error_message?: StringNullableFilter<"PollLog"> | string | null
-    duration_ms?: IntNullableFilter<"PollLog"> | number | null
-    createdAt?: DateTimeFilter<"PollLog"> | Date | string
+    AND?: MeetingWhereInput | MeetingWhereInput[]
+    OR?: MeetingWhereInput[]
+    NOT?: MeetingWhereInput | MeetingWhereInput[]
+    title?: StringFilter<"Meeting"> | string
+    participants?: StringNullableFilter<"Meeting"> | string | null
+    date?: DateTimeNullableFilter<"Meeting"> | Date | string | null
+    notes?: StringNullableFilter<"Meeting"> | string | null
+    createdAt?: DateTimeFilter<"Meeting"> | Date | string
+    updatedAt?: DateTimeFilter<"Meeting"> | Date | string
   }, "id">
 
-  export type PollLogOrderByWithAggregationInput = {
+  export type MeetingOrderByWithAggregationInput = {
     id?: SortOrder
-    poll_type?: SortOrder
-    status?: SortOrder
-    emails_processed?: SortOrder
-    events_processed?: SortOrder
-    alerts_created?: SortOrder
-    error_message?: SortOrderInput | SortOrder
-    duration_ms?: SortOrderInput | SortOrder
+    title?: SortOrder
+    participants?: SortOrderInput | SortOrder
+    date?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
     createdAt?: SortOrder
-    _count?: PollLogCountOrderByAggregateInput
-    _avg?: PollLogAvgOrderByAggregateInput
-    _max?: PollLogMaxOrderByAggregateInput
-    _min?: PollLogMinOrderByAggregateInput
-    _sum?: PollLogSumOrderByAggregateInput
+    updatedAt?: SortOrder
+    _count?: MeetingCountOrderByAggregateInput
+    _max?: MeetingMaxOrderByAggregateInput
+    _min?: MeetingMinOrderByAggregateInput
   }
 
-  export type PollLogScalarWhereWithAggregatesInput = {
-    AND?: PollLogScalarWhereWithAggregatesInput | PollLogScalarWhereWithAggregatesInput[]
-    OR?: PollLogScalarWhereWithAggregatesInput[]
-    NOT?: PollLogScalarWhereWithAggregatesInput | PollLogScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"PollLog"> | string
-    poll_type?: StringWithAggregatesFilter<"PollLog"> | string
-    status?: StringWithAggregatesFilter<"PollLog"> | string
-    emails_processed?: IntWithAggregatesFilter<"PollLog"> | number
-    events_processed?: IntWithAggregatesFilter<"PollLog"> | number
-    alerts_created?: IntWithAggregatesFilter<"PollLog"> | number
-    error_message?: StringNullableWithAggregatesFilter<"PollLog"> | string | null
-    duration_ms?: IntNullableWithAggregatesFilter<"PollLog"> | number | null
-    createdAt?: DateTimeWithAggregatesFilter<"PollLog"> | Date | string
+  export type MeetingScalarWhereWithAggregatesInput = {
+    AND?: MeetingScalarWhereWithAggregatesInput | MeetingScalarWhereWithAggregatesInput[]
+    OR?: MeetingScalarWhereWithAggregatesInput[]
+    NOT?: MeetingScalarWhereWithAggregatesInput | MeetingScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Meeting"> | string
+    title?: StringWithAggregatesFilter<"Meeting"> | string
+    participants?: StringNullableWithAggregatesFilter<"Meeting"> | string | null
+    date?: DateTimeNullableWithAggregatesFilter<"Meeting"> | Date | string | null
+    notes?: StringNullableWithAggregatesFilter<"Meeting"> | string | null
+    createdAt?: DateTimeWithAggregatesFilter<"Meeting"> | Date | string
+    updatedAt?: DateTimeWithAggregatesFilter<"Meeting"> | Date | string
   }
 
   export type UserCreateInput = {
@@ -24123,7 +23814,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     investor?: InvestorCreateNestedOneWithoutUserInput
-    mcc_session?: MccSessionCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateInput = {
@@ -24135,7 +23825,6 @@ export namespace Prisma {
     createdAt?: Date | string
     updatedAt?: Date | string
     investor?: InvestorUncheckedCreateNestedOneWithoutUserInput
-    mcc_session?: MccSessionUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserUpdateInput = {
@@ -24147,7 +23836,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investor?: InvestorUpdateOneWithoutUserNestedInput
-    mcc_session?: MccSessionUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateInput = {
@@ -24159,7 +23847,6 @@ export namespace Prisma {
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     investor?: InvestorUncheckedUpdateOneWithoutUserNestedInput
-    mcc_session?: MccSessionUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type UserCreateManyInput = {
@@ -25184,633 +24871,497 @@ export namespace Prisma {
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type MccSessionCreateInput = {
-    id?: string
-    google_access_token?: string | null
-    google_refresh_token?: string | null
-    google_token_expiry?: Date | string | null
-    google_email?: string | null
-    cliq_webhook_url?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-    user: UserCreateNestedOneWithoutMcc_sessionInput
-  }
-
-  export type MccSessionUncheckedCreateInput = {
-    id?: string
-    user_id: string
-    google_access_token?: string | null
-    google_refresh_token?: string | null
-    google_token_expiry?: Date | string | null
-    google_email?: string | null
-    cliq_webhook_url?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type MccSessionUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    google_access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_token_expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    google_email?: NullableStringFieldUpdateOperationsInput | string | null
-    cliq_webhook_url?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    user?: UserUpdateOneRequiredWithoutMcc_sessionNestedInput
-  }
-
-  export type MccSessionUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    user_id?: StringFieldUpdateOperationsInput | string
-    google_access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_token_expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    google_email?: NullableStringFieldUpdateOperationsInput | string | null
-    cliq_webhook_url?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MccSessionCreateManyInput = {
-    id?: string
-    user_id: string
-    google_access_token?: string | null
-    google_refresh_token?: string | null
-    google_token_expiry?: Date | string | null
-    google_email?: string | null
-    cliq_webhook_url?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type MccSessionUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    google_access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_token_expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    google_email?: NullableStringFieldUpdateOperationsInput | string | null
-    cliq_webhook_url?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MccSessionUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    user_id?: StringFieldUpdateOperationsInput | string
-    google_access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_token_expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    google_email?: NullableStringFieldUpdateOperationsInput | string | null
-    cliq_webhook_url?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type EmailDigestCreateInput = {
-    id?: string
-    gmail_id: string
-    thread_id?: string | null
-    from_address: string
-    from_name?: string | null
-    subject: string
-    snippet?: string | null
-    received_at: Date | string
-    is_important?: boolean
-    is_urgent?: boolean
-    category?: string | null
-    ai_summary?: string | null
-    ai_action_items?: string | null
-    ai_confidence?: number | null
-    read_in_mcc?: boolean
-    dismissed?: boolean
-    raw_body_preview?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type EmailDigestUncheckedCreateInput = {
-    id?: string
-    gmail_id: string
-    thread_id?: string | null
-    from_address: string
-    from_name?: string | null
-    subject: string
-    snippet?: string | null
-    received_at: Date | string
-    is_important?: boolean
-    is_urgent?: boolean
-    category?: string | null
-    ai_summary?: string | null
-    ai_action_items?: string | null
-    ai_confidence?: number | null
-    read_in_mcc?: boolean
-    dismissed?: boolean
-    raw_body_preview?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type EmailDigestUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    gmail_id?: StringFieldUpdateOperationsInput | string
-    thread_id?: NullableStringFieldUpdateOperationsInput | string | null
-    from_address?: StringFieldUpdateOperationsInput | string
-    from_name?: NullableStringFieldUpdateOperationsInput | string | null
-    subject?: StringFieldUpdateOperationsInput | string
-    snippet?: NullableStringFieldUpdateOperationsInput | string | null
-    received_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    is_important?: BoolFieldUpdateOperationsInput | boolean
-    is_urgent?: BoolFieldUpdateOperationsInput | boolean
-    category?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_summary?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_action_items?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_confidence?: NullableFloatFieldUpdateOperationsInput | number | null
-    read_in_mcc?: BoolFieldUpdateOperationsInput | boolean
-    dismissed?: BoolFieldUpdateOperationsInput | boolean
-    raw_body_preview?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type EmailDigestUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    gmail_id?: StringFieldUpdateOperationsInput | string
-    thread_id?: NullableStringFieldUpdateOperationsInput | string | null
-    from_address?: StringFieldUpdateOperationsInput | string
-    from_name?: NullableStringFieldUpdateOperationsInput | string | null
-    subject?: StringFieldUpdateOperationsInput | string
-    snippet?: NullableStringFieldUpdateOperationsInput | string | null
-    received_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    is_important?: BoolFieldUpdateOperationsInput | boolean
-    is_urgent?: BoolFieldUpdateOperationsInput | boolean
-    category?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_summary?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_action_items?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_confidence?: NullableFloatFieldUpdateOperationsInput | number | null
-    read_in_mcc?: BoolFieldUpdateOperationsInput | boolean
-    dismissed?: BoolFieldUpdateOperationsInput | boolean
-    raw_body_preview?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type EmailDigestCreateManyInput = {
-    id?: string
-    gmail_id: string
-    thread_id?: string | null
-    from_address: string
-    from_name?: string | null
-    subject: string
-    snippet?: string | null
-    received_at: Date | string
-    is_important?: boolean
-    is_urgent?: boolean
-    category?: string | null
-    ai_summary?: string | null
-    ai_action_items?: string | null
-    ai_confidence?: number | null
-    read_in_mcc?: boolean
-    dismissed?: boolean
-    raw_body_preview?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type EmailDigestUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    gmail_id?: StringFieldUpdateOperationsInput | string
-    thread_id?: NullableStringFieldUpdateOperationsInput | string | null
-    from_address?: StringFieldUpdateOperationsInput | string
-    from_name?: NullableStringFieldUpdateOperationsInput | string | null
-    subject?: StringFieldUpdateOperationsInput | string
-    snippet?: NullableStringFieldUpdateOperationsInput | string | null
-    received_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    is_important?: BoolFieldUpdateOperationsInput | boolean
-    is_urgent?: BoolFieldUpdateOperationsInput | boolean
-    category?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_summary?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_action_items?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_confidence?: NullableFloatFieldUpdateOperationsInput | number | null
-    read_in_mcc?: BoolFieldUpdateOperationsInput | boolean
-    dismissed?: BoolFieldUpdateOperationsInput | boolean
-    raw_body_preview?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type EmailDigestUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    gmail_id?: StringFieldUpdateOperationsInput | string
-    thread_id?: NullableStringFieldUpdateOperationsInput | string | null
-    from_address?: StringFieldUpdateOperationsInput | string
-    from_name?: NullableStringFieldUpdateOperationsInput | string | null
-    subject?: StringFieldUpdateOperationsInput | string
-    snippet?: NullableStringFieldUpdateOperationsInput | string | null
-    received_at?: DateTimeFieldUpdateOperationsInput | Date | string
-    is_important?: BoolFieldUpdateOperationsInput | boolean
-    is_urgent?: BoolFieldUpdateOperationsInput | boolean
-    category?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_summary?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_action_items?: NullableStringFieldUpdateOperationsInput | string | null
-    ai_confidence?: NullableFloatFieldUpdateOperationsInput | number | null
-    read_in_mcc?: BoolFieldUpdateOperationsInput | boolean
-    dismissed?: BoolFieldUpdateOperationsInput | boolean
-    raw_body_preview?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CalendarEventCreateInput = {
-    id?: string
-    google_event_id: string
-    title: string
-    description?: string | null
-    start_time: Date | string
-    end_time: Date | string
-    location?: string | null
-    meet_link?: string | null
-    attendees?: string | null
-    is_important?: boolean
-    ai_prep_notes?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CalendarEventUncheckedCreateInput = {
-    id?: string
-    google_event_id: string
-    title: string
-    description?: string | null
-    start_time: Date | string
-    end_time: Date | string
-    location?: string | null
-    meet_link?: string | null
-    attendees?: string | null
-    is_important?: boolean
-    ai_prep_notes?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CalendarEventUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    google_event_id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    meet_link?: NullableStringFieldUpdateOperationsInput | string | null
-    attendees?: NullableStringFieldUpdateOperationsInput | string | null
-    is_important?: BoolFieldUpdateOperationsInput | boolean
-    ai_prep_notes?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CalendarEventUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    google_event_id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    meet_link?: NullableStringFieldUpdateOperationsInput | string | null
-    attendees?: NullableStringFieldUpdateOperationsInput | string | null
-    is_important?: BoolFieldUpdateOperationsInput | boolean
-    ai_prep_notes?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CalendarEventCreateManyInput = {
-    id?: string
-    google_event_id: string
-    title: string
-    description?: string | null
-    start_time: Date | string
-    end_time: Date | string
-    location?: string | null
-    meet_link?: string | null
-    attendees?: string | null
-    is_important?: boolean
-    ai_prep_notes?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type CalendarEventUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    google_event_id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    meet_link?: NullableStringFieldUpdateOperationsInput | string | null
-    attendees?: NullableStringFieldUpdateOperationsInput | string | null
-    is_important?: BoolFieldUpdateOperationsInput | boolean
-    ai_prep_notes?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type CalendarEventUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    google_event_id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    start_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    end_time?: DateTimeFieldUpdateOperationsInput | Date | string
-    location?: NullableStringFieldUpdateOperationsInput | string | null
-    meet_link?: NullableStringFieldUpdateOperationsInput | string | null
-    attendees?: NullableStringFieldUpdateOperationsInput | string | null
-    is_important?: BoolFieldUpdateOperationsInput | boolean
-    ai_prep_notes?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MccAlertCreateInput = {
-    id?: string
-    type: string
-    severity?: string
-    title: string
-    message: string
-    source_type?: string | null
-    source_id?: string | null
-    acknowledged?: boolean
-    sent_to_cliq?: boolean
-    cliq_sent_at?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type MccAlertUncheckedCreateInput = {
-    id?: string
-    type: string
-    severity?: string
-    title: string
-    message: string
-    source_type?: string | null
-    source_id?: string | null
-    acknowledged?: boolean
-    sent_to_cliq?: boolean
-    cliq_sent_at?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type MccAlertUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    severity?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    source_type?: NullableStringFieldUpdateOperationsInput | string | null
-    source_id?: NullableStringFieldUpdateOperationsInput | string | null
-    acknowledged?: BoolFieldUpdateOperationsInput | boolean
-    sent_to_cliq?: BoolFieldUpdateOperationsInput | boolean
-    cliq_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MccAlertUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    severity?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    source_type?: NullableStringFieldUpdateOperationsInput | string | null
-    source_id?: NullableStringFieldUpdateOperationsInput | string | null
-    acknowledged?: BoolFieldUpdateOperationsInput | boolean
-    sent_to_cliq?: BoolFieldUpdateOperationsInput | boolean
-    cliq_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MccAlertCreateManyInput = {
-    id?: string
-    type: string
-    severity?: string
-    title: string
-    message: string
-    source_type?: string | null
-    source_id?: string | null
-    acknowledged?: boolean
-    sent_to_cliq?: boolean
-    cliq_sent_at?: Date | string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type MccAlertUpdateManyMutationInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    severity?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    source_type?: NullableStringFieldUpdateOperationsInput | string | null
-    source_id?: NullableStringFieldUpdateOperationsInput | string | null
-    acknowledged?: BoolFieldUpdateOperationsInput | boolean
-    sent_to_cliq?: BoolFieldUpdateOperationsInput | boolean
-    cliq_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MccAlertUncheckedUpdateManyInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    type?: StringFieldUpdateOperationsInput | string
-    severity?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    message?: StringFieldUpdateOperationsInput | string
-    source_type?: NullableStringFieldUpdateOperationsInput | string | null
-    source_id?: NullableStringFieldUpdateOperationsInput | string | null
-    acknowledged?: BoolFieldUpdateOperationsInput | boolean
-    sent_to_cliq?: BoolFieldUpdateOperationsInput | boolean
-    cliq_sent_at?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MccTaskCreateInput = {
+  export type SalesFilmCreateInput = {
     id?: string
     title: string
-    description?: string | null
+    genre?: string | null
     status?: string
-    priority?: string
-    due_date?: Date | string | null
-    source_type?: string | null
-    source_id?: string | null
+    territories?: string | null
+    buyers?: string | null
+    last_contact_date?: Date | string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deals?: DealCreateNestedManyWithoutFilmInput
+  }
+
+  export type SalesFilmUncheckedCreateInput = {
+    id?: string
+    title: string
+    genre?: string | null
+    status?: string
+    territories?: string | null
+    buyers?: string | null
+    last_contact_date?: Date | string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    deals?: DealUncheckedCreateNestedManyWithoutFilmInput
+  }
+
+  export type SalesFilmUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    territories?: NullableStringFieldUpdateOperationsInput | string | null
+    buyers?: NullableStringFieldUpdateOperationsInput | string | null
+    last_contact_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deals?: DealUpdateManyWithoutFilmNestedInput
+  }
+
+  export type SalesFilmUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    territories?: NullableStringFieldUpdateOperationsInput | string | null
+    buyers?: NullableStringFieldUpdateOperationsInput | string | null
+    last_contact_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    deals?: DealUncheckedUpdateManyWithoutFilmNestedInput
+  }
+
+  export type SalesFilmCreateManyInput = {
+    id?: string
+    title: string
+    genre?: string | null
+    status?: string
+    territories?: string | null
+    buyers?: string | null
+    last_contact_date?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type MccTaskUncheckedCreateInput = {
+  export type SalesFilmUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    territories?: NullableStringFieldUpdateOperationsInput | string | null
+    buyers?: NullableStringFieldUpdateOperationsInput | string | null
+    last_contact_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type SalesFilmUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    territories?: NullableStringFieldUpdateOperationsInput | string | null
+    buyers?: NullableStringFieldUpdateOperationsInput | string | null
+    last_contact_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DealCreateInput = {
+    id?: string
+    territory: string
+    buyer?: string | null
+    status?: string
+    amount?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+    film: SalesFilmCreateNestedOneWithoutDealsInput
+  }
+
+  export type DealUncheckedCreateInput = {
+    id?: string
+    film_id: string
+    territory: string
+    buyer?: string | null
+    status?: string
+    amount?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DealUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    territory?: StringFieldUpdateOperationsInput | string
+    buyer?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    film?: SalesFilmUpdateOneRequiredWithoutDealsNestedInput
+  }
+
+  export type DealUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    film_id?: StringFieldUpdateOperationsInput | string
+    territory?: StringFieldUpdateOperationsInput | string
+    buyer?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DealCreateManyInput = {
+    id?: string
+    film_id: string
+    territory: string
+    buyer?: string | null
+    status?: string
+    amount?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DealUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    territory?: StringFieldUpdateOperationsInput | string
+    buyer?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DealUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    film_id?: StringFieldUpdateOperationsInput | string
+    territory?: StringFieldUpdateOperationsInput | string
+    buyer?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AcquisitionCreateInput = {
+    id?: string
+    title: string
+    synopsis?: string | null
+    cast?: string | null
+    budget?: number | null
+    status?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AcquisitionUncheckedCreateInput = {
+    id?: string
+    title: string
+    synopsis?: string | null
+    cast?: string | null
+    budget?: number | null
+    status?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AcquisitionUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    synopsis?: NullableStringFieldUpdateOperationsInput | string | null
+    cast?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableFloatFieldUpdateOperationsInput | number | null
+    status?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AcquisitionUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    synopsis?: NullableStringFieldUpdateOperationsInput | string | null
+    cast?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableFloatFieldUpdateOperationsInput | number | null
+    status?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AcquisitionCreateManyInput = {
+    id?: string
+    title: string
+    synopsis?: string | null
+    cast?: string | null
+    budget?: number | null
+    status?: string
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type AcquisitionUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    synopsis?: NullableStringFieldUpdateOperationsInput | string | null
+    cast?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableFloatFieldUpdateOperationsInput | number | null
+    status?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type AcquisitionUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    synopsis?: NullableStringFieldUpdateOperationsInput | string | null
+    cast?: NullableStringFieldUpdateOperationsInput | string | null
+    budget?: NullableFloatFieldUpdateOperationsInput | number | null
+    status?: StringFieldUpdateOperationsInput | string
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MccInvestorCreateInput = {
+    id?: string
+    name: string
+    email?: string | null
+    investments?: string | null
+    notes?: string | null
+    payment_status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MccInvestorUncheckedCreateInput = {
+    id?: string
+    name: string
+    email?: string | null
+    investments?: string | null
+    notes?: string | null
+    payment_status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MccInvestorUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    investments?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    payment_status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MccInvestorUncheckedUpdateInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    investments?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    payment_status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MccInvestorCreateManyInput = {
+    id?: string
+    name: string
+    email?: string | null
+    investments?: string | null
+    notes?: string | null
+    payment_status?: string
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MccInvestorUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    investments?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    payment_status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MccInvestorUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    name?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
+    investments?: NullableStringFieldUpdateOperationsInput | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    payment_status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TaskCreateInput = {
     id?: string
     title: string
     description?: string | null
-    status?: string
-    priority?: string
+    linked_entity_type?: string | null
+    linked_entity_id?: string | null
     due_date?: Date | string | null
-    source_type?: string | null
-    source_id?: string | null
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type MccTaskUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    priority?: StringFieldUpdateOperationsInput | string
-    due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    source_type?: NullableStringFieldUpdateOperationsInput | string | null
-    source_id?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MccTaskUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    title?: StringFieldUpdateOperationsInput | string
-    description?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    priority?: StringFieldUpdateOperationsInput | string
-    due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    source_type?: NullableStringFieldUpdateOperationsInput | string | null
-    source_id?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MccTaskCreateManyInput = {
+  export type TaskUncheckedCreateInput = {
     id?: string
     title: string
     description?: string | null
-    status?: string
-    priority?: string
+    linked_entity_type?: string | null
+    linked_entity_id?: string | null
     due_date?: Date | string | null
-    source_type?: string | null
-    source_id?: string | null
+    status?: string
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type MccTaskUpdateManyMutationInput = {
+  export type TaskUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    priority?: StringFieldUpdateOperationsInput | string
+    linked_entity_type?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_entity_id?: NullableStringFieldUpdateOperationsInput | string | null
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    source_type?: NullableStringFieldUpdateOperationsInput | string | null
-    source_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type MccTaskUncheckedUpdateManyInput = {
+  export type TaskUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     title?: StringFieldUpdateOperationsInput | string
     description?: NullableStringFieldUpdateOperationsInput | string | null
-    status?: StringFieldUpdateOperationsInput | string
-    priority?: StringFieldUpdateOperationsInput | string
+    linked_entity_type?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_entity_id?: NullableStringFieldUpdateOperationsInput | string | null
     due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    source_type?: NullableStringFieldUpdateOperationsInput | string | null
-    source_id?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PollLogCreateInput = {
+  export type TaskCreateManyInput = {
     id?: string
-    poll_type: string
-    status: string
-    emails_processed?: number
-    events_processed?: number
-    alerts_created?: number
-    error_message?: string | null
-    duration_ms?: number | null
+    title: string
+    description?: string | null
+    linked_entity_type?: string | null
+    linked_entity_id?: string | null
+    due_date?: Date | string | null
+    status?: string
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type PollLogUncheckedCreateInput = {
+  export type TaskUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_entity_type?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_entity_id?: NullableStringFieldUpdateOperationsInput | string | null
+    due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type TaskUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    description?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_entity_type?: NullableStringFieldUpdateOperationsInput | string | null
+    linked_entity_id?: NullableStringFieldUpdateOperationsInput | string | null
+    due_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MeetingCreateInput = {
     id?: string
-    poll_type: string
-    status: string
-    emails_processed?: number
-    events_processed?: number
-    alerts_created?: number
-    error_message?: string | null
-    duration_ms?: number | null
+    title: string
+    participants?: string | null
+    date?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type PollLogUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    poll_type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    emails_processed?: IntFieldUpdateOperationsInput | number
-    events_processed?: IntFieldUpdateOperationsInput | number
-    alerts_created?: IntFieldUpdateOperationsInput | number
-    error_message?: NullableStringFieldUpdateOperationsInput | string | null
-    duration_ms?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PollLogUncheckedUpdateInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    poll_type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    emails_processed?: IntFieldUpdateOperationsInput | number
-    events_processed?: IntFieldUpdateOperationsInput | number
-    alerts_created?: IntFieldUpdateOperationsInput | number
-    error_message?: NullableStringFieldUpdateOperationsInput | string | null
-    duration_ms?: NullableIntFieldUpdateOperationsInput | number | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type PollLogCreateManyInput = {
+  export type MeetingUncheckedCreateInput = {
     id?: string
-    poll_type: string
-    status: string
-    emails_processed?: number
-    events_processed?: number
-    alerts_created?: number
-    error_message?: string | null
-    duration_ms?: number | null
+    title: string
+    participants?: string | null
+    date?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
+    updatedAt?: Date | string
   }
 
-  export type PollLogUpdateManyMutationInput = {
+  export type MeetingUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    poll_type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    emails_processed?: IntFieldUpdateOperationsInput | number
-    events_processed?: IntFieldUpdateOperationsInput | number
-    alerts_created?: IntFieldUpdateOperationsInput | number
-    error_message?: NullableStringFieldUpdateOperationsInput | string | null
-    duration_ms?: NullableIntFieldUpdateOperationsInput | number | null
+    title?: StringFieldUpdateOperationsInput | string
+    participants?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type PollLogUncheckedUpdateManyInput = {
+  export type MeetingUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
-    poll_type?: StringFieldUpdateOperationsInput | string
-    status?: StringFieldUpdateOperationsInput | string
-    emails_processed?: IntFieldUpdateOperationsInput | number
-    events_processed?: IntFieldUpdateOperationsInput | number
-    alerts_created?: IntFieldUpdateOperationsInput | number
-    error_message?: NullableStringFieldUpdateOperationsInput | string | null
-    duration_ms?: NullableIntFieldUpdateOperationsInput | number | null
+    title?: StringFieldUpdateOperationsInput | string
+    participants?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MeetingCreateManyInput = {
+    id?: string
+    title: string
+    participants?: string | null
+    date?: Date | string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type MeetingUpdateManyMutationInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    participants?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type MeetingUncheckedUpdateManyInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    participants?: NullableStringFieldUpdateOperationsInput | string | null
+    date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
   export type StringFilter<$PrismaModel = never> = {
@@ -25857,11 +25408,6 @@ export namespace Prisma {
   export type InvestorNullableScalarRelationFilter = {
     is?: InvestorWhereInput | null
     isNot?: InvestorWhereInput | null
-  }
-
-  export type MccSessionNullableScalarRelationFilter = {
-    is?: MccSessionWhereInput | null
-    isNot?: MccSessionWhereInput | null
   }
 
   export type SortOrderInput = {
@@ -26639,355 +26185,245 @@ export namespace Prisma {
     amount?: SortOrder
   }
 
-  export type UserScalarRelationFilter = {
-    is?: UserWhereInput
-    isNot?: UserWhereInput
+  export type DealListRelationFilter = {
+    every?: DealWhereInput
+    some?: DealWhereInput
+    none?: DealWhereInput
   }
 
-  export type MccSessionCountOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    google_access_token?: SortOrder
-    google_refresh_token?: SortOrder
-    google_token_expiry?: SortOrder
-    google_email?: SortOrder
-    cliq_webhook_url?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
+  export type DealOrderByRelationAggregateInput = {
+    _count?: SortOrder
   }
 
-  export type MccSessionMaxOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    google_access_token?: SortOrder
-    google_refresh_token?: SortOrder
-    google_token_expiry?: SortOrder
-    google_email?: SortOrder
-    cliq_webhook_url?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type MccSessionMinOrderByAggregateInput = {
-    id?: SortOrder
-    user_id?: SortOrder
-    google_access_token?: SortOrder
-    google_refresh_token?: SortOrder
-    google_token_expiry?: SortOrder
-    google_email?: SortOrder
-    cliq_webhook_url?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type EmailDigestCountOrderByAggregateInput = {
-    id?: SortOrder
-    gmail_id?: SortOrder
-    thread_id?: SortOrder
-    from_address?: SortOrder
-    from_name?: SortOrder
-    subject?: SortOrder
-    snippet?: SortOrder
-    received_at?: SortOrder
-    is_important?: SortOrder
-    is_urgent?: SortOrder
-    category?: SortOrder
-    ai_summary?: SortOrder
-    ai_action_items?: SortOrder
-    ai_confidence?: SortOrder
-    read_in_mcc?: SortOrder
-    dismissed?: SortOrder
-    raw_body_preview?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type EmailDigestAvgOrderByAggregateInput = {
-    ai_confidence?: SortOrder
-  }
-
-  export type EmailDigestMaxOrderByAggregateInput = {
-    id?: SortOrder
-    gmail_id?: SortOrder
-    thread_id?: SortOrder
-    from_address?: SortOrder
-    from_name?: SortOrder
-    subject?: SortOrder
-    snippet?: SortOrder
-    received_at?: SortOrder
-    is_important?: SortOrder
-    is_urgent?: SortOrder
-    category?: SortOrder
-    ai_summary?: SortOrder
-    ai_action_items?: SortOrder
-    ai_confidence?: SortOrder
-    read_in_mcc?: SortOrder
-    dismissed?: SortOrder
-    raw_body_preview?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type EmailDigestMinOrderByAggregateInput = {
-    id?: SortOrder
-    gmail_id?: SortOrder
-    thread_id?: SortOrder
-    from_address?: SortOrder
-    from_name?: SortOrder
-    subject?: SortOrder
-    snippet?: SortOrder
-    received_at?: SortOrder
-    is_important?: SortOrder
-    is_urgent?: SortOrder
-    category?: SortOrder
-    ai_summary?: SortOrder
-    ai_action_items?: SortOrder
-    ai_confidence?: SortOrder
-    read_in_mcc?: SortOrder
-    dismissed?: SortOrder
-    raw_body_preview?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type EmailDigestSumOrderByAggregateInput = {
-    ai_confidence?: SortOrder
-  }
-
-  export type CalendarEventCountOrderByAggregateInput = {
-    id?: SortOrder
-    google_event_id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    start_time?: SortOrder
-    end_time?: SortOrder
-    location?: SortOrder
-    meet_link?: SortOrder
-    attendees?: SortOrder
-    is_important?: SortOrder
-    ai_prep_notes?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type CalendarEventMaxOrderByAggregateInput = {
-    id?: SortOrder
-    google_event_id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    start_time?: SortOrder
-    end_time?: SortOrder
-    location?: SortOrder
-    meet_link?: SortOrder
-    attendees?: SortOrder
-    is_important?: SortOrder
-    ai_prep_notes?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type CalendarEventMinOrderByAggregateInput = {
-    id?: SortOrder
-    google_event_id?: SortOrder
-    title?: SortOrder
-    description?: SortOrder
-    start_time?: SortOrder
-    end_time?: SortOrder
-    location?: SortOrder
-    meet_link?: SortOrder
-    attendees?: SortOrder
-    is_important?: SortOrder
-    ai_prep_notes?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type MccAlertCountOrderByAggregateInput = {
-    id?: SortOrder
-    type?: SortOrder
-    severity?: SortOrder
-    title?: SortOrder
-    message?: SortOrder
-    source_type?: SortOrder
-    source_id?: SortOrder
-    acknowledged?: SortOrder
-    sent_to_cliq?: SortOrder
-    cliq_sent_at?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type MccAlertMaxOrderByAggregateInput = {
-    id?: SortOrder
-    type?: SortOrder
-    severity?: SortOrder
-    title?: SortOrder
-    message?: SortOrder
-    source_type?: SortOrder
-    source_id?: SortOrder
-    acknowledged?: SortOrder
-    sent_to_cliq?: SortOrder
-    cliq_sent_at?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type MccAlertMinOrderByAggregateInput = {
-    id?: SortOrder
-    type?: SortOrder
-    severity?: SortOrder
-    title?: SortOrder
-    message?: SortOrder
-    source_type?: SortOrder
-    source_id?: SortOrder
-    acknowledged?: SortOrder
-    sent_to_cliq?: SortOrder
-    cliq_sent_at?: SortOrder
-    createdAt?: SortOrder
-    updatedAt?: SortOrder
-  }
-
-  export type MccTaskCountOrderByAggregateInput = {
+  export type SalesFilmCountOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
-    description?: SortOrder
+    genre?: SortOrder
     status?: SortOrder
-    priority?: SortOrder
+    territories?: SortOrder
+    buyers?: SortOrder
+    last_contact_date?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SalesFilmMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    genre?: SortOrder
+    status?: SortOrder
+    territories?: SortOrder
+    buyers?: SortOrder
+    last_contact_date?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SalesFilmMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    genre?: SortOrder
+    status?: SortOrder
+    territories?: SortOrder
+    buyers?: SortOrder
+    last_contact_date?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type SalesFilmScalarRelationFilter = {
+    is?: SalesFilmWhereInput
+    isNot?: SalesFilmWhereInput
+  }
+
+  export type DealCountOrderByAggregateInput = {
+    id?: SortOrder
+    film_id?: SortOrder
+    territory?: SortOrder
+    buyer?: SortOrder
+    status?: SortOrder
+    amount?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DealAvgOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type DealMaxOrderByAggregateInput = {
+    id?: SortOrder
+    film_id?: SortOrder
+    territory?: SortOrder
+    buyer?: SortOrder
+    status?: SortOrder
+    amount?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DealMinOrderByAggregateInput = {
+    id?: SortOrder
+    film_id?: SortOrder
+    territory?: SortOrder
+    buyer?: SortOrder
+    status?: SortOrder
+    amount?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type DealSumOrderByAggregateInput = {
+    amount?: SortOrder
+  }
+
+  export type AcquisitionCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    synopsis?: SortOrder
+    cast?: SortOrder
+    budget?: SortOrder
+    status?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AcquisitionAvgOrderByAggregateInput = {
+    budget?: SortOrder
+  }
+
+  export type AcquisitionMaxOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    synopsis?: SortOrder
+    cast?: SortOrder
+    budget?: SortOrder
+    status?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AcquisitionMinOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    synopsis?: SortOrder
+    cast?: SortOrder
+    budget?: SortOrder
+    status?: SortOrder
+    notes?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type AcquisitionSumOrderByAggregateInput = {
+    budget?: SortOrder
+  }
+
+  export type MccInvestorCountOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    investments?: SortOrder
+    notes?: SortOrder
+    payment_status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MccInvestorMaxOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    investments?: SortOrder
+    notes?: SortOrder
+    payment_status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type MccInvestorMinOrderByAggregateInput = {
+    id?: SortOrder
+    name?: SortOrder
+    email?: SortOrder
+    investments?: SortOrder
+    notes?: SortOrder
+    payment_status?: SortOrder
+    createdAt?: SortOrder
+    updatedAt?: SortOrder
+  }
+
+  export type TaskCountOrderByAggregateInput = {
+    id?: SortOrder
+    title?: SortOrder
+    description?: SortOrder
+    linked_entity_type?: SortOrder
+    linked_entity_id?: SortOrder
     due_date?: SortOrder
-    source_type?: SortOrder
-    source_id?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type MccTaskMaxOrderByAggregateInput = {
+  export type TaskMaxOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    status?: SortOrder
-    priority?: SortOrder
+    linked_entity_type?: SortOrder
+    linked_entity_id?: SortOrder
     due_date?: SortOrder
-    source_type?: SortOrder
-    source_id?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type MccTaskMinOrderByAggregateInput = {
+  export type TaskMinOrderByAggregateInput = {
     id?: SortOrder
     title?: SortOrder
     description?: SortOrder
-    status?: SortOrder
-    priority?: SortOrder
+    linked_entity_type?: SortOrder
+    linked_entity_id?: SortOrder
     due_date?: SortOrder
-    source_type?: SortOrder
-    source_id?: SortOrder
+    status?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
 
-  export type IntFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntFilter<$PrismaModel> | number
-  }
-
-  export type IntNullableFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableFilter<$PrismaModel> | number | null
-  }
-
-  export type PollLogCountOrderByAggregateInput = {
+  export type MeetingCountOrderByAggregateInput = {
     id?: SortOrder
-    poll_type?: SortOrder
-    status?: SortOrder
-    emails_processed?: SortOrder
-    events_processed?: SortOrder
-    alerts_created?: SortOrder
-    error_message?: SortOrder
-    duration_ms?: SortOrder
+    title?: SortOrder
+    participants?: SortOrder
+    date?: SortOrder
+    notes?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type PollLogAvgOrderByAggregateInput = {
-    emails_processed?: SortOrder
-    events_processed?: SortOrder
-    alerts_created?: SortOrder
-    duration_ms?: SortOrder
-  }
-
-  export type PollLogMaxOrderByAggregateInput = {
+  export type MeetingMaxOrderByAggregateInput = {
     id?: SortOrder
-    poll_type?: SortOrder
-    status?: SortOrder
-    emails_processed?: SortOrder
-    events_processed?: SortOrder
-    alerts_created?: SortOrder
-    error_message?: SortOrder
-    duration_ms?: SortOrder
+    title?: SortOrder
+    participants?: SortOrder
+    date?: SortOrder
+    notes?: SortOrder
     createdAt?: SortOrder
+    updatedAt?: SortOrder
   }
 
-  export type PollLogMinOrderByAggregateInput = {
+  export type MeetingMinOrderByAggregateInput = {
     id?: SortOrder
-    poll_type?: SortOrder
-    status?: SortOrder
-    emails_processed?: SortOrder
-    events_processed?: SortOrder
-    alerts_created?: SortOrder
-    error_message?: SortOrder
-    duration_ms?: SortOrder
+    title?: SortOrder
+    participants?: SortOrder
+    date?: SortOrder
+    notes?: SortOrder
     createdAt?: SortOrder
-  }
-
-  export type PollLogSumOrderByAggregateInput = {
-    emails_processed?: SortOrder
-    events_processed?: SortOrder
-    alerts_created?: SortOrder
-    duration_ms?: SortOrder
-  }
-
-  export type IntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type IntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
+    updatedAt?: SortOrder
   }
 
   export type InvestorCreateNestedOneWithoutUserInput = {
@@ -26996,22 +26432,10 @@ export namespace Prisma {
     connect?: InvestorWhereUniqueInput
   }
 
-  export type MccSessionCreateNestedOneWithoutUserInput = {
-    create?: XOR<MccSessionCreateWithoutUserInput, MccSessionUncheckedCreateWithoutUserInput>
-    connectOrCreate?: MccSessionCreateOrConnectWithoutUserInput
-    connect?: MccSessionWhereUniqueInput
-  }
-
   export type InvestorUncheckedCreateNestedOneWithoutUserInput = {
     create?: XOR<InvestorCreateWithoutUserInput, InvestorUncheckedCreateWithoutUserInput>
     connectOrCreate?: InvestorCreateOrConnectWithoutUserInput
     connect?: InvestorWhereUniqueInput
-  }
-
-  export type MccSessionUncheckedCreateNestedOneWithoutUserInput = {
-    create?: XOR<MccSessionCreateWithoutUserInput, MccSessionUncheckedCreateWithoutUserInput>
-    connectOrCreate?: MccSessionCreateOrConnectWithoutUserInput
-    connect?: MccSessionWhereUniqueInput
   }
 
   export type StringFieldUpdateOperationsInput = {
@@ -27036,16 +26460,6 @@ export namespace Prisma {
     update?: XOR<XOR<InvestorUpdateToOneWithWhereWithoutUserInput, InvestorUpdateWithoutUserInput>, InvestorUncheckedUpdateWithoutUserInput>
   }
 
-  export type MccSessionUpdateOneWithoutUserNestedInput = {
-    create?: XOR<MccSessionCreateWithoutUserInput, MccSessionUncheckedCreateWithoutUserInput>
-    connectOrCreate?: MccSessionCreateOrConnectWithoutUserInput
-    upsert?: MccSessionUpsertWithoutUserInput
-    disconnect?: MccSessionWhereInput | boolean
-    delete?: MccSessionWhereInput | boolean
-    connect?: MccSessionWhereUniqueInput
-    update?: XOR<XOR<MccSessionUpdateToOneWithWhereWithoutUserInput, MccSessionUpdateWithoutUserInput>, MccSessionUncheckedUpdateWithoutUserInput>
-  }
-
   export type InvestorUncheckedUpdateOneWithoutUserNestedInput = {
     create?: XOR<InvestorCreateWithoutUserInput, InvestorUncheckedCreateWithoutUserInput>
     connectOrCreate?: InvestorCreateOrConnectWithoutUserInput
@@ -27054,16 +26468,6 @@ export namespace Prisma {
     delete?: InvestorWhereInput | boolean
     connect?: InvestorWhereUniqueInput
     update?: XOR<XOR<InvestorUpdateToOneWithWhereWithoutUserInput, InvestorUpdateWithoutUserInput>, InvestorUncheckedUpdateWithoutUserInput>
-  }
-
-  export type MccSessionUncheckedUpdateOneWithoutUserNestedInput = {
-    create?: XOR<MccSessionCreateWithoutUserInput, MccSessionUncheckedCreateWithoutUserInput>
-    connectOrCreate?: MccSessionCreateOrConnectWithoutUserInput
-    upsert?: MccSessionUpsertWithoutUserInput
-    disconnect?: MccSessionWhereInput | boolean
-    delete?: MccSessionWhereInput | boolean
-    connect?: MccSessionWhereUniqueInput
-    update?: XOR<XOR<MccSessionUpdateToOneWithWhereWithoutUserInput, MccSessionUpdateWithoutUserInput>, MccSessionUncheckedUpdateWithoutUserInput>
   }
 
   export type UserCreateNestedOneWithoutInvestorInput = {
@@ -27612,34 +27016,60 @@ export namespace Prisma {
     update?: XOR<XOR<InvestorUpdateToOneWithWhereWithoutReinvestmentsInput, InvestorUpdateWithoutReinvestmentsInput>, InvestorUncheckedUpdateWithoutReinvestmentsInput>
   }
 
-  export type UserCreateNestedOneWithoutMcc_sessionInput = {
-    create?: XOR<UserCreateWithoutMcc_sessionInput, UserUncheckedCreateWithoutMcc_sessionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutMcc_sessionInput
-    connect?: UserWhereUniqueInput
+  export type DealCreateNestedManyWithoutFilmInput = {
+    create?: XOR<DealCreateWithoutFilmInput, DealUncheckedCreateWithoutFilmInput> | DealCreateWithoutFilmInput[] | DealUncheckedCreateWithoutFilmInput[]
+    connectOrCreate?: DealCreateOrConnectWithoutFilmInput | DealCreateOrConnectWithoutFilmInput[]
+    createMany?: DealCreateManyFilmInputEnvelope
+    connect?: DealWhereUniqueInput | DealWhereUniqueInput[]
   }
 
-  export type UserUpdateOneRequiredWithoutMcc_sessionNestedInput = {
-    create?: XOR<UserCreateWithoutMcc_sessionInput, UserUncheckedCreateWithoutMcc_sessionInput>
-    connectOrCreate?: UserCreateOrConnectWithoutMcc_sessionInput
-    upsert?: UserUpsertWithoutMcc_sessionInput
-    connect?: UserWhereUniqueInput
-    update?: XOR<XOR<UserUpdateToOneWithWhereWithoutMcc_sessionInput, UserUpdateWithoutMcc_sessionInput>, UserUncheckedUpdateWithoutMcc_sessionInput>
+  export type DealUncheckedCreateNestedManyWithoutFilmInput = {
+    create?: XOR<DealCreateWithoutFilmInput, DealUncheckedCreateWithoutFilmInput> | DealCreateWithoutFilmInput[] | DealUncheckedCreateWithoutFilmInput[]
+    connectOrCreate?: DealCreateOrConnectWithoutFilmInput | DealCreateOrConnectWithoutFilmInput[]
+    createMany?: DealCreateManyFilmInputEnvelope
+    connect?: DealWhereUniqueInput | DealWhereUniqueInput[]
   }
 
-  export type IntFieldUpdateOperationsInput = {
-    set?: number
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type DealUpdateManyWithoutFilmNestedInput = {
+    create?: XOR<DealCreateWithoutFilmInput, DealUncheckedCreateWithoutFilmInput> | DealCreateWithoutFilmInput[] | DealUncheckedCreateWithoutFilmInput[]
+    connectOrCreate?: DealCreateOrConnectWithoutFilmInput | DealCreateOrConnectWithoutFilmInput[]
+    upsert?: DealUpsertWithWhereUniqueWithoutFilmInput | DealUpsertWithWhereUniqueWithoutFilmInput[]
+    createMany?: DealCreateManyFilmInputEnvelope
+    set?: DealWhereUniqueInput | DealWhereUniqueInput[]
+    disconnect?: DealWhereUniqueInput | DealWhereUniqueInput[]
+    delete?: DealWhereUniqueInput | DealWhereUniqueInput[]
+    connect?: DealWhereUniqueInput | DealWhereUniqueInput[]
+    update?: DealUpdateWithWhereUniqueWithoutFilmInput | DealUpdateWithWhereUniqueWithoutFilmInput[]
+    updateMany?: DealUpdateManyWithWhereWithoutFilmInput | DealUpdateManyWithWhereWithoutFilmInput[]
+    deleteMany?: DealScalarWhereInput | DealScalarWhereInput[]
   }
 
-  export type NullableIntFieldUpdateOperationsInput = {
-    set?: number | null
-    increment?: number
-    decrement?: number
-    multiply?: number
-    divide?: number
+  export type DealUncheckedUpdateManyWithoutFilmNestedInput = {
+    create?: XOR<DealCreateWithoutFilmInput, DealUncheckedCreateWithoutFilmInput> | DealCreateWithoutFilmInput[] | DealUncheckedCreateWithoutFilmInput[]
+    connectOrCreate?: DealCreateOrConnectWithoutFilmInput | DealCreateOrConnectWithoutFilmInput[]
+    upsert?: DealUpsertWithWhereUniqueWithoutFilmInput | DealUpsertWithWhereUniqueWithoutFilmInput[]
+    createMany?: DealCreateManyFilmInputEnvelope
+    set?: DealWhereUniqueInput | DealWhereUniqueInput[]
+    disconnect?: DealWhereUniqueInput | DealWhereUniqueInput[]
+    delete?: DealWhereUniqueInput | DealWhereUniqueInput[]
+    connect?: DealWhereUniqueInput | DealWhereUniqueInput[]
+    update?: DealUpdateWithWhereUniqueWithoutFilmInput | DealUpdateWithWhereUniqueWithoutFilmInput[]
+    updateMany?: DealUpdateManyWithWhereWithoutFilmInput | DealUpdateManyWithWhereWithoutFilmInput[]
+    deleteMany?: DealScalarWhereInput | DealScalarWhereInput[]
+  }
+
+  export type SalesFilmCreateNestedOneWithoutDealsInput = {
+    create?: XOR<SalesFilmCreateWithoutDealsInput, SalesFilmUncheckedCreateWithoutDealsInput>
+    connectOrCreate?: SalesFilmCreateOrConnectWithoutDealsInput
+    connect?: SalesFilmWhereUniqueInput
+  }
+
+  export type SalesFilmUpdateOneRequiredWithoutDealsNestedInput = {
+    create?: XOR<SalesFilmCreateWithoutDealsInput, SalesFilmUncheckedCreateWithoutDealsInput>
+    connectOrCreate?: SalesFilmCreateOrConnectWithoutDealsInput
+    upsert?: SalesFilmUpsertWithoutDealsInput
+    connect?: SalesFilmWhereUniqueInput
+    update?: XOR<XOR<SalesFilmUpdateToOneWithWhereWithoutDealsInput, SalesFilmUpdateWithoutDealsInput>, SalesFilmUncheckedUpdateWithoutDealsInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -27843,38 +27273,6 @@ export namespace Prisma {
     _max?: NestedFloatNullableFilter<$PrismaModel>
   }
 
-  export type NestedIntWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel>
-    in?: number[] | ListIntFieldRefInput<$PrismaModel>
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel>
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntWithAggregatesFilter<$PrismaModel> | number
-    _count?: NestedIntFilter<$PrismaModel>
-    _avg?: NestedFloatFilter<$PrismaModel>
-    _sum?: NestedIntFilter<$PrismaModel>
-    _min?: NestedIntFilter<$PrismaModel>
-    _max?: NestedIntFilter<$PrismaModel>
-  }
-
-  export type NestedIntNullableWithAggregatesFilter<$PrismaModel = never> = {
-    equals?: number | IntFieldRefInput<$PrismaModel> | null
-    in?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    notIn?: number[] | ListIntFieldRefInput<$PrismaModel> | null
-    lt?: number | IntFieldRefInput<$PrismaModel>
-    lte?: number | IntFieldRefInput<$PrismaModel>
-    gt?: number | IntFieldRefInput<$PrismaModel>
-    gte?: number | IntFieldRefInput<$PrismaModel>
-    not?: NestedIntNullableWithAggregatesFilter<$PrismaModel> | number | null
-    _count?: NestedIntNullableFilter<$PrismaModel>
-    _avg?: NestedFloatNullableFilter<$PrismaModel>
-    _sum?: NestedIntNullableFilter<$PrismaModel>
-    _min?: NestedIntNullableFilter<$PrismaModel>
-    _max?: NestedIntNullableFilter<$PrismaModel>
-  }
-
   export type InvestorCreateWithoutUserInput = {
     id?: string
     first_name: string
@@ -27922,33 +27320,6 @@ export namespace Prisma {
   export type InvestorCreateOrConnectWithoutUserInput = {
     where: InvestorWhereUniqueInput
     create: XOR<InvestorCreateWithoutUserInput, InvestorUncheckedCreateWithoutUserInput>
-  }
-
-  export type MccSessionCreateWithoutUserInput = {
-    id?: string
-    google_access_token?: string | null
-    google_refresh_token?: string | null
-    google_token_expiry?: Date | string | null
-    google_email?: string | null
-    cliq_webhook_url?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type MccSessionUncheckedCreateWithoutUserInput = {
-    id?: string
-    google_access_token?: string | null
-    google_refresh_token?: string | null
-    google_token_expiry?: Date | string | null
-    google_email?: string | null
-    cliq_webhook_url?: string | null
-    createdAt?: Date | string
-    updatedAt?: Date | string
-  }
-
-  export type MccSessionCreateOrConnectWithoutUserInput = {
-    where: MccSessionWhereUniqueInput
-    create: XOR<MccSessionCreateWithoutUserInput, MccSessionUncheckedCreateWithoutUserInput>
   }
 
   export type InvestorUpsertWithoutUserInput = {
@@ -28006,39 +27377,6 @@ export namespace Prisma {
     reinvestments?: ReinvestmentUncheckedUpdateManyWithoutInvestorNestedInput
   }
 
-  export type MccSessionUpsertWithoutUserInput = {
-    update: XOR<MccSessionUpdateWithoutUserInput, MccSessionUncheckedUpdateWithoutUserInput>
-    create: XOR<MccSessionCreateWithoutUserInput, MccSessionUncheckedCreateWithoutUserInput>
-    where?: MccSessionWhereInput
-  }
-
-  export type MccSessionUpdateToOneWithWhereWithoutUserInput = {
-    where?: MccSessionWhereInput
-    data: XOR<MccSessionUpdateWithoutUserInput, MccSessionUncheckedUpdateWithoutUserInput>
-  }
-
-  export type MccSessionUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    google_access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_token_expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    google_email?: NullableStringFieldUpdateOperationsInput | string | null
-    cliq_webhook_url?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
-  export type MccSessionUncheckedUpdateWithoutUserInput = {
-    id?: StringFieldUpdateOperationsInput | string
-    google_access_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_refresh_token?: NullableStringFieldUpdateOperationsInput | string | null
-    google_token_expiry?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
-    google_email?: NullableStringFieldUpdateOperationsInput | string | null
-    cliq_webhook_url?: NullableStringFieldUpdateOperationsInput | string | null
-    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-  }
-
   export type UserCreateWithoutInvestorInput = {
     id?: string
     email: string
@@ -28047,7 +27385,6 @@ export namespace Prisma {
     role?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    mcc_session?: MccSessionCreateNestedOneWithoutUserInput
   }
 
   export type UserUncheckedCreateWithoutInvestorInput = {
@@ -28058,7 +27395,6 @@ export namespace Prisma {
     role?: string
     createdAt?: Date | string
     updatedAt?: Date | string
-    mcc_session?: MccSessionUncheckedCreateNestedOneWithoutUserInput
   }
 
   export type UserCreateOrConnectWithoutInvestorInput = {
@@ -28267,7 +27603,6 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mcc_session?: MccSessionUpdateOneWithoutUserNestedInput
   }
 
   export type UserUncheckedUpdateWithoutInvestorInput = {
@@ -28278,7 +27613,6 @@ export namespace Prisma {
     role?: StringFieldUpdateOperationsInput | string
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    mcc_session?: MccSessionUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type InvestmentUpsertWithWhereUniqueWithoutInvestorInput = {
@@ -29528,64 +28862,135 @@ export namespace Prisma {
     documents?: DocumentUncheckedUpdateManyWithoutInvestorNestedInput
   }
 
-  export type UserCreateWithoutMcc_sessionInput = {
+  export type DealCreateWithoutFilmInput = {
     id?: string
-    email: string
-    password_hash: string
-    full_name?: string | null
-    role?: string
+    territory: string
+    buyer?: string | null
+    status?: string
+    amount?: number | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    investor?: InvestorCreateNestedOneWithoutUserInput
   }
 
-  export type UserUncheckedCreateWithoutMcc_sessionInput = {
+  export type DealUncheckedCreateWithoutFilmInput = {
     id?: string
-    email: string
-    password_hash: string
-    full_name?: string | null
-    role?: string
+    territory: string
+    buyer?: string | null
+    status?: string
+    amount?: number | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    investor?: InvestorUncheckedCreateNestedOneWithoutUserInput
   }
 
-  export type UserCreateOrConnectWithoutMcc_sessionInput = {
-    where: UserWhereUniqueInput
-    create: XOR<UserCreateWithoutMcc_sessionInput, UserUncheckedCreateWithoutMcc_sessionInput>
+  export type DealCreateOrConnectWithoutFilmInput = {
+    where: DealWhereUniqueInput
+    create: XOR<DealCreateWithoutFilmInput, DealUncheckedCreateWithoutFilmInput>
   }
 
-  export type UserUpsertWithoutMcc_sessionInput = {
-    update: XOR<UserUpdateWithoutMcc_sessionInput, UserUncheckedUpdateWithoutMcc_sessionInput>
-    create: XOR<UserCreateWithoutMcc_sessionInput, UserUncheckedCreateWithoutMcc_sessionInput>
-    where?: UserWhereInput
+  export type DealCreateManyFilmInputEnvelope = {
+    data: DealCreateManyFilmInput | DealCreateManyFilmInput[]
+    skipDuplicates?: boolean
   }
 
-  export type UserUpdateToOneWithWhereWithoutMcc_sessionInput = {
-    where?: UserWhereInput
-    data: XOR<UserUpdateWithoutMcc_sessionInput, UserUncheckedUpdateWithoutMcc_sessionInput>
+  export type DealUpsertWithWhereUniqueWithoutFilmInput = {
+    where: DealWhereUniqueInput
+    update: XOR<DealUpdateWithoutFilmInput, DealUncheckedUpdateWithoutFilmInput>
+    create: XOR<DealCreateWithoutFilmInput, DealUncheckedCreateWithoutFilmInput>
   }
 
-  export type UserUpdateWithoutMcc_sessionInput = {
+  export type DealUpdateWithWhereUniqueWithoutFilmInput = {
+    where: DealWhereUniqueInput
+    data: XOR<DealUpdateWithoutFilmInput, DealUncheckedUpdateWithoutFilmInput>
+  }
+
+  export type DealUpdateManyWithWhereWithoutFilmInput = {
+    where: DealScalarWhereInput
+    data: XOR<DealUpdateManyMutationInput, DealUncheckedUpdateManyWithoutFilmInput>
+  }
+
+  export type DealScalarWhereInput = {
+    AND?: DealScalarWhereInput | DealScalarWhereInput[]
+    OR?: DealScalarWhereInput[]
+    NOT?: DealScalarWhereInput | DealScalarWhereInput[]
+    id?: StringFilter<"Deal"> | string
+    film_id?: StringFilter<"Deal"> | string
+    territory?: StringFilter<"Deal"> | string
+    buyer?: StringNullableFilter<"Deal"> | string | null
+    status?: StringFilter<"Deal"> | string
+    amount?: FloatNullableFilter<"Deal"> | number | null
+    notes?: StringNullableFilter<"Deal"> | string | null
+    createdAt?: DateTimeFilter<"Deal"> | Date | string
+    updatedAt?: DateTimeFilter<"Deal"> | Date | string
+  }
+
+  export type SalesFilmCreateWithoutDealsInput = {
+    id?: string
+    title: string
+    genre?: string | null
+    status?: string
+    territories?: string | null
+    buyers?: string | null
+    last_contact_date?: Date | string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SalesFilmUncheckedCreateWithoutDealsInput = {
+    id?: string
+    title: string
+    genre?: string | null
+    status?: string
+    territories?: string | null
+    buyers?: string | null
+    last_contact_date?: Date | string | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type SalesFilmCreateOrConnectWithoutDealsInput = {
+    where: SalesFilmWhereUniqueInput
+    create: XOR<SalesFilmCreateWithoutDealsInput, SalesFilmUncheckedCreateWithoutDealsInput>
+  }
+
+  export type SalesFilmUpsertWithoutDealsInput = {
+    update: XOR<SalesFilmUpdateWithoutDealsInput, SalesFilmUncheckedUpdateWithoutDealsInput>
+    create: XOR<SalesFilmCreateWithoutDealsInput, SalesFilmUncheckedCreateWithoutDealsInput>
+    where?: SalesFilmWhereInput
+  }
+
+  export type SalesFilmUpdateToOneWithWhereWithoutDealsInput = {
+    where?: SalesFilmWhereInput
+    data: XOR<SalesFilmUpdateWithoutDealsInput, SalesFilmUncheckedUpdateWithoutDealsInput>
+  }
+
+  export type SalesFilmUpdateWithoutDealsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password_hash?: StringFieldUpdateOperationsInput | string
-    full_name?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    territories?: NullableStringFieldUpdateOperationsInput | string | null
+    buyers?: NullableStringFieldUpdateOperationsInput | string | null
+    last_contact_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    investor?: InvestorUpdateOneWithoutUserNestedInput
   }
 
-  export type UserUncheckedUpdateWithoutMcc_sessionInput = {
+  export type SalesFilmUncheckedUpdateWithoutDealsInput = {
     id?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
-    password_hash?: StringFieldUpdateOperationsInput | string
-    full_name?: NullableStringFieldUpdateOperationsInput | string | null
-    role?: StringFieldUpdateOperationsInput | string
+    title?: StringFieldUpdateOperationsInput | string
+    genre?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    territories?: NullableStringFieldUpdateOperationsInput | string | null
+    buyers?: NullableStringFieldUpdateOperationsInput | string | null
+    last_contact_date?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    investor?: InvestorUncheckedUpdateOneWithoutUserNestedInput
   }
 
   export type InvestmentCreateManyInvestorInput = {
@@ -30076,6 +29481,50 @@ export namespace Prisma {
     category?: NullableStringFieldUpdateOperationsInput | string | null
     description?: NullableStringFieldUpdateOperationsInput | string | null
     date?: DateTimeFieldUpdateOperationsInput | Date | string
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DealCreateManyFilmInput = {
+    id?: string
+    territory: string
+    buyer?: string | null
+    status?: string
+    amount?: number | null
+    notes?: string | null
+    createdAt?: Date | string
+    updatedAt?: Date | string
+  }
+
+  export type DealUpdateWithoutFilmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    territory?: StringFieldUpdateOperationsInput | string
+    buyer?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DealUncheckedUpdateWithoutFilmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    territory?: StringFieldUpdateOperationsInput | string
+    buyer?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
+    createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
+    updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
+  }
+
+  export type DealUncheckedUpdateManyWithoutFilmInput = {
+    id?: StringFieldUpdateOperationsInput | string
+    territory?: StringFieldUpdateOperationsInput | string
+    buyer?: NullableStringFieldUpdateOperationsInput | string | null
+    status?: StringFieldUpdateOperationsInput | string
+    amount?: NullableFloatFieldUpdateOperationsInput | number | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }

@@ -6,18 +6,18 @@ import { Providers } from '@/components/Providers'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Octane Master Control Center',
-  description: 'CEO Dashboard for Octane Multimedia',
+  title: 'Octane MCC',
+  description: 'Octane Multimedia - Internal Operating System',
 }
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode
-}>) {
+}) {
   return (
-    <html lang="en" className={`${inter.className} h-full antialiased`}>
-      <body className="min-h-full flex flex-col">
+    <html lang="en" className={inter.className}>
+      <body className="min-h-screen">
         <Providers>{children}</Providers>
       </body>
     </html>

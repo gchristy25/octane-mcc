@@ -1,246 +1,231 @@
 'use client'
 
-import { useQuery, useMutation, useQueryClient } from '@tanstack/react-query'
-import { motion, AnimatePresence } from 'framer-motion'
-import { CheckSquare, Plus, Trash2, Clock, ChevronDown } from 'lucide-react'
-import { format } from 'date-fns'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 interface Task {
   id: string
   title: string
   description: string | null
-  status: string
-  priority: string
+  linked_entity_type: string | null
+  linked_entity_id: string | null
   due_date: string | null
-  source_type: string | null
-  createdAt: string
+  status: string
 }
 
-const priorityColors: Record<string, string> = {
-  high: 'bg-[#ef4444]',
-  medium: 'bg-[#f59e0b]',
-  low: 'bg-[#22c55e]',
+function StatusBadge({ status }: { status: string }) {
+  const colors: Record<string, string> = {
+    pending: 'bg-yellow-100 text-yellow-800',
+    in_progress: 'bg-blue-100 text-blue-800',
+    done: 'bg-green-100 text-green-800',
+  }
+  return (
+    <span className={`inline-block rounded-full px-2 py-0.5 text-xs font-medium ${colors[status] || 'bg-gray-100 text-gray-800'}`}>
+      {status.replace(/_/g, ' ')}
+    </span>
+  )
 }
 
-const statusLabels: Record<string, string> = {
-  pending: 'Pending',
-  in_progress: 'In Progress',
-  completed: 'Completed',
-}
+const emptyForm = { title: '', description: '', linked_entity_type: '', linked_entity_id: '', due_date: '', status: 'pending' }
 
 export default function TasksPage() {
-  const [showNewTask, setShowNewTask] = useState(false)
-  const [newTitle, setNewTitle] = useState('')
-  const [newPriority, setNewPriority] = useState('medium')
-  const [newDueDate, setNewDueDate] = useState('')
-  const queryClient = useQueryClient()
+  const [tasks, setTasks] = useState<Task[]>([])
+  const [loading, setLoading] = useState(true)
+  const [filter, setFilter] = useState('all')
+  const [showModal, setShowModal] = useState(false)
+  const [form, setForm] = useState(emptyForm)
+  const [editingId, setEditingId] = useState<string | null>(null)
 
-  const { data, isLoading } = useQuery({
-    queryKey: ['tasks'],
-    queryFn: () => fetch('/api/tasks').then((r) => r.json()),
-  })
+  useEffect(() => { fetchTasks() }, [])
 
-  const createMutation = useMutation({
-    mutationFn: (task: { title: string; priority: string; due_date?: string }) =>
-      fetch('/api/tasks', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(task),
-      }).then((r) => r.json()),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['tasks'] })
-      setNewTitle('')
-      setNewPriority('medium')
-      setNewDueDate('')
-      setShowNewTask(false)
-    },
-  })
+  async function fetchTasks() {
+    try {
+      const res = await fetch('/api/tasks')
+      if (res.ok) setTasks(await res.json())
+    } catch (err) {
+      console.error('Failed to load tasks', err)
+    } finally {
+      setLoading(false)
+    }
+  }
 
-  const updateMutation = useMutation({
-    mutationFn: ({ id, ...data }: { id: string; status?: string; priority?: string }) =>
-      fetch(`/api/tasks/${id}`, {
-        method: 'PATCH',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data),
-      }).then((r) => r.json()),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['tasks'] })
-    },
-  })
+  async function saveTask() {
+    const method = editingId ? 'PUT' : 'POST'
+    const url = editingId ? `/api/tasks/${editingId}` : '/api/tasks'
+    await fetch(url, { method, headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(form) })
+    setShowModal(false)
+    setForm(emptyForm)
+    setEditingId(null)
+    fetchTasks()
+  }
 
-  const deleteMutation = useMutation({
-    mutationFn: (id: string) =>
-      fetch(`/api/tasks/${id}`, { method: 'DELETE' }).then((r) => r.json()),
-    onSuccess: () => {
-      queryClient.invalidateQueries({ queryKey: ['tasks'] })
-    },
-  })
+  async function deleteTask(id: string) {
+    if (!confirm('Delete this task?')) return
+    await fetch(`/api/tasks/${id}`, { method: 'DELETE' })
+    fetchTasks()
+  }
 
-  const tasks: Task[] = data?.data || []
-
-  function handleCreate(e: React.FormEvent) {
-    e.preventDefault()
-    if (!newTitle.trim()) return
-    createMutation.mutate({
-      title: newTitle.trim(),
-      priority: newPriority,
-      due_date: newDueDate || undefined,
+  async function toggleStatus(task: Task) {
+    const next: Record<string, string> = { pending: 'in_progress', in_progress: 'done', done: 'pending' }
+    const newStatus = next[task.status] || 'pending'
+    await fetch(`/api/tasks/${task.id}`, {
+      method: 'PUT',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ ...task, status: newStatus }),
     })
+    fetchTasks()
   }
 
-  function cycleStatus(task: Task) {
-    const order = ['pending', 'in_progress', 'completed']
-    const idx = order.indexOf(task.status)
-    const next = order[(idx + 1) % order.length]
-    updateMutation.mutate({ id: task.id, status: next })
+  function openEdit(task: Task) {
+    setForm({
+      title: task.title,
+      description: task.description || '',
+      linked_entity_type: task.linked_entity_type || '',
+      linked_entity_id: task.linked_entity_id || '',
+      due_date: task.due_date ? task.due_date.split('T')[0] : '',
+      status: task.status,
+    })
+    setEditingId(task.id)
+    setShowModal(true)
   }
+
+  const filtered = filter === 'all' ? tasks : tasks.filter((t) => t.status === filter)
+
+  if (loading) return <p className="text-sm text-gray-500">Loading tasks...</p>
 
   return (
     <div className="space-y-6">
       <div className="flex items-center justify-between">
-        <div>
-          <h1 className="text-2xl font-bold text-[#ededed]">Tasks</h1>
-          <p className="text-[#888] text-sm mt-1">
-            {tasks.filter((t) => t.status !== 'completed').length} open tasks
-          </p>
-        </div>
+        <h1 className="text-2xl font-bold text-gray-900">Tasks</h1>
         <button
-          onClick={() => setShowNewTask(!showNewTask)}
-          className="flex items-center gap-2 px-4 py-2 bg-[#ff9900] text-black text-sm font-medium rounded-lg hover:bg-[#ffad33] transition-colors"
+          onClick={() => { setForm(emptyForm); setEditingId(null); setShowModal(true) }}
+          className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700"
         >
-          <Plus className="w-4 h-4" />
           New Task
         </button>
       </div>
 
-      {/* New Task Form */}
-      <AnimatePresence>
-        {showNewTask && (
-          <motion.form
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: 'auto' }}
-            exit={{ opacity: 0, height: 0 }}
-            onSubmit={handleCreate}
-            className="bg-[#111] border border-[#222] rounded-xl p-5 space-y-4 overflow-hidden"
+      {/* Filters */}
+      <div className="flex gap-2">
+        {['all', 'pending', 'in_progress', 'done'].map((f) => (
+          <button
+            key={f}
+            onClick={() => setFilter(f)}
+            className={`rounded-md px-3 py-1.5 text-sm font-medium ${
+              filter === f
+                ? 'bg-blue-600 text-white'
+                : 'border border-gray-300 text-gray-700 hover:bg-gray-50'
+            }`}
           >
-            <input
-              type="text"
-              value={newTitle}
-              onChange={(e) => setNewTitle(e.target.value)}
-              placeholder="Task title..."
-              className="w-full px-4 py-2.5 bg-[#0a0a0a] border border-[#333] rounded-lg text-[#ededed] text-sm placeholder-[#555]"
-              autoFocus
-            />
-            <div className="flex items-center gap-4">
+            {f === 'all' ? 'All' : f.replace(/_/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase())}
+          </button>
+        ))}
+      </div>
+
+      {/* Task Cards */}
+      <div className="space-y-3">
+        {filtered.map((task) => (
+          <div key={task.id} className="rounded-lg border border-gray-200 bg-white p-4 hover:bg-gray-50">
+            <div className="flex items-start justify-between">
+              <div className="flex-1">
+                <div className="flex items-center gap-2">
+                  <h3 className="text-sm font-semibold text-gray-900">{task.title}</h3>
+                  <StatusBadge status={task.status} />
+                </div>
+                {task.description && <p className="mt-1 text-sm text-gray-600">{task.description}</p>}
+                <div className="mt-2 flex items-center gap-4 text-xs text-gray-500">
+                  {task.due_date && (
+                    <span>Due: {new Date(task.due_date).toLocaleDateString()}</span>
+                  )}
+                  {task.linked_entity_type && (
+                    <span>Linked: {task.linked_entity_type}{task.linked_entity_id ? ` (${task.linked_entity_id})` : ''}</span>
+                  )}
+                </div>
+              </div>
+              <div className="ml-4 flex items-center gap-2">
+                <button
+                  onClick={() => toggleStatus(task)}
+                  className="rounded-md border border-gray-200 px-2 py-1 text-xs text-gray-700 hover:bg-gray-100"
+                >
+                  {task.status === 'pending' ? 'Start' : task.status === 'in_progress' ? 'Complete' : 'Reopen'}
+                </button>
+                <button onClick={() => openEdit(task)} className="text-xs text-blue-600 hover:underline">Edit</button>
+                <button onClick={() => deleteTask(task.id)} className="text-xs text-red-600 hover:underline">Delete</button>
+              </div>
+            </div>
+          </div>
+        ))}
+      </div>
+      {filtered.length === 0 && (
+        <p className="text-center text-sm text-gray-400">No tasks found</p>
+      )}
+
+      {/* Form Modal */}
+      {showModal && (
+        <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/40">
+          <div className="w-full max-w-md rounded-lg bg-white p-6 shadow-lg">
+            <h2 className="mb-4 text-lg font-semibold text-gray-900">{editingId ? 'Edit Task' : 'New Task'}</h2>
+            <div className="space-y-3">
+              <input
+                placeholder="Title"
+                value={form.title}
+                onChange={(e) => setForm({ ...form, title: e.target.value })}
+                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              />
+              <textarea
+                placeholder="Description"
+                value={form.description}
+                onChange={(e) => setForm({ ...form, description: e.target.value })}
+                rows={3}
+                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              />
               <select
-                value={newPriority}
-                onChange={(e) => setNewPriority(e.target.value)}
-                className="bg-[#0a0a0a] border border-[#333] rounded-lg px-3 py-2 text-sm text-[#ededed]"
+                value={form.linked_entity_type}
+                onChange={(e) => setForm({ ...form, linked_entity_type: e.target.value })}
+                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               >
-                <option value="high">High Priority</option>
-                <option value="medium">Medium Priority</option>
-                <option value="low">Low Priority</option>
+                <option value="">No linked entity</option>
+                <option value="film">Film</option>
+                <option value="deal">Deal</option>
+                <option value="acquisition">Acquisition</option>
+                <option value="investor">Investor</option>
+                <option value="meeting">Meeting</option>
               </select>
+              {form.linked_entity_type && (
+                <input
+                  placeholder="Linked Entity ID"
+                  value={form.linked_entity_id}
+                  onChange={(e) => setForm({ ...form, linked_entity_id: e.target.value })}
+                  className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+                />
+              )}
               <input
                 type="date"
-                value={newDueDate}
-                onChange={(e) => setNewDueDate(e.target.value)}
-                className="bg-[#0a0a0a] border border-[#333] rounded-lg px-3 py-2 text-sm text-[#ededed]"
+                value={form.due_date}
+                onChange={(e) => setForm({ ...form, due_date: e.target.value })}
+                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
               />
-              <div className="flex-1" />
+              <select
+                value={form.status}
+                onChange={(e) => setForm({ ...form, status: e.target.value })}
+                className="w-full rounded-md border border-gray-300 px-3 py-2 text-sm focus:border-blue-500 focus:outline-none focus:ring-1 focus:ring-blue-500"
+              >
+                <option value="pending">Pending</option>
+                <option value="in_progress">In Progress</option>
+                <option value="done">Done</option>
+              </select>
+            </div>
+            <div className="mt-4 flex justify-end gap-2">
               <button
-                type="button"
-                onClick={() => setShowNewTask(false)}
-                className="px-4 py-2 text-sm text-[#888] hover:text-[#ededed]"
+                onClick={() => { setShowModal(false); setEditingId(null) }}
+                className="rounded-md border border-gray-300 px-4 py-2 text-sm font-medium text-gray-700 hover:bg-gray-50"
               >
                 Cancel
               </button>
-              <button
-                type="submit"
-                disabled={!newTitle.trim() || createMutation.isPending}
-                className="px-4 py-2 bg-[#ff9900] text-black text-sm font-medium rounded-lg hover:bg-[#ffad33] disabled:opacity-50"
-              >
-                Create
+              <button onClick={saveTask} className="rounded-md bg-blue-600 px-4 py-2 text-sm font-medium text-white hover:bg-blue-700">
+                {editingId ? 'Update' : 'Create'}
               </button>
             </div>
-          </motion.form>
-        )}
-      </AnimatePresence>
-
-      {/* Task List */}
-      {isLoading ? (
-        <div className="text-center py-12 text-[#888]">Loading tasks...</div>
-      ) : tasks.length === 0 ? (
-        <div className="text-center py-12">
-          <CheckSquare className="w-12 h-12 text-[#333] mx-auto mb-3" />
-          <p className="text-[#888]">No tasks yet</p>
-        </div>
-      ) : (
-        <div className="space-y-2">
-          <AnimatePresence>
-            {tasks.map((task) => (
-              <motion.div
-                key={task.id}
-                initial={{ opacity: 0, y: 10 }}
-                animate={{ opacity: 1, y: 0 }}
-                exit={{ opacity: 0, x: -50 }}
-                className={`bg-[#111] border border-[#222] rounded-xl p-4 flex items-center gap-4 hover:border-[#333] transition-colors ${
-                  task.status === 'completed' ? 'opacity-50' : ''
-                }`}
-              >
-                {/* Priority dot */}
-                <div className={`w-2 h-2 rounded-full flex-shrink-0 ${priorityColors[task.priority] || priorityColors.medium}`} />
-
-                {/* Status toggle */}
-                <button
-                  onClick={() => cycleStatus(task)}
-                  className={`text-[10px] px-2.5 py-1 rounded-full border flex-shrink-0 ${
-                    task.status === 'completed'
-                      ? 'bg-[#22c55e]/10 text-[#22c55e] border-[#22c55e]/20'
-                      : task.status === 'in_progress'
-                        ? 'bg-[#ff9900]/10 text-[#ff9900] border-[#ff9900]/20'
-                        : 'bg-[#222] text-[#888] border-[#333]'
-                  }`}
-                >
-                  {statusLabels[task.status] || task.status}
-                </button>
-
-                {/* Title */}
-                <div className="flex-1 min-w-0">
-                  <p className={`text-sm ${task.status === 'completed' ? 'text-[#666] line-through' : 'text-[#ededed]'}`}>
-                    {task.title}
-                  </p>
-                  {task.description && (
-                    <p className="text-xs text-[#666] truncate mt-0.5">{task.description}</p>
-                  )}
-                </div>
-
-                {/* Due date */}
-                {task.due_date && (
-                  <span className="text-[10px] text-[#666] flex items-center gap-1 flex-shrink-0">
-                    <Clock className="w-3 h-3" />
-                    {format(new Date(task.due_date), 'MMM d')}
-                  </span>
-                )}
-
-                {/* Source badge */}
-                {task.source_type && (
-                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-[#222] text-[#666] flex-shrink-0">
-                    {task.source_type}
-                  </span>
-                )}
-
-                {/* Delete */}
-                <button
-                  onClick={() => deleteMutation.mutate(task.id)}
-                  className="p-1.5 text-[#666] hover:text-[#ef4444] transition-colors rounded-lg hover:bg-[#1a1a1a] flex-shrink-0"
-                >
-                  <Trash2 className="w-3.5 h-3.5" />
-                </button>
-              </motion.div>
-            ))}
-          </AnimatePresence>
+          </div>
         </div>
       )}
     </div>

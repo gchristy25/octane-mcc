@@ -29,7 +29,7 @@ export default function LoginPage() {
         return
       }
 
-      router.push('/')
+      router.push('/dashboard')
     } catch {
       setError('Network error. Please try again.')
     } finally {
@@ -38,26 +38,23 @@ export default function LoginPage() {
   }
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-[#0a0a0a] px-4">
-      <div className="w-full max-w-md">
+    <div className="min-h-screen flex items-center justify-center bg-[var(--background-secondary)] px-4">
+      <div className="w-full max-w-sm">
         <div className="text-center mb-8">
-          <div className="inline-flex items-center gap-2 mb-2">
-            <div className="w-10 h-10 rounded-lg bg-[#ff9900] flex items-center justify-center">
-              <span className="text-black font-bold text-lg">O</span>
-            </div>
-          </div>
-          <h1 className="text-2xl font-bold text-[#ededed]">
-            OCTANE <span className="text-[#ff9900]">MASTER CONTROL CENTER</span>
+          <h1 className="text-2xl font-bold text-[var(--foreground)] tracking-tight">
+            Octane MCC
           </h1>
-          <p className="text-[#888] mt-2 text-sm">CEO Dashboard - Octane Multimedia</p>
+          <p className="text-[var(--muted)] mt-1 text-sm">
+            Sign in to continue
+          </p>
         </div>
 
         <form
           onSubmit={handleSubmit}
-          className="bg-[#111] border border-[#222] rounded-xl p-8 space-y-6"
+          className="bg-white border border-[var(--border)] rounded-xl p-8 space-y-5 shadow-sm"
         >
           <div>
-            <label className="block text-sm font-medium text-[#888] mb-2">
+            <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
               Email
             </label>
             <input
@@ -65,13 +62,13 @@ export default function LoginPage() {
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               required
-              className="w-full px-4 py-3 bg-[#0a0a0a] border border-[#333] rounded-lg text-[#ededed] placeholder-[#555]"
-              placeholder="admin@octanemultimedia.com"
+              className="w-full px-3.5 py-2.5 bg-white border border-[var(--border)] rounded-lg text-[var(--foreground)] placeholder-[var(--muted)] text-sm"
+              placeholder="you@octanemultimedia.com"
             />
           </div>
 
           <div>
-            <label className="block text-sm font-medium text-[#888] mb-2">
+            <label className="block text-sm font-medium text-[var(--foreground)] mb-1.5">
               Password
             </label>
             <input
@@ -79,13 +76,13 @@ export default function LoginPage() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               required
-              className="w-full px-4 py-3 bg-[#0a0a0a] border border-[#333] rounded-lg text-[#ededed] placeholder-[#555]"
+              className="w-full px-3.5 py-2.5 bg-white border border-[var(--border)] rounded-lg text-[var(--foreground)] placeholder-[var(--muted)] text-sm"
               placeholder="Enter your password"
             />
           </div>
 
           {error && (
-            <div className="text-[#ef4444] text-sm bg-red-500/10 border border-red-500/20 rounded-lg px-4 py-3">
+            <div className="text-[var(--danger)] text-sm bg-[rgba(220,38,38,0.06)] border border-[rgba(220,38,38,0.12)] rounded-lg px-3.5 py-2.5">
               {error}
             </div>
           )}
@@ -93,14 +90,14 @@ export default function LoginPage() {
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-3 bg-[#ff9900] hover:bg-[#ffad33] text-black font-semibold rounded-lg transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+            className="w-full py-2.5 bg-[var(--accent)] hover:bg-[var(--accent-hover)] text-white font-medium rounded-lg transition-colors text-sm disabled:opacity-50 disabled:cursor-not-allowed"
           >
-            {loading ? 'Signing in...' : 'Sign In'}
+            {loading ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
 
-        <p className="text-center text-[#555] text-xs mt-6">
-          Admin access only. Contact IT for credentials.
+        <p className="text-center text-[var(--muted)] text-xs mt-6">
+          Internal access only
         </p>
       </div>
     </div>
